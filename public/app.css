@@ -1,0 +1,9 @@
+/* line 1, /Users/k9ordon/Code/schreiber/less/file.less */
+#file {
+  border: 1px solid red;
+}
+/* line 4, /Users/k9ordon/Code/schreiber/less/file.less */
+#file #src {
+  white-space: pre;
+  font-family: monospace;
+}
