@@ -4,6 +4,7 @@ var SCOPES = 'https://www.googleapis.com/auth/drive';
 var files = new Files;
 files.init();
 
-var file;
+var file = new File();
+file.init();
 
 var googleapiready = files.onGapiReady;

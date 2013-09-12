@@ -1,20 +1,83 @@
 var File = function() {
 		this.$el = document.querySelector('#file');
 		this.$src = this.$el.querySelector('#src');
+        this.$preview = this.$el.querySelector('#preview');
 		this.driveId = null;
+
+        this.currentKeyDownOffset;
 	},
 	p = File.prototype;
 
 p.init = function(driveId) {
 	console.log('File init');
-	this.driveId = driveId;
 	
-	this.loadDriveFile();
+    this.updateMarkdown();
+    this.events();
 
 	return this;
 };
 
-p.loadDriveFile = function() {
+p.events = function() {
+    this.$src.addEventListener('keyup', this.onSrcKeyup);
+    this.$src.addEventListener('keydown', this.onSrcKeydown);
+}
+
+p.onSrcKeydown = function(e) {
+    var keyCode = e.keyCode || e.which; 
+
+    var s = window.getSelection();
+    file.currentKeyDownOffset = s.extentOffset;
+
+    console.log('keydown', keyCode, this.currentKeyDownOffset);
+
+    if (keyCode == 9) { 
+        document.execCommand('styleWithCSS',true,null);
+        document.execCommand('indent',true,null);
+        e.preventDefault();
+    } 
+}
+
+p.onSrcKeyup = function() {
+    console.log('keyup at ', file.currentKeyDownOffset);
+    file.updateMarkdown();
+}
+
+p.updateMarkdown = function() {
+    //console.log('updateMarkdown', this.$src.innerHTML, marked(this.$src.innerHTML));
+    console.log(marked.lexer(this.$src.innerText, {}));
+
+    this.$preview.innerHTML = marked(this.$src.innerText);
+/*
+    var tokens = marked.lexer(this.$src.innerText, {}),
+        tokensLength = tokens.length;
+
+    this.$preview.innerHTML = '';
+
+    for(var i = 0; i < tokensLength; i++) {
+        this.$preview.innerHTML += '<b>' + tokens[i].type + '</b> ' + JSON.stringify(tokens[i]) + '<br>';// .type + ' <b>' + (tokens[i].text ? tokens[i].text : '') + '</b><br>';
+    }
+*/
+
+/*
+    var s = window.getSelection();
+    this.currentKeyDownOffset = s.extentOffset;
+
+    file.$src.innerText = file.$src.innerText + '.';
+
+    var range = document.createRange();
+    range.selectNodeContents(this.$src);
+    range.setStart(this.$src.firstChild, p+1);
+    range.collapse(true);
+
+    var sel = window.getSelection();
+    sel.removeAllRanges();
+    sel.addRange(range);
+*/
+}
+
+p.loadDriveFile = function(driveId) {
+    this.driveId = driveId;
+
 	var request = gapi.client.request({
 		'path': 'drive/v2/files/' + this.driveId,
 		'method': 'GET',

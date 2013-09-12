@@ -27,7 +27,7 @@ p.getDriveFiles = function() {
 		'path': 'drive/v2/files',
 		'method': 'GET',
 		'params': {
-			//'maxResults': 100,
+			'maxResults': 350,
 			'q': "mimeType = 'text/x-markdown' or mimeType = 'text/plain' or mimeType = 'application/octet-stream'"
 			//'q': "mimeType contains 'text' and writers"
 			//'q': "title contains 'meeting'"
@@ -62,6 +62,5 @@ p.events = function() {
 
 p.onFilesItemClick = function($filesItem) {
 	console.log('clicked', $filesItem);
-	file = new File();
-	file.init($filesItem.getAttribute('data-driveId'));
+	file.loadDriveFile($filesItem.getAttribute('data-driveId'));
 }
