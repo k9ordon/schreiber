@@ -1,109 +1,350 @@
 {
   "CodeKitInfo" : "This is a CodeKit project configuration file. It is designed to sync project settings across multiple machines. Modifying the contents of this file can be a poor life decision if you don't know what you're doing. This file is not useful unless accompanied by the project that created it in CodeKit. For more information, see: http:\/\/incident57.com\/codekit",
-  "creatorBuild" : "8322",
+  "creatorBuild" : "8326",
   "files" : {
-    "\/less\/app.less" : {
-      "ieCompatibility" : 1,
-      "inputAbbreviatedPath" : "\/less\/app.less",
-      "outputAbbreviatedPath" : "\/public\/app.css",
-      "outputPathIsSetByUser" : 0,
-      "strictUnits" : 0,
-      "relativeURLS" : 0,
+    "\/vendor\/markdown-js\/test\/fixtures\/docs-maruku-unittest\/email.html" : {
+      "ignoreWasSetByUser" : 0,
       "ignore" : 0,
-      "strictImports" : 0,
-      "ignoreWasSetByUser" : 0,
-      "shouldRunBless" : 0,
-      "hidden" : 0,
-      "strictMath" : 0,
-      "outputStyle" : 0,
-      "fileType" : 1,
-      "debugStyle" : 1
-    },
-    "\/less\/file.less" : {
-      "ieCompatibility" : 1,
-      "inputAbbreviatedPath" : "\/less\/file.less",
-      "outputAbbreviatedPath" : "\/public\/file.css",
-      "outputPathIsSetByUser" : 0,
-      "strictUnits" : 0,
-      "relativeURLS" : 0,
-      "ignore" : 1,
-      "strictImports" : 0,
-      "ignoreWasSetByUser" : 0,
-      "shouldRunBless" : 0,
-      "hidden" : 0,
-      "strictMath" : 0,
-      "outputStyle" : 0,
-      "fileType" : 1,
-      "debugStyle" : 1
-    },
-    "\/public\/app-min.js" : {
-      "ignoreWasSetByUser" : 0,
-      "ignore" : 1,
       "hidden" : 0,
       "outputPathIsSetByUser" : 0,
-      "inputAbbreviatedPath" : "\/public\/app-min.js",
-      "outputStyle" : 1,
-      "syntaxCheckerStyle" : 0,
-      "outputAbbreviatedPath" : "\/built\/app-min-min.js",
-      "fileType" : 64
+      "inputAbbreviatedPath" : "\/vendor\/markdown-js\/test\/fixtures\/docs-maruku-unittest\/email.html",
+      "outputAbbreviatedPath" : "No Output Path",
+      "fileType" : 2048
     },
-    "\/js\/files.js" : {
+    "\/vendor\/markdown-js\/test\/fixtures\/docs-maruku-unittest\/lists8.html" : {
+      "ignoreWasSetByUser" : 0,
+      "ignore" : 0,
+      "hidden" : 0,
+      "outputPathIsSetByUser" : 0,
+      "inputAbbreviatedPath" : "\/vendor\/markdown-js\/test\/fixtures\/docs-maruku-unittest\/lists8.html",
+      "outputAbbreviatedPath" : "No Output Path",
+      "fileType" : 2048
+    },
+    "\/vendor\/markdown-js\/test\/fixtures\/docs-pythonmarkdown2-tm-cases-pass\/link_patterns.html" : {
+      "ignoreWasSetByUser" : 0,
+      "ignore" : 0,
+      "hidden" : 0,
+      "outputPathIsSetByUser" : 0,
+      "inputAbbreviatedPath" : "\/vendor\/markdown-js\/test\/fixtures\/docs-pythonmarkdown2-tm-cases-pass\/link_patterns.html",
+      "outputAbbreviatedPath" : "No Output Path",
+      "fileType" : 2048
+    },
+    "\/vendor\/markdown-js\/test\/fixtures\/docs-maruku-unittest\/inline_html.html" : {
+      "ignoreWasSetByUser" : 0,
+      "ignore" : 0,
+      "hidden" : 0,
+      "outputPathIsSetByUser" : 0,
+      "inputAbbreviatedPath" : "\/vendor\/markdown-js\/test\/fixtures\/docs-maruku-unittest\/inline_html.html",
+      "outputAbbreviatedPath" : "No Output Path",
+      "fileType" : 2048
+    },
+    "\/vendor\/markdown-js\/bin\/md2html.js" : {
       "ignoreWasSetByUser" : 1,
       "ignore" : 1,
       "hidden" : 0,
       "outputPathIsSetByUser" : 0,
-      "inputAbbreviatedPath" : "\/js\/files.js",
+      "inputAbbreviatedPath" : "\/vendor\/markdown-js\/bin\/md2html.js",
       "outputStyle" : 1,
       "syntaxCheckerStyle" : 0,
-      "outputAbbreviatedPath" : "\/built\/files-min.js",
+      "outputAbbreviatedPath" : "\/public\/md2html-min.js",
       "fileType" : 64
     },
-    "\/public\/app.css" : {
-      "ignoreWasSetByUser" : 0,
-      "ignore" : 1,
-      "hidden" : 0,
-      "outputPathIsSetByUser" : 0,
-      "inputAbbreviatedPath" : "\/public\/app.css",
-      "outputAbbreviatedPath" : "No Output Path",
-      "fileType" : 16
-    },
-    "\/public\/quickstart.html" : {
+    "\/vendor\/markdown-js\/test\/fixtures\/PHP_Markdown-from-MDTest1.1.mdtest\/Ins_and_del.xhtml" : {
       "ignoreWasSetByUser" : 0,
       "ignore" : 0,
       "hidden" : 0,
       "outputPathIsSetByUser" : 0,
-      "inputAbbreviatedPath" : "\/public\/quickstart.html",
+      "inputAbbreviatedPath" : "\/vendor\/markdown-js\/test\/fixtures\/PHP_Markdown-from-MDTest1.1.mdtest\/Ins_and_del.xhtml",
       "outputAbbreviatedPath" : "No Output Path",
       "fileType" : 2048
     },
-    "\/js\/file.js" : {
+    "\/vendor\/markdown-js\/test\/fixtures\/docs-maruku-unittest\/syntax_hl.html" : {
       "ignoreWasSetByUser" : 0,
       "ignore" : 0,
       "hidden" : 0,
       "outputPathIsSetByUser" : 0,
-      "inputAbbreviatedPath" : "\/js\/file.js",
+      "inputAbbreviatedPath" : "\/vendor\/markdown-js\/test\/fixtures\/docs-maruku-unittest\/syntax_hl.html",
+      "outputAbbreviatedPath" : "No Output Path",
+      "fileType" : 2048
+    },
+    "\/vendor\/markdown-js\/test\/fixtures\/docs-maruku-unittest\/inline_html2.html" : {
+      "ignoreWasSetByUser" : 0,
+      "ignore" : 0,
+      "hidden" : 0,
+      "outputPathIsSetByUser" : 0,
+      "inputAbbreviatedPath" : "\/vendor\/markdown-js\/test\/fixtures\/docs-maruku-unittest\/inline_html2.html",
+      "outputAbbreviatedPath" : "No Output Path",
+      "fileType" : 2048
+    },
+    "\/vendor\/markdown-js\/test\/fixtures\/docs-maruku-unittest\/hex_entities.html" : {
+      "ignoreWasSetByUser" : 0,
+      "ignore" : 0,
+      "hidden" : 0,
+      "outputPathIsSetByUser" : 0,
+      "inputAbbreviatedPath" : "\/vendor\/markdown-js\/test\/fixtures\/docs-maruku-unittest\/hex_entities.html",
+      "outputAbbreviatedPath" : "No Output Path",
+      "fileType" : 2048
+    },
+    "\/vendor\/markdown-js\/test\/fixtures\/docs-pythonmarkdown2-tm-cases-pass\/codespans.html" : {
+      "ignoreWasSetByUser" : 0,
+      "ignore" : 0,
+      "hidden" : 0,
+      "outputPathIsSetByUser" : 0,
+      "inputAbbreviatedPath" : "\/vendor\/markdown-js\/test\/fixtures\/docs-pythonmarkdown2-tm-cases-pass\/codespans.html",
+      "outputAbbreviatedPath" : "No Output Path",
+      "fileType" : 2048
+    },
+    "\/vendor\/markdown-js\/test\/fixtures\/PHP_Markdown-from-MDTest1.1.mdtest\/Code_Spans.xhtml" : {
+      "ignoreWasSetByUser" : 0,
+      "ignore" : 0,
+      "hidden" : 0,
+      "outputPathIsSetByUser" : 0,
+      "inputAbbreviatedPath" : "\/vendor\/markdown-js\/test\/fixtures\/PHP_Markdown-from-MDTest1.1.mdtest\/Code_Spans.xhtml",
+      "outputAbbreviatedPath" : "No Output Path",
+      "fileType" : 2048
+    },
+    "\/vendor\/markdown-js\/test\/fixtures\/docs-php-markdown-todo\/Emphasis.html" : {
+      "ignoreWasSetByUser" : 0,
+      "ignore" : 0,
+      "hidden" : 0,
+      "outputPathIsSetByUser" : 0,
+      "inputAbbreviatedPath" : "\/vendor\/markdown-js\/test\/fixtures\/docs-php-markdown-todo\/Emphasis.html",
+      "outputAbbreviatedPath" : "No Output Path",
+      "fileType" : 2048
+    },
+    "\/vendor\/markdown-js\/test\/fixtures\/PHP_Markdown-from-MDTest1.1.mdtest\/PHP-Specific_Bugs.xhtml" : {
+      "ignoreWasSetByUser" : 0,
+      "ignore" : 0,
+      "hidden" : 0,
+      "outputPathIsSetByUser" : 0,
+      "inputAbbreviatedPath" : "\/vendor\/markdown-js\/test\/fixtures\/PHP_Markdown-from-MDTest1.1.mdtest\/PHP-Specific_Bugs.xhtml",
+      "outputAbbreviatedPath" : "No Output Path",
+      "fileType" : 2048
+    },
+    "\/vendor\/markdown-js\/test\/fixtures\/docs-maruku-unittest\/hrule.html" : {
+      "ignoreWasSetByUser" : 0,
+      "ignore" : 0,
+      "hidden" : 0,
+      "outputPathIsSetByUser" : 0,
+      "inputAbbreviatedPath" : "\/vendor\/markdown-js\/test\/fixtures\/docs-maruku-unittest\/hrule.html",
+      "outputAbbreviatedPath" : "No Output Path",
+      "fileType" : 2048
+    },
+    "\/vendor\/markdown-js\/test\/fixtures\/docs-maruku-unittest\/list2.html" : {
+      "ignoreWasSetByUser" : 0,
+      "ignore" : 0,
+      "hidden" : 0,
+      "outputPathIsSetByUser" : 0,
+      "inputAbbreviatedPath" : "\/vendor\/markdown-js\/test\/fixtures\/docs-maruku-unittest\/list2.html",
+      "outputAbbreviatedPath" : "No Output Path",
+      "fileType" : 2048
+    },
+    "\/vendor\/markdown-js\/test\/fixtures\/Markdown-from-MDTest1.1.mdtest\/Literal_quotes_in_titles.xhtml" : {
+      "ignoreWasSetByUser" : 0,
+      "ignore" : 0,
+      "hidden" : 0,
+      "outputPathIsSetByUser" : 0,
+      "inputAbbreviatedPath" : "\/vendor\/markdown-js\/test\/fixtures\/Markdown-from-MDTest1.1.mdtest\/Literal_quotes_in_titles.xhtml",
+      "outputAbbreviatedPath" : "No Output Path",
+      "fileType" : 2048
+    },
+    "\/vendor\/markdown-js\/test\/fixtures\/Text-Markdown.mdtest\/CoreDumps5.8.xhtml" : {
+      "ignoreWasSetByUser" : 0,
+      "ignore" : 0,
+      "hidden" : 0,
+      "outputPathIsSetByUser" : 0,
+      "inputAbbreviatedPath" : "\/vendor\/markdown-js\/test\/fixtures\/Text-Markdown.mdtest\/CoreDumps5.8.xhtml",
+      "outputAbbreviatedPath" : "No Output Path",
+      "fileType" : 2048
+    },
+    "\/vendor\/markdown-js\/test\/fixtures\/Markdown-from-MDTest1.1.mdtest\/Nested_blockquotes.xhtml" : {
+      "ignoreWasSetByUser" : 0,
+      "ignore" : 0,
+      "hidden" : 0,
+      "outputPathIsSetByUser" : 0,
+      "inputAbbreviatedPath" : "\/vendor\/markdown-js\/test\/fixtures\/Markdown-from-MDTest1.1.mdtest\/Nested_blockquotes.xhtml",
+      "outputAbbreviatedPath" : "No Output Path",
+      "fileType" : 2048
+    },
+    "\/vendor\/markdown-js\/test\/fixtures\/docs-pythonmarkdown2-tm-cases-pass\/blockquote.html" : {
+      "ignoreWasSetByUser" : 0,
+      "ignore" : 0,
+      "hidden" : 0,
+      "outputPathIsSetByUser" : 0,
+      "inputAbbreviatedPath" : "\/vendor\/markdown-js\/test\/fixtures\/docs-pythonmarkdown2-tm-cases-pass\/blockquote.html",
+      "outputAbbreviatedPath" : "No Output Path",
+      "fileType" : 2048
+    },
+    "\/vendor\/markdown-js\/test\/fixtures\/docs-maruku-unittest\/wrapping.html" : {
+      "ignoreWasSetByUser" : 0,
+      "ignore" : 0,
+      "hidden" : 0,
+      "outputPathIsSetByUser" : 0,
+      "inputAbbreviatedPath" : "\/vendor\/markdown-js\/test\/fixtures\/docs-maruku-unittest\/wrapping.html",
+      "outputAbbreviatedPath" : "No Output Path",
+      "fileType" : 2048
+    },
+    "\/vendor\/markdown-js\/test\/fixtures\/docs-pythonmarkdown2-tm-cases-pass\/footnotes_markup.html" : {
+      "ignoreWasSetByUser" : 0,
+      "ignore" : 0,
+      "hidden" : 0,
+      "outputPathIsSetByUser" : 0,
+      "inputAbbreviatedPath" : "\/vendor\/markdown-js\/test\/fixtures\/docs-pythonmarkdown2-tm-cases-pass\/footnotes_markup.html",
+      "outputAbbreviatedPath" : "No Output Path",
+      "fileType" : 2048
+    },
+    "\/vendor\/markdown-js\/test\/fixtures\/Markdown-from-MDTest1.1.mdtest\/Inline_HTML_(Advanced).xhtml" : {
+      "ignoreWasSetByUser" : 0,
+      "ignore" : 0,
+      "hidden" : 0,
+      "outputPathIsSetByUser" : 0,
+      "inputAbbreviatedPath" : "\/vendor\/markdown-js\/test\/fixtures\/Markdown-from-MDTest1.1.mdtest\/Inline_HTML_(Advanced).xhtml",
+      "outputAbbreviatedPath" : "No Output Path",
+      "fileType" : 2048
+    },
+    "\/vendor\/markdown-js\/test\/fixtures\/docs-maruku-unittest\/escaping.html" : {
+      "ignoreWasSetByUser" : 0,
+      "ignore" : 0,
+      "hidden" : 0,
+      "outputPathIsSetByUser" : 0,
+      "inputAbbreviatedPath" : "\/vendor\/markdown-js\/test\/fixtures\/docs-maruku-unittest\/escaping.html",
+      "outputAbbreviatedPath" : "No Output Path",
+      "fileType" : 2048
+    },
+    "\/vendor\/markdown-js\/test\/fixtures\/docs-php-markdown\/Tight_blocks.html" : {
+      "ignoreWasSetByUser" : 0,
+      "ignore" : 0,
+      "hidden" : 0,
+      "outputPathIsSetByUser" : 0,
+      "inputAbbreviatedPath" : "\/vendor\/markdown-js\/test\/fixtures\/docs-php-markdown\/Tight_blocks.html",
+      "outputAbbreviatedPath" : "No Output Path",
+      "fileType" : 2048
+    },
+    "\/vendor\/markdown-js\/test\/fixtures\/Text-Markdown.mdtest\/HTML5-attributes.html" : {
+      "ignoreWasSetByUser" : 0,
+      "ignore" : 0,
+      "hidden" : 0,
+      "outputPathIsSetByUser" : 0,
+      "inputAbbreviatedPath" : "\/vendor\/markdown-js\/test\/fixtures\/Text-Markdown.mdtest\/HTML5-attributes.html",
+      "outputAbbreviatedPath" : "No Output Path",
+      "fileType" : 2048
+    },
+    "\/vendor\/markdown-js\/test\/fixtures\/docs-maruku-unittest\/blank.html" : {
+      "ignoreWasSetByUser" : 0,
+      "ignore" : 0,
+      "hidden" : 0,
+      "outputPathIsSetByUser" : 0,
+      "inputAbbreviatedPath" : "\/vendor\/markdown-js\/test\/fixtures\/docs-maruku-unittest\/blank.html",
+      "outputAbbreviatedPath" : "No Output Path",
+      "fileType" : 2048
+    },
+    "\/vendor\/markdown-js\/test\/fixtures\/Markdown-from-MDTest1.1.mdtest\/Links_shortcut_references.xhtml" : {
+      "ignoreWasSetByUser" : 0,
+      "ignore" : 0,
+      "hidden" : 0,
+      "outputPathIsSetByUser" : 0,
+      "inputAbbreviatedPath" : "\/vendor\/markdown-js\/test\/fixtures\/Markdown-from-MDTest1.1.mdtest\/Links_shortcut_references.xhtml",
+      "outputAbbreviatedPath" : "No Output Path",
+      "fileType" : 2048
+    },
+    "\/vendor\/markdown-js\/test\/fixtures\/docs-pythonmarkdown2-tm-cases-pass\/tricky_anchors.html" : {
+      "ignoreWasSetByUser" : 0,
+      "ignore" : 0,
+      "hidden" : 0,
+      "outputPathIsSetByUser" : 0,
+      "inputAbbreviatedPath" : "\/vendor\/markdown-js\/test\/fixtures\/docs-pythonmarkdown2-tm-cases-pass\/tricky_anchors.html",
+      "outputAbbreviatedPath" : "No Output Path",
+      "fileType" : 2048
+    },
+    "\/vendor\/markdown-js\/test\/fixtures\/docs-php-markdown-todo\/Links_inline_style.html" : {
+      "ignoreWasSetByUser" : 0,
+      "ignore" : 0,
+      "hidden" : 0,
+      "outputPathIsSetByUser" : 0,
+      "inputAbbreviatedPath" : "\/vendor\/markdown-js\/test\/fixtures\/docs-php-markdown-todo\/Links_inline_style.html",
+      "outputAbbreviatedPath" : "No Output Path",
+      "fileType" : 2048
+    },
+    "\/vendor\/markdown-js\/test\/fixtures\/docs-php-markdown-extra\/Abbr.html" : {
+      "ignoreWasSetByUser" : 0,
+      "ignore" : 0,
+      "hidden" : 0,
+      "outputPathIsSetByUser" : 0,
+      "inputAbbreviatedPath" : "\/vendor\/markdown-js\/test\/fixtures\/docs-php-markdown-extra\/Abbr.html",
+      "outputAbbreviatedPath" : "No Output Path",
+      "fileType" : 2048
+    },
+    "\/vendor\/markdown-js\/test\/regressions.t.js" : {
+      "ignoreWasSetByUser" : 1,
+      "ignore" : 1,
+      "hidden" : 0,
+      "outputPathIsSetByUser" : 0,
+      "inputAbbreviatedPath" : "\/vendor\/markdown-js\/test\/regressions.t.js",
       "outputStyle" : 1,
       "syntaxCheckerStyle" : 0,
-      "outputAbbreviatedPath" : "\/built\/file-min.js",
+      "outputAbbreviatedPath" : "\/public\/regressions.t-min.js",
       "fileType" : 64
     },
-    "\/js\/app.js" : {
+    "\/vendor\/markdown-js\/test\/fixtures\/docs-maruku-unittest\/html3.html" : {
       "ignoreWasSetByUser" : 0,
       "ignore" : 0,
       "hidden" : 0,
       "outputPathIsSetByUser" : 0,
-      "inputAbbreviatedPath" : "\/js\/app.js",
-      "outputStyle" : 0,
-      "syntaxCheckerStyle" : 0,
-      "outputAbbreviatedPath" : "\/built\/app-min.js",
-      "fileType" : 64
+      "inputAbbreviatedPath" : "\/vendor\/markdown-js\/test\/fixtures\/docs-maruku-unittest\/html3.html",
+      "outputAbbreviatedPath" : "No Output Path",
+      "fileType" : 2048
     },
-    "\/public\/index.html" : {
+    "\/vendor\/markdown-js\/test\/fixtures\/docs-pythonmarkdown2-tm-cases-pass\/codeblock.html" : {
       "ignoreWasSetByUser" : 0,
       "ignore" : 0,
       "hidden" : 0,
       "outputPathIsSetByUser" : 0,
-      "inputAbbreviatedPath" : "\/public\/index.html",
+      "inputAbbreviatedPath" : "\/vendor\/markdown-js\/test\/fixtures\/docs-pythonmarkdown2-tm-cases-pass\/codeblock.html",
+      "outputAbbreviatedPath" : "No Output Path",
+      "fileType" : 2048
+    },
+    "\/vendor\/markdown-js\/test\/fixtures\/docs-pythonmarkdown2-tm-cases-pass\/parens_in_url_4.html" : {
+      "ignoreWasSetByUser" : 0,
+      "ignore" : 0,
+      "hidden" : 0,
+      "outputPathIsSetByUser" : 0,
+      "inputAbbreviatedPath" : "\/vendor\/markdown-js\/test\/fixtures\/docs-pythonmarkdown2-tm-cases-pass\/parens_in_url_4.html",
+      "outputAbbreviatedPath" : "No Output Path",
+      "fileType" : 2048
+    },
+    "\/vendor\/markdown-js\/test\/fixtures\/PHP_Markdown-from-MDTest1.1.mdtest\/Email_auto_links.xhtml" : {
+      "ignoreWasSetByUser" : 0,
+      "ignore" : 0,
+      "hidden" : 0,
+      "outputPathIsSetByUser" : 0,
+      "inputAbbreviatedPath" : "\/vendor\/markdown-js\/test\/fixtures\/PHP_Markdown-from-MDTest1.1.mdtest\/Email_auto_links.xhtml",
+      "outputAbbreviatedPath" : "No Output Path",
+      "fileType" : 2048
+    },
+    "\/vendor\/markdown-js\/test\/fixtures\/docs-maruku-unittest\/abbreviations.html" : {
+      "ignoreWasSetByUser" : 0,
+      "ignore" : 0,
+      "hidden" : 0,
+      "outputPathIsSetByUser" : 0,
+      "inputAbbreviatedPath" : "\/vendor\/markdown-js\/test\/fixtures\/docs-maruku-unittest\/abbreviations.html",
+      "outputAbbreviatedPath" : "No Output Path",
+      "fileType" : 2048
+    },
+    "\/vendor\/markdown-js\/test\/fixtures\/docs-pythonmarkdown2-tm-cases-pass\/nested_list_safe_mode.html" : {
+      "ignoreWasSetByUser" : 0,
+      "ignore" : 0,
+      "hidden" : 0,
+      "outputPathIsSetByUser" : 0,
+      "inputAbbreviatedPath" : "\/vendor\/markdown-js\/test\/fixtures\/docs-pythonmarkdown2-tm-cases-pass\/nested_list_safe_mode.html",
+      "outputAbbreviatedPath" : "No Output Path",
+      "fileType" : 2048
+    },
+    "\/vendor\/markdown-js\/test\/fixtures\/Text-Markdown.mdtest\/Links_multiline_bugs_1.html" : {
+      "ignoreWasSetByUser" : 0,
+      "ignore" : 0,
+      "hidden" : 0,
+      "outputPathIsSetByUser" : 0,
+      "inputAbbreviatedPath" : "\/vendor\/markdown-js\/test\/fixtures\/Text-Markdown.mdtest\/Links_multiline_bugs_1.html",
       "outputAbbreviatedPath" : "No Output Path",
       "fileType" : 2048
     },
@@ -123,19 +364,1410 @@
       "outputStyle" : 0,
       "fileType" : 1,
       "debugStyle" : 1
+    },
+    "\/vendor\/markdown-js\/test\/fixtures\/docs-pythonmarkdown2-tm-cases-pass\/basic_safe_mode_escape.html" : {
+      "ignoreWasSetByUser" : 0,
+      "ignore" : 0,
+      "hidden" : 0,
+      "outputPathIsSetByUser" : 0,
+      "inputAbbreviatedPath" : "\/vendor\/markdown-js\/test\/fixtures\/docs-pythonmarkdown2-tm-cases-pass\/basic_safe_mode_escape.html",
+      "outputAbbreviatedPath" : "No Output Path",
+      "fileType" : 2048
+    },
+    "\/vendor\/markdown-js\/test\/fixtures\/docs-pythonmarkdown2-tm-cases-pass\/auto_link.html" : {
+      "ignoreWasSetByUser" : 0,
+      "ignore" : 0,
+      "hidden" : 0,
+      "outputPathIsSetByUser" : 0,
+      "inputAbbreviatedPath" : "\/vendor\/markdown-js\/test\/fixtures\/docs-pythonmarkdown2-tm-cases-pass\/auto_link.html",
+      "outputAbbreviatedPath" : "No Output Path",
+      "fileType" : 2048
+    },
+    "\/vendor\/markdown-js\/test\/fixtures\/docs-pythonmarkdown2-tm-cases-pass\/sublist-para.html" : {
+      "ignoreWasSetByUser" : 0,
+      "ignore" : 0,
+      "hidden" : 0,
+      "outputPathIsSetByUser" : 0,
+      "inputAbbreviatedPath" : "\/vendor\/markdown-js\/test\/fixtures\/docs-pythonmarkdown2-tm-cases-pass\/sublist-para.html",
+      "outputAbbreviatedPath" : "No Output Path",
+      "fileType" : 2048
+    },
+    "\/vendor\/markdown-js\/test\/fixtures\/docs-pythonmarkdown2-tm-cases-pass\/emacs_head_vars.html" : {
+      "ignoreWasSetByUser" : 0,
+      "ignore" : 0,
+      "hidden" : 0,
+      "outputPathIsSetByUser" : 0,
+      "inputAbbreviatedPath" : "\/vendor\/markdown-js\/test\/fixtures\/docs-pythonmarkdown2-tm-cases-pass\/emacs_head_vars.html",
+      "outputAbbreviatedPath" : "No Output Path",
+      "fileType" : 2048
+    },
+    "\/vendor\/markdown-js\/test\/fixtures\/docs-pythonmarkdown2-tm-cases-pass\/emacs_tail_vars.html" : {
+      "ignoreWasSetByUser" : 0,
+      "ignore" : 0,
+      "hidden" : 0,
+      "outputPathIsSetByUser" : 0,
+      "inputAbbreviatedPath" : "\/vendor\/markdown-js\/test\/fixtures\/docs-pythonmarkdown2-tm-cases-pass\/emacs_tail_vars.html",
+      "outputAbbreviatedPath" : "No Output Path",
+      "fileType" : 2048
+    },
+    "\/vendor\/markdown-js\/test\/fixtures\/docs-maruku-unittest\/headers.html" : {
+      "ignoreWasSetByUser" : 0,
+      "ignore" : 0,
+      "hidden" : 0,
+      "outputPathIsSetByUser" : 0,
+      "inputAbbreviatedPath" : "\/vendor\/markdown-js\/test\/fixtures\/docs-maruku-unittest\/headers.html",
+      "outputAbbreviatedPath" : "No Output Path",
+      "fileType" : 2048
+    },
+    "\/vendor\/markdown-js\/test\/fixtures\/docs-pythonmarkdown2-tm-cases-pass\/mismatched_footnotes.html" : {
+      "ignoreWasSetByUser" : 0,
+      "ignore" : 0,
+      "hidden" : 0,
+      "outputPathIsSetByUser" : 0,
+      "inputAbbreviatedPath" : "\/vendor\/markdown-js\/test\/fixtures\/docs-pythonmarkdown2-tm-cases-pass\/mismatched_footnotes.html",
+      "outputAbbreviatedPath" : "No Output Path",
+      "fileType" : 2048
+    },
+    "\/vendor\/markdown-js\/test\/fixtures\/docs-maruku-unittest\/images.html" : {
+      "ignoreWasSetByUser" : 0,
+      "ignore" : 0,
+      "hidden" : 0,
+      "outputPathIsSetByUser" : 0,
+      "inputAbbreviatedPath" : "\/vendor\/markdown-js\/test\/fixtures\/docs-maruku-unittest\/images.html",
+      "outputAbbreviatedPath" : "No Output Path",
+      "fileType" : 2048
+    },
+    "\/vendor\/markdown-js\/test\/fixtures\/Text-Markdown.mdtest\/PHP-ASP_tags.xhtml" : {
+      "ignoreWasSetByUser" : 0,
+      "ignore" : 0,
+      "hidden" : 0,
+      "outputPathIsSetByUser" : 0,
+      "inputAbbreviatedPath" : "\/vendor\/markdown-js\/test\/fixtures\/Text-Markdown.mdtest\/PHP-ASP_tags.xhtml",
+      "outputAbbreviatedPath" : "No Output Path",
+      "fileType" : 2048
+    },
+    "\/vendor\/markdown-js\/test\/fixtures\/docs-pythonmarkdown2-tm-cases-pass\/emphasis.html" : {
+      "ignoreWasSetByUser" : 0,
+      "ignore" : 0,
+      "hidden" : 0,
+      "outputPathIsSetByUser" : 0,
+      "inputAbbreviatedPath" : "\/vendor\/markdown-js\/test\/fixtures\/docs-pythonmarkdown2-tm-cases-pass\/emphasis.html",
+      "outputAbbreviatedPath" : "No Output Path",
+      "fileType" : 2048
+    },
+    "\/vendor\/markdown-js\/test\/fixtures\/docs-maruku-unittest\/list4.html" : {
+      "ignoreWasSetByUser" : 0,
+      "ignore" : 0,
+      "hidden" : 0,
+      "outputPathIsSetByUser" : 0,
+      "inputAbbreviatedPath" : "\/vendor\/markdown-js\/test\/fixtures\/docs-maruku-unittest\/list4.html",
+      "outputAbbreviatedPath" : "No Output Path",
+      "fileType" : 2048
+    },
+    "\/vendor\/markdown-js\/test\/fixtures\/PHP_Markdown-from-MDTest1.1.mdtest\/Backslash_escapes.xhtml" : {
+      "ignoreWasSetByUser" : 0,
+      "ignore" : 0,
+      "hidden" : 0,
+      "outputPathIsSetByUser" : 0,
+      "inputAbbreviatedPath" : "\/vendor\/markdown-js\/test\/fixtures\/PHP_Markdown-from-MDTest1.1.mdtest\/Backslash_escapes.xhtml",
+      "outputAbbreviatedPath" : "No Output Path",
+      "fileType" : 2048
+    },
+    "\/vendor\/markdown-js\/test\/fixtures\/docs-maruku-unittest\/blanks_in_code.html" : {
+      "ignoreWasSetByUser" : 0,
+      "ignore" : 0,
+      "hidden" : 0,
+      "outputPathIsSetByUser" : 0,
+      "inputAbbreviatedPath" : "\/vendor\/markdown-js\/test\/fixtures\/docs-maruku-unittest\/blanks_in_code.html",
+      "outputAbbreviatedPath" : "No Output Path",
+      "fileType" : 2048
+    },
+    "\/vendor\/markdown-js\/test\/fixtures\/docs-maruku-unittest\/code.html" : {
+      "ignoreWasSetByUser" : 0,
+      "ignore" : 0,
+      "hidden" : 0,
+      "outputPathIsSetByUser" : 0,
+      "inputAbbreviatedPath" : "\/vendor\/markdown-js\/test\/fixtures\/docs-maruku-unittest\/code.html",
+      "outputAbbreviatedPath" : "No Output Path",
+      "fileType" : 2048
+    },
+    "\/vendor\/markdown-js\/test\/fixtures\/docs-maruku-unittest\/xml3.html" : {
+      "ignoreWasSetByUser" : 0,
+      "ignore" : 0,
+      "hidden" : 0,
+      "outputPathIsSetByUser" : 0,
+      "inputAbbreviatedPath" : "\/vendor\/markdown-js\/test\/fixtures\/docs-maruku-unittest\/xml3.html",
+      "outputAbbreviatedPath" : "No Output Path",
+      "fileType" : 2048
+    },
+    "\/vendor\/markdown-js\/test\/fixtures\/PHP_Markdown-from-MDTest1.1.mdtest\/Headers.xhtml" : {
+      "ignoreWasSetByUser" : 0,
+      "ignore" : 0,
+      "hidden" : 0,
+      "outputPathIsSetByUser" : 0,
+      "inputAbbreviatedPath" : "\/vendor\/markdown-js\/test\/fixtures\/PHP_Markdown-from-MDTest1.1.mdtest\/Headers.xhtml",
+      "outputAbbreviatedPath" : "No Output Path",
+      "fileType" : 2048
+    },
+    "\/vendor\/markdown-js\/test\/fixtures\/Markdown-from-MDTest1.1.mdtest\/Code_Blocks.xhtml" : {
+      "ignoreWasSetByUser" : 0,
+      "ignore" : 0,
+      "hidden" : 0,
+      "outputPathIsSetByUser" : 0,
+      "inputAbbreviatedPath" : "\/vendor\/markdown-js\/test\/fixtures\/Markdown-from-MDTest1.1.mdtest\/Code_Blocks.xhtml",
+      "outputAbbreviatedPath" : "No Output Path",
+      "fileType" : 2048
+    },
+    "\/vendor\/markdown-js\/test\/fixtures\/docs-php-markdown\/PHP-Specific_Bugs.html" : {
+      "ignoreWasSetByUser" : 0,
+      "ignore" : 0,
+      "hidden" : 0,
+      "outputPathIsSetByUser" : 0,
+      "inputAbbreviatedPath" : "\/vendor\/markdown-js\/test\/fixtures\/docs-php-markdown\/PHP-Specific_Bugs.html",
+      "outputAbbreviatedPath" : "No Output Path",
+      "fileType" : 2048
+    },
+    "\/vendor\/markdown-js\/test\/fixtures\/docs-maruku-unittest\/extra_header_id.html" : {
+      "ignoreWasSetByUser" : 0,
+      "ignore" : 0,
+      "hidden" : 0,
+      "outputPathIsSetByUser" : 0,
+      "inputAbbreviatedPath" : "\/vendor\/markdown-js\/test\/fixtures\/docs-maruku-unittest\/extra_header_id.html",
+      "outputAbbreviatedPath" : "No Output Path",
+      "fileType" : 2048
+    },
+    "\/vendor\/markdown-js\/test\/fixtures\/Markdown-from-MDTest1.1.mdtest\/Ordered_and_unordered_lists.xhtml" : {
+      "ignoreWasSetByUser" : 0,
+      "ignore" : 0,
+      "hidden" : 0,
+      "outputPathIsSetByUser" : 0,
+      "inputAbbreviatedPath" : "\/vendor\/markdown-js\/test\/fixtures\/Markdown-from-MDTest1.1.mdtest\/Ordered_and_unordered_lists.xhtml",
+      "outputAbbreviatedPath" : "No Output Path",
+      "fileType" : 2048
+    },
+    "\/vendor\/markdown-js\/test\/fixtures\/docs-maruku-unittest\/entities.html" : {
+      "ignoreWasSetByUser" : 0,
+      "ignore" : 0,
+      "hidden" : 0,
+      "outputPathIsSetByUser" : 0,
+      "inputAbbreviatedPath" : "\/vendor\/markdown-js\/test\/fixtures\/docs-maruku-unittest\/entities.html",
+      "outputAbbreviatedPath" : "No Output Path",
+      "fileType" : 2048
+    },
+    "\/vendor\/markdown-js\/test\/fixtures\/Text-Markdown.mdtest\/Unicode.xhtml" : {
+      "ignoreWasSetByUser" : 0,
+      "ignore" : 0,
+      "hidden" : 0,
+      "outputPathIsSetByUser" : 0,
+      "inputAbbreviatedPath" : "\/vendor\/markdown-js\/test\/fixtures\/Text-Markdown.mdtest\/Unicode.xhtml",
+      "outputAbbreviatedPath" : "No Output Path",
+      "fileType" : 2048
+    },
+    "\/vendor\/markdown-js\/test\/fixtures\/docs-maruku-unittest\/html5.html" : {
+      "ignoreWasSetByUser" : 0,
+      "ignore" : 0,
+      "hidden" : 0,
+      "outputPathIsSetByUser" : 0,
+      "inputAbbreviatedPath" : "\/vendor\/markdown-js\/test\/fixtures\/docs-maruku-unittest\/html5.html",
+      "outputAbbreviatedPath" : "No Output Path",
+      "fileType" : 2048
+    },
+    "\/vendor\/markdown-js\/test\/fixtures\/PHP_Markdown-from-MDTest1.1.mdtest\/Parens_in_URL.xhtml" : {
+      "ignoreWasSetByUser" : 0,
+      "ignore" : 0,
+      "hidden" : 0,
+      "outputPathIsSetByUser" : 0,
+      "inputAbbreviatedPath" : "\/vendor\/markdown-js\/test\/fixtures\/PHP_Markdown-from-MDTest1.1.mdtest\/Parens_in_URL.xhtml",
+      "outputAbbreviatedPath" : "No Output Path",
+      "fileType" : 2048
+    },
+    "\/vendor\/markdown-js\/test\/fixtures\/PHP_Markdown-from-MDTest1.1.mdtest\/Emphasis.xhtml" : {
+      "ignoreWasSetByUser" : 0,
+      "ignore" : 0,
+      "hidden" : 0,
+      "outputPathIsSetByUser" : 0,
+      "inputAbbreviatedPath" : "\/vendor\/markdown-js\/test\/fixtures\/PHP_Markdown-from-MDTest1.1.mdtest\/Emphasis.xhtml",
+      "outputAbbreviatedPath" : "No Output Path",
+      "fileType" : 2048
+    },
+    "\/vendor\/markdown-js\/test\/fixtures\/docs-pythonmarkdown2-tm-cases-pass\/hr.html" : {
+      "ignoreWasSetByUser" : 0,
+      "ignore" : 0,
+      "hidden" : 0,
+      "outputPathIsSetByUser" : 0,
+      "inputAbbreviatedPath" : "\/vendor\/markdown-js\/test\/fixtures\/docs-pythonmarkdown2-tm-cases-pass\/hr.html",
+      "outputAbbreviatedPath" : "No Output Path",
+      "fileType" : 2048
+    },
+    "\/vendor\/markdown-js\/test\/fixtures\/docs-maruku-unittest\/lists_ol.html" : {
+      "ignoreWasSetByUser" : 0,
+      "ignore" : 0,
+      "hidden" : 0,
+      "outputPathIsSetByUser" : 0,
+      "inputAbbreviatedPath" : "\/vendor\/markdown-js\/test\/fixtures\/docs-maruku-unittest\/lists_ol.html",
+      "outputAbbreviatedPath" : "No Output Path",
+      "fileType" : 2048
+    },
+    "\/vendor\/markdown-js\/test\/fixtures\/Markdown-from-MDTest1.1.mdtest\/Blockquotes_with_code_blocks.xhtml" : {
+      "ignoreWasSetByUser" : 0,
+      "ignore" : 0,
+      "hidden" : 0,
+      "outputPathIsSetByUser" : 0,
+      "inputAbbreviatedPath" : "\/vendor\/markdown-js\/test\/fixtures\/Markdown-from-MDTest1.1.mdtest\/Blockquotes_with_code_blocks.xhtml",
+      "outputAbbreviatedPath" : "No Output Path",
+      "fileType" : 2048
+    },
+    "\/vendor\/markdown-js\/test\/fixtures\/Markdown-from-MDTest1.1.mdtest\/Backslash_escapes.xhtml" : {
+      "ignoreWasSetByUser" : 0,
+      "ignore" : 0,
+      "hidden" : 0,
+      "outputPathIsSetByUser" : 0,
+      "inputAbbreviatedPath" : "\/vendor\/markdown-js\/test\/fixtures\/Markdown-from-MDTest1.1.mdtest\/Backslash_escapes.xhtml",
+      "outputAbbreviatedPath" : "No Output Path",
+      "fileType" : 2048
+    },
+    "\/vendor\/markdown-js\/test\/fixtures\/docs-php-markdown-extra\/Inline_HTML_with_Markdown_content.html" : {
+      "ignoreWasSetByUser" : 0,
+      "ignore" : 0,
+      "hidden" : 0,
+      "outputPathIsSetByUser" : 0,
+      "inputAbbreviatedPath" : "\/vendor\/markdown-js\/test\/fixtures\/docs-php-markdown-extra\/Inline_HTML_with_Markdown_content.html",
+      "outputAbbreviatedPath" : "No Output Path",
+      "fileType" : 2048
+    },
+    "\/vendor\/markdown-js\/test\/fixtures\/docs-maruku-unittest\/table_attributes.html" : {
+      "ignoreWasSetByUser" : 0,
+      "ignore" : 0,
+      "hidden" : 0,
+      "outputPathIsSetByUser" : 0,
+      "inputAbbreviatedPath" : "\/vendor\/markdown-js\/test\/fixtures\/docs-maruku-unittest\/table_attributes.html",
+      "outputAbbreviatedPath" : "No Output Path",
+      "fileType" : 2048
+    },
+    "\/vendor\/markdown-js\/test\/fixtures\/PHP_Markdown-from-MDTest1.1.mdtest\/Nesting.xhtml" : {
+      "ignoreWasSetByUser" : 0,
+      "ignore" : 0,
+      "hidden" : 0,
+      "outputPathIsSetByUser" : 0,
+      "inputAbbreviatedPath" : "\/vendor\/markdown-js\/test\/fixtures\/PHP_Markdown-from-MDTest1.1.mdtest\/Nesting.xhtml",
+      "outputAbbreviatedPath" : "No Output Path",
+      "fileType" : 2048
+    },
+    "\/vendor\/markdown-js\/test\/fixtures\/docs-pythonmarkdown2-tm-cases-pass\/footnotes.html" : {
+      "ignoreWasSetByUser" : 0,
+      "ignore" : 0,
+      "hidden" : 0,
+      "outputPathIsSetByUser" : 0,
+      "inputAbbreviatedPath" : "\/vendor\/markdown-js\/test\/fixtures\/docs-pythonmarkdown2-tm-cases-pass\/footnotes.html",
+      "outputAbbreviatedPath" : "No Output Path",
+      "fileType" : 2048
+    },
+    "\/vendor\/markdown-js\/test\/fixtures\/docs-maruku-unittest\/code2.html" : {
+      "ignoreWasSetByUser" : 0,
+      "ignore" : 0,
+      "hidden" : 0,
+      "outputPathIsSetByUser" : 0,
+      "inputAbbreviatedPath" : "\/vendor\/markdown-js\/test\/fixtures\/docs-maruku-unittest\/code2.html",
+      "outputAbbreviatedPath" : "No Output Path",
+      "fileType" : 2048
+    },
+    "\/vendor\/markdown-js\/test\/fixtures\/docs-php-markdown\/Backslash_escapes.html" : {
+      "ignoreWasSetByUser" : 0,
+      "ignore" : 0,
+      "hidden" : 0,
+      "outputPathIsSetByUser" : 0,
+      "inputAbbreviatedPath" : "\/vendor\/markdown-js\/test\/fixtures\/docs-php-markdown\/Backslash_escapes.html",
+      "outputAbbreviatedPath" : "No Output Path",
+      "fileType" : 2048
+    },
+    "\/vendor\/markdown-js\/test\/fixtures\/Markdown-from-MDTest1.1.mdtest\/Markdown_Documentation_-_Syntax.xhtml" : {
+      "ignoreWasSetByUser" : 0,
+      "ignore" : 0,
+      "hidden" : 0,
+      "outputPathIsSetByUser" : 0,
+      "inputAbbreviatedPath" : "\/vendor\/markdown-js\/test\/fixtures\/Markdown-from-MDTest1.1.mdtest\/Markdown_Documentation_-_Syntax.xhtml",
+      "outputAbbreviatedPath" : "No Output Path",
+      "fileType" : 2048
+    },
+    "\/vendor\/markdown-js\/test\/fixtures\/PHP_Markdown-from-MDTest1.1.mdtest\/Links_inline_style.xhtml" : {
+      "ignoreWasSetByUser" : 0,
+      "ignore" : 0,
+      "hidden" : 0,
+      "outputPathIsSetByUser" : 0,
+      "inputAbbreviatedPath" : "\/vendor\/markdown-js\/test\/fixtures\/PHP_Markdown-from-MDTest1.1.mdtest\/Links_inline_style.xhtml",
+      "outputAbbreviatedPath" : "No Output Path",
+      "fileType" : 2048
+    },
+    "\/js\/files.js" : {
+      "ignoreWasSetByUser" : 1,
+      "ignore" : 1,
+      "hidden" : 0,
+      "outputPathIsSetByUser" : 0,
+      "inputAbbreviatedPath" : "\/js\/files.js",
+      "outputStyle" : 1,
+      "syntaxCheckerStyle" : 0,
+      "outputAbbreviatedPath" : "\/public\/files-min.js",
+      "fileType" : 64
+    },
+    "\/vendor\/markdown-js\/test\/fixtures\/docs-pythonmarkdown2-tm-cases-pass\/blockquote_with_pre.html" : {
+      "ignoreWasSetByUser" : 0,
+      "ignore" : 0,
+      "hidden" : 0,
+      "outputPathIsSetByUser" : 0,
+      "inputAbbreviatedPath" : "\/vendor\/markdown-js\/test\/fixtures\/docs-pythonmarkdown2-tm-cases-pass\/blockquote_with_pre.html",
+      "outputAbbreviatedPath" : "No Output Path",
+      "fileType" : 2048
+    },
+    "\/vendor\/markdown-js\/test\/fixtures\/docs-maruku-unittest\/xml_instruction.html" : {
+      "ignoreWasSetByUser" : 0,
+      "ignore" : 0,
+      "hidden" : 0,
+      "outputPathIsSetByUser" : 0,
+      "inputAbbreviatedPath" : "\/vendor\/markdown-js\/test\/fixtures\/docs-maruku-unittest\/xml_instruction.html",
+      "outputAbbreviatedPath" : "No Output Path",
+      "fileType" : 2048
+    },
+    "\/vendor\/markdown-js\/lib\/index.js" : {
+      "ignoreWasSetByUser" : 1,
+      "ignore" : 1,
+      "hidden" : 0,
+      "outputPathIsSetByUser" : 0,
+      "inputAbbreviatedPath" : "\/vendor\/markdown-js\/lib\/index.js",
+      "outputStyle" : 1,
+      "syntaxCheckerStyle" : 0,
+      "outputAbbreviatedPath" : "\/public\/index-min.js",
+      "fileType" : 64
+    },
+    "\/vendor\/markdown-js\/test\/fixtures\/docs-php-markdown-extra\/Tables.html" : {
+      "ignoreWasSetByUser" : 0,
+      "ignore" : 0,
+      "hidden" : 0,
+      "outputPathIsSetByUser" : 0,
+      "inputAbbreviatedPath" : "\/vendor\/markdown-js\/test\/fixtures\/docs-php-markdown-extra\/Tables.html",
+      "outputAbbreviatedPath" : "No Output Path",
+      "fileType" : 2048
+    },
+    "\/vendor\/markdown-js\/test\/fixtures\/docs-pythonmarkdown2-tm-cases-pass\/lists.html" : {
+      "ignoreWasSetByUser" : 0,
+      "ignore" : 0,
+      "hidden" : 0,
+      "outputPathIsSetByUser" : 0,
+      "inputAbbreviatedPath" : "\/vendor\/markdown-js\/test\/fixtures\/docs-pythonmarkdown2-tm-cases-pass\/lists.html",
+      "outputAbbreviatedPath" : "No Output Path",
+      "fileType" : 2048
+    },
+    "\/vendor\/markdown-js\/test\/fixtures\/docs-maruku-unittest\/loss.html" : {
+      "ignoreWasSetByUser" : 0,
+      "ignore" : 0,
+      "hidden" : 0,
+      "outputPathIsSetByUser" : 0,
+      "inputAbbreviatedPath" : "\/vendor\/markdown-js\/test\/fixtures\/docs-maruku-unittest\/loss.html",
+      "outputAbbreviatedPath" : "No Output Path",
+      "fileType" : 2048
+    },
+    "\/vendor\/markdown-js\/test\/fixtures\/docs-maruku-unittest\/ie.html" : {
+      "ignoreWasSetByUser" : 0,
+      "ignore" : 0,
+      "hidden" : 0,
+      "outputPathIsSetByUser" : 0,
+      "inputAbbreviatedPath" : "\/vendor\/markdown-js\/test\/fixtures\/docs-maruku-unittest\/ie.html",
+      "outputAbbreviatedPath" : "No Output Path",
+      "fileType" : 2048
+    },
+    "\/less\/app.less" : {
+      "ieCompatibility" : 1,
+      "inputAbbreviatedPath" : "\/less\/app.less",
+      "outputAbbreviatedPath" : "\/public\/app.css",
+      "outputPathIsSetByUser" : 0,
+      "strictUnits" : 0,
+      "relativeURLS" : 0,
+      "ignore" : 0,
+      "strictImports" : 0,
+      "ignoreWasSetByUser" : 0,
+      "shouldRunBless" : 0,
+      "hidden" : 0,
+      "strictMath" : 0,
+      "outputStyle" : 0,
+      "fileType" : 1,
+      "debugStyle" : 1
+    },
+    "\/vendor\/markdown-js\/test\/fixtures\/docs-maruku-unittest\/footnotes.html" : {
+      "ignoreWasSetByUser" : 0,
+      "ignore" : 0,
+      "hidden" : 0,
+      "outputPathIsSetByUser" : 0,
+      "inputAbbreviatedPath" : "\/vendor\/markdown-js\/test\/fixtures\/docs-maruku-unittest\/footnotes.html",
+      "outputAbbreviatedPath" : "No Output Path",
+      "fileType" : 2048
+    },
+    "\/vendor\/markdown-js\/test\/fixtures\/docs-php-markdown-extra\/Definition_Lists.html" : {
+      "ignoreWasSetByUser" : 0,
+      "ignore" : 0,
+      "hidden" : 0,
+      "outputPathIsSetByUser" : 0,
+      "inputAbbreviatedPath" : "\/vendor\/markdown-js\/test\/fixtures\/docs-php-markdown-extra\/Definition_Lists.html",
+      "outputAbbreviatedPath" : "No Output Path",
+      "fileType" : 2048
+    },
+    "\/vendor\/markdown-js\/test\/fixtures\/Text-Markdown.mdtest\/Links_brackets.xhtml" : {
+      "ignoreWasSetByUser" : 0,
+      "ignore" : 0,
+      "hidden" : 0,
+      "outputPathIsSetByUser" : 0,
+      "inputAbbreviatedPath" : "\/vendor\/markdown-js\/test\/fixtures\/Text-Markdown.mdtest\/Links_brackets.xhtml",
+      "outputAbbreviatedPath" : "No Output Path",
+      "fileType" : 2048
+    },
+    "\/vendor\/markdown-js\/test\/fixtures\/docs-pythonmarkdown2-tm-cases-pass\/codespans_safe_mode.html" : {
+      "ignoreWasSetByUser" : 0,
+      "ignore" : 0,
+      "hidden" : 0,
+      "outputPathIsSetByUser" : 0,
+      "inputAbbreviatedPath" : "\/vendor\/markdown-js\/test\/fixtures\/docs-pythonmarkdown2-tm-cases-pass\/codespans_safe_mode.html",
+      "outputAbbreviatedPath" : "No Output Path",
+      "fileType" : 2048
+    },
+    "\/vendor\/markdown-js\/test\/fixtures\/docs-maruku-unittest\/bug_table.html" : {
+      "ignoreWasSetByUser" : 0,
+      "ignore" : 0,
+      "hidden" : 0,
+      "outputPathIsSetByUser" : 0,
+      "inputAbbreviatedPath" : "\/vendor\/markdown-js\/test\/fixtures\/docs-maruku-unittest\/bug_table.html",
+      "outputAbbreviatedPath" : "No Output Path",
+      "fileType" : 2048
+    },
+    "\/vendor\/markdown-js\/test\/fixtures\/Text-Markdown.mdtest\/Lists-multilevel-md5-edgecase.xhtml" : {
+      "ignoreWasSetByUser" : 0,
+      "ignore" : 0,
+      "hidden" : 0,
+      "outputPathIsSetByUser" : 0,
+      "inputAbbreviatedPath" : "\/vendor\/markdown-js\/test\/fixtures\/Text-Markdown.mdtest\/Lists-multilevel-md5-edgecase.xhtml",
+      "outputAbbreviatedPath" : "No Output Path",
+      "fileType" : 2048
+    },
+    "\/vendor\/markdown-js\/test\/fixtures\/docs-php-markdown-todo\/Nesting.html" : {
+      "ignoreWasSetByUser" : 0,
+      "ignore" : 0,
+      "hidden" : 0,
+      "outputPathIsSetByUser" : 0,
+      "inputAbbreviatedPath" : "\/vendor\/markdown-js\/test\/fixtures\/docs-php-markdown-todo\/Nesting.html",
+      "outputAbbreviatedPath" : "No Output Path",
+      "fileType" : 2048
+    },
+    "\/vendor\/markdown-js\/test\/fixtures\/docs-pythonmarkdown2-tm-cases-pass\/raw_html.html" : {
+      "ignoreWasSetByUser" : 0,
+      "ignore" : 0,
+      "hidden" : 0,
+      "outputPathIsSetByUser" : 0,
+      "inputAbbreviatedPath" : "\/vendor\/markdown-js\/test\/fixtures\/docs-pythonmarkdown2-tm-cases-pass\/raw_html.html",
+      "outputAbbreviatedPath" : "No Output Path",
+      "fileType" : 2048
+    },
+    "\/vendor\/markdown-js\/test\/fixtures\/Markdown-from-MDTest1.1.mdtest\/Markdown_Documentation_-_Basics.xhtml" : {
+      "ignoreWasSetByUser" : 0,
+      "ignore" : 0,
+      "hidden" : 0,
+      "outputPathIsSetByUser" : 0,
+      "inputAbbreviatedPath" : "\/vendor\/markdown-js\/test\/fixtures\/Markdown-from-MDTest1.1.mdtest\/Markdown_Documentation_-_Basics.xhtml",
+      "outputAbbreviatedPath" : "No Output Path",
+      "fileType" : 2048
+    },
+    "\/vendor\/markdown-js\/test\/fixtures\/Markdown-from-MDTest1.1.mdtest\/Auto_links.xhtml" : {
+      "ignoreWasSetByUser" : 0,
+      "ignore" : 0,
+      "hidden" : 0,
+      "outputPathIsSetByUser" : 0,
+      "inputAbbreviatedPath" : "\/vendor\/markdown-js\/test\/fixtures\/Markdown-from-MDTest1.1.mdtest\/Auto_links.xhtml",
+      "outputAbbreviatedPath" : "No Output Path",
+      "fileType" : 2048
+    },
+    "\/vendor\/markdown-js\/test\/fixtures\/docs-maruku-unittest\/list1.html" : {
+      "ignoreWasSetByUser" : 0,
+      "ignore" : 0,
+      "hidden" : 0,
+      "outputPathIsSetByUser" : 0,
+      "inputAbbreviatedPath" : "\/vendor\/markdown-js\/test\/fixtures\/docs-maruku-unittest\/list1.html",
+      "outputAbbreviatedPath" : "No Output Path",
+      "fileType" : 2048
+    },
+    "\/vendor\/markdown-js\/test\/fixtures\/docs-maruku-unittest\/lists7.html" : {
+      "ignoreWasSetByUser" : 0,
+      "ignore" : 0,
+      "hidden" : 0,
+      "outputPathIsSetByUser" : 0,
+      "inputAbbreviatedPath" : "\/vendor\/markdown-js\/test\/fixtures\/docs-maruku-unittest\/lists7.html",
+      "outputAbbreviatedPath" : "No Output Path",
+      "fileType" : 2048
+    },
+    "\/vendor\/markdown-js\/test\/fixtures\/docs-pythonmarkdown2-tm-cases-pass\/underline_in_autolink.html" : {
+      "ignoreWasSetByUser" : 0,
+      "ignore" : 0,
+      "hidden" : 0,
+      "outputPathIsSetByUser" : 0,
+      "inputAbbreviatedPath" : "\/vendor\/markdown-js\/test\/fixtures\/docs-pythonmarkdown2-tm-cases-pass\/underline_in_autolink.html",
+      "outputAbbreviatedPath" : "No Output Path",
+      "fileType" : 2048
+    },
+    "\/vendor\/markdown-js\/test\/fixtures\/Markdown-from-MDTest1.1.mdtest\/Links_inline_style.xhtml" : {
+      "ignoreWasSetByUser" : 0,
+      "ignore" : 0,
+      "hidden" : 0,
+      "outputPathIsSetByUser" : 0,
+      "inputAbbreviatedPath" : "\/vendor\/markdown-js\/test\/fixtures\/Markdown-from-MDTest1.1.mdtest\/Links_inline_style.xhtml",
+      "outputAbbreviatedPath" : "No Output Path",
+      "fileType" : 2048
+    },
+    "\/public\/index.html" : {
+      "ignoreWasSetByUser" : 0,
+      "ignore" : 0,
+      "hidden" : 0,
+      "outputPathIsSetByUser" : 0,
+      "inputAbbreviatedPath" : "\/public\/index.html",
+      "outputAbbreviatedPath" : "No Output Path",
+      "fileType" : 2048
+    },
+    "\/vendor\/markdown-js\/test\/fixtures\/Markdown-from-MDTest1.1.mdtest\/Links_reference_style.xhtml" : {
+      "ignoreWasSetByUser" : 0,
+      "ignore" : 0,
+      "hidden" : 0,
+      "outputPathIsSetByUser" : 0,
+      "inputAbbreviatedPath" : "\/vendor\/markdown-js\/test\/fixtures\/Markdown-from-MDTest1.1.mdtest\/Links_reference_style.xhtml",
+      "outputAbbreviatedPath" : "No Output Path",
+      "fileType" : 2048
+    },
+    "\/vendor\/markdown-js\/test\/fixtures\/docs-pythonmarkdown2-tm-cases-pass\/syntax_color.html" : {
+      "ignoreWasSetByUser" : 0,
+      "ignore" : 0,
+      "hidden" : 0,
+      "outputPathIsSetByUser" : 0,
+      "inputAbbreviatedPath" : "\/vendor\/markdown-js\/test\/fixtures\/docs-pythonmarkdown2-tm-cases-pass\/syntax_color.html",
+      "outputAbbreviatedPath" : "No Output Path",
+      "fileType" : 2048
+    },
+    "\/vendor\/markdown-js\/test\/fixtures\/PHP_Markdown-from-MDTest1.1.mdtest\/Tight_blocks.xhtml" : {
+      "ignoreWasSetByUser" : 0,
+      "ignore" : 0,
+      "hidden" : 0,
+      "outputPathIsSetByUser" : 0,
+      "inputAbbreviatedPath" : "\/vendor\/markdown-js\/test\/fixtures\/PHP_Markdown-from-MDTest1.1.mdtest\/Tight_blocks.xhtml",
+      "outputAbbreviatedPath" : "No Output Path",
+      "fileType" : 2048
+    },
+    "\/vendor\/markdown-js\/test\/fixtures\/docs-php-markdown\/Code_Spans.html" : {
+      "ignoreWasSetByUser" : 0,
+      "ignore" : 0,
+      "hidden" : 0,
+      "outputPathIsSetByUser" : 0,
+      "inputAbbreviatedPath" : "\/vendor\/markdown-js\/test\/fixtures\/docs-php-markdown\/Code_Spans.html",
+      "outputAbbreviatedPath" : "No Output Path",
+      "fileType" : 2048
+    },
+    "\/vendor\/markdown-js\/test\/interface.t.js" : {
+      "ignoreWasSetByUser" : 1,
+      "ignore" : 1,
+      "hidden" : 0,
+      "outputPathIsSetByUser" : 0,
+      "inputAbbreviatedPath" : "\/vendor\/markdown-js\/test\/interface.t.js",
+      "outputStyle" : 1,
+      "syntaxCheckerStyle" : 0,
+      "outputAbbreviatedPath" : "\/public\/interface.t-min.js",
+      "fileType" : 64
+    },
+    "\/vendor\/markdown-js\/test\/fixtures\/docs-pythonmarkdown2-tm-cases-pass\/basic_safe_mode.html" : {
+      "ignoreWasSetByUser" : 0,
+      "ignore" : 0,
+      "hidden" : 0,
+      "outputPathIsSetByUser" : 0,
+      "inputAbbreviatedPath" : "\/vendor\/markdown-js\/test\/fixtures\/docs-pythonmarkdown2-tm-cases-pass\/basic_safe_mode.html",
+      "outputAbbreviatedPath" : "No Output Path",
+      "fileType" : 2048
+    },
+    "\/vendor\/markdown-js\/test\/fixtures\/PHP_Markdown-from-MDTest1.1.mdtest\/MD5_Hashes.xhtml" : {
+      "ignoreWasSetByUser" : 0,
+      "ignore" : 0,
+      "hidden" : 0,
+      "outputPathIsSetByUser" : 0,
+      "inputAbbreviatedPath" : "\/vendor\/markdown-js\/test\/fixtures\/PHP_Markdown-from-MDTest1.1.mdtest\/MD5_Hashes.xhtml",
+      "outputAbbreviatedPath" : "No Output Path",
+      "fileType" : 2048
+    },
+    "\/vendor\/markdown-js\/test\/fixtures\/docs-maruku-unittest\/lists11.html" : {
+      "ignoreWasSetByUser" : 0,
+      "ignore" : 0,
+      "hidden" : 0,
+      "outputPathIsSetByUser" : 0,
+      "inputAbbreviatedPath" : "\/vendor\/markdown-js\/test\/fixtures\/docs-maruku-unittest\/lists11.html",
+      "outputAbbreviatedPath" : "No Output Path",
+      "fileType" : 2048
+    },
+    "\/vendor\/markdown-js\/test\/fixtures\/Markdown-from-MDTest1.1.mdtest\/Tidyness.xhtml" : {
+      "ignoreWasSetByUser" : 0,
+      "ignore" : 0,
+      "hidden" : 0,
+      "outputPathIsSetByUser" : 0,
+      "inputAbbreviatedPath" : "\/vendor\/markdown-js\/test\/fixtures\/Markdown-from-MDTest1.1.mdtest\/Tidyness.xhtml",
+      "outputAbbreviatedPath" : "No Output Path",
+      "fileType" : 2048
+    },
+    "\/vendor\/markdown-js\/test\/fixtures\/docs-maruku-unittest\/paragraphs.html" : {
+      "ignoreWasSetByUser" : 0,
+      "ignore" : 0,
+      "hidden" : 0,
+      "outputPathIsSetByUser" : 0,
+      "inputAbbreviatedPath" : "\/vendor\/markdown-js\/test\/fixtures\/docs-maruku-unittest\/paragraphs.html",
+      "outputAbbreviatedPath" : "No Output Path",
+      "fileType" : 2048
+    },
+    "\/vendor\/markdown-js\/test\/fixtures\/docs-maruku-unittest\/html2.html" : {
+      "ignoreWasSetByUser" : 0,
+      "ignore" : 0,
+      "hidden" : 0,
+      "outputPathIsSetByUser" : 0,
+      "inputAbbreviatedPath" : "\/vendor\/markdown-js\/test\/fixtures\/docs-maruku-unittest\/html2.html",
+      "outputAbbreviatedPath" : "No Output Path",
+      "fileType" : 2048
+    },
+    "\/vendor\/markdown-js\/test\/fixtures\/docs-maruku-unittest\/misc_sw.html" : {
+      "ignoreWasSetByUser" : 0,
+      "ignore" : 0,
+      "hidden" : 0,
+      "outputPathIsSetByUser" : 0,
+      "inputAbbreviatedPath" : "\/vendor\/markdown-js\/test\/fixtures\/docs-maruku-unittest\/misc_sw.html",
+      "outputAbbreviatedPath" : "No Output Path",
+      "fileType" : 2048
+    },
+    "\/public\/app.css" : {
+      "ignoreWasSetByUser" : 0,
+      "ignore" : 1,
+      "hidden" : 0,
+      "outputPathIsSetByUser" : 0,
+      "inputAbbreviatedPath" : "\/public\/app.css",
+      "outputAbbreviatedPath" : "\/No Output Path",
+      "fileType" : 16
+    },
+    "\/vendor\/markdown-js\/test\/fixtures\/Markdown-from-MDTest1.1.mdtest\/Tabs.xhtml" : {
+      "ignoreWasSetByUser" : 0,
+      "ignore" : 0,
+      "hidden" : 0,
+      "outputPathIsSetByUser" : 0,
+      "inputAbbreviatedPath" : "\/vendor\/markdown-js\/test\/fixtures\/Markdown-from-MDTest1.1.mdtest\/Tabs.xhtml",
+      "outputAbbreviatedPath" : "No Output Path",
+      "fileType" : 2048
+    },
+    "\/vendor\/markdown-js\/test\/fixtures\/docs-maruku-unittest\/paragraph.html" : {
+      "ignoreWasSetByUser" : 0,
+      "ignore" : 0,
+      "hidden" : 0,
+      "outputPathIsSetByUser" : 0,
+      "inputAbbreviatedPath" : "\/vendor\/markdown-js\/test\/fixtures\/docs-maruku-unittest\/paragraph.html",
+      "outputAbbreviatedPath" : "No Output Path",
+      "fileType" : 2048
+    },
+    "\/vendor\/markdown-js\/test\/fixtures\/docs-maruku-unittest\/lists9.html" : {
+      "ignoreWasSetByUser" : 0,
+      "ignore" : 0,
+      "hidden" : 0,
+      "outputPathIsSetByUser" : 0,
+      "inputAbbreviatedPath" : "\/vendor\/markdown-js\/test\/fixtures\/docs-maruku-unittest\/lists9.html",
+      "outputAbbreviatedPath" : "No Output Path",
+      "fileType" : 2048
+    },
+    "\/js\/app.js" : {
+      "ignoreWasSetByUser" : 0,
+      "ignore" : 0,
+      "hidden" : 0,
+      "outputPathIsSetByUser" : 0,
+      "inputAbbreviatedPath" : "\/js\/app.js",
+      "outputStyle" : 0,
+      "syntaxCheckerStyle" : 0,
+      "outputAbbreviatedPath" : "\/public\/app-min.js",
+      "fileType" : 64
+    },
+    "\/vendor\/markdown-js\/test\/fixtures\/docs-pythonmarkdown2-tm-cases-pass\/nested_list.html" : {
+      "ignoreWasSetByUser" : 0,
+      "ignore" : 0,
+      "hidden" : 0,
+      "outputPathIsSetByUser" : 0,
+      "inputAbbreviatedPath" : "\/vendor\/markdown-js\/test\/fixtures\/docs-pythonmarkdown2-tm-cases-pass\/nested_list.html",
+      "outputAbbreviatedPath" : "No Output Path",
+      "fileType" : 2048
+    },
+    "\/vendor\/markdown-js\/test\/fixtures\/PHP_Markdown-from-MDTest1.1.mdtest\/Code_block_in_a_list_item.xhtml" : {
+      "ignoreWasSetByUser" : 0,
+      "ignore" : 0,
+      "hidden" : 0,
+      "outputPathIsSetByUser" : 0,
+      "inputAbbreviatedPath" : "\/vendor\/markdown-js\/test\/fixtures\/PHP_Markdown-from-MDTest1.1.mdtest\/Code_block_in_a_list_item.xhtml",
+      "outputAbbreviatedPath" : "No Output Path",
+      "fileType" : 2048
+    },
+    "\/vendor\/markdown-js\/test\/fixtures\/Markdown-from-MDTest1.1.mdtest\/Inline_HTML_comments.html" : {
+      "ignoreWasSetByUser" : 0,
+      "ignore" : 0,
+      "hidden" : 0,
+      "outputPathIsSetByUser" : 0,
+      "inputAbbreviatedPath" : "\/vendor\/markdown-js\/test\/fixtures\/Markdown-from-MDTest1.1.mdtest\/Inline_HTML_comments.html",
+      "outputAbbreviatedPath" : "No Output Path",
+      "fileType" : 2048
+    },
+    "\/vendor\/markdown-js\/test\/fixtures\/Text-Markdown.mdtest\/HTML-Comment-encoding.xhtml" : {
+      "ignoreWasSetByUser" : 0,
+      "ignore" : 0,
+      "hidden" : 0,
+      "outputPathIsSetByUser" : 0,
+      "inputAbbreviatedPath" : "\/vendor\/markdown-js\/test\/fixtures\/Text-Markdown.mdtest\/HTML-Comment-encoding.xhtml",
+      "outputAbbreviatedPath" : "No Output Path",
+      "fileType" : 2048
+    },
+    "\/vendor\/markdown-js\/test\/features.t.js" : {
+      "ignoreWasSetByUser" : 1,
+      "ignore" : 1,
+      "hidden" : 0,
+      "outputPathIsSetByUser" : 0,
+      "inputAbbreviatedPath" : "\/vendor\/markdown-js\/test\/features.t.js",
+      "outputStyle" : 1,
+      "syntaxCheckerStyle" : 0,
+      "outputAbbreviatedPath" : "\/public\/features.t-min.js",
+      "fileType" : 64
+    },
+    "\/less\/file.less" : {
+      "ieCompatibility" : 1,
+      "inputAbbreviatedPath" : "\/less\/file.less",
+      "outputAbbreviatedPath" : "\/public\/file.css",
+      "outputPathIsSetByUser" : 0,
+      "strictUnits" : 0,
+      "relativeURLS" : 0,
+      "ignore" : 1,
+      "strictImports" : 0,
+      "ignoreWasSetByUser" : 0,
+      "shouldRunBless" : 0,
+      "hidden" : 0,
+      "strictMath" : 0,
+      "outputStyle" : 0,
+      "fileType" : 1,
+      "debugStyle" : 1
+    },
+    "\/vendor\/markdown-js\/test\/fixtures\/PHP_Markdown-from-MDTest1.1.mdtest\/Inline_HTML_(Span).xhtml" : {
+      "ignoreWasSetByUser" : 0,
+      "ignore" : 0,
+      "hidden" : 0,
+      "outputPathIsSetByUser" : 0,
+      "inputAbbreviatedPath" : "\/vendor\/markdown-js\/test\/fixtures\/PHP_Markdown-from-MDTest1.1.mdtest\/Inline_HTML_(Span).xhtml",
+      "outputAbbreviatedPath" : "No Output Path",
+      "fileType" : 2048
+    },
+    "\/vendor\/markdown-js\/test\/fixtures\/docs-maruku-unittest\/bug_def.html" : {
+      "ignoreWasSetByUser" : 0,
+      "ignore" : 0,
+      "hidden" : 0,
+      "outputPathIsSetByUser" : 0,
+      "inputAbbreviatedPath" : "\/vendor\/markdown-js\/test\/fixtures\/docs-maruku-unittest\/bug_def.html",
+      "outputAbbreviatedPath" : "No Output Path",
+      "fileType" : 2048
+    },
+    "\/vendor\/markdown-js\/test\/fixtures\/docs-maruku-unittest\/lists7b.html" : {
+      "ignoreWasSetByUser" : 0,
+      "ignore" : 0,
+      "hidden" : 0,
+      "outputPathIsSetByUser" : 0,
+      "inputAbbreviatedPath" : "\/vendor\/markdown-js\/test\/fixtures\/docs-maruku-unittest\/lists7b.html",
+      "outputAbbreviatedPath" : "No Output Path",
+      "fileType" : 2048
+    },
+    "\/vendor\/markdown-js\/test\/fixtures\/docs-maruku-unittest\/easy.html" : {
+      "ignoreWasSetByUser" : 0,
+      "ignore" : 0,
+      "hidden" : 0,
+      "outputPathIsSetByUser" : 0,
+      "inputAbbreviatedPath" : "\/vendor\/markdown-js\/test\/fixtures\/docs-maruku-unittest\/easy.html",
+      "outputAbbreviatedPath" : "No Output Path",
+      "fileType" : 2048
+    },
+    "\/vendor\/markdown-js\/test\/fixtures\/docs-maruku-unittest\/data_loss.html" : {
+      "ignoreWasSetByUser" : 0,
+      "ignore" : 0,
+      "hidden" : 0,
+      "outputPathIsSetByUser" : 0,
+      "inputAbbreviatedPath" : "\/vendor\/markdown-js\/test\/fixtures\/docs-maruku-unittest\/data_loss.html",
+      "outputAbbreviatedPath" : "No Output Path",
+      "fileType" : 2048
+    },
+    "\/vendor\/markdown-js\/test\/fixtures\/Markdown-from-MDTest1.1.mdtest\/Hard-wrapped_paragraphs_with_list-like_lines.xhtml" : {
+      "ignoreWasSetByUser" : 0,
+      "ignore" : 0,
+      "hidden" : 0,
+      "outputPathIsSetByUser" : 0,
+      "inputAbbreviatedPath" : "\/vendor\/markdown-js\/test\/fixtures\/Markdown-from-MDTest1.1.mdtest\/Hard-wrapped_paragraphs_with_list-like_lines.xhtml",
+      "outputAbbreviatedPath" : "No Output Path",
+      "fileType" : 2048
+    },
+    "\/vendor\/markdown-js\/Gruntfile.js" : {
+      "ignoreWasSetByUser" : 1,
+      "ignore" : 1,
+      "hidden" : 0,
+      "outputPathIsSetByUser" : 0,
+      "inputAbbreviatedPath" : "\/vendor\/markdown-js\/Gruntfile.js",
+      "outputStyle" : 1,
+      "syntaxCheckerStyle" : 0,
+      "outputAbbreviatedPath" : "\/public\/Gruntfile-min.js",
+      "fileType" : 64
+    },
+    "\/vendor\/markdown-js\/test\/fixtures\/docs-php-markdown\/Inline_HTML_comments.html" : {
+      "ignoreWasSetByUser" : 0,
+      "ignore" : 0,
+      "hidden" : 0,
+      "outputPathIsSetByUser" : 0,
+      "inputAbbreviatedPath" : "\/vendor\/markdown-js\/test\/fixtures\/docs-php-markdown\/Inline_HTML_comments.html",
+      "outputAbbreviatedPath" : "No Output Path",
+      "fileType" : 2048
+    },
+    "\/vendor\/markdown-js\/test\/fixtures\/docs-pythonmarkdown2-tm-cases-pass\/link_defn_alt_title_delims.html" : {
+      "ignoreWasSetByUser" : 0,
+      "ignore" : 0,
+      "hidden" : 0,
+      "outputPathIsSetByUser" : 0,
+      "inputAbbreviatedPath" : "\/vendor\/markdown-js\/test\/fixtures\/docs-pythonmarkdown2-tm-cases-pass\/link_defn_alt_title_delims.html",
+      "outputAbbreviatedPath" : "No Output Path",
+      "fileType" : 2048
+    },
+    "\/vendor\/markdown-js\/test\/fixtures\/docs-maruku-unittest\/list3.html" : {
+      "ignoreWasSetByUser" : 0,
+      "ignore" : 0,
+      "hidden" : 0,
+      "outputPathIsSetByUser" : 0,
+      "inputAbbreviatedPath" : "\/vendor\/markdown-js\/test\/fixtures\/docs-maruku-unittest\/list3.html",
+      "outputAbbreviatedPath" : "No Output Path",
+      "fileType" : 2048
+    },
+    "\/vendor\/markdown-js\/test\/fixtures\/Markdown-from-MDTest1.1.mdtest\/Images.xhtml" : {
+      "ignoreWasSetByUser" : 0,
+      "ignore" : 0,
+      "hidden" : 0,
+      "outputPathIsSetByUser" : 0,
+      "inputAbbreviatedPath" : "\/vendor\/markdown-js\/test\/fixtures\/Markdown-from-MDTest1.1.mdtest\/Images.xhtml",
+      "outputAbbreviatedPath" : "No Output Path",
+      "fileType" : 2048
+    },
+    "\/js\/file.js" : {
+      "ignoreWasSetByUser" : 0,
+      "ignore" : 1,
+      "hidden" : 0,
+      "outputPathIsSetByUser" : 0,
+      "inputAbbreviatedPath" : "\/js\/file.js",
+      "outputStyle" : 1,
+      "syntaxCheckerStyle" : 0,
+      "outputAbbreviatedPath" : "\/public\/file-min.js",
+      "fileType" : 64
+    },
+    "\/vendor\/markdown-js\/test\/fixtures\/docs-maruku-unittest\/xml.html" : {
+      "ignoreWasSetByUser" : 0,
+      "ignore" : 0,
+      "hidden" : 0,
+      "outputPathIsSetByUser" : 0,
+      "inputAbbreviatedPath" : "\/vendor\/markdown-js\/test\/fixtures\/docs-maruku-unittest\/xml.html",
+      "outputAbbreviatedPath" : "No Output Path",
+      "fileType" : 2048
+    },
+    "\/vendor\/markdown-js\/test\/fixtures\/Markdown-from-MDTest1.1.mdtest\/Strong_and_em_together.xhtml" : {
+      "ignoreWasSetByUser" : 0,
+      "ignore" : 0,
+      "hidden" : 0,
+      "outputPathIsSetByUser" : 0,
+      "inputAbbreviatedPath" : "\/vendor\/markdown-js\/test\/fixtures\/Markdown-from-MDTest1.1.mdtest\/Strong_and_em_together.xhtml",
+      "outputAbbreviatedPath" : "No Output Path",
+      "fileType" : 2048
+    },
+    "\/vendor\/markdown-js\/test\/fixtures\/docs-maruku-unittest\/links.html" : {
+      "ignoreWasSetByUser" : 0,
+      "ignore" : 0,
+      "hidden" : 0,
+      "outputPathIsSetByUser" : 0,
+      "inputAbbreviatedPath" : "\/vendor\/markdown-js\/test\/fixtures\/docs-maruku-unittest\/links.html",
+      "outputAbbreviatedPath" : "No Output Path",
+      "fileType" : 2048
+    },
+    "\/vendor\/markdown-js\/test\/fixtures\/Markdown-from-MDTest1.1.mdtest\/Inline_HTML_(Simple).html" : {
+      "ignoreWasSetByUser" : 0,
+      "ignore" : 0,
+      "hidden" : 0,
+      "outputPathIsSetByUser" : 0,
+      "inputAbbreviatedPath" : "\/vendor\/markdown-js\/test\/fixtures\/Markdown-from-MDTest1.1.mdtest\/Inline_HTML_(Simple).html",
+      "outputAbbreviatedPath" : "No Output Path",
+      "fileType" : 2048
+    },
+    "\/vendor\/markdown-js\/test\/fixtures\/docs-maruku-unittest\/smartypants.html" : {
+      "ignoreWasSetByUser" : 0,
+      "ignore" : 0,
+      "hidden" : 0,
+      "outputPathIsSetByUser" : 0,
+      "inputAbbreviatedPath" : "\/vendor\/markdown-js\/test\/fixtures\/docs-maruku-unittest\/smartypants.html",
+      "outputAbbreviatedPath" : "No Output Path",
+      "fileType" : 2048
+    },
+    "\/vendor\/markdown-js\/test\/fixtures\/Markdown-from-MDTest1.1.mdtest\/Horizontal_rules.xhtml" : {
+      "ignoreWasSetByUser" : 0,
+      "ignore" : 0,
+      "hidden" : 0,
+      "outputPathIsSetByUser" : 0,
+      "inputAbbreviatedPath" : "\/vendor\/markdown-js\/test\/fixtures\/Markdown-from-MDTest1.1.mdtest\/Horizontal_rules.xhtml",
+      "outputAbbreviatedPath" : "No Output Path",
+      "fileType" : 2048
+    },
+    "\/vendor\/markdown-js\/test\/fixtures\/docs-maruku-unittest\/html4.html" : {
+      "ignoreWasSetByUser" : 0,
+      "ignore" : 0,
+      "hidden" : 0,
+      "outputPathIsSetByUser" : 0,
+      "inputAbbreviatedPath" : "\/vendor\/markdown-js\/test\/fixtures\/docs-maruku-unittest\/html4.html",
+      "outputAbbreviatedPath" : "No Output Path",
+      "fileType" : 2048
+    },
+    "\/vendor\/markdown-js\/test\/fixtures\/docs-pythonmarkdown2-tm-cases-pass\/footnotes_safe_mode_escape.html" : {
+      "ignoreWasSetByUser" : 0,
+      "ignore" : 0,
+      "hidden" : 0,
+      "outputPathIsSetByUser" : 0,
+      "inputAbbreviatedPath" : "\/vendor\/markdown-js\/test\/fixtures\/docs-pythonmarkdown2-tm-cases-pass\/footnotes_safe_mode_escape.html",
+      "outputAbbreviatedPath" : "No Output Path",
+      "fileType" : 2048
+    },
+    "\/vendor\/markdown-js\/lib\/markdown.js" : {
+      "ignoreWasSetByUser" : 1,
+      "ignore" : 1,
+      "hidden" : 0,
+      "outputPathIsSetByUser" : 0,
+      "inputAbbreviatedPath" : "\/vendor\/markdown-js\/lib\/markdown.js",
+      "outputStyle" : 1,
+      "syntaxCheckerStyle" : 0,
+      "outputAbbreviatedPath" : "\/public\/markdown-min.js",
+      "fileType" : 64
+    },
+    "\/vendor\/markdown-js\/test\/fixtures\/docs-php-markdown-todo\/Parens_in_URL.html" : {
+      "ignoreWasSetByUser" : 0,
+      "ignore" : 0,
+      "hidden" : 0,
+      "outputPathIsSetByUser" : 0,
+      "inputAbbreviatedPath" : "\/vendor\/markdown-js\/test\/fixtures\/docs-php-markdown-todo\/Parens_in_URL.html",
+      "outputAbbreviatedPath" : "No Output Path",
+      "fileType" : 2048
+    },
+    "\/vendor\/markdown-js\/test\/fixtures\/docs-pythonmarkdown2-tm-cases-pass\/link_patterns_edge_cases.html" : {
+      "ignoreWasSetByUser" : 0,
+      "ignore" : 0,
+      "hidden" : 0,
+      "outputPathIsSetByUser" : 0,
+      "inputAbbreviatedPath" : "\/vendor\/markdown-js\/test\/fixtures\/docs-pythonmarkdown2-tm-cases-pass\/link_patterns_edge_cases.html",
+      "outputAbbreviatedPath" : "No Output Path",
+      "fileType" : 2048
+    },
+    "\/vendor\/markdown-js\/test\/fixtures\/docs-pythonmarkdown2-tm-cases-pass\/issue2_safe_mode_borks_markup.html" : {
+      "ignoreWasSetByUser" : 0,
+      "ignore" : 0,
+      "hidden" : 0,
+      "outputPathIsSetByUser" : 0,
+      "inputAbbreviatedPath" : "\/vendor\/markdown-js\/test\/fixtures\/docs-pythonmarkdown2-tm-cases-pass\/issue2_safe_mode_borks_markup.html",
+      "outputAbbreviatedPath" : "No Output Path",
+      "fileType" : 2048
+    },
+    "\/vendor\/markdown-js\/test\/fixtures\/docs-maruku-unittest\/lists.html" : {
+      "ignoreWasSetByUser" : 0,
+      "ignore" : 0,
+      "hidden" : 0,
+      "outputPathIsSetByUser" : 0,
+      "inputAbbreviatedPath" : "\/vendor\/markdown-js\/test\/fixtures\/docs-maruku-unittest\/lists.html",
+      "outputAbbreviatedPath" : "No Output Path",
+      "fileType" : 2048
+    },
+    "\/vendor\/markdown-js\/test\/fixtures\/docs-php-markdown\/Code_block_in_a_list_item.html" : {
+      "ignoreWasSetByUser" : 0,
+      "ignore" : 0,
+      "hidden" : 0,
+      "outputPathIsSetByUser" : 0,
+      "inputAbbreviatedPath" : "\/vendor\/markdown-js\/test\/fixtures\/docs-php-markdown\/Code_block_in_a_list_item.html",
+      "outputAbbreviatedPath" : "No Output Path",
+      "fileType" : 2048
+    },
+    "\/vendor\/markdown-js\/test\/fixtures\/docs-pythonmarkdown2-tm-cases-pass\/inline_links.html" : {
+      "ignoreWasSetByUser" : 0,
+      "ignore" : 0,
+      "hidden" : 0,
+      "outputPathIsSetByUser" : 0,
+      "inputAbbreviatedPath" : "\/vendor\/markdown-js\/test\/fixtures\/docs-pythonmarkdown2-tm-cases-pass\/inline_links.html",
+      "outputAbbreviatedPath" : "No Output Path",
+      "fileType" : 2048
+    },
+    "\/public\/quickstart.html" : {
+      "ignoreWasSetByUser" : 0,
+      "ignore" : 0,
+      "hidden" : 0,
+      "outputPathIsSetByUser" : 0,
+      "inputAbbreviatedPath" : "\/public\/quickstart.html",
+      "outputAbbreviatedPath" : "No Output Path",
+      "fileType" : 2048
+    },
+    "\/vendor\/markdown-js\/test\/fixtures\/docs-pythonmarkdown2-tm-cases-pass\/code_block_with_tabs.html" : {
+      "ignoreWasSetByUser" : 0,
+      "ignore" : 0,
+      "hidden" : 0,
+      "outputPathIsSetByUser" : 0,
+      "inputAbbreviatedPath" : "\/vendor\/markdown-js\/test\/fixtures\/docs-pythonmarkdown2-tm-cases-pass\/code_block_with_tabs.html",
+      "outputAbbreviatedPath" : "No Output Path",
+      "fileType" : 2048
+    },
+    "\/vendor\/markdown-js\/test\/fixtures\/docs-php-markdown\/Images_(Untitled).html" : {
+      "ignoreWasSetByUser" : 0,
+      "ignore" : 0,
+      "hidden" : 0,
+      "outputPathIsSetByUser" : 0,
+      "inputAbbreviatedPath" : "\/vendor\/markdown-js\/test\/fixtures\/docs-php-markdown\/Images_(Untitled).html",
+      "outputAbbreviatedPath" : "No Output Path",
+      "fileType" : 2048
+    },
+    "\/vendor\/markdown-js\/test\/fixtures\/docs-pythonmarkdown2-tm-cases-pass\/header.html" : {
+      "ignoreWasSetByUser" : 0,
+      "ignore" : 0,
+      "hidden" : 0,
+      "outputPathIsSetByUser" : 0,
+      "inputAbbreviatedPath" : "\/vendor\/markdown-js\/test\/fixtures\/docs-pythonmarkdown2-tm-cases-pass\/header.html",
+      "outputAbbreviatedPath" : "No Output Path",
+      "fileType" : 2048
+    },
+    "\/vendor\/markdown-js\/test\/fixtures\/docs-maruku-unittest\/alt.html" : {
+      "ignoreWasSetByUser" : 0,
+      "ignore" : 0,
+      "hidden" : 0,
+      "outputPathIsSetByUser" : 0,
+      "inputAbbreviatedPath" : "\/vendor\/markdown-js\/test\/fixtures\/docs-maruku-unittest\/alt.html",
+      "outputAbbreviatedPath" : "No Output Path",
+      "fileType" : 2048
+    },
+    "\/vendor\/markdown-js\/test\/fixtures\/Text-Markdown.mdtest\/Links_reference_style.xhtml" : {
+      "ignoreWasSetByUser" : 0,
+      "ignore" : 0,
+      "hidden" : 0,
+      "outputPathIsSetByUser" : 0,
+      "inputAbbreviatedPath" : "\/vendor\/markdown-js\/test\/fixtures\/Text-Markdown.mdtest\/Links_reference_style.xhtml",
+      "outputAbbreviatedPath" : "No Output Path",
+      "fileType" : 2048
+    },
+    "\/public\/app-min.js" : {
+      "ignoreWasSetByUser" : 0,
+      "ignore" : 1,
+      "hidden" : 0,
+      "outputPathIsSetByUser" : 0,
+      "inputAbbreviatedPath" : "\/public\/app-min.js",
+      "outputStyle" : 1,
+      "syntaxCheckerStyle" : 0,
+      "outputAbbreviatedPath" : "\/public\/app-min-min.js",
+      "fileType" : 64
+    },
+    "\/vendor\/markdown-js\/test\/fixtures\/docs-maruku-unittest\/images2.html" : {
+      "ignoreWasSetByUser" : 0,
+      "ignore" : 0,
+      "hidden" : 0,
+      "outputPathIsSetByUser" : 0,
+      "inputAbbreviatedPath" : "\/vendor\/markdown-js\/test\/fixtures\/docs-maruku-unittest\/images2.html",
+      "outputAbbreviatedPath" : "No Output Path",
+      "fileType" : 2048
+    },
+    "\/vendor\/markdown-js\/test\/fixtures\/docs-maruku-unittest\/one.html" : {
+      "ignoreWasSetByUser" : 0,
+      "ignore" : 0,
+      "hidden" : 0,
+      "outputPathIsSetByUser" : 0,
+      "inputAbbreviatedPath" : "\/vendor\/markdown-js\/test\/fixtures\/docs-maruku-unittest\/one.html",
+      "outputAbbreviatedPath" : "No Output Path",
+      "fileType" : 2048
+    },
+    "\/vendor\/markdown-js\/test\/fixtures\/docs-pythonmarkdown2-tm-cases-pass\/code_safe_emphasis.html" : {
+      "ignoreWasSetByUser" : 0,
+      "ignore" : 0,
+      "hidden" : 0,
+      "outputPathIsSetByUser" : 0,
+      "inputAbbreviatedPath" : "\/vendor\/markdown-js\/test\/fixtures\/docs-pythonmarkdown2-tm-cases-pass\/code_safe_emphasis.html",
+      "outputAbbreviatedPath" : "No Output Path",
+      "fileType" : 2048
+    },
+    "\/vendor\/markdown-js\/test\/fixtures\/docs-pythonmarkdown2-tm-cases-pass\/link_patterns_double_hit.html" : {
+      "ignoreWasSetByUser" : 0,
+      "ignore" : 0,
+      "hidden" : 0,
+      "outputPathIsSetByUser" : 0,
+      "inputAbbreviatedPath" : "\/vendor\/markdown-js\/test\/fixtures\/docs-pythonmarkdown2-tm-cases-pass\/link_patterns_double_hit.html",
+      "outputAbbreviatedPath" : "No Output Path",
+      "fileType" : 2048
+    },
+    "\/vendor\/markdown-js\/test\/fixtures\/docs-php-markdown-todo\/Email_auto_links.html" : {
+      "ignoreWasSetByUser" : 0,
+      "ignore" : 0,
+      "hidden" : 0,
+      "outputPathIsSetByUser" : 0,
+      "inputAbbreviatedPath" : "\/vendor\/markdown-js\/test\/fixtures\/docs-php-markdown-todo\/Email_auto_links.html",
+      "outputAbbreviatedPath" : "No Output Path",
+      "fileType" : 2048
+    },
+    "\/vendor\/markdown-js\/test\/fixtures\/docs-pythonmarkdown2-tm-cases-pass\/footnotes_letters.html" : {
+      "ignoreWasSetByUser" : 0,
+      "ignore" : 0,
+      "hidden" : 0,
+      "outputPathIsSetByUser" : 0,
+      "inputAbbreviatedPath" : "\/vendor\/markdown-js\/test\/fixtures\/docs-pythonmarkdown2-tm-cases-pass\/footnotes_letters.html",
+      "outputAbbreviatedPath" : "No Output Path",
+      "fileType" : 2048
+    },
+    "\/vendor\/markdown-js\/test\/fixtures\/docs-maruku-unittest\/lists_after_paragraph.html" : {
+      "ignoreWasSetByUser" : 0,
+      "ignore" : 0,
+      "hidden" : 0,
+      "outputPathIsSetByUser" : 0,
+      "inputAbbreviatedPath" : "\/vendor\/markdown-js\/test\/fixtures\/docs-maruku-unittest\/lists_after_paragraph.html",
+      "outputAbbreviatedPath" : "No Output Path",
+      "fileType" : 2048
+    },
+    "\/vendor\/markdown-js\/test\/fixtures\/docs-maruku-unittest\/xml2.html" : {
+      "ignoreWasSetByUser" : 0,
+      "ignore" : 0,
+      "hidden" : 0,
+      "outputPathIsSetByUser" : 0,
+      "inputAbbreviatedPath" : "\/vendor\/markdown-js\/test\/fixtures\/docs-maruku-unittest\/xml2.html",
+      "outputAbbreviatedPath" : "No Output Path",
+      "fileType" : 2048
+    },
+    "\/vendor\/markdown-js\/test\/fixtures\/Markdown-from-MDTest1.1.mdtest\/Amps_and_angle_encoding.xhtml" : {
+      "ignoreWasSetByUser" : 0,
+      "ignore" : 0,
+      "hidden" : 0,
+      "outputPathIsSetByUser" : 0,
+      "inputAbbreviatedPath" : "\/vendor\/markdown-js\/test\/fixtures\/Markdown-from-MDTest1.1.mdtest\/Amps_and_angle_encoding.xhtml",
+      "outputAbbreviatedPath" : "No Output Path",
+      "fileType" : 2048
+    },
+    "\/vendor\/markdown-js\/test\/fixtures\/docs-php-markdown-todo\/Ins_and_del.xhtml" : {
+      "ignoreWasSetByUser" : 0,
+      "ignore" : 0,
+      "hidden" : 0,
+      "outputPathIsSetByUser" : 0,
+      "inputAbbreviatedPath" : "\/vendor\/markdown-js\/test\/fixtures\/docs-php-markdown-todo\/Ins_and_del.xhtml",
+      "outputAbbreviatedPath" : "No Output Path",
+      "fileType" : 2048
+    },
+    "\/vendor\/markdown-js\/test\/fixtures\/Text-Markdown.mdtest\/Links_multiline_bugs_2.html" : {
+      "ignoreWasSetByUser" : 0,
+      "ignore" : 0,
+      "hidden" : 0,
+      "outputPathIsSetByUser" : 0,
+      "inputAbbreviatedPath" : "\/vendor\/markdown-js\/test\/fixtures\/Text-Markdown.mdtest\/Links_multiline_bugs_2.html",
+      "outputAbbreviatedPath" : "No Output Path",
+      "fileType" : 2048
+    },
+    "\/vendor\/markdown-js\/test\/fixtures\/docs-pythonmarkdown2-tm-cases-pass\/img_in_link.html" : {
+      "ignoreWasSetByUser" : 0,
+      "ignore" : 0,
+      "hidden" : 0,
+      "outputPathIsSetByUser" : 0,
+      "inputAbbreviatedPath" : "\/vendor\/markdown-js\/test\/fixtures\/docs-pythonmarkdown2-tm-cases-pass\/img_in_link.html",
+      "outputAbbreviatedPath" : "No Output Path",
+      "fileType" : 2048
+    },
+    "\/vendor\/markdown-js\/test\/fixtures\/docs-maruku-unittest\/extra_dl.html" : {
+      "ignoreWasSetByUser" : 0,
+      "ignore" : 0,
+      "hidden" : 0,
+      "outputPathIsSetByUser" : 0,
+      "inputAbbreviatedPath" : "\/vendor\/markdown-js\/test\/fixtures\/docs-maruku-unittest\/extra_dl.html",
+      "outputAbbreviatedPath" : "No Output Path",
+      "fileType" : 2048
+    },
+    "\/vendor\/markdown-js\/test\/fixtures\/docs-php-markdown-extra\/Footnotes.html" : {
+      "ignoreWasSetByUser" : 0,
+      "ignore" : 0,
+      "hidden" : 0,
+      "outputPathIsSetByUser" : 0,
+      "inputAbbreviatedPath" : "\/vendor\/markdown-js\/test\/fixtures\/docs-php-markdown-extra\/Footnotes.html",
+      "outputAbbreviatedPath" : "No Output Path",
+      "fileType" : 2048
+    },
+    "\/vendor\/markdown-js\/test\/fixtures\/PHP_Markdown-from-MDTest1.1.mdtest\/Inline_HTML_comments.html" : {
+      "ignoreWasSetByUser" : 0,
+      "ignore" : 0,
+      "hidden" : 0,
+      "outputPathIsSetByUser" : 0,
+      "inputAbbreviatedPath" : "\/vendor\/markdown-js\/test\/fixtures\/PHP_Markdown-from-MDTest1.1.mdtest\/Inline_HTML_comments.html",
+      "outputAbbreviatedPath" : "No Output Path",
+      "fileType" : 2048
+    },
+    "\/vendor\/markdown-js\/test\/fixtures\/Markdown-from-MDTest1.1.mdtest\/Code_Spans.xhtml" : {
+      "ignoreWasSetByUser" : 0,
+      "ignore" : 0,
+      "hidden" : 0,
+      "outputPathIsSetByUser" : 0,
+      "inputAbbreviatedPath" : "\/vendor\/markdown-js\/test\/fixtures\/Markdown-from-MDTest1.1.mdtest\/Code_Spans.xhtml",
+      "outputAbbreviatedPath" : "No Output Path",
+      "fileType" : 2048
+    },
+    "\/vendor\/markdown-js\/test\/fixtures\/docs-php-markdown-todo\/Inline_HTML_(Span).html" : {
+      "ignoreWasSetByUser" : 0,
+      "ignore" : 0,
+      "hidden" : 0,
+      "outputPathIsSetByUser" : 0,
+      "inputAbbreviatedPath" : "\/vendor\/markdown-js\/test\/fixtures\/docs-php-markdown-todo\/Inline_HTML_(Span).html",
+      "outputAbbreviatedPath" : "No Output Path",
+      "fileType" : 2048
+    },
+    "\/vendor\/markdown-js\/test\/fixtures\/docs-maruku-unittest\/test.html" : {
+      "ignoreWasSetByUser" : 0,
+      "ignore" : 0,
+      "hidden" : 0,
+      "outputPathIsSetByUser" : 0,
+      "inputAbbreviatedPath" : "\/vendor\/markdown-js\/test\/fixtures\/docs-maruku-unittest\/test.html",
+      "outputAbbreviatedPath" : "No Output Path",
+      "fileType" : 2048
+    },
+    "\/vendor\/markdown-js\/test\/fixtures\/docs-php-markdown\/Headers.html" : {
+      "ignoreWasSetByUser" : 0,
+      "ignore" : 0,
+      "hidden" : 0,
+      "outputPathIsSetByUser" : 0,
+      "inputAbbreviatedPath" : "\/vendor\/markdown-js\/test\/fixtures\/docs-php-markdown\/Headers.html",
+      "outputAbbreviatedPath" : "No Output Path",
+      "fileType" : 2048
+    },
+    "\/vendor\/markdown-js\/test\/fixtures\/docs-maruku-unittest\/code3.html" : {
+      "ignoreWasSetByUser" : 0,
+      "ignore" : 0,
+      "hidden" : 0,
+      "outputPathIsSetByUser" : 0,
+      "inputAbbreviatedPath" : "\/vendor\/markdown-js\/test\/fixtures\/docs-maruku-unittest\/code3.html",
+      "outputAbbreviatedPath" : "No Output Path",
+      "fileType" : 2048
+    },
+    "\/vendor\/markdown-js\/test\/fixtures\/PHP_Markdown-from-MDTest1.1.mdtest\/Horizontal_Rules.xhtml" : {
+      "ignoreWasSetByUser" : 0,
+      "ignore" : 0,
+      "hidden" : 0,
+      "outputPathIsSetByUser" : 0,
+      "inputAbbreviatedPath" : "\/vendor\/markdown-js\/test\/fixtures\/PHP_Markdown-from-MDTest1.1.mdtest\/Horizontal_Rules.xhtml",
+      "outputAbbreviatedPath" : "No Output Path",
+      "fileType" : 2048
+    },
+    "\/vendor\/markdown-js\/test\/fixtures\/docs-pythonmarkdown2-tm-cases-pass\/ref_links.html" : {
+      "ignoreWasSetByUser" : 0,
+      "ignore" : 0,
+      "hidden" : 0,
+      "outputPathIsSetByUser" : 0,
+      "inputAbbreviatedPath" : "\/vendor\/markdown-js\/test\/fixtures\/docs-pythonmarkdown2-tm-cases-pass\/ref_links.html",
+      "outputAbbreviatedPath" : "No Output Path",
+      "fileType" : 2048
+    },
+    "\/vendor\/markdown-js\/test\/fixtures\/docs-pythonmarkdown2-tm-cases-pass\/escapes.html" : {
+      "ignoreWasSetByUser" : 0,
+      "ignore" : 0,
+      "hidden" : 0,
+      "outputPathIsSetByUser" : 0,
+      "inputAbbreviatedPath" : "\/vendor\/markdown-js\/test\/fixtures\/docs-pythonmarkdown2-tm-cases-pass\/escapes.html",
+      "outputAbbreviatedPath" : "No Output Path",
+      "fileType" : 2048
+    },
+    "\/vendor\/markdown-js\/test\/fixtures\/docs-php-markdown\/Inline_HTML_(Simple).html" : {
+      "ignoreWasSetByUser" : 0,
+      "ignore" : 0,
+      "hidden" : 0,
+      "outputPathIsSetByUser" : 0,
+      "inputAbbreviatedPath" : "\/vendor\/markdown-js\/test\/fixtures\/docs-php-markdown\/Inline_HTML_(Simple).html",
+      "outputAbbreviatedPath" : "No Output Path",
+      "fileType" : 2048
+    },
+    "\/vendor\/markdown-js\/test\/fixtures\/docs-maruku-unittest\/lists6.html" : {
+      "ignoreWasSetByUser" : 0,
+      "ignore" : 0,
+      "hidden" : 0,
+      "outputPathIsSetByUser" : 0,
+      "inputAbbreviatedPath" : "\/vendor\/markdown-js\/test\/fixtures\/docs-maruku-unittest\/lists6.html",
+      "outputAbbreviatedPath" : "No Output Path",
+      "fileType" : 2048
+    },
+    "\/vendor\/markdown-js\/test\/fixtures\/Text-Markdown.mdtest\/Emphasis.xhtml" : {
+      "ignoreWasSetByUser" : 0,
+      "ignore" : 0,
+      "hidden" : 0,
+      "outputPathIsSetByUser" : 0,
+      "inputAbbreviatedPath" : "\/vendor\/markdown-js\/test\/fixtures\/Text-Markdown.mdtest\/Emphasis.xhtml",
+      "outputAbbreviatedPath" : "No Output Path",
+      "fileType" : 2048
+    },
+    "\/vendor\/markdown-js\/test\/fixtures\/docs-php-markdown-extra\/Emphasis.html" : {
+      "ignoreWasSetByUser" : 0,
+      "ignore" : 0,
+      "hidden" : 0,
+      "outputPathIsSetByUser" : 0,
+      "inputAbbreviatedPath" : "\/vendor\/markdown-js\/test\/fixtures\/docs-php-markdown-extra\/Emphasis.html",
+      "outputAbbreviatedPath" : "No Output Path",
+      "fileType" : 2048
+    },
+    "\/vendor\/markdown-js\/test\/fixtures\/PHP_Markdown-from-MDTest1.1.mdtest\/Inline_HTML_(Simple).html" : {
+      "ignoreWasSetByUser" : 0,
+      "ignore" : 0,
+      "hidden" : 0,
+      "outputPathIsSetByUser" : 0,
+      "inputAbbreviatedPath" : "\/vendor\/markdown-js\/test\/fixtures\/PHP_Markdown-from-MDTest1.1.mdtest\/Inline_HTML_(Simple).html",
+      "outputAbbreviatedPath" : "No Output Path",
+      "fileType" : 2048
+    },
+    "\/vendor\/markdown-js\/test\/fixtures\/docs-pythonmarkdown2-tm-cases-pass\/missing_link_defn.html" : {
+      "ignoreWasSetByUser" : 0,
+      "ignore" : 0,
+      "hidden" : 0,
+      "outputPathIsSetByUser" : 0,
+      "inputAbbreviatedPath" : "\/vendor\/markdown-js\/test\/fixtures\/docs-pythonmarkdown2-tm-cases-pass\/missing_link_defn.html",
+      "outputAbbreviatedPath" : "No Output Path",
+      "fileType" : 2048
+    },
+    "\/vendor\/markdown-js\/test\/fixtures\/docs-pythonmarkdown2-tm-cases-pass\/auto_link_safe_mode.html" : {
+      "ignoreWasSetByUser" : 0,
+      "ignore" : 0,
+      "hidden" : 0,
+      "outputPathIsSetByUser" : 0,
+      "inputAbbreviatedPath" : "\/vendor\/markdown-js\/test\/fixtures\/docs-pythonmarkdown2-tm-cases-pass\/auto_link_safe_mode.html",
+      "outputAbbreviatedPath" : "No Output Path",
+      "fileType" : 2048
+    },
+    "\/vendor\/markdown-js\/test\/fixtures\/docs-maruku-unittest\/olist.html" : {
+      "ignoreWasSetByUser" : 0,
+      "ignore" : 0,
+      "hidden" : 0,
+      "outputPathIsSetByUser" : 0,
+      "inputAbbreviatedPath" : "\/vendor\/markdown-js\/test\/fixtures\/docs-maruku-unittest\/olist.html",
+      "outputAbbreviatedPath" : "No Output Path",
+      "fileType" : 2048
+    },
+    "\/vendor\/markdown-js\/test\/fixtures\/docs-maruku-unittest\/extra_table1.html" : {
+      "ignoreWasSetByUser" : 0,
+      "ignore" : 0,
+      "hidden" : 0,
+      "outputPathIsSetByUser" : 0,
+      "inputAbbreviatedPath" : "\/vendor\/markdown-js\/test\/fixtures\/docs-maruku-unittest\/extra_table1.html",
+      "outputAbbreviatedPath" : "No Output Path",
+      "fileType" : 2048
     }
   },
   "manualImportLinks" : [
     {
-      "type" : 1,
+      "type" : 0,
       "position" : 0,
-      "linkedFileAbbreviatedPath" : "\/js\/file.js",
+      "linkedFileAbbreviatedPath" : "\/vendor\/markdown-js\/lib\/markdown.js",
       "baseFileAbbreviatedPath" : "\/js\/app.js",
       "followForSyntaxChecking" : 1
     },
     {
       "type" : 0,
       "position" : 1,
+      "linkedFileAbbreviatedPath" : "\/js\/file.js",
+      "baseFileAbbreviatedPath" : "\/js\/app.js",
+      "followForSyntaxChecking" : 1
+    },
+    {
+      "type" : 0,
+      "position" : 2,
       "linkedFileAbbreviatedPath" : "\/js\/files.js",
       "baseFileAbbreviatedPath" : "\/js\/app.js",
       "followForSyntaxChecking" : 1
@@ -310,7 +1942,7 @@
     "kitAutoOutputPathReplace2" : "",
     "lessRelativeURLS" : 0,
     "lessDebugStyle" : 1,
-    "javascriptAutoOutputPathRelativePath" : "\/built",
+    "javascriptAutoOutputPathRelativePath" : "\/public",
     "slimAutoOutputPathStyle" : 0
   },
   "projectAttributes" : {
