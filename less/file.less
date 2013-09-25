@@ -3,12 +3,15 @@
     width: 100%;
     margin: 30px auto 0;
     border: 1px solid lighten(gray, 40%);
+    background: white;
     border-width: 1px 1px 0;
     padding: 40px 20px;
     height: 100%;
+    position: relative;
+    z-index: 100;
+
 
 	#src {
-        
         font-weight: 300;
 		white-space: pre;
         outline: none;
@@ -16,8 +19,12 @@
 	}
 
     #preview {
+        outline: none;
         border-top:1px solid gray;
         margin-top:20px;
         //display: none;
+
+        h1 {
+        }
     }
 }

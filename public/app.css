@@ -1,7 +1,32 @@
+/*
 @import url(http://fonts.googleapis.com/css?family=Merriweather:400,700,300);
-/* line 3, /Users/k9ordon/Code/schreiber/less/app.less */
+
 body {
-  font-family: 'Merriweather', serif;
+    font-family: 'Merriweather', serif;
+    background: lighten(lightyellow, 4);
+}
+*/
+/* line 10, /Users/k9ordon/Code/schreiber/less/font.less */
+body {
+  font-family: "Helvetica Neue", Helvetica, Arial;
+}
+/* line 1, /Users/k9ordon/Code/schreiber/less/layout.less */
+body {
+  background: #fffff4;
+}
+/* line 1, /Users/k9ordon/Code/schreiber/less/files.less */
+#files {
+  position: fixed;
+  left: 10px;
+  font-size: 12px;
+}
+/* line 6, /Users/k9ordon/Code/schreiber/less/files.less */
+#files P {
+  cursor: pointer;
+}
+/* line 8, /Users/k9ordon/Code/schreiber/less/files.less */
+#files P small {
+  display: block;
 }
 /* line 1, /Users/k9ordon/Code/schreiber/less/file.less */
 #file {
@@ -9,19 +34,23 @@ body {
   width: 100%;
   margin: 30px auto 0;
   border: 1px solid #e6e6e6;
+  background: white;
   border-width: 1px 1px 0;
   padding: 40px 20px;
   height: 100%;
+  position: relative;
+  z-index: 100;
 }
-/* line 10, /Users/k9ordon/Code/schreiber/less/file.less */
+/* line 14, /Users/k9ordon/Code/schreiber/less/file.less */
 #file #src {
   font-weight: 300;
   white-space: pre;
   outline: none;
   font-size: 16px;
 }
-/* line 18, /Users/k9ordon/Code/schreiber/less/file.less */
+/* line 21, /Users/k9ordon/Code/schreiber/less/file.less */
 #file #preview {
+  outline: none;
   border-top: 1px solid gray;
   margin-top: 20px;
 }

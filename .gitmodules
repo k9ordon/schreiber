@@ -1,3 +1,6 @@
 [submodule "vendor/markdown-js"]
 	path = vendor/markdown-js
 	url = git://github.com/evilstreak/markdown-js.git
+[submodule "vendor/to-markdown"]
+	path = vendor/to-markdown
+	url = git://github.com/benweet/to-markdown.git
