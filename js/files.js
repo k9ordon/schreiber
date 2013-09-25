@@ -1,13 +1,18 @@
 var Files = function() {
 		this.$el = document.querySelector('#files');
+        this.$openPickerButton = this.$el.querySelector('#openPickerButton');
 	},
 	p = Files.prototype;
 
 p.init = function() {
 	console.log('Files init');
-	//this.events();
+	this.events();
 	return this;
 };
+
+p.events = function() {
+    this.$openPickerButton.addEventListener('click', files.openDrivePicker);
+}
 
 p.onGapiReady = function() {
 	console.log('Google api ready');
@@ -38,17 +43,18 @@ p.getDriveFiles = function() {
 
 p.onDriveFilesReady = function(resp) {
 	console.log(resp);
+
 	var result = resp.items,
 		i = 0;
 	for (i = 0; i < result.length; i++) {
-		files.$el.innerHTML += '<p data-driveId="'+result[i].id+'">'+result[i].title + ' - ' +  result[i].mimeType +'</p>';
-		//console.log([result[i].title, result[i].mimeType]);
+		files.$el.innerHTML += '<p data-driveId="'+result[i].id+'">'+result[i].title +'<small class="mimeTpye">'+result[i].mimeType+'</small> <small class="folder">'+'</small></p>';
+		console.log([result[i]]);
 	}
 
-	files.events();
+	files.driveEvents();
 }
 
-p.events = function() {
+p.driveEvents = function() {
 	//this.$el.addEventListener('click', );
 	[].forEach.call(
 		this.$el.querySelectorAll('p'), 
@@ -63,4 +69,31 @@ p.events = function() {
 p.onFilesItemClick = function($filesItem) {
 	console.log('clicked', $filesItem);
 	file.loadDriveFile($filesItem.getAttribute('data-driveId'));
+}
+
+p.openDrivePicker = function(e) {
+    console.log('open drive picker');
+    gapi.load('picker', {'callback': files.openDrivePickerReady });
+}
+
+p.openDrivePickerReady = function() {
+    console.log('openDrivePickerReady', google);
+
+    var picker = new google.picker.PickerBuilder().
+        addView(google.picker.ViewId.IMAGE_SEARCH).
+        setDeveloperKey('gv-sYwfyYRCRxrhpBChelBSK').
+        setCallback(files.onDrivePickerClicked).
+        build();
+        picker.setVisible(true);
+}
+
+// A simple callback implementation.
+p.onDrivePickerClicked = function(data) {
+    var url = 'nothing';
+    if (data[google.picker.Response.ACTION] == google.picker.Action.PICKED) {
+      var doc = data[google.picker.Response.DOCUMENTS][0];
+      url = doc[google.picker.Document.URL];
+    }
+    var message = 'You picked: ' + url;
+    document.getElementById('result').innerHTML = message;
 }
