@@ -11,7 +11,7 @@ var File = function() {
 p.init = function(driveId) {
 	console.log('File init');
 	
-    this.updateMarkdown();
+    this.updatePreview();
     this.events();
 
 	return this;
@@ -20,6 +20,9 @@ p.init = function(driveId) {
 p.events = function() {
     this.$src.addEventListener('keyup', this.onSrcKeyup);
     this.$src.addEventListener('keydown', this.onSrcKeydown);
+
+    this.$preview.addEventListener('keyup', this.onPreviewKeyup);
+    this.$preview.addEventListener('keydown', this.onPreviewKeydown);
 }
 
 p.onSrcKeydown = function(e) {
@@ -34,16 +37,41 @@ p.onSrcKeydown = function(e) {
         document.execCommand('styleWithCSS',true,null);
         document.execCommand('indent',true,null);
         e.preventDefault();
-    } 
+    }
 }
 
 p.onSrcKeyup = function() {
     console.log('keyup at ', file.currentKeyDownOffset);
-    file.updateMarkdown();
+    file.updatePreview();
 }
 
-p.updateMarkdown = function() {
-    //console.log('updateMarkdown', this.$src.innerHTML, marked(this.$src.innerHTML));
+
+p.onPreviewKeydown = function(e) {
+    var keyCode = e.keyCode || e.which; 
+
+    var s = window.getSelection();
+    file.currentKeyDownOffset = s.extentOffset;
+
+    //document.execCommand('defaultParagraphSeparator', false, 'p');
+
+    console.log('preview keydown', keyCode, this.currentKeyDownOffset);
+/*
+    if (keyCode == 9) { 
+        document.execCommand('styleWithCSS',true,null);
+        document.execCommand('indent',true,null);
+        e.preventDefault();
+    } 
+*/
+}
+
+p.onPreviewKeyup = function() {
+    file.$src.innerText = toMarkdown(file.$preview.innerHTML.replace(/\<div\>/g, '<p>').replace(/\<\/div\>/g, '</p>'));
+    //file.updatePreview();
+
+}
+
+p.updatePreview = function() {
+    //console.log('updatePreview', this.$src.innerHTML, marked(this.$src.innerHTML));
     console.log(marked.lexer(this.$src.innerText, {}));
 
     this.$preview.innerHTML = marked(this.$src.innerText);
@@ -108,6 +136,7 @@ p.onDriveFileInfoReady = function(resp) {
                 console.log( driveFileXhr.response );
 
                 file.$src.innerHTML = driveFileXhr.response;
+                file.updatePreview();
             }
         }
     }
