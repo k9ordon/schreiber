@@ -1,6 +1,7 @@
 var File = function() {
 		this.$el = document.querySelector('#file');
 		this.$src = this.$el.querySelector('#src');
+        this.editor = null;
         this.$preview = this.$el.querySelector('#preview');
 		this.driveId = null;
 
@@ -11,8 +12,18 @@ var File = function() {
 p.init = function(driveId) {
 	console.log('File init');
 	
-    this.updatePreview();
-    this.events();
+    //this.updatePreview();
+    //this.events();
+
+    this.editor = CodeMirror.fromTextArea(this.$src, {
+        mode: 'markdown',
+        lineNumbers: true,
+        theme: "solarized light",
+        lineWrapping: true,
+        styleSelectedText: true,
+        styleActiveLine: true,
+        extraKeys: {"Enter": "newlineAndIndentContinueMarkdownList"}
+    });
 
 	return this;
 };
@@ -20,9 +31,6 @@ p.init = function(driveId) {
 p.events = function() {
     this.$src.addEventListener('keyup', this.onSrcKeyup);
     this.$src.addEventListener('keydown', this.onSrcKeydown);
-
-    this.$preview.addEventListener('keyup', this.onPreviewKeyup);
-    this.$preview.addEventListener('keydown', this.onPreviewKeydown);
 }
 
 p.onSrcKeydown = function(e) {
@@ -46,61 +54,11 @@ p.onSrcKeyup = function() {
 }
 
 
-p.onPreviewKeydown = function(e) {
-    var keyCode = e.keyCode || e.which; 
-
-    var s = window.getSelection();
-    file.currentKeyDownOffset = s.extentOffset;
-
-    //document.execCommand('defaultParagraphSeparator', false, 'p');
-
-    console.log('preview keydown', keyCode, this.currentKeyDownOffset);
-/*
-    if (keyCode == 9) { 
-        document.execCommand('styleWithCSS',true,null);
-        document.execCommand('indent',true,null);
-        e.preventDefault();
-    } 
-*/
-}
-
-p.onPreviewKeyup = function() {
-    file.$src.innerText = toMarkdown(file.$preview.innerHTML.replace(/\<div\>/g, '<p>').replace(/\<\/div\>/g, '</p>'));
-    //file.updatePreview();
-
-}
-
 p.updatePreview = function() {
     //console.log('updatePreview', this.$src.innerHTML, marked(this.$src.innerHTML));
     console.log(marked.lexer(this.$src.innerText, {}));
 
     this.$preview.innerHTML = marked(this.$src.innerText);
-/*
-    var tokens = marked.lexer(this.$src.innerText, {}),
-        tokensLength = tokens.length;
-
-    this.$preview.innerHTML = '';
-
-    for(var i = 0; i < tokensLength; i++) {
-        this.$preview.innerHTML += '<b>' + tokens[i].type + '</b> ' + JSON.stringify(tokens[i]) + '<br>';// .type + ' <b>' + (tokens[i].text ? tokens[i].text : '') + '</b><br>';
-    }
-*/
-
-/*
-    var s = window.getSelection();
-    this.currentKeyDownOffset = s.extentOffset;
-
-    file.$src.innerText = file.$src.innerText + '.';
-
-    var range = document.createRange();
-    range.selectNodeContents(this.$src);
-    range.setStart(this.$src.firstChild, p+1);
-    range.collapse(true);
-
-    var sel = window.getSelection();
-    sel.removeAllRanges();
-    sel.addRange(range);
-*/
 }
 
 p.loadDriveFile = function(driveId) {
@@ -135,7 +93,7 @@ p.onDriveFileInfoReady = function(resp) {
 //              200=OK
                 console.log( driveFileXhr.response );
 
-                file.$src.innerHTML = driveFileXhr.response;
+                file.editor.setValue(driveFileXhr.response);
                 file.updatePreview();
             }
         }
