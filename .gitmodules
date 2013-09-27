@@ -4,3 +4,6 @@
 [submodule "vendor/to-markdown"]
 	path = vendor/to-markdown
 	url = git://github.com/benweet/to-markdown.git
+[submodule "vendor/CodeMirror"]
+	path = vendor/CodeMirror
+	url = git://github.com/marijnh/CodeMirror.git
