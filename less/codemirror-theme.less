@@ -1,292 +1,118 @@
-@import "../vendor/CodeMirror/lib/codemirror.css";
-/*
-@import url(http://fonts.googleapis.com/css?family=Merriweather:400,700,300);
-
-body {
-    font-family: 'Merriweather', serif;
-    background: lighten(lightyellow, 4);
-}
-*/
-/* line 10, /Users/k9ordon/Code/schreiber/less/font.less */
-body {
-  font-family: "Helvetica Neue", Helvetica, Arial;
-}
-/* line 1, /Users/k9ordon/Code/schreiber/less/layout.less */
-body {
-  background: #fffff4;
-}
-/* line 1, /Users/k9ordon/Code/schreiber/less/files.less */
-#files {
-  position: fixed;
-  left: 10px;
-  font-size: 12px;
-}
-/* line 6, /Users/k9ordon/Code/schreiber/less/files.less */
-#files P {
-  cursor: pointer;
-}
-/* line 8, /Users/k9ordon/Code/schreiber/less/files.less */
-#files P small {
-  display: none;
-}
-/* line 3, /Users/k9ordon/Code/schreiber/less/file.less */
-#file .CodeMirror {
-  max-width: 650px;
-  width: 100%;
-  margin: 30px auto 0;
-  height: 100%;
-  position: relative;
-  z-index: 100;
-  line-height: 22px;
-}
-/* line 17, /Users/k9ordon/Code/schreiber/less/file.less */
-#file .CodeMirror pre {
-  line-height: 22px;
-}
-/* line 22, /Users/k9ordon/Code/schreiber/less/file.less */
-#file .CodeMirror-gutters {
-  background: transparent;
-}
-/* line 26, /Users/k9ordon/Code/schreiber/less/file.less */
-#file #preview {
-  display: none;
-  outline: none;
-  border-top: 1px solid gray;
-  margin-top: 20px;
-}
 /*
 Solarized theme for code-mirror
 http://ethanschoonover.com/solarized
 */
+
 /*
 Solarized color pallet
 http://ethanschoonover.com/solarized/img/solarized-palette.png
 */
-/* line 11, /Users/k9ordon/Code/schreiber/less/codemirror-theme.less */
-.solarized.base03 {
-  color: #002b36;
-}
-/* line 12, /Users/k9ordon/Code/schreiber/less/codemirror-theme.less */
-.solarized.base02 {
-  color: #073642;
-}
-/* line 13, /Users/k9ordon/Code/schreiber/less/codemirror-theme.less */
-.solarized.base01 {
-  color: #586e75;
-}
-/* line 14, /Users/k9ordon/Code/schreiber/less/codemirror-theme.less */
-.solarized.base00 {
-  color: #657b83;
-}
-/* line 15, /Users/k9ordon/Code/schreiber/less/codemirror-theme.less */
-.solarized.base0 {
-  color: #839496;
-}
-/* line 16, /Users/k9ordon/Code/schreiber/less/codemirror-theme.less */
-.solarized.base1 {
-  color: #93a1a1;
-}
-/* line 17, /Users/k9ordon/Code/schreiber/less/codemirror-theme.less */
-.solarized.base2 {
-  color: #eee8d5;
-}
-/* line 18, /Users/k9ordon/Code/schreiber/less/codemirror-theme.less */
-.solarized.base3 {
-  color: #fdf6e3;
-}
-/* line 19, /Users/k9ordon/Code/schreiber/less/codemirror-theme.less */
-.solarized.solar-yellow {
-  color: #b58900;
-}
-/* line 20, /Users/k9ordon/Code/schreiber/less/codemirror-theme.less */
-.solarized.solar-orange {
-  color: #cb4b16;
-}
-/* line 21, /Users/k9ordon/Code/schreiber/less/codemirror-theme.less */
-.solarized.solar-red {
-  color: #dc322f;
-}
-/* line 22, /Users/k9ordon/Code/schreiber/less/codemirror-theme.less */
-.solarized.solar-magenta {
-  color: #d33682;
-}
-/* line 23, /Users/k9ordon/Code/schreiber/less/codemirror-theme.less */
-.solarized.solar-violet {
-  color: #6c71c4;
-}
-/* line 24, /Users/k9ordon/Code/schreiber/less/codemirror-theme.less */
-.solarized.solar-blue {
-  color: #268bd2;
-}
-/* line 25, /Users/k9ordon/Code/schreiber/less/codemirror-theme.less */
-.solarized.solar-cyan {
-  color: #2aa198;
-}
-/* line 26, /Users/k9ordon/Code/schreiber/less/codemirror-theme.less */
-.solarized.solar-green {
-  color: #859900;
-}
+
+.solarized.base03 { color: #002b36; }
+.solarized.base02 { color: #073642; }
+.solarized.base01 { color: #586e75; }
+.solarized.base00 { color: #657b83; }
+.solarized.base0 { color: #839496; }
+.solarized.base1 { color: #93a1a1; }
+.solarized.base2 { color: #eee8d5; }
+.solarized.base3  { color: #fdf6e3; }
+.solarized.solar-yellow  { color: #b58900; }
+.solarized.solar-orange  { color: #cb4b16; }
+.solarized.solar-red { color: #dc322f; }
+.solarized.solar-magenta { color: #d33682; }
+.solarized.solar-violet  { color: #6c71c4; }
+.solarized.solar-blue { color: #268bd2; }
+.solarized.solar-cyan { color: #2aa198; }
+.solarized.solar-green { color: #859900; }
+
 /* Color scheme for code-mirror */
-/* line 30, /Users/k9ordon/Code/schreiber/less/codemirror-theme.less */
+
 .cm-s-solarized {
   line-height: 1.45em;
-  font-family: Menlo, Monaco, "Andale Mono", "lucida console", "Courier New", monospace !important;
+  font-family: Menlo,Monaco,"Andale Mono","lucida console","Courier New",monospace !important;
   color-profile: sRGB;
   rendering-intent: auto;
 }
-/* line 36, /Users/k9ordon/Code/schreiber/less/codemirror-theme.less */
 .cm-s-solarized.cm-s-dark {
   color: #839496;
-  background-color: #002b36;
+  background-color:  #002b36;
   text-shadow: #002b36 0 1px;
 }
-/* line 41, /Users/k9ordon/Code/schreiber/less/codemirror-theme.less */
 .cm-s-solarized.cm-s-light {
   background-color: #fdf6e3;
   color: #657b83;
   text-shadow: #eee8d5 0 1px;
 }
-/* line 47, /Users/k9ordon/Code/schreiber/less/codemirror-theme.less */
+
 .cm-s-solarized .CodeMirror-widget {
   text-shadow: none;
 }
-/* line 52, /Users/k9ordon/Code/schreiber/less/codemirror-theme.less */
-.cm-s-solarized .cm-keyword {
-  color: #cb4b16;
-}
-/* line 53, /Users/k9ordon/Code/schreiber/less/codemirror-theme.less */
-.cm-s-solarized .cm-atom {
-  color: #d33682;
-}
-/* line 54, /Users/k9ordon/Code/schreiber/less/codemirror-theme.less */
-.cm-s-solarized .cm-number {
-  color: #d33682;
-}
-/* line 55, /Users/k9ordon/Code/schreiber/less/codemirror-theme.less */
-.cm-s-solarized .cm-def {
-  color: #2aa198;
-}
-/* line 57, /Users/k9ordon/Code/schreiber/less/codemirror-theme.less */
-.cm-s-solarized .cm-variable {
-  color: #268bd2;
-}
-/* line 58, /Users/k9ordon/Code/schreiber/less/codemirror-theme.less */
-.cm-s-solarized .cm-variable-2 {
-  color: #b58900;
-}
-/* line 59, /Users/k9ordon/Code/schreiber/less/codemirror-theme.less */
-.cm-s-solarized .cm-variable-3 {
-  color: #6c71c4;
-}
-/* line 61, /Users/k9ordon/Code/schreiber/less/codemirror-theme.less */
-.cm-s-solarized .cm-property {
-  color: #2aa198;
-}
-/* line 62, /Users/k9ordon/Code/schreiber/less/codemirror-theme.less */
-.cm-s-solarized .cm-operator {
-  color: #6c71c4;
-}
-/* line 64, /Users/k9ordon/Code/schreiber/less/codemirror-theme.less */
-.cm-s-solarized .cm-comment {
-  color: #586e75;
-  font-style: italic;
-}
-/* line 66, /Users/k9ordon/Code/schreiber/less/codemirror-theme.less */
-.cm-s-solarized .cm-string {
-  color: #859900;
-}
-/* line 67, /Users/k9ordon/Code/schreiber/less/codemirror-theme.less */
-.cm-s-solarized .cm-string-2 {
-  color: #b58900;
-}
-/* line 69, /Users/k9ordon/Code/schreiber/less/codemirror-theme.less */
-.cm-s-solarized .cm-meta {
-  color: #859900;
-}
-/* line 70, /Users/k9ordon/Code/schreiber/less/codemirror-theme.less */
-.cm-s-solarized .cm-qualifier {
-  color: #b58900;
-}
-/* line 71, /Users/k9ordon/Code/schreiber/less/codemirror-theme.less */
-.cm-s-solarized .cm-builtin {
-  color: #d33682;
-}
-/* line 72, /Users/k9ordon/Code/schreiber/less/codemirror-theme.less */
-.cm-s-solarized .cm-bracket {
-  color: #cb4b16;
-}
-/* line 73, /Users/k9ordon/Code/schreiber/less/codemirror-theme.less */
-.cm-s-solarized .CodeMirror-matchingbracket {
-  color: #859900;
-}
-/* line 74, /Users/k9ordon/Code/schreiber/less/codemirror-theme.less */
-.cm-s-solarized .CodeMirror-nonmatchingbracket {
-  color: #dc322f;
-}
-/* line 75, /Users/k9ordon/Code/schreiber/less/codemirror-theme.less */
-.cm-s-solarized .cm-tag {
-  color: #93a1a1;
-}
-/* line 76, /Users/k9ordon/Code/schreiber/less/codemirror-theme.less */
-.cm-s-solarized .cm-attribute {
-  color: #2aa198;
-}
-/* line 77, /Users/k9ordon/Code/schreiber/less/codemirror-theme.less */
-.cm-s-solarized .cm-header {
-  color: #586e75;
-  font-size: 20px;
-}
-/* line 78, /Users/k9ordon/Code/schreiber/less/codemirror-theme.less */
-.cm-s-solarized .cm-header .cm-s-solarized .cm-quote {
-  color: #93a1a1;
-}
-/* line 81, /Users/k9ordon/Code/schreiber/less/codemirror-theme.less */
+
+
+.cm-s-solarized .cm-keyword { color: #cb4b16 }
+.cm-s-solarized .cm-atom { color: #d33682; }
+.cm-s-solarized .cm-number { color: #d33682; }
+.cm-s-solarized .cm-def { color: #2aa198; }
+
+.cm-s-solarized .cm-variable { color: #268bd2; }
+.cm-s-solarized .cm-variable-2 { color: #b58900; }
+.cm-s-solarized .cm-variable-3 { color: #6c71c4; }
+
+.cm-s-solarized .cm-property { color: #2aa198; }
+.cm-s-solarized .cm-operator {color: #6c71c4;}
+
+.cm-s-solarized .cm-comment { color: #586e75; font-style:italic; }
+
+.cm-s-solarized .cm-string { color: #859900; }
+.cm-s-solarized .cm-string-2 { color: #b58900; }
+
+.cm-s-solarized .cm-meta { color: #859900; }
+.cm-s-solarized .cm-qualifier { color: #b58900; }
+.cm-s-solarized .cm-builtin { color: #d33682; }
+.cm-s-solarized .cm-bracket { color: #cb4b16; }
+.cm-s-solarized .CodeMirror-matchingbracket { color: #859900; }
+.cm-s-solarized .CodeMirror-nonmatchingbracket { color: #dc322f; }
+.cm-s-solarized .cm-tag { color: #93a1a1 }
+.cm-s-solarized .cm-attribute {  color: #2aa198; }
+.cm-s-solarized .cm-header { color: #586e75; font-size:20px; }
+.cm-s-solarized .cm-header
+
+.cm-s-solarized .cm-quote { color: #93a1a1; }
 .cm-s-solarized .cm-hr {
   color: transparent;
   border-top: 1px solid #586e75;
   display: block;
 }
-/* line 86, /Users/k9ordon/Code/schreiber/less/codemirror-theme.less */
-.cm-s-solarized .cm-link {
-  color: #93a1a1;
-  cursor: pointer;
-}
-/* line 87, /Users/k9ordon/Code/schreiber/less/codemirror-theme.less */
-.cm-s-solarized .cm-special {
-  color: #6c71c4;
-}
-/* line 88, /Users/k9ordon/Code/schreiber/less/codemirror-theme.less */
+.cm-s-solarized .cm-link { color: #93a1a1; cursor: pointer; }
+.cm-s-solarized .cm-special { color: #6c71c4; }
 .cm-s-solarized .cm-em {
   color: #999;
   text-decoration: underline;
   text-decoration-style: dotted;
 }
-/* line 93, /Users/k9ordon/Code/schreiber/less/codemirror-theme.less */
-.cm-s-solarized .cm-strong {
-  color: #eee;
-}
-/* line 94, /Users/k9ordon/Code/schreiber/less/codemirror-theme.less */
+.cm-s-solarized .cm-strong { color: #eee; }
 .cm-s-solarized .cm-tab:before {
-  content: "➤";
-  /*visualize tab character*/
-
+  content: "➤";   /*visualize tab character*/
   color: #586e75;
 }
-/* line 98, /Users/k9ordon/Code/schreiber/less/codemirror-theme.less */
 .cm-s-solarized .cm-error,
 .cm-s-solarized .cm-invalidchar {
   color: #586e75;
   border-bottom: 1px dotted #dc322f;
 }
-/* line 104, /Users/k9ordon/Code/schreiber/less/codemirror-theme.less */
+
 .cm-s-solarized.cm-s-dark .CodeMirror-selected {
   background: #073642;
 }
-/* line 108, /Users/k9ordon/Code/schreiber/less/codemirror-theme.less */
+
 .cm-s-solarized.cm-s-light .CodeMirror-selected {
   background: #eee8d5;
 }
+
 /* Editor styling */
+
+
+
 /* Little shadow on the view-port of the buffer view 
 .cm-s-solarized.CodeMirror {
   -moz-box-shadow: inset 7px 0 12px -6px #000;
@@ -295,57 +121,58 @@ http://ethanschoonover.com/solarized/img/solarized-palette.png
 }
 */
 /* Gutter border and some shadow from it  */
-/* line 124, /Users/k9ordon/Code/schreiber/less/codemirror-theme.less */
 .cm-s-solarized .CodeMirror-gutters {
   padding: 0 15px 0 10px;
+  //box-shadow: 0 10px 20px black;
   border-right: 1px solid;
 }
+
 /* Gutter colors and line number styling based of color scheme (dark / light) */
+
 /* Dark */
-/* line 133, /Users/k9ordon/Code/schreiber/less/codemirror-theme.less */
 .cm-s-solarized.cm-s-dark .CodeMirror-gutters {
-  background-color: transparent;
+  background-color: transparent;//#073642;
   border-color: #00232c;
 }
-/* line 138, /Users/k9ordon/Code/schreiber/less/codemirror-theme.less */
+
 .cm-s-solarized.cm-s-dark .CodeMirror-linenumber {
   text-shadow: #021014 0 -1px;
 }
+
 /* Light */
-/* line 143, /Users/k9ordon/Code/schreiber/less/codemirror-theme.less */
 .cm-s-solarized.cm-s-light .CodeMirror-gutters {
   background-color: #eee8d5;
   border-color: #eee8d5;
 }
+
 /* Common */
-/* line 149, /Users/k9ordon/Code/schreiber/less/codemirror-theme.less */
 .cm-s-solarized .CodeMirror-linenumber {
   color: #586e75;
 }
-/* line 153, /Users/k9ordon/Code/schreiber/less/codemirror-theme.less */
+
 .cm-s-solarized .CodeMirror-gutter .CodeMirror-gutter-text {
   color: #586e75;
 }
-/* line 157, /Users/k9ordon/Code/schreiber/less/codemirror-theme.less */
+
 .cm-s-solarized .CodeMirror-lines {
   padding-left: 5px;
 }
-/* line 161, /Users/k9ordon/Code/schreiber/less/codemirror-theme.less */
+
 .cm-s-solarized .CodeMirror-lines .CodeMirror-cursor {
   border-left: 1px solid #819090;
 }
+
 /*
 Active line. Negative margin compensates left padding of the text in the
 view-port
 */
-/* line 169, /Users/k9ordon/Code/schreiber/less/codemirror-theme.less */
 .cm-s-solarized.cm-s-dark .CodeMirror-activeline-background {
   background: rgba(255, 255, 255, 0.05);
 }
-/* line 172, /Users/k9ordon/Code/schreiber/less/codemirror-theme.less */
 .cm-s-solarized.cm-s-light .CodeMirror-activeline-background {
   background: rgba(0, 0, 0, 0.05);
 }
+
 /*
 View-port and gutter both get little noise background to give it a real feel.
 * /
