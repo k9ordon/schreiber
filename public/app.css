@@ -1,6 +1,4 @@
 @import "../vendor/CodeMirror/lib/codemirror.css";
-
-@import url(http://fonts.googleapis.com/css?family=Vollkorn:400,700);
 /*
 @import url(http://fonts.googleapis.com/css?family=Merriweather:400,700,300);
 
@@ -13,10 +11,6 @@ body {
 body,
 .CodeMirror {
   font-family: "Helvetica Neue", Helvetica, Arial;
-}
-/* line 16, /Users/k9ordon/Code/schreiber/less/font.less */
-.CodeMirror .cm-header {
-  font-family: 'Vollkorn', serif !important;
 }
 /* line 1, /Users/k9ordon/Code/schreiber/less/layout.less */
 * {
@@ -354,7 +348,7 @@ body {
 /* line 64, /Users/k9ordon/Code/schreiber/less/codemirror-theme.less */
 .cm-s-schreiber .cm-header {
   color: #586e75;
-  font-size: 22px;
+  font-size: 20px;
 }
 /* line 65, /Users/k9ordon/Code/schreiber/less/codemirror-theme.less */
 .cm-s-schreiber .cm-header .cm-s-schreiber .cm-quote {
@@ -383,7 +377,7 @@ body {
 }
 /* line 80, /Users/k9ordon/Code/schreiber/less/codemirror-theme.less */
 .cm-s-schreiber .cm-strong {
-  color: #eee;
+  /*color: #eee;*/
 }
 /* line 81, /Users/k9ordon/Code/schreiber/less/codemirror-theme.less */
 .cm-s-schreiber .cm-tab:before {
