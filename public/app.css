@@ -1,4 +1,6 @@
 @import "../vendor/CodeMirror/lib/codemirror.css";
+
+@import "linecons.css";
 /*
 @import url(http://fonts.googleapis.com/css?family=Merriweather:400,700,300);
 
@@ -7,7 +9,14 @@ body {
     background: lighten(lightyellow, 4);
 }
 */
-/* line 12, /Users/k9ordon/Code/schreiber/less/font.less */
+@font-face {
+  font-family: 'linecons';
+  src: url('fonts/linecons.eot');
+  src: url('fonts/linecons.eot?#iefix') format('embedded-opentype'), url('fonts/linecons.woff') format('woff'), url('fonts/linecons.ttf') format('truetype'), url('fonts/linecons.svg#linecons') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+/* line 23, /Users/k9ordon/Code/schreiber/less/font.less */
 body,
 .CodeMirror {
   font-family: "Helvetica Neue", Helvetica, Arial;
@@ -48,7 +57,7 @@ body:after {
   clear: both;
 }
 /* line 24, /Users/k9ordon/Code/schreiber/less/layout.less */
-#titlebar {
+.titlebar {
   position: fixed;
   top: 0;
   left: 0;
@@ -57,32 +66,112 @@ body:after {
   background: rgba(253, 246, 227, 0.9);
   z-index: 200;
   -webkit-app-region: drag;
-  height: 35px;
-  padding: 0 5px;
+  padding: 0 10px;
   text-align: center;
-  line-height: 35px;
+  line-height: 40px;
   border-bottom: 1px solid #dfd4b1;
 }
-/* line 43, /Users/k9ordon/Code/schreiber/less/layout.less */
-#titlebar:hover {
+/* line 45, /Users/k9ordon/Code/schreiber/less/layout.less */
+.titlebar:hover {
   background: #eee8d5;
   background: rgba(238, 232, 213, 0.8);
 }
-/* line 48, /Users/k9ordon/Code/schreiber/less/layout.less */
-#titlebar > * {
+/* line 50, /Users/k9ordon/Code/schreiber/less/layout.less */
+.titlebar > * {
   cursor: default;
 }
-/* line 52, /Users/k9ordon/Code/schreiber/less/layout.less */
-#titlebar #title {
-  text-align: center;
-}
-/* line 56, /Users/k9ordon/Code/schreiber/less/layout.less */
-#titlebar #windowButtons {
-  position: absolute;
-  left: 10px;
+/* line 57, /Users/k9ordon/Code/schreiber/less/layout.less */
+.titlebar .left {
+  float: left;
 }
 /* line 60, /Users/k9ordon/Code/schreiber/less/layout.less */
-#titlebar #windowButtons .windowButton {
+.titlebar .left #toDocuments {
+  display: inline-block;
+  border: 1px solid #dfd4b1;
+  padding: 4px 20px;
+  border-radius: 3px;
+  margin: 0;
+  max-width: 180px;
+  font-size: 14px;
+  line-height: 16px;
+}
+/* line 19, /Users/k9ordon/Code/schreiber/less/mixins.less */
+.titlebar .left #toDocuments i.icon {
+  position: relative;
+  left: -8px;
+  line-height: 0;
+  top: -1px;
+  vertical-align: middle;
+}
+/* line 29, /Users/k9ordon/Code/schreiber/less/mixins.less */
+.titlebar .left #toDocuments .icon {
+  font-family: 'linecons';
+  speak: none;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+  -webkit-font-smoothing: antialiased;
+}
+/* line 39, /Users/k9ordon/Code/schreiber/less/mixins.less */
+.titlebar .left #toDocuments .icon:before {
+  content: "\e007";
+}
+/* line 65, /Users/k9ordon/Code/schreiber/less/layout.less */
+.titlebar .left #toDocuments .icon {
+  font-size: 20px;
+}
+/* line 71, /Users/k9ordon/Code/schreiber/less/layout.less */
+.titlebar .right {
+  float: right;
+}
+/* line 74, /Users/k9ordon/Code/schreiber/less/layout.less */
+.titlebar .right #toPreview {
+  display: inline-block;
+  border: 1px solid #dfd4b1;
+  padding: 4px 20px;
+  border-radius: 3px;
+  margin: 0;
+  max-width: 180px;
+  font-size: 14px;
+  line-height: 16px;
+}
+/* line 19, /Users/k9ordon/Code/schreiber/less/mixins.less */
+.titlebar .right #toPreview i.icon {
+  position: relative;
+  left: -8px;
+  line-height: 0;
+  top: -1px;
+  vertical-align: middle;
+}
+/* line 29, /Users/k9ordon/Code/schreiber/less/mixins.less */
+.titlebar .right #toPreview .icon {
+  font-family: 'linecons';
+  speak: none;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+  -webkit-font-smoothing: antialiased;
+}
+/* line 39, /Users/k9ordon/Code/schreiber/less/mixins.less */
+.titlebar .right #toPreview .icon:before {
+  content: "\e006";
+}
+/* line 77, /Users/k9ordon/Code/schreiber/less/layout.less */
+.titlebar .right #toPreview .icon {
+  font-size: 28px;
+}
+/* line 83, /Users/k9ordon/Code/schreiber/less/layout.less */
+.titlebar #windowButtons {
+  float: left;
+  text-align: left;
+  margin-right: 10px;
+}
+/* line 92, /Users/k9ordon/Code/schreiber/less/layout.less */
+.titlebar #windowButtons .windowButton {
   display: inline-block;
   width: 12px;
   height: 12px;
@@ -94,8 +183,8 @@ body:after {
   background: #eee8d5;
   margin: 12px 3px 0;
 }
-/* line 73, /Users/k9ordon/Code/schreiber/less/layout.less */
-#titlebar #windowButtons .windowButton:before {
+/* line 105, /Users/k9ordon/Code/schreiber/less/layout.less */
+.titlebar #windowButtons .windowButton:before {
   content: '';
   display: block;
   position: absolute;
@@ -106,8 +195,8 @@ body:after {
   bottom: 0px;
   right: 0px;
 }
-/* line 85, /Users/k9ordon/Code/schreiber/less/layout.less */
-#titlebar #windowButtons .windowButton:after {
+/* line 117, /Users/k9ordon/Code/schreiber/less/layout.less */
+.titlebar #windowButtons .windowButton:after {
   content: '';
   display: block;
   position: absolute;
@@ -119,16 +208,16 @@ body:after {
   background: -webkit-linear-gradient(#ffffff, rgba(255, 255, 255, 0.9) 2%, #ffffff, rgba(255, 255, 255, 0.4) 16%, rgba(255, 255, 255, 0) 43%, rgba(255, 255, 255, 0.74), rgba(255, 255, 255, 0.7) 122%, rgba(255, 255, 255, 0.7));
   box-shadow: inset 0px -3px -5px 3px rgba(255, 255, 255, 0.2), inset 0px 2px -5px 3px rgba(255, 255, 255, 0.2);
 }
-/* line 98, /Users/k9ordon/Code/schreiber/less/layout.less */
-#titlebar #windowButtons .windowButton#close:hover {
+/* line 130, /Users/k9ordon/Code/schreiber/less/layout.less */
+.titlebar #windowButtons .windowButton#close:hover {
   background: #FD4E4E;
 }
-/* line 102, /Users/k9ordon/Code/schreiber/less/layout.less */
-#titlebar #windowButtons .windowButton#minimize:hover {
+/* line 134, /Users/k9ordon/Code/schreiber/less/layout.less */
+.titlebar #windowButtons .windowButton#minimize:hover {
   background: #F3BB55;
 }
-/* line 106, /Users/k9ordon/Code/schreiber/less/layout.less */
-#titlebar #windowButtons .windowButton#maximize:hover {
+/* line 138, /Users/k9ordon/Code/schreiber/less/layout.less */
+.titlebar #windowButtons .windowButton#maximize:hover {
   background: #96D16F;
 }
 /* line 1, /Users/k9ordon/Code/schreiber/less/files.less */
@@ -141,24 +230,46 @@ body:after {
   padding: 40px 30px;
 }
 /* line 11, /Users/k9ordon/Code/schreiber/less/files.less */
+#files #newFile {
+  display: inline-block;
+  border: 1px solid #dfd4b1;
+  padding: 4px 20px;
+  border-radius: 3px;
+  margin: 0;
+  max-width: 180px;
+  font-size: 14px;
+  line-height: 16px;
+  margin-bottom: 15px;
+}
+/* line 19, /Users/k9ordon/Code/schreiber/less/mixins.less */
+#files #newFile i.icon {
+  position: relative;
+  left: -8px;
+  line-height: 0;
+  top: -1px;
+  vertical-align: middle;
+}
+/* line 16, /Users/k9ordon/Code/schreiber/less/files.less */
 #files #openPickerButton {
   display: none;
 }
-/* line 15, /Users/k9ordon/Code/schreiber/less/files.less */
+/* line 20, /Users/k9ordon/Code/schreiber/less/files.less */
 #files h3 {
   margin: 0 0 15px;
+  text-transform: uppercase;
+  font-size: 12px;
 }
-/* line 19, /Users/k9ordon/Code/schreiber/less/files.less */
+/* line 26, /Users/k9ordon/Code/schreiber/less/files.less */
 #files P {
   cursor: pointer;
   font-size: 14px;
   margin: 0 0 10px;
 }
-/* line 23, /Users/k9ordon/Code/schreiber/less/files.less */
+/* line 30, /Users/k9ordon/Code/schreiber/less/files.less */
 #files P small {
   display: none;
 }
-/* line 30, /Users/k9ordon/Code/schreiber/less/files.less */
+/* line 37, /Users/k9ordon/Code/schreiber/less/files.less */
 .distractionFree #files {
   opacity: 0.05;
 }

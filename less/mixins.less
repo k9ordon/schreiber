@@ -3,3 +3,41 @@
   &:before { content: ''; display: block; }
   &:after { content: ''; display: table; clear: both; }
 }
+
+.button() {
+    display: inline-block;
+    border:1px solid darken(#eee8d5, 10%);
+    padding: 4px 20px;
+    border-radius: 3px;
+    margin:0;
+    //width: 100%;
+    max-width: 180px;
+    //text-align:center;
+    font-size: 14px;
+    line-height: 16px;
+
+    i.icon {
+        position: relative;
+        left: -8px;
+        line-height: 0;
+        top: -1px;
+        vertical-align: middle;
+    }
+}
+
+.icon(@hex: '\e005') {
+    .icon {
+        font-family: 'linecons';
+        speak: none;
+        font-style: normal;
+        font-weight: normal;
+        font-variant: normal;
+        text-transform: none;
+        line-height: 1;
+        -webkit-font-smoothing: antialiased;
+
+        &:before {
+            content: @hex;
+        }
+    }
+}
