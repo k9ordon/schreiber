@@ -15,14 +15,15 @@ p.events = function() {
 }
 
 p.onGapiReady = function() {
-	console.log('Google api ready');
+	console.log('Google api ready' + CLIENT_ID);
 	gapi.auth.authorize({
 			'client_id': CLIENT_ID, 
 			'scope': SCOPES, 
-			'immediate': true
+			//'immediate': true
 		},
-        function() {
-			files.getDriveFiles();
+        function(pew) {
+            console.log('auth ready', pew);
+			//files.getDriveFiles();
 		}		
 	);
 };
