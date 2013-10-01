@@ -8208,7 +8208,7 @@ p.init = function(driveId) {
 
     this.editor = CodeMirror.fromTextArea(this.$src, {
         mode: 'markdown',
-        lineNumbers: true,
+        lineNumbers: false,
         theme: "schreiber",
         lineWrapping: true,
         //styleSelectedText: true,
@@ -8225,13 +8225,23 @@ p.events = function() {
     this.editor.on("change", function(cm, change) {
         console.log("something changed! (" + change.origin + ")");
     });
+
+    this.editor.on("focus", function(cm) {
+        console.log("focus");
+        app.setDistractionFree(true);
+    });
+
+    this.editor.on("blur", function(cm) {
+        console.log("blur");
+        app.setDistractionFree(false);
+    });
 }
 
 p.onSrcKeydown = function(e) {
     var keyCode = e.keyCode || e.which; 
 
     var s = window.getSelection();
-    file.currentKeyDownOffset = s.extentOffset;
+    app.file.currentKeyDownOffset = s.extentOffset;
 
     console.log('keydown', keyCode, this.currentKeyDownOffset);
 
@@ -8243,8 +8253,8 @@ p.onSrcKeydown = function(e) {
 }
 
 p.onSrcKeyup = function() {
-    console.log('keyup at ', file.currentKeyDownOffset);
-    file.updatePreview();
+    console.log('keyup at ', app.file.currentKeyDownOffset);
+    app.file.updatePreview();
 }
 
 
@@ -8268,7 +8278,10 @@ p.loadDriveFile = function(driveId) {
 			//'q': "title contains 'meeting'"
 		}
 	});
-	request.execute(file.onDriveFileInfoReady);
+
+    console.log('request', request);
+
+	request.execute(app.file.onDriveFileInfoReady);
 }
 
 p.onDriveFileInfoReady = function(resp) {
@@ -8287,8 +8300,8 @@ p.onDriveFileInfoReady = function(resp) {
 //              200=OK
                 console.log( driveFileXhr.response );
 
-                file.editor.setValue(driveFileXhr.response);
-                file.updatePreview();
+                app.file.editor.setValue(driveFileXhr.response);
+                app.file.updatePreview();
             }
         }
     }
@@ -8316,7 +8329,7 @@ p.init = function() {
 };
 
 p.events = function() {
-    this.$openPickerButton.addEventListener('click', files.openDrivePicker);
+    this.$openPickerButton.addEventListener('click', app.files.openDrivePicker);
 }
 
 p.onGapiReady = function() {
@@ -8329,7 +8342,7 @@ p.onGapiReady = function() {
 		},
         function(pew) {
             console.log('auth ready', pew);
-			//files.getDriveFiles();
+			app.files.getDriveFiles();
 		}		
 	);
 };
@@ -8345,7 +8358,7 @@ p.getDriveFiles = function() {
 			//'q': "title contains 'meeting'"
 		}
 	});
-	request.execute(files.onDriveFilesReady);
+	request.execute(app.files.onDriveFilesReady);
 }
 
 p.onDriveFilesReady = function(resp) {
@@ -8354,11 +8367,11 @@ p.onDriveFilesReady = function(resp) {
 	var result = resp.items,
 		i = 0;
 	for (i = 0; i < result.length; i++) {
-		files.$el.innerHTML += '<p data-driveId="'+result[i].id+'">'+result[i].title +'<small class="mimeTpye">'+result[i].mimeType+'</small> <small class="folder">'+'</small></p>';
+		app.files.$el.innerHTML += '<p data-driveId="'+result[i].id+'">'+result[i].title +'<small class="mimeTpye">'+result[i].mimeType+'</small> <small class="folder">'+'</small></p>';
 		console.log([result[i]]);
 	}
 
-	files.driveEvents();
+	app.files.driveEvents();
 }
 
 p.driveEvents = function() {
@@ -8367,7 +8380,7 @@ p.driveEvents = function() {
 		this.$el.querySelectorAll('p'), 
 		function($filesItem){
 			$filesItem.addEventListener('click', function() {
-				files.onFilesItemClick($filesItem);
+				app.files.onFilesItemClick($filesItem);
 			})
 		}
 	);
@@ -8375,12 +8388,12 @@ p.driveEvents = function() {
 
 p.onFilesItemClick = function($filesItem) {
 	console.log('clicked', $filesItem);
-	file.loadDriveFile($filesItem.getAttribute('data-driveId'));
+	app.file.loadDriveFile($filesItem.getAttribute('data-driveId'));
 }
 
 p.openDrivePicker = function(e) {
     console.log('open drive picker');
-    gapi.load('picker', {'callback': files.openDrivePickerReady });
+    gapi.load('picker', {'callback': app.files.openDrivePickerReady });
 }
 
 p.openDrivePickerReady = function() {
@@ -8410,7 +8423,7 @@ p.onDrivePickerClicked = function(data) {
 ********************************************** */
 
 var App = function() {
-        this.CLIENT_ID = '140224327941-54e8c7refmj3697retgf3c6ed8lcj1dp.apps.googleusercontent.com';
+        this.CLIENT_ID = '140224327941.apps.googleusercontent.com';//'140224327941-54e8c7refmj3697retgf3c6ed8lcj1dp.apps.googleusercontent.com';
         this.SCOPES = 'https://www.googleapis.com/auth/drive';
         this.files = new Files;
         this.onGapiReady = this.files.onGapiReady;
@@ -8422,6 +8435,14 @@ var App = function() {
 p.init = function(driveId) {
     this.files.init();
     this.file.init();
+}
+
+p.setDistractionFree = function(bool) {
+    if(bool === true) {
+        document.body.classList.add('distractionFree');
+        return;
+    }
+    document.body.classList.remove('distractionFree');
 }
 
 /* **********************************************

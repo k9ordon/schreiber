@@ -11,7 +11,7 @@ p.init = function() {
 };
 
 p.events = function() {
-    this.$openPickerButton.addEventListener('click', files.openDrivePicker);
+    this.$openPickerButton.addEventListener('click', app.files.openDrivePicker);
 }
 
 p.onGapiReady = function() {
@@ -24,7 +24,7 @@ p.onGapiReady = function() {
 		},
         function(pew) {
             console.log('auth ready', pew);
-			//files.getDriveFiles();
+			app.files.getDriveFiles();
 		}		
 	);
 };
@@ -40,7 +40,7 @@ p.getDriveFiles = function() {
 			//'q': "title contains 'meeting'"
 		}
 	});
-	request.execute(files.onDriveFilesReady);
+	request.execute(app.files.onDriveFilesReady);
 }
 
 p.onDriveFilesReady = function(resp) {
@@ -49,11 +49,11 @@ p.onDriveFilesReady = function(resp) {
 	var result = resp.items,
 		i = 0;
 	for (i = 0; i < result.length; i++) {
-		files.$el.innerHTML += '<p data-driveId="'+result[i].id+'">'+result[i].title +'<small class="mimeTpye">'+result[i].mimeType+'</small> <small class="folder">'+'</small></p>';
+		app.files.$el.innerHTML += '<p data-driveId="'+result[i].id+'">'+result[i].title +'<small class="mimeTpye">'+result[i].mimeType+'</small> <small class="folder">'+'</small></p>';
 		console.log([result[i]]);
 	}
 
-	files.driveEvents();
+	app.files.driveEvents();
 }
 
 p.driveEvents = function() {
@@ -62,7 +62,7 @@ p.driveEvents = function() {
 		this.$el.querySelectorAll('p'), 
 		function($filesItem){
 			$filesItem.addEventListener('click', function() {
-				files.onFilesItemClick($filesItem);
+				app.files.onFilesItemClick($filesItem);
 			})
 		}
 	);
@@ -70,12 +70,12 @@ p.driveEvents = function() {
 
 p.onFilesItemClick = function($filesItem) {
 	console.log('clicked', $filesItem);
-	file.loadDriveFile($filesItem.getAttribute('data-driveId'));
+	app.file.loadDriveFile($filesItem.getAttribute('data-driveId'));
 }
 
 p.openDrivePicker = function(e) {
     console.log('open drive picker');
-    gapi.load('picker', {'callback': files.openDrivePickerReady });
+    gapi.load('picker', {'callback': app.files.openDrivePickerReady });
 }
 
 p.openDrivePickerReady = function() {
