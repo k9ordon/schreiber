@@ -18,9 +18,9 @@ p.init = function(driveId) {
     this.editor = CodeMirror.fromTextArea(this.$src, {
         mode: 'markdown',
         lineNumbers: true,
-        theme: "solarized light",
+        theme: "schreiber",
         lineWrapping: true,
-        styleSelectedText: true,
+        //styleSelectedText: true,
         styleActiveLine: true,
         extraKeys: {"Enter": "newlineAndIndentContinueMarkdownList"}
     });

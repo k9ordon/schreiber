@@ -1,9 +1,11 @@
 #file {
+    max-height:100%;
+    overflow: scroll;
 
     .CodeMirror {
         max-width: 650px;
         width: 100%;
-        margin: 30px auto 0;
+        margin: (10px + 35px) auto 0;
         //border: 1px solid lighten(gray, 40%);
         //background: white;
         //border-width: 1px 1px 0;
@@ -12,15 +14,11 @@
         position: relative;
         z-index: 100;
 
-        line-height: 22px;
+        //line-height: 22px;
 
         pre {
-            line-height: 22px;
+            //line-height: 22px;
         }
-    }
-
-    .CodeMirror-gutters {
-        background: transparent;
     }
 
     #preview {
