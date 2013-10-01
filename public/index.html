@@ -8,20 +8,29 @@
 
 <body>
 
-<div id="titlebar">
+<div class="titlebar">
     <div id="windowButtons">
         <span id="close" class="windowButton"></span>
         <span id="minimize" class="windowButton"></span>
         <span id="maximize" class="windowButton"></span>
     </div>
 
-    <span id="title">home.markdown</span>
+    <div class="left">
+        <span id="toDocuments"><i class="icon"></i>Documents</span>
+    </div>
+
+    <div class="right">
+        <span id="toPreview"><i class="icon"></i>Preview</span>
+    </div>
+
+    <span class="title">home.markdown</span>
 </div>
 
 <div id="files">
-    <a id="openPickerButton" href="#">open drive file</a>
+    <span id="newFile"><i class="icon"></i>New Document</span>
+    <span id="openPickerButton">Open Drive-file</span>
 
-    <h3>Recently Opend</h3>
+    <h3>Recent Documents</h3>
 </div>
 
 <div id="file">

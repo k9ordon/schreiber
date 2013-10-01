@@ -21,7 +21,7 @@ body {
     min-height: 100%;
 }
 
-#titlebar {
+.titlebar {
     position: fixed;
     top:0;
     left:0;
@@ -31,13 +31,15 @@ body {
     background: rgba(238, 232, 213, 0.8);
     background: rgba(253, 246, 227, 0.9);
 
+    //box-shadow: 0 0 15px white;
+
     z-index: 200;
     -webkit-app-region: drag;
     //cursor: move;
-    height: 35px;
-    padding:0 5px;
+    //height: 40px;
+    padding:0 10px;
     text-align: center;
-    line-height: 35px;
+    line-height: 40px;
     border-bottom:1px solid darken(#eee8d5, 10%);
 
     &:hover {
@@ -49,13 +51,43 @@ body {
         cursor:default;
     }
 
-    #title {
-        text-align: center;
+    .title {
+    }
+
+    .left {
+        float:left;
+
+        #toDocuments {
+            .button();
+            .icon("\e007");
+
+            //margin-left:10px;
+            .icon {
+                font-size: 20px;
+            }
+        }
+    }
+
+    .right {
+        float:right;
+
+        #toPreview {
+            .button();
+            .icon("\e006");
+            .icon {
+                font-size: 28px;
+            }
+        }
     }
 
     #windowButtons {
-        position: absolute;
-        left:10px;
+        float:left;
+        //width: 100%;
+        //line-height: 0;
+
+        text-align: left;
+
+        margin-right:10px;
 
         .windowButton {
             display: inline-block;
