@@ -1,0 +1,24 @@
+{
+  "manifest_version": 2,
+  "name": "Schreiber-App",
+  "version": "1",
+  "minimum_chrome_version": "23",
+  "icons": {
+    "16": "icon_16.png",
+    "128": "icon_128.png"
+  },
+  "app": {
+    "background": {
+      "scripts": ["js/chrome.js"]
+    }
+  },
+  "permissions": [
+    "identity"
+  ],
+  "oauth2": {
+    "client_id": "140224327941-54e8c7refmj3697retgf3c6ed8lcj1dp.apps.googleusercontent.com",
+    "scopes": [
+      "https://www.googleapis.com/auth/drive"
+    ]
+  }
+}
