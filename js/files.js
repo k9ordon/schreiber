@@ -15,10 +15,11 @@ p.events = function() {
 }
 
 p.onGapiReady = function() {
-	console.log('Google api ready' + CLIENT_ID);
+	console.log('Google api ready' + app.CLIENT_ID);
+
 	gapi.auth.authorize({
-			'client_id': CLIENT_ID, 
-			'scope': SCOPES, 
+			'client_id': app.CLIENT_ID, 
+			'scope': app.SCOPES, 
 			//'immediate': true
 		},
         function(pew) {

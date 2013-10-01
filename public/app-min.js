@@ -8216,12 +8216,15 @@ p.init = function(driveId) {
         extraKeys: {"Enter": "newlineAndIndentContinueMarkdownList"}
     });
 
+    this.events();
+
 	return this;
 };
 
 p.events = function() {
-    this.$src.addEventListener('keyup', this.onSrcKeyup);
-    this.$src.addEventListener('keydown', this.onSrcKeydown);
+    this.editor.on("change", function(cm, change) {
+        console.log("something changed! (" + change.origin + ")");
+    });
 }
 
 p.onSrcKeydown = function(e) {
@@ -8317,10 +8320,11 @@ p.events = function() {
 }
 
 p.onGapiReady = function() {
-	console.log('Google api ready' + CLIENT_ID);
+	console.log('Google api ready' + app.CLIENT_ID);
+
 	gapi.auth.authorize({
-			'client_id': CLIENT_ID, 
-			'scope': SCOPES, 
+			'client_id': app.CLIENT_ID, 
+			'scope': app.SCOPES, 
 			//'immediate': true
 		},
         function(pew) {
@@ -8405,16 +8409,30 @@ p.onDrivePickerClicked = function(data) {
      Begin app.js
 ********************************************** */
 
-var CLIENT_ID = '140224327941-54e8c7refmj3697retgf3c6ed8lcj1dp.apps.googleusercontent.com';
-var SCOPES = 'https://www.googleapis.com/auth/drive';
+var App = function() {
+        this.CLIENT_ID = '140224327941-54e8c7refmj3697retgf3c6ed8lcj1dp.apps.googleusercontent.com';
+        this.SCOPES = 'https://www.googleapis.com/auth/drive';
+        this.files = new Files;
+        this.onGapiReady = this.files.onGapiReady;
+        this.file = new File;
+        this.currentKeyDownOffset;
+    },
+    p = App.prototype;
 
-var files = new Files;
-files.init();
- 
-var file = new File();
-file.init();
+p.init = function(driveId) {
+    this.files.init();
+    this.file.init();
+}
 
-var gapiIsLoaded = files.onGapiReady;
+/* **********************************************
+     Begin boot.js
+********************************************** */
+
+var app = new App,
+    gapiIsLoaded = app.onGapiReady,
+    p = null;
+
+app.init();
 
 /* **********************************************
      Begin gapi-chrome-apps.js

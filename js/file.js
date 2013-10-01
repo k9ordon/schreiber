@@ -25,12 +25,15 @@ p.init = function(driveId) {
         extraKeys: {"Enter": "newlineAndIndentContinueMarkdownList"}
     });
 
+    this.events();
+
 	return this;
 };
 
 p.events = function() {
-    this.$src.addEventListener('keyup', this.onSrcKeyup);
-    this.$src.addEventListener('keydown', this.onSrcKeydown);
+    this.editor.on("change", function(cm, change) {
+        console.log("something changed! (" + change.origin + ")");
+    });
 }
 
 p.onSrcKeydown = function(e) {
