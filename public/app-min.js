@@ -8352,7 +8352,7 @@ p.getDriveFiles = function() {
 		'path': 'drive/v2/files',
 		'method': 'GET',
 		'params': {
-			'maxResults': 350,
+			'maxResults': 950,
 			'q': "mimeType = 'text/x-markdown' or mimeType = 'text/plain' or mimeType = 'application/octet-stream'"
 			//'q': "mimeType contains 'text' and writers"
 			//'q': "title contains 'meeting'"
