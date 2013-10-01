@@ -1,0 +1,1 @@
+console.log("chrome init");chrome.app.runtime.onLaunched.addListener(function(){var e=screen.availWidth,t=screen.availHeight,n=500,r=300;chrome.app.window.create("public/index.html",{frame:"chrome",bounds:{width:n,height:r,left:Math.round((e-n)/2),top:Math.round((t-r)/2)}})});
