@@ -8209,15 +8209,12 @@ p.init = function(driveId) {
     this.editor = CodeMirror.fromTextArea(this.$src, {
         mode: 'markdown',
         lineNumbers: true,
-        //gutters: ["note-gutter", "CodeMirror-linenumbers"],
         theme: "schreiber",
         lineWrapping: true,
         //styleSelectedText: true,
         styleActiveLine: true,
         extraKeys: {"Enter": "newlineAndIndentContinueMarkdownList"}
     });
-
-    this.editor.setGutterMarker(3, "note-gutter", document.createTextNode("hi"));
 
 	return this;
 };
