@@ -17,7 +17,7 @@ p.init = function(driveId) {
 
     this.editor = CodeMirror.fromTextArea(this.$src, {
         mode: 'markdown',
-        lineNumbers: true,
+        lineNumbers: false,
         theme: "schreiber",
         lineWrapping: true,
         //styleSelectedText: true,
@@ -34,13 +34,23 @@ p.events = function() {
     this.editor.on("change", function(cm, change) {
         console.log("something changed! (" + change.origin + ")");
     });
+
+    this.editor.on("focus", function(cm) {
+        console.log("focus");
+        app.setDistractionFree(true);
+    });
+
+    this.editor.on("blur", function(cm) {
+        console.log("blur");
+        app.setDistractionFree(false);
+    });
 }
 
 p.onSrcKeydown = function(e) {
     var keyCode = e.keyCode || e.which; 
 
     var s = window.getSelection();
-    file.currentKeyDownOffset = s.extentOffset;
+    app.file.currentKeyDownOffset = s.extentOffset;
 
     console.log('keydown', keyCode, this.currentKeyDownOffset);
 
@@ -52,8 +62,8 @@ p.onSrcKeydown = function(e) {
 }
 
 p.onSrcKeyup = function() {
-    console.log('keyup at ', file.currentKeyDownOffset);
-    file.updatePreview();
+    console.log('keyup at ', app.file.currentKeyDownOffset);
+    app.file.updatePreview();
 }
 
 
@@ -77,7 +87,10 @@ p.loadDriveFile = function(driveId) {
 			//'q': "title contains 'meeting'"
 		}
 	});
-	request.execute(file.onDriveFileInfoReady);
+
+    console.log('request', request);
+
+	request.execute(app.file.onDriveFileInfoReady);
 }
 
 p.onDriveFileInfoReady = function(resp) {
@@ -96,8 +109,8 @@ p.onDriveFileInfoReady = function(resp) {
 //              200=OK
                 console.log( driveFileXhr.response );
 
-                file.editor.setValue(driveFileXhr.response);
-                file.updatePreview();
+                app.file.editor.setValue(driveFileXhr.response);
+                app.file.updatePreview();
             }
         }
     }
