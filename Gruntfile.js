@@ -29,18 +29,25 @@ module.exports = function(grunt) {
     },
     less: {
         dist: {
+            options: {
+                paths: ["less", "vendor"],
+                //strictImports: true
+            },
             files: {
                 "dist/app.css": "less/app.less"
-            },
-            options: {
-                strictImports: true
             }
         }
     },
     copy: {
         dist: {
             files: [
-                {src: ['vendor/linecons/fonts/*'], dest: 'dist/fonts/', flatten: true}
+                {   
+                    src: ['vendor/linecons/fonts/*'], 
+                    dest: 'dist/fonts/', 
+                    filter: 'isFile', 
+                    expand: true, 
+                    flatten: true
+                }
             ]
         }
     }
