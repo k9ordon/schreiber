@@ -20,10 +20,18 @@ module.exports = function(grunt) {
                     'js/files.js', 
                     'js/app.js', 
                      // boot
-                    'js/boot.js',
+                    'js/boot.js'
+                ],
+                'dist/chromeapp.js' : [
+                    'dist/app.js',
+                    'js/chromeapp.js',
                     'vendor/gapi-chrome-apps.js'
                 ],
-                'dist/chrome.js': ['js/chrome.js']
+                'dist/webapp.js': [
+                    'dist/app.js',
+                    'js/webapp.js',
+                    'vendor/gapi-chrome-apps.js'
+                ]
             }
         }
     },
@@ -59,8 +67,8 @@ module.exports = function(grunt) {
                 }
             },
             files: {
-                "dist/web.html": ["jade/web.jade"],
-                "dist/chrome.html": ["jade/chrome.jade"]
+                "dist/webapp.html": ["jade/webapp.jade"],
+                "dist/chromeapp.html": ["jade/chromeapp.jade"]
             }
         }
     }

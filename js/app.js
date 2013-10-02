@@ -10,7 +10,7 @@ var App = function() {
     },
     p = App.prototype;
 
-p.init = function(driveId) {
+p.init = function() {
     this.files.init();
     this.file.init();
 
