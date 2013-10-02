@@ -4,4 +4,4 @@ var app = new App,
 
 app.init();
 
-alert('web booted');
+//alert('web booted');

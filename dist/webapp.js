@@ -7080,7 +7080,7 @@ var app = new App,
 
 app.init();
 
-alert('web booted');;
+//alert('web booted');;
 /**
  * Copyright 2013 Google Inc. All Rights Reserved.
  *
