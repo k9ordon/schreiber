@@ -11,10 +11,10 @@ module.exports = function(grunt) {
             files: {
                 'dist/app.js': [
                     // libs
-                    'vendor/CodeMirror/lib/codemirror.js',
-                    'vendor/CodeMirror/addon/edit/continuelist.js',
-                    'vendor/CodeMirror/mode/xml/xml.js',
-                    'vendor/CodeMirror/mode/markdown/markdown.js',
+                    'bower_components/codemirror/lib/codemirror.js',
+                    'bower_components/codemirror/addon/edit/continuelist.js',
+                    'bower_components/codemirror/mode/xml/xml.js',
+                    'bower_components/codemirror/mode/markdown/markdown.js',
                     // app
                     'js/file.js', 
                     'js/files.js', 
@@ -25,7 +25,7 @@ module.exports = function(grunt) {
                 'dist/chromeapp.js' : [
                     'dist/app.js',
                     'js/chromeapp.js',
-                    'vendor/gapi-chrome-apps.js'
+                    'bower_components/chrome-app-samples/gapi-chrome-apps-lib/gapi-chrome-apps.js'
                 ],
                 'dist/background.js' : [
                     'js/background.js',
@@ -33,7 +33,7 @@ module.exports = function(grunt) {
                 'dist/webapp.js': [
                     'dist/app.js',
                     'js/webapp.js',
-                    'vendor/gapi-chrome-apps.js'
+                    'bower_components/chrome-app-samples/gapi-chrome-apps-lib/gapi-chrome-apps.js'
                 ]
             }
         }
@@ -97,6 +97,10 @@ module.exports = function(grunt) {
         }
     },
 
+    bower: {
+        install: {}
+    }
+
 
   });
 
@@ -105,6 +109,8 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-copy');
   grunt.loadNpmTasks('grunt-contrib-jade');
   grunt.loadNpmTasks('grunt-contrib-watch');
+  grunt.loadNpmTasks('grunt-bower-task');
 
-  grunt.registerTask('default', ['concat', 'less', 'copy', 'jade']);
+  grunt.registerTask('init', ['bower']);
+  grunt.registerTask('default', ['bower', 'concat', 'less', 'copy', 'jade']);
 };

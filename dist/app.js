@@ -3521,8 +3521,7 @@ window.CodeMirror = (function() {
   keyMap.basic = {
     "Left": "goCharLeft", "Right": "goCharRight", "Up": "goLineUp", "Down": "goLineDown",
     "End": "goLineEnd", "Home": "goLineStartSmart", "PageUp": "goPageUp", "PageDown": "goPageDown",
-    "Delete": "delCharAfter", "Backspace": "delCharBefore", "Shift-Backspace": "delCharBefore",
-    "Tab": "defaultTab", "Shift-Tab": "indentAuto",
+    "Delete": "delCharAfter", "Backspace": "delCharBefore", "Tab": "defaultTab", "Shift-Tab": "indentAuto",
     "Enter": "newlineAndIndent", "Insert": "toggleOverwrite"
   };
   // Note that the save and find-related commands aren't defined by
@@ -5880,7 +5879,7 @@ window.CodeMirror = (function() {
 
   // THE END
 
-  CodeMirror.version = "3.18.1";
+  CodeMirror.version = "3.18.0";
 
   return CodeMirror;
 })();
@@ -5989,7 +5988,7 @@ CodeMirror.defineMode("xml", function(config, parserConfig) {
         tagName = "";
         var c;
         while ((c = stream.eat(/[^\s\u00a0=<>\"\'\/?]/))) tagName += c;
-        if (!tagName) return "tag error";
+        if (!tagName) return "error";
         type = isClose ? "closeTag" : "openTag";
         state.tokenize = inTag;
         return "tag";
@@ -6022,9 +6021,7 @@ CodeMirror.defineMode("xml", function(config, parserConfig) {
       type = "equals";
       return null;
     } else if (ch == "<") {
-      state.tokenize = inText;
-      var next = state.tokenize(stream, state);
-      return next ? next + " error" : "error";
+      return "error";
     } else if (/[\'\"]/.test(ch)) {
       state.tokenize = inAttribute(ch);
       state.stringStartCol = stream.column();
@@ -6213,9 +6210,7 @@ CodeMirror.defineMode("xml", function(config, parserConfig) {
         }
       }
       state.startOfLine = false;
-      if (setStyle)
-        style = setStyle == "error" ? style + " error" : setStyle;
-      return style;
+      return setStyle || style;
     },
 
     indent: function(state, textAfter, fullLine) {

@@ -98,6 +98,9 @@
 .cm-s-default .cm-meta {
   color: #555;
 }
+.cm-s-default .cm-error {
+  color: #f00;
+}
 .cm-s-default .cm-qualifier {
   color: #555;
 }
@@ -140,9 +143,6 @@
 }
 .cm-link {
   text-decoration: underline;
-}
-.cm-s-default .cm-error {
-  color: #f00;
 }
 .cm-invalidchar {
   color: #f00;
