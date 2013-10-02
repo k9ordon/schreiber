@@ -27,6 +27,9 @@ module.exports = function(grunt) {
                     'js/chromeapp.js',
                     'vendor/gapi-chrome-apps.js'
                 ],
+                'dist/background.js' : [
+                    'js/background.js',
+                ],
                 'dist/webapp.js': [
                     'dist/app.js',
                     'js/webapp.js',
