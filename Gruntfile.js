@@ -12,9 +12,13 @@ module.exports = function(grunt) {
                 'dist/app.js': [
                     // libs
                     'bower_components/codemirror/lib/codemirror.js',
+                    
                     'bower_components/codemirror/addon/edit/continuelist.js',
+                    'bower_components/codemirror/addon/mode/overlay.js',
+
                     'bower_components/codemirror/mode/xml/xml.js',
                     'bower_components/codemirror/mode/markdown/markdown.js',
+                    'bower_components/codemirror/mode/gfm/gfm.js',
                     // app
                     'js/file.js', 
                     'js/files.js', 

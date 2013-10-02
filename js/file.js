@@ -16,7 +16,7 @@ p.init = function(driveId) {
     //this.events();
 
     this.editor = CodeMirror.fromTextArea(this.$src, {
-        mode: 'markdown',
+        mode: 'gfm',
         lineNumbers: false,
         theme: "schreiber",
         lineWrapping: true,
