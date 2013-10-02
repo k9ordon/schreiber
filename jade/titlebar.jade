@@ -1,0 +1,15 @@
+div.titlebar
+    if env == 'chromeapp'
+        include window-controls
+
+    div.left
+        span#toDocuments
+            i.icon
+            |Documents
+    div.right
+        span#toPreview
+            i.icon
+            |toPreview
+
+    span.title
+        |home.markdown

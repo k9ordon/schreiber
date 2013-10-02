@@ -43,12 +43,25 @@ module.exports = function(grunt) {
             files: [
                 {   
                     src: ['vendor/linecons/fonts/*'], 
-                    dest: 'dist/fonts/', 
+                    dest: 'dist/fonts', 
                     filter: 'isFile', 
                     expand: true, 
                     flatten: true
                 }
             ]
+        }
+    },
+    jade: {
+        dist: {
+            options: {
+                data: {
+                    debug: false
+                }
+            },
+            files: {
+                "dist/web.html": ["jade/web.jade"],
+                "dist/chrome.html": ["jade/chrome.jade"]
+            }
         }
     }
   });
@@ -56,6 +69,7 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-concat');
   grunt.loadNpmTasks('grunt-contrib-less');
   grunt.loadNpmTasks('grunt-contrib-copy');
+  grunt.loadNpmTasks('grunt-contrib-jade');
 
-  grunt.registerTask('default', ['concat', 'less', 'copy']);
+  grunt.registerTask('default', ['concat', 'less', 'copy', 'jade']);
 };
