@@ -9,7 +9,7 @@
   },
   "app": {
     "background": {
-      "scripts": ["js/chrome.js"]
+      "scripts": ["dist/chrome.js"]
     }
   },
   "permissions": [
