@@ -12,6 +12,10 @@ p.init = function() {
 
 p.events = function() {
     this.$openPickerButton.addEventListener('click', app.files.openDrivePicker);
+    this.$el.addEventListener('mouseover', function(){
+        console.log('mouseover');
+        app.setDistractionFree(false);
+    });
 }
 
 p.onGapiReady = function() {

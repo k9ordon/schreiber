@@ -5,12 +5,23 @@ var App = function() {
         this.onGapiReady = this.files.onGapiReady;
         this.file = new File;
         this.currentKeyDownOffset;
+
+        this.$titlebar = document.querySelector('.titlebar');
     },
     p = App.prototype;
 
 p.init = function(driveId) {
     this.files.init();
     this.file.init();
+
+    this.events();
+}
+
+p.events = function() {
+    this.$titlebar.addEventListener('mouseover', function(){
+        console.log('mouseover');
+        app.setDistractionFree(false);
+    });
 }
 
 p.setDistractionFree = function(bool) {

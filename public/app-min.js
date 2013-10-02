@@ -8226,8 +8226,13 @@ p.events = function() {
         console.log("something changed! (" + change.origin + ")");
     });
 
-    this.editor.on("focus", function(cm) {
-        console.log("focus");
+    this.editor.on("change", function(cm) {
+        console.log("change");
+        app.setDistractionFree(true);
+    });
+
+    this.editor.on("cursorActivity", function(cm) {
+        console.log("change");
         app.setDistractionFree(true);
     });
 
@@ -8330,6 +8335,10 @@ p.init = function() {
 
 p.events = function() {
     this.$openPickerButton.addEventListener('click', app.files.openDrivePicker);
+    this.$el.addEventListener('mouseover', function(){
+        console.log('mouseover');
+        app.setDistractionFree(false);
+    });
 }
 
 p.onGapiReady = function() {
@@ -8429,12 +8438,23 @@ var App = function() {
         this.onGapiReady = this.files.onGapiReady;
         this.file = new File;
         this.currentKeyDownOffset;
+
+        this.$titlebar = document.querySelector('.titlebar');
     },
     p = App.prototype;
 
 p.init = function(driveId) {
     this.files.init();
     this.file.init();
+
+    this.events();
+}
+
+p.events = function() {
+    this.$titlebar.addEventListener('mouseover', function(){
+        console.log('mouseover');
+        app.setDistractionFree(false);
+    });
 }
 
 p.setDistractionFree = function(bool) {

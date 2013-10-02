@@ -35,8 +35,13 @@ p.events = function() {
         console.log("something changed! (" + change.origin + ")");
     });
 
-    this.editor.on("focus", function(cm) {
-        console.log("focus");
+    this.editor.on("change", function(cm) {
+        console.log("change");
+        app.setDistractionFree(true);
+    });
+
+    this.editor.on("cursorActivity", function(cm) {
+        console.log("cursorActivity");
         app.setDistractionFree(true);
     });
 

@@ -7,6 +7,7 @@
 html, body {
     margin:0;
     padding:0;
+    //opacity: 0.1;
 }
 
 html {
@@ -28,7 +29,7 @@ body {
     right:0;
     
     //background: #eee8d5;
-    background: rgba(238, 232, 213, 0.8);
+    //background: rgba(238, 232, 213, 0.8);
     background: rgba(253, 246, 227, 0.9);
 
     //box-shadow: 0 0 15px white;
@@ -42,9 +43,15 @@ body {
     line-height: 40px;
     border-bottom:1px solid darken(#eee8d5, 10%);
 
+    
+
     &:hover {
         background: #eee8d5;
-        background: rgba(238, 232, 213, 0.8);
+        background: rgba(238, 232, 213, 0.85);
+
+        #toPreview, #toDocuments {
+            background-color:rgba(238, 232, 213, 1);
+        }
     }
 
     > * {
@@ -142,8 +149,27 @@ body {
 
 }
 
+.titlebar {
+    -webkit-transition: border 1s;
+
+    #toPreview, #toDocuments {
+        -webkit-transition: border-color 1s;
+        .icon {
+            -webkit-transition: opacity 1s;
+        }
+    }
+}
+
 .distractionFree {
-    #titlebar {
-        //border-bottom-width:0px;
+    .titlebar {
+        //border-bottom-color:transparent;
+
+        #toPreview, #toDocuments {
+            //opacity: 0.01;
+            border-color:transparent;
+            .icon {
+                opacity: 0.3;
+            }
+        }
     }
 }
