@@ -98,7 +98,17 @@ module.exports = function(grunt) {
     },
 
     bower: {
-        install: {}
+        install: {
+            options: {
+                copy: false,
+                //targetDir: './vendor/bower',
+                //layout: 'byType',
+                //install: true,
+                //verbose: false,
+                //cleanTargetDir: false,
+                //cleanBowerDir: flase
+            }
+        }
     }
 
 
