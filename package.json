@@ -1,0 +1,24 @@
+{
+  "name": "schreiberapp",
+  "version": "0.0.1",
+  "description": "A chrome app for editing google drive markdown documents.",
+  "main": "Gruntfile.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/k9ordon/schreiber.git"
+  },
+  "author": "k9ordon",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/k9ordon/schreiber/issues"
+  },
+  "devDependencies": {
+    "grunt": "~0.4.1",
+    "grunt-contrib-concat": "~0.3.0",
+    "grunt-contrib-less": "~0.7.0",
+    "grunt-contrib-copy": "~0.4.1"
+  }
+}
