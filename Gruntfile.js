@@ -62,6 +62,7 @@ module.exports = function(grunt) {
             ]
         }
     },
+
     jade: {
         dist: {
             options: {
@@ -74,13 +75,36 @@ module.exports = function(grunt) {
                 "dist/chromeapp.html": ["jade/chromeapp.jade"]
             }
         }
-    }
+    },
+
+    watch: {
+
+        css: {
+            files: 'less/*.less',
+            tasks: ['less'],
+            options: {
+                //livereload: false,
+            },
+        },
+
+        js: {
+            files: 'js/*.js',
+            tasks: ['concat'],
+            options: {
+                //livereload: false,
+                //interrupt: true,
+            },
+        }
+    },
+
+
   });
 
   grunt.loadNpmTasks('grunt-contrib-concat');
   grunt.loadNpmTasks('grunt-contrib-less');
   grunt.loadNpmTasks('grunt-contrib-copy');
   grunt.loadNpmTasks('grunt-contrib-jade');
+  grunt.loadNpmTasks('grunt-contrib-watch');
 
   grunt.registerTask('default', ['concat', 'less', 'copy', 'jade']);
 };
