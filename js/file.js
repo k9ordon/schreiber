@@ -1,5 +1,6 @@
 var File = function() {
         this.$template = document.querySelector('#fileTemplate');
+        this.$welcomefileTemplate = document.querySelector('#welcomefileTemplate');
 		this.$el = null;  //document.querySelector('#file');
 		this.$src = null; //this.$el.querySelector('#src');
         this.$preview = null; //this.$el.querySelector('#preview');
@@ -38,8 +39,9 @@ p.init = function(driveId) {
         styleActiveLine: true,
         extraKeys: {"Enter": "newlineAndIndentContinueMarkdownList"}
     });
-
+    this.editor.setValue(this.$welcomefileTemplate.innerText);
     app.fileBrowser.addCurrentFile(this);
+
     this.show();
 
     this.events();
@@ -57,6 +59,8 @@ p.show = function() {
     this.$el.id = 'currentFile';
 
     app.file = this;
+    app.file.editor.refresh();//
+    app.file.editor.focus();
 }
 
 p.events = function() {
