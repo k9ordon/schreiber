@@ -6,6 +6,7 @@ var WindowControls = function() {
     p = WindowControls.prototype;
 
 p.init = function() {
+    console.log('windo init');
     this.events();
 }
 

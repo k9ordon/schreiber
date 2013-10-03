@@ -1,19 +1,28 @@
 var File = function() {
-		this.$el = document.querySelector('#file');
-		this.$src = this.$el.querySelector('#src');
-        this.editor = null;
-        this.$preview = this.$el.querySelector('#preview');
-		this.driveId = null;
+        this.$template = document.querySelector('#fileTemplate');
+		this.$el = null;  //document.querySelector('#file');
+		this.$src = null; //this.$el.querySelector('#src');
+        this.$preview = null; //this.$el.querySelector('#preview');
 
-        this.currentKeyDownOffset;
+        this.editor = null;
+        this.preview = new Preview;
+
+		this.driveId = null;
 	},
 	p = File.prototype;
 
 p.init = function(driveId) {
 	console.log('File init');
 	
-    //this.updatePreview();
-    //this.events();
+    var t = document.createElement('div');
+    t.innerHTML = this.$template.innerText;
+    
+    this.$el = t.firstChild;
+    document.body.appendChild(this.$el);
+    
+    this.$src = this.$el.querySelector('#src');
+    this.$preview = this.$el.querySelector('#preview');
+
 
     this.editor = CodeMirror.fromTextArea(this.$src, {
         mode: 'gfm',
@@ -26,6 +35,7 @@ p.init = function(driveId) {
     });
 
     this.events();
+    this.preview.init();
 
 	return this;
 };
@@ -33,7 +43,7 @@ p.init = function(driveId) {
 p.events = function() {
     this.editor.on("change", function(cm) {
         app.setDistractionFree(true);
-        app.preview.update();
+        app.file.preview.update();
     });
 
     this.editor.on("cursorActivity", function(cm) {
@@ -48,26 +58,6 @@ p.events = function() {
     this.editor.on("viewportChange", function(em, from, to) {
         console.log(['viewportChange', from, to]);
     });
-}
-
-p.onSrcKeydown = function(e) {
-    var keyCode = e.keyCode || e.which; 
-
-    var s = window.getSelection();
-    app.file.currentKeyDownOffset = s.extentOffset;
-
-    console.log('keydown', keyCode, this.currentKeyDownOffset);
-
-    if (keyCode == 9) { 
-        document.execCommand('styleWithCSS',true,null);
-        document.execCommand('indent',true,null);
-        e.preventDefault();
-    }
-}
-
-p.onSrcKeyup = function() {
-    console.log('keyup at ', app.file.currentKeyDownOffset);
-    app.file.updatePreview();
 }
 
 

@@ -10451,21 +10451,30 @@ p.update = function() {
 };
 ;
 var File = function() {
-		this.$el = document.querySelector('#file');
-		this.$src = this.$el.querySelector('#src');
-        this.editor = null;
-        this.$preview = this.$el.querySelector('#preview');
-		this.driveId = null;
+        this.$template = document.querySelector('#fileTemplate');
+		this.$el = null;  //document.querySelector('#file');
+		this.$src = null; //this.$el.querySelector('#src');
+        this.$preview = null; //this.$el.querySelector('#preview');
 
-        this.currentKeyDownOffset;
+        this.editor = null;
+        this.preview = new Preview;
+
+		this.driveId = null;
 	},
 	p = File.prototype;
 
 p.init = function(driveId) {
 	console.log('File init');
 	
-    //this.updatePreview();
-    //this.events();
+    var t = document.createElement('div');
+    t.innerHTML = this.$template.innerText;
+    
+    this.$el = t.firstChild;
+    document.body.appendChild(this.$el);
+    
+    this.$src = this.$el.querySelector('#src');
+    this.$preview = this.$el.querySelector('#preview');
+
 
     this.editor = CodeMirror.fromTextArea(this.$src, {
         mode: 'gfm',
@@ -10478,6 +10487,7 @@ p.init = function(driveId) {
     });
 
     this.events();
+    this.preview.init();
 
 	return this;
 };
@@ -10485,7 +10495,7 @@ p.init = function(driveId) {
 p.events = function() {
     this.editor.on("change", function(cm) {
         app.setDistractionFree(true);
-        app.preview.update();
+        app.file.preview.update();
     });
 
     this.editor.on("cursorActivity", function(cm) {
@@ -10500,26 +10510,6 @@ p.events = function() {
     this.editor.on("viewportChange", function(em, from, to) {
         console.log(['viewportChange', from, to]);
     });
-}
-
-p.onSrcKeydown = function(e) {
-    var keyCode = e.keyCode || e.which; 
-
-    var s = window.getSelection();
-    app.file.currentKeyDownOffset = s.extentOffset;
-
-    console.log('keydown', keyCode, this.currentKeyDownOffset);
-
-    if (keyCode == 9) { 
-        document.execCommand('styleWithCSS',true,null);
-        document.execCommand('indent',true,null);
-        e.preventDefault();
-    }
-}
-
-p.onSrcKeyup = function() {
-    console.log('keyup at ', app.file.currentKeyDownOffset);
-    app.file.updatePreview();
 }
 
 
@@ -10577,23 +10567,29 @@ p.onDriveFileDownloadReady = function(resp) {
 
 };
 var FileBrowser = function() {
-		this.$el = document.querySelector('#fileBrowser');
+        this.$el = document.querySelector('#fileBrowser');
+        this.$newFile = this.$el.querySelector('#newFile');
         this.$openPickerButton = this.$el.querySelector('#openPickerButton');
 	},
 	p = FileBrowser.prototype;
 
 p.init = function() {
 	console.log('fileBrowser init');
+
+    
 	this.events();
 	return this;
 };
 
 p.events = function() {
     this.$openPickerButton.addEventListener('click', app.fileBrowser.openDrivePicker);
+    
     this.$el.addEventListener('mouseover', function(){
         console.log('mouseover');
         app.setDistractionFree(false);
     });
+
+    this.$newFile.addEventListener('click', app.newFile());
 }
 
 p.onGapiReady = function() {
@@ -10632,7 +10628,7 @@ p.onDriveFilesReady = function(resp) {
 		i = 0;
 	for (i = 0; i < result.length; i++) {
 		app.fileBrowser.$el.innerHTML += '<p data-driveId="'+result[i].id+'">'+result[i].title +'<small class="mimeTpye">'+result[i].mimeType+'</small> <small class="folder">'+'</small></p>';
-		console.log([result[i]]);
+		//console.log([result[i]]);
 	}
 
 	app.fileBrowser.driveEvents();
@@ -10686,11 +10682,9 @@ var App = function() {
         this.SCOPES = 'https://www.googleapis.com/auth/drive';
         this.fileBrowser = new FileBrowser;
         this.onGapiReady = this.fileBrowser.onGapiReady;
-
-        this.currentFiles = [],
-
-        this.file = new File;
-        this.preview = new Preview;
+        this.file = null; // current file
+        this.files = [];
+        this.currentFile
         this.currentKeyDownOffset;
 
         this.$titlebar = document.querySelector('.titlebar');
@@ -10699,10 +10693,16 @@ var App = function() {
 
 p.init = function() {
     this.fileBrowser.init();
-    this.file.init();
-    this.preview.init();
 
+    this.newFile();
     this.events();
+}
+
+p.newFile = function() {
+    this.file = new File;
+    this.files.push(this.file);
+
+    this.file.init();
 }
 
 p.events = function() {
@@ -10726,12 +10726,11 @@ p.setDistractionFree = function(bool) {
     document.body.classList.remove('distractionFree');
 };
 var app = new App,
-    gapiIsLoaded = app.onGapiReady,
-    p = null;
+    p = null,
+    gapiIsLoaded = app.onGapiReady;
 
-app.init();
-
-//alert('web booted');;
+window.document.onload = app.init;
+;
 /**
  * Copyright 2013 Google Inc. All Rights Reserved.
  *

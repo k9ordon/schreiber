@@ -3,11 +3,9 @@ var App = function() {
         this.SCOPES = 'https://www.googleapis.com/auth/drive';
         this.fileBrowser = new FileBrowser;
         this.onGapiReady = this.fileBrowser.onGapiReady;
-
-        this.currentFiles = [],
-
-        this.file = new File;
-        this.preview = new Preview;
+        this.file = null; // current file
+        this.files = [];
+        this.currentFile
         this.currentKeyDownOffset;
 
         this.$titlebar = document.querySelector('.titlebar');
@@ -16,10 +14,16 @@ var App = function() {
 
 p.init = function() {
     this.fileBrowser.init();
-    this.file.init();
-    this.preview.init();
 
+    this.newFile();
     this.events();
+}
+
+p.newFile = function() {
+    this.file = new File;
+    this.files.push(this.file);
+
+    this.file.init();
 }
 
 p.events = function() {

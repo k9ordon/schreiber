@@ -3,5 +3,7 @@ var app = new App,
     p = null,
     windowControls = new WindowControls;
 
-app.init();
-windowControls.init();
+document.addEventListener('DOMContentLoaded', function(e) {
+    app.init();
+    windowControls.init();
+});

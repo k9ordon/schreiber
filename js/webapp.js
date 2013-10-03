@@ -1,7 +1,5 @@
 var app = new App,
-    gapiIsLoaded = app.onGapiReady,
-    p = null;
+    p = null,
+    gapiIsLoaded = app.onGapiReady;
 
-app.init();
-
-//alert('web booted');
+window.document.onload = app.init;

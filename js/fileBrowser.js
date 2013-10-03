@@ -1,21 +1,27 @@
 var FileBrowser = function() {
-		this.$el = document.querySelector('#fileBrowser');
+        this.$el = document.querySelector('#fileBrowser');
+        this.$newFile = this.$el.querySelector('#newFile');
         this.$openPickerButton = this.$el.querySelector('#openPickerButton');
 	},
 	p = FileBrowser.prototype;
 
 p.init = function() {
 	console.log('fileBrowser init');
+
+    
 	this.events();
 	return this;
 };
 
 p.events = function() {
     this.$openPickerButton.addEventListener('click', app.fileBrowser.openDrivePicker);
+    
     this.$el.addEventListener('mouseover', function(){
         console.log('mouseover');
         app.setDistractionFree(false);
     });
+
+    this.$newFile.addEventListener('click', app.newFile());
 }
 
 p.onGapiReady = function() {
@@ -54,7 +60,7 @@ p.onDriveFilesReady = function(resp) {
 		i = 0;
 	for (i = 0; i < result.length; i++) {
 		app.fileBrowser.$el.innerHTML += '<p data-driveId="'+result[i].id+'">'+result[i].title +'<small class="mimeTpye">'+result[i].mimeType+'</small> <small class="folder">'+'</small></p>';
-		console.log([result[i]]);
+		//console.log([result[i]]);
 	}
 
 	app.fileBrowser.driveEvents();
