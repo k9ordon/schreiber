@@ -10,8 +10,8 @@ p.init = function() {
 }
 
 p.events = function() {
-    Mousetrap.bind('command+w', this.windowClose);
-    Mousetrap.bind('command+f', this.windowFullscreen);
+    Mousetrap.bindGlobal('command+w', this.windowClose);
+    Mousetrap.bindGlobal('command+f', this.windowFullscreen);
 
     this.$windowClose.addEventListener('click', this.windowClose);
     this.$windowMinimize.addEventListener('click', this.windowMinimize);

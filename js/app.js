@@ -23,8 +23,10 @@ p.events = function() {
         app.setDistractionFree(false);
     });
 
-    Mousetrap.bindGlobal('command+l', function() {
-        console.log('yeee');
+    Mousetrap.bindGlobal('command+s', function(e) {
+        console.log('save');
+        //e.preventDefault();
+        return false;
     });
 }
 
