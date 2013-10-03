@@ -29,7 +29,7 @@ module.exports = function(grunt) {
                     // app
                     'js/preview.js', 
                     'js/file.js', 
-                    'js/files.js', 
+                    'js/fileBrowser.js', 
                     'js/app.js', 
                      // boot
                     'js/boot.js'

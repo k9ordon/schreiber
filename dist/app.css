@@ -557,7 +557,7 @@ body:after {
 .distractionFree .titlebar #toDocuments .icon {
   opacity: 0.3;
 }
-#files {
+#fileBrowser {
   position: fixed;
   top: 0;
   left: 0;
@@ -565,7 +565,7 @@ body:after {
   margin: 35px 0 50px;
   padding: 40px 30px;
 }
-#files #newFile {
+#fileBrowser #newFile {
   display: inline-block;
   border: 1px solid #dfd4b1;
   padding: 4px 20px;
@@ -577,36 +577,36 @@ body:after {
   cursor: pointer;
   margin-bottom: 15px;
 }
-#files #newFile:hover {
+#fileBrowser #newFile:hover {
   box-shadow: 0 0 5px -2px #ff0000;
 }
-#files #newFile i.icon {
+#fileBrowser #newFile i.icon {
   position: relative;
   left: -8px;
   line-height: 0;
   top: -1px;
   vertical-align: middle;
 }
-#files #openPickerButton {
+#fileBrowser #openPickerButton {
   display: none;
 }
-#files h3 {
+#fileBrowser h3 {
   margin: 0 0 15px;
   text-transform: uppercase;
   font-size: 12px;
 }
-#files P {
+#fileBrowser P {
   cursor: pointer;
   font-size: 14px;
   margin: 0 0 10px;
 }
-#files P small {
+#fileBrowser P small {
   display: none;
 }
-#files {
+#fileBrowser {
   -webkit-transition: opacity 1s;
 }
-.distractionFree #files {
+.distractionFree #fileBrowser {
   opacity: 0.01;
 }
 #file .CodeMirror {

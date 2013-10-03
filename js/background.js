@@ -8,12 +8,13 @@ chrome.app.runtime.onLaunched.addListener(function() {
   var height = 500;
 
   chrome.app.window.create('dist/chromeapp.html', {
+    id: 'main',
     frame: 'none', 
     bounds: {
-      width: width,
-      height: height,
-      left: Math.round((screenWidth-width)/2),
-      top: Math.round((screenHeight-height)/2)
+        width: width,
+        height: height,
+        left: Math.round((screenWidth-width)/2),
+        top: Math.round((screenHeight-height)/2)
     }
   });
 });

@@ -1,8 +1,11 @@
 var App = function() {
         this.CLIENT_ID = '140224327941.apps.googleusercontent.com';//'140224327941-54e8c7refmj3697retgf3c6ed8lcj1dp.apps.googleusercontent.com';
         this.SCOPES = 'https://www.googleapis.com/auth/drive';
-        this.files = new Files;
-        this.onGapiReady = this.files.onGapiReady;
+        this.fileBrowser = new FileBrowser;
+        this.onGapiReady = this.fileBrowser.onGapiReady;
+
+        this.currentFiles = [],
+
         this.file = new File;
         this.preview = new Preview;
         this.currentKeyDownOffset;
@@ -12,7 +15,7 @@ var App = function() {
     p = App.prototype;
 
 p.init = function() {
-    this.files.init();
+    this.fileBrowser.init();
     this.file.init();
     this.preview.init();
 

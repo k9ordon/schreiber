@@ -10576,20 +10576,20 @@ p.onDriveFileInfoReady = function(resp) {
 p.onDriveFileDownloadReady = function(resp) {
 
 };
-var Files = function() {
-		this.$el = document.querySelector('#files');
+var FileBrowser = function() {
+		this.$el = document.querySelector('#fileBrowser');
         this.$openPickerButton = this.$el.querySelector('#openPickerButton');
 	},
-	p = Files.prototype;
+	p = FileBrowser.prototype;
 
 p.init = function() {
-	console.log('Files init');
+	console.log('fileBrowser init');
 	this.events();
 	return this;
 };
 
 p.events = function() {
-    this.$openPickerButton.addEventListener('click', app.files.openDrivePicker);
+    this.$openPickerButton.addEventListener('click', app.fileBrowser.openDrivePicker);
     this.$el.addEventListener('mouseover', function(){
         console.log('mouseover');
         app.setDistractionFree(false);
@@ -10606,7 +10606,7 @@ p.onGapiReady = function() {
 		},
         function(pew) {
             console.log('auth ready', pew);
-			app.files.getDriveFiles();
+			app.fileBrowser.getDriveFiles();
 		}		
 	);
 };
@@ -10622,7 +10622,7 @@ p.getDriveFiles = function() {
 			//'q': "title contains 'meeting'"
 		}
 	});
-	request.execute(app.files.onDriveFilesReady);
+	request.execute(app.fileBrowser.onDriveFilesReady);
 }
 
 p.onDriveFilesReady = function(resp) {
@@ -10631,11 +10631,11 @@ p.onDriveFilesReady = function(resp) {
 	var result = resp.items,
 		i = 0;
 	for (i = 0; i < result.length; i++) {
-		app.files.$el.innerHTML += '<p data-driveId="'+result[i].id+'">'+result[i].title +'<small class="mimeTpye">'+result[i].mimeType+'</small> <small class="folder">'+'</small></p>';
+		app.fileBrowser.$el.innerHTML += '<p data-driveId="'+result[i].id+'">'+result[i].title +'<small class="mimeTpye">'+result[i].mimeType+'</small> <small class="folder">'+'</small></p>';
 		console.log([result[i]]);
 	}
 
-	app.files.driveEvents();
+	app.fileBrowser.driveEvents();
 }
 
 p.driveEvents = function() {
@@ -10644,7 +10644,7 @@ p.driveEvents = function() {
 		this.$el.querySelectorAll('p'), 
 		function($filesItem){
 			$filesItem.addEventListener('click', function() {
-				app.files.onFilesItemClick($filesItem);
+				app.fileBrowser.onFilesItemClick($filesItem);
 			})
 		}
 	);
@@ -10657,7 +10657,7 @@ p.onFilesItemClick = function($filesItem) {
 
 p.openDrivePicker = function(e) {
     console.log('open drive picker');
-    gapi.load('picker', {'callback': app.files.openDrivePickerReady });
+    gapi.load('picker', {'callback': app.fileBrowser.openDrivePickerReady });
 }
 
 p.openDrivePickerReady = function() {
@@ -10684,8 +10684,11 @@ p.onDrivePickerClicked = function(data) {
 var App = function() {
         this.CLIENT_ID = '140224327941.apps.googleusercontent.com';//'140224327941-54e8c7refmj3697retgf3c6ed8lcj1dp.apps.googleusercontent.com';
         this.SCOPES = 'https://www.googleapis.com/auth/drive';
-        this.files = new Files;
-        this.onGapiReady = this.files.onGapiReady;
+        this.fileBrowser = new FileBrowser;
+        this.onGapiReady = this.fileBrowser.onGapiReady;
+
+        this.currentFiles = [],
+
         this.file = new File;
         this.preview = new Preview;
         this.currentKeyDownOffset;
@@ -10695,7 +10698,7 @@ var App = function() {
     p = App.prototype;
 
 p.init = function() {
-    this.files.init();
+    this.fileBrowser.init();
     this.file.init();
     this.preview.init();
 
