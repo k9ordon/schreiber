@@ -353,6 +353,199 @@ body,
 .CodeMirror {
   font-family: "Helvetica Neue", Helvetica, Arial;
 }
+* {
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+html,
+body {
+  margin: 0;
+  padding: 0;
+}
+html {
+  height: 100%;
+  width: 100%;
+  overflow: scroll;
+  overflow-x: hidden;
+}
+body {
+  zoom: 1;
+  min-height: 100%;
+}
+body:before {
+  content: '';
+  display: block;
+}
+body:after {
+  content: '';
+  display: table;
+  clear: both;
+}
+.titlebar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  background: rgba(253, 246, 227, 0.9);
+  z-index: 200;
+  -webkit-app-region: drag;
+  padding: 0 10px;
+  text-align: center;
+  font-size: 14px;
+  line-height: 40px;
+  min-height: 40px;
+  font-weight: 300;
+  border-bottom: 1px solid #eee8d5;
+}
+.titlebar:hover {
+  background: #eee8d5;
+  background: rgba(238, 232, 213, 0.85);
+}
+.titlebar:hover #toPreview,
+.titlebar:hover #toDocuments {
+  background-color: rgba(238, 232, 213, 0.3);
+}
+.titlebar > * {
+  cursor: default;
+}
+.titlebar .left {
+  float: left;
+}
+.titlebar .left #toDocuments {
+  display: inline-block;
+  border: 1px solid #eee8d5;
+  padding: 4px 20px;
+  border-radius: 3px;
+  margin: 0;
+  max-width: 180px;
+  font-size: 14px;
+  line-height: 16px;
+  cursor: pointer;
+}
+.titlebar .left #toDocuments:hover {
+  box-shadow: 0 0 5px -1px #ff0000;
+}
+.titlebar .left #toDocuments i.icon {
+  position: relative;
+  left: -8px;
+  line-height: 0;
+  top: -1px;
+  vertical-align: middle;
+}
+.titlebar .left #toDocuments .icon {
+  font-family: 'linecons';
+  speak: none;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+  -webkit-font-smoothing: antialiased;
+}
+.titlebar .left #toDocuments .icon:before {
+  content: "\e007";
+}
+.titlebar .left #toDocuments .icon {
+  font-size: 20px;
+}
+.titlebar .right {
+  float: right;
+}
+.titlebar .right #toPreview {
+  display: inline-block;
+  border: 1px solid #eee8d5;
+  padding: 4px 20px;
+  border-radius: 3px;
+  margin: 0;
+  max-width: 180px;
+  font-size: 14px;
+  line-height: 16px;
+  cursor: pointer;
+}
+.titlebar .right #toPreview:hover {
+  box-shadow: 0 0 5px -1px #ff0000;
+}
+.titlebar .right #toPreview i.icon {
+  position: relative;
+  left: -8px;
+  line-height: 0;
+  top: -1px;
+  vertical-align: middle;
+}
+.titlebar .right #toPreview .icon {
+  font-family: 'linecons';
+  speak: none;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+  -webkit-font-smoothing: antialiased;
+}
+.titlebar .right #toPreview .icon:before {
+  content: "\e006";
+}
+.titlebar .right #toPreview .icon {
+  font-size: 28px;
+}
+@media screen and (max-width: 600px) {
+  .titlebar {
+    font-size: 14px;
+  }
+  .titlebar .title {
+    display: inline-block;
+    position: absolute;
+    left: 0;
+    right: 0;
+    margin: 0 70px;
+    overflow: hidden;
+  }
+  .titlebar .left,
+  .titlebar .right {
+    position: absolute;
+    bottom: 0;
+    pointer-events: none;
+    opacity: 0;
+  }
+  .titlebar .right {
+    right: 10px;
+  }
+  .titlebar:hover {
+    min-height: 80px;
+  }
+  .titlebar:hover .left,
+  .titlebar:hover .right {
+    pointer-events: auto;
+    opacity: 1;
+  }
+}
+.titlebar {
+  -webkit-transition: border 1s, min-height 0.2s ease-out, background-color 3s ease-in;
+}
+.titlebar .left,
+.titlebar right {
+  -webkit-transition: opacity 0.2s;
+}
+.titlebar #toPreview,
+.titlebar #toDocuments {
+  -webkit-transition: border-color 1s;
+}
+.titlebar #toPreview .icon,
+.titlebar #toDocuments .icon {
+  -webkit-transition: opacity 1s;
+}
+.distractionFree .titlebar {
+  border-color: rgba(253, 246, 227, 0);
+}
+.distractionFree .titlebar #toPreview,
+.distractionFree .titlebar #toDocuments {
+  border-color: transparent;
+}
+.distractionFree .titlebar #toPreview .icon,
+.distractionFree .titlebar #toDocuments .icon {
+  opacity: 0.3;
+}
 #windowControls {
   float: left;
   text-align: left;
@@ -402,164 +595,6 @@ body,
 #windowControls .windowControl#windowMaximize:hover {
   background: #96D16F;
 }
-* {
-  -moz-box-sizing: border-box;
-  -webkit-box-sizing: border-box;
-  box-sizing: border-box;
-}
-html,
-body {
-  margin: 0;
-  padding: 0;
-}
-html {
-  height: 100%;
-  width: 100%;
-  overflow: scroll;
-  overflow-x: hidden;
-}
-body {
-  zoom: 1;
-  min-height: 100%;
-}
-body:before {
-  content: '';
-  display: block;
-}
-body:after {
-  content: '';
-  display: table;
-  clear: both;
-}
-.titlebar {
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  background: rgba(253, 246, 227, 0.9);
-  z-index: 200;
-  -webkit-app-region: drag;
-  padding: 0 10px;
-  text-align: center;
-  line-height: 40px;
-  border-bottom: 1px solid #dfd4b1;
-}
-.titlebar:hover {
-  background: #eee8d5;
-  background: rgba(238, 232, 213, 0.85);
-}
-.titlebar:hover #toPreview,
-.titlebar:hover #toDocuments {
-  background-color: #eee8d5;
-}
-.titlebar > * {
-  cursor: default;
-}
-.titlebar .title {
-  display: inline-block;
-}
-.titlebar .left {
-  float: left;
-}
-.titlebar .left #toDocuments {
-  display: inline-block;
-  border: 1px solid #dfd4b1;
-  padding: 4px 20px;
-  border-radius: 3px;
-  margin: 0;
-  max-width: 180px;
-  font-size: 14px;
-  line-height: 16px;
-  cursor: pointer;
-}
-.titlebar .left #toDocuments:hover {
-  box-shadow: 0 0 5px -2px #ff0000;
-}
-.titlebar .left #toDocuments i.icon {
-  position: relative;
-  left: -8px;
-  line-height: 0;
-  top: -1px;
-  vertical-align: middle;
-}
-.titlebar .left #toDocuments .icon {
-  font-family: 'linecons';
-  speak: none;
-  font-style: normal;
-  font-weight: normal;
-  font-variant: normal;
-  text-transform: none;
-  line-height: 1;
-  -webkit-font-smoothing: antialiased;
-}
-.titlebar .left #toDocuments .icon:before {
-  content: "\e007";
-}
-.titlebar .left #toDocuments .icon {
-  font-size: 20px;
-}
-.titlebar .right {
-  float: right;
-}
-.titlebar .right #toPreview {
-  display: inline-block;
-  border: 1px solid #dfd4b1;
-  padding: 4px 20px;
-  border-radius: 3px;
-  margin: 0;
-  max-width: 180px;
-  font-size: 14px;
-  line-height: 16px;
-  cursor: pointer;
-}
-.titlebar .right #toPreview:hover {
-  box-shadow: 0 0 5px -2px #ff0000;
-}
-.titlebar .right #toPreview i.icon {
-  position: relative;
-  left: -8px;
-  line-height: 0;
-  top: -1px;
-  vertical-align: middle;
-}
-.titlebar .right #toPreview .icon {
-  font-family: 'linecons';
-  speak: none;
-  font-style: normal;
-  font-weight: normal;
-  font-variant: normal;
-  text-transform: none;
-  line-height: 1;
-  -webkit-font-smoothing: antialiased;
-}
-.titlebar .right #toPreview .icon:before {
-  content: "\e006";
-}
-.titlebar .right #toPreview .icon {
-  font-size: 28px;
-}
-.titlebar {
-  -webkit-transition: border 1s;
-}
-.titlebar #toPreview,
-.titlebar #toDocuments {
-  -webkit-transition: border-color 1s;
-}
-.titlebar #toPreview .icon,
-.titlebar #toDocuments .icon {
-  -webkit-transition: opacity 1s;
-}
-.distractionFree .titlebar {
-  border-color: #fdf6e3;
-}
-.distractionFree .titlebar #toPreview,
-.distractionFree .titlebar #toDocuments {
-  border-color: transparent;
-}
-.distractionFree .titlebar #toPreview .icon,
-.distractionFree .titlebar #toDocuments .icon {
-  opacity: 0.3;
-}
 #fileBrowser {
   position: fixed;
   top: 0;
@@ -570,7 +605,7 @@ body:after {
 }
 #fileBrowser #newFile {
   display: inline-block;
-  border: 1px solid #dfd4b1;
+  border: 1px solid #eee8d5;
   padding: 4px 20px;
   border-radius: 3px;
   margin: 0;
@@ -581,7 +616,7 @@ body:after {
   margin-bottom: 15px;
 }
 #fileBrowser #newFile:hover {
-  box-shadow: 0 0 5px -2px #ff0000;
+  box-shadow: 0 0 5px -1px #ff0000;
 }
 #fileBrowser #newFile i.icon {
   position: relative;
