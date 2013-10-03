@@ -13,7 +13,7 @@
     }
   },
   "permissions": [
-    "identity"
+    "identity", "clipboardRead", "clipboardWrite"
   ],
   "oauth2": {
     "client_id": "140224327941-54e8c7refmj3697retgf3c6ed8lcj1dp.apps.googleusercontent.com",
