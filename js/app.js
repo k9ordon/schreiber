@@ -13,6 +13,7 @@ var App = function() {
     p = App.prototype;
 
 p.init = function() {
+    console.log('app init');
     this.fileBrowser.init();
 
     this.newFile();
@@ -20,10 +21,10 @@ p.init = function() {
 }
 
 p.newFile = function() {
-    this.file = new File;
-    this.files.push(this.file);
-
-    this.file.init();
+    app.file = new File;
+    
+    app.files.push(app.file);
+    app.file.init();
 }
 
 p.events = function() {

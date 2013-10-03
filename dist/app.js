@@ -10430,21 +10430,25 @@ if (typeof exports === 'object') {
 }());
 ;
 var Preview = function() {
-        this.$el = document.querySelector('#preview');
+        this.$el = null;
     },
     p = Preview.prototype;
 
 p.init = function() {
-    console.log('Preview init');
+    this.$el = app.file.$el.querySelector('.preview');
+    
+    console.log('Preview init', app.file.$el, this.$el);
+
     this.events();
     return this;
 };
 
 p.events = function() {
+    
 };
 
 p.update = function() {
-    console.log('preview update');
+    console.log('preview update', this.$el);
 
     var html = marked(app.file.editor.getValue());
     this.$el.innerHTML = html;
@@ -10460,21 +10464,26 @@ var File = function() {
         this.preview = new Preview;
 
 		this.driveId = null;
+
+        this.idx = app.files.length;
+
+        this.data = {
+            name : 'welcome.md',
+            content : '# hello \n Dublin'
+        }
 	},
 	p = File.prototype;
 
 p.init = function(driveId) {
-	console.log('File init');
+	console.log('File init', driveId);
 	
     var t = document.createElement('div');
     t.innerHTML = this.$template.innerText;
-    
     this.$el = t.firstChild;
     document.body.appendChild(this.$el);
-    
+
     this.$src = this.$el.querySelector('#src');
     this.$preview = this.$el.querySelector('#preview');
-
 
     this.editor = CodeMirror.fromTextArea(this.$src, {
         mode: 'gfm',
@@ -10486,11 +10495,25 @@ p.init = function(driveId) {
         extraKeys: {"Enter": "newlineAndIndentContinueMarkdownList"}
     });
 
+    app.fileBrowser.addCurrentFile(this);
+    this.show();
+
     this.events();
     this.preview.init();
 
 	return this;
 };
+
+p.show = function() {
+    console.log('show file', this.$el);
+
+    var currentFile = document.querySelector('#currentFile');
+    currentFile ? currentFile.id = '' : false;
+
+    this.$el.id = 'currentFile';
+
+    app.file = this;
+}
 
 p.events = function() {
     this.editor.on("change", function(cm) {
@@ -10517,6 +10540,7 @@ p.updatePreview = function() {
     //console.log('updatePreview', this.$src.innerHTML, marked(this.$src.innerHTML));
     console.log(marked.lexer(this.$src.innerText, {}));
 
+    // @todo seter in preview
     this.$preview.innerHTML = marked(this.$src.innerText);
 }
 
@@ -10568,8 +10592,11 @@ p.onDriveFileDownloadReady = function(resp) {
 };
 var FileBrowser = function() {
         this.$el = document.querySelector('#fileBrowser');
-        this.$newFile = this.$el.querySelector('#newFile');
-        this.$openPickerButton = this.$el.querySelector('#openPickerButton');
+        this.$newFile = document.querySelector('#newFile');
+        this.$openPickerButton = document.querySelector('#openPickerButton');
+        this.$fileTemplate = document.querySelector('#fileBrowserFileTemplate');
+        this.$currentDocuments = document.querySelector('#currentDocuments');
+        this.$driveDocuments = document.querySelector('#driveDocuments');
 	},
 	p = FileBrowser.prototype;
 
@@ -10589,7 +10616,43 @@ p.events = function() {
         app.setDistractionFree(false);
     });
 
-    this.$newFile.addEventListener('click', app.newFile());
+    this.$newFile.addEventListener('click', app.newFile);
+}
+
+p.addCurrentFile = function(file) {
+    this.$fileTemplate;
+
+    var t = document.createElement('div');
+    t.innerHTML = this.$fileTemplate.innerText;
+    var fileItem = t.firstChild;
+    fileItem.innerHTML = file.data.name; 
+    fileItem.setAttribute('data-fileidx', file.idx);
+
+    this.$currentDocuments.appendChild(fileItem);
+
+    fileItem.addEventListener('click', this.onCurrentFileItemClicked);
+
+    var currentFileItem = document.querySelector('#currentFileItem');
+    currentFileItem ? currentFileItem.id = '' : false;
+    fileItem.id = 'currentFileItem';
+}
+
+p.onCurrentFileItemClicked = function(e) {
+    var idx = e.srcElement.getAttribute('data-fileidx');
+
+    console.log('current item clicked', e.srcElement.getAttribute('data-fileidx'));
+
+    console.log(app.files[idx]);
+
+    if(idx) {
+        var currentFileItem = document.querySelector('#currentFileItem');
+        currentFileItem ? currentFileItem.id = '' : false;
+        e.srcElement.id = 'currentFileItem'; 
+
+        app.files[idx].show(); 
+
+    }
+    
 }
 
 p.onGapiReady = function() {
@@ -10627,7 +10690,7 @@ p.onDriveFilesReady = function(resp) {
 	var result = resp.items,
 		i = 0;
 	for (i = 0; i < result.length; i++) {
-		app.fileBrowser.$el.innerHTML += '<p data-driveId="'+result[i].id+'">'+result[i].title +'<small class="mimeTpye">'+result[i].mimeType+'</small> <small class="folder">'+'</small></p>';
+		app.fileBrowser.$driveDocuments.innerHTML += '<p data-driveId="'+result[i].id+'">'+result[i].title +'<small class="mimeTpye">'+result[i].mimeType+'</small> <small class="folder">'+'</small></p>';
 		//console.log([result[i]]);
 	}
 
@@ -10692,6 +10755,7 @@ var App = function() {
     p = App.prototype;
 
 p.init = function() {
+    console.log('app init');
     this.fileBrowser.init();
 
     this.newFile();
@@ -10699,10 +10763,10 @@ p.init = function() {
 }
 
 p.newFile = function() {
-    this.file = new File;
-    this.files.push(this.file);
-
-    this.file.init();
+    app.file = new File;
+    
+    app.files.push(app.file);
+    app.file.init();
 }
 
 p.events = function() {

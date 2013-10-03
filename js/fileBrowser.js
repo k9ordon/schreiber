@@ -1,7 +1,10 @@
 var FileBrowser = function() {
         this.$el = document.querySelector('#fileBrowser');
-        this.$newFile = this.$el.querySelector('#newFile');
-        this.$openPickerButton = this.$el.querySelector('#openPickerButton');
+        this.$newFile = document.querySelector('#newFile');
+        this.$openPickerButton = document.querySelector('#openPickerButton');
+        this.$fileTemplate = document.querySelector('#fileBrowserFileTemplate');
+        this.$currentDocuments = document.querySelector('#currentDocuments');
+        this.$driveDocuments = document.querySelector('#driveDocuments');
 	},
 	p = FileBrowser.prototype;
 
@@ -21,7 +24,43 @@ p.events = function() {
         app.setDistractionFree(false);
     });
 
-    this.$newFile.addEventListener('click', app.newFile());
+    this.$newFile.addEventListener('click', app.newFile);
+}
+
+p.addCurrentFile = function(file) {
+    this.$fileTemplate;
+
+    var t = document.createElement('div');
+    t.innerHTML = this.$fileTemplate.innerText;
+    var fileItem = t.firstChild;
+    fileItem.innerHTML = file.data.name; 
+    fileItem.setAttribute('data-fileidx', file.idx);
+
+    this.$currentDocuments.appendChild(fileItem);
+
+    fileItem.addEventListener('click', this.onCurrentFileItemClicked);
+
+    var currentFileItem = document.querySelector('#currentFileItem');
+    currentFileItem ? currentFileItem.id = '' : false;
+    fileItem.id = 'currentFileItem';
+}
+
+p.onCurrentFileItemClicked = function(e) {
+    var idx = e.srcElement.getAttribute('data-fileidx');
+
+    console.log('current item clicked', e.srcElement.getAttribute('data-fileidx'));
+
+    console.log(app.files[idx]);
+
+    if(idx) {
+        var currentFileItem = document.querySelector('#currentFileItem');
+        currentFileItem ? currentFileItem.id = '' : false;
+        e.srcElement.id = 'currentFileItem'; 
+
+        app.files[idx].show(); 
+
+    }
+    
 }
 
 p.onGapiReady = function() {
@@ -59,7 +98,7 @@ p.onDriveFilesReady = function(resp) {
 	var result = resp.items,
 		i = 0;
 	for (i = 0; i < result.length; i++) {
-		app.fileBrowser.$el.innerHTML += '<p data-driveId="'+result[i].id+'">'+result[i].title +'<small class="mimeTpye">'+result[i].mimeType+'</small> <small class="folder">'+'</small></p>';
+		app.fileBrowser.$driveDocuments.innerHTML += '<p data-driveId="'+result[i].id+'">'+result[i].title +'<small class="mimeTpye">'+result[i].mimeType+'</small> <small class="folder">'+'</small></p>';
 		//console.log([result[i]]);
 	}
 

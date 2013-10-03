@@ -8,21 +8,26 @@ var File = function() {
         this.preview = new Preview;
 
 		this.driveId = null;
+
+        this.idx = app.files.length;
+
+        this.data = {
+            name : 'welcome.md',
+            content : '# hello \n Dublin'
+        }
 	},
 	p = File.prototype;
 
 p.init = function(driveId) {
-	console.log('File init');
+	console.log('File init', driveId);
 	
     var t = document.createElement('div');
     t.innerHTML = this.$template.innerText;
-    
     this.$el = t.firstChild;
     document.body.appendChild(this.$el);
-    
+
     this.$src = this.$el.querySelector('#src');
     this.$preview = this.$el.querySelector('#preview');
-
 
     this.editor = CodeMirror.fromTextArea(this.$src, {
         mode: 'gfm',
@@ -34,11 +39,25 @@ p.init = function(driveId) {
         extraKeys: {"Enter": "newlineAndIndentContinueMarkdownList"}
     });
 
+    app.fileBrowser.addCurrentFile(this);
+    this.show();
+
     this.events();
     this.preview.init();
 
 	return this;
 };
+
+p.show = function() {
+    console.log('show file', this.$el);
+
+    var currentFile = document.querySelector('#currentFile');
+    currentFile ? currentFile.id = '' : false;
+
+    this.$el.id = 'currentFile';
+
+    app.file = this;
+}
 
 p.events = function() {
     this.editor.on("change", function(cm) {
@@ -65,6 +84,7 @@ p.updatePreview = function() {
     //console.log('updatePreview', this.$src.innerHTML, marked(this.$src.innerHTML));
     console.log(marked.lexer(this.$src.innerText, {}));
 
+    // @todo seter in preview
     this.$preview.innerHTML = marked(this.$src.innerText);
 }
 
