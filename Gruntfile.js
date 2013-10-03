@@ -10,18 +10,24 @@ module.exports = function(grunt) {
         dist: {
             files: {
                 'dist/app.js': [
-                    // libs
+                    // codemirror
                     'bower_components/codemirror/lib/codemirror.js',
                     'bower_components/codemirror/addon/edit/continuelist.js',
                     'bower_components/codemirror/addon/mode/overlay.js',
                     'bower_components/codemirror/mode/xml/xml.js',
+                    'bower_components/codemirror/mode/javascript/javascript.js',
+                    'bower_components/codemirror/mode/css/css.js',
+                    'bower_components/codemirror/mode/php/php.js',
+                    'bower_components/codemirror/mode/htmlmixed/htmlmixed.js',
                     'bower_components/codemirror/mode/markdown/markdown.js',
                     'bower_components/codemirror/mode/gfm/gfm.js',
-
+                    // mousetrap
                     'bower_components/mousetrap/mousetrap.js',
                     'bower_components/mousetrap/plugins/global-bind/mousetrap-global-bind.js',
-
+                    // marked
+                    'bower_components/marked/lib/marked.js',
                     // app
+                    'js/preview.js', 
                     'js/file.js', 
                     'js/files.js', 
                     'js/app.js', 
@@ -85,7 +91,10 @@ module.exports = function(grunt) {
     },
 
     watch: {
-
+        gruntfile: {
+            files: ['package.json', 'gruntfile.js'],
+            tasks: ['bower', 'default']
+        },
         css: {
             files: 'less/*.less',
             tasks: ['less'],
