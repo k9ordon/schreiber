@@ -368,7 +368,7 @@ body,
   text-indent: -9999px;
   position: relative;
   background: #eee8d5;
-  margin: 12px 3px 0;
+  margin: 0 3px 0;
 }
 #windowControls .windowControl:before {
   content: '';
@@ -454,6 +454,9 @@ body:after {
 }
 .titlebar > * {
   cursor: default;
+}
+.titlebar .title {
+  display: inline-block;
 }
 .titlebar .left {
   float: left;
