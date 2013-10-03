@@ -12,13 +12,15 @@ module.exports = function(grunt) {
                 'dist/app.js': [
                     // libs
                     'bower_components/codemirror/lib/codemirror.js',
-                    
                     'bower_components/codemirror/addon/edit/continuelist.js',
                     'bower_components/codemirror/addon/mode/overlay.js',
-
                     'bower_components/codemirror/mode/xml/xml.js',
                     'bower_components/codemirror/mode/markdown/markdown.js',
                     'bower_components/codemirror/mode/gfm/gfm.js',
+
+                    'bower_components/mousetrap/mousetrap.js',
+                    'bower_components/mousetrap/plugins/global-bind/mousetrap-global-bind.js',
+
                     // app
                     'js/file.js', 
                     'js/files.js', 
@@ -28,6 +30,7 @@ module.exports = function(grunt) {
                 ],
                 'dist/chromeapp.js' : [
                     'dist/app.js',
+                    'js/window-controls.js',
                     'js/chromeapp.js',
                     'bower_components/chrome-app-samples/gapi-chrome-apps-lib/gapi-chrome-apps.js'
                 ],
@@ -93,11 +96,12 @@ module.exports = function(grunt) {
 
         js: {
             files: 'js/*.js',
-            tasks: ['concat'],
-            options: {
-                //livereload: false,
-                //interrupt: true,
-            },
+            tasks: ['concat']
+        },
+
+        jade: {
+            files: 'jade/*',
+            tasks: ['jade']
         }
     },
 

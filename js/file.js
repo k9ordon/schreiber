@@ -31,22 +31,15 @@ p.init = function(driveId) {
 };
 
 p.events = function() {
-    this.editor.on("change", function(cm, change) {
-        console.log("something changed! (" + change.origin + ")");
-    });
-
     this.editor.on("change", function(cm) {
-        console.log("change");
         app.setDistractionFree(true);
     });
 
     this.editor.on("cursorActivity", function(cm) {
-        console.log("cursorActivity");
         app.setDistractionFree(true);
     });
 
     this.editor.on("blur", function(cm) {
-        console.log("blur");
         app.setDistractionFree(false);
     });
 }

@@ -22,6 +22,10 @@ p.events = function() {
         console.log('mouseover');
         app.setDistractionFree(false);
     });
+
+    Mousetrap.bindGlobal('command+l', function() {
+        console.log('yeee');
+    });
 }
 
 p.setDistractionFree = function(bool) {

@@ -17,6 +17,7 @@
   "dependencies": {
     "marked": "~0.2.9",
     "codemirror": "~3.18.0",
-    "chrome-app-samples": "git://github.com/GoogleChrome/chrome-app-samples.git"
+    "chrome-app-samples": "git://github.com/GoogleChrome/chrome-app-samples.git",
+    "mousetrap": "~1.4.5"
   }
 }
