@@ -638,7 +638,7 @@ body:after {
 #file .CodeMirror {
   -webkit-transition: border-color 1s;
 }
-.distractionFree #file .CodeMirror {
+.distractionFree .file .CodeMirror {
   border-color: transparent;
 }
 .preview {
