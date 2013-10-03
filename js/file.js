@@ -33,6 +33,7 @@ p.init = function(driveId) {
 p.events = function() {
     this.editor.on("change", function(cm) {
         app.setDistractionFree(true);
+        app.preview.update();
     });
 
     this.editor.on("cursorActivity", function(cm) {
@@ -41,6 +42,11 @@ p.events = function() {
 
     this.editor.on("blur", function(cm) {
         app.setDistractionFree(false);
+        console.log('blur');
+    });
+
+    this.editor.on("viewportChange", function(em, from, to) {
+        console.log(['viewportChange', from, to]);
     });
 }
 

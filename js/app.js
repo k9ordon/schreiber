@@ -4,6 +4,7 @@ var App = function() {
         this.files = new Files;
         this.onGapiReady = this.files.onGapiReady;
         this.file = new File;
+        this.preview = new Preview;
         this.currentKeyDownOffset;
 
         this.$titlebar = document.querySelector('.titlebar');
@@ -13,6 +14,7 @@ var App = function() {
 p.init = function() {
     this.files.init();
     this.file.init();
+    this.preview.init();
 
     this.events();
 }
