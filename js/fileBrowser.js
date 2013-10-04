@@ -64,17 +64,23 @@ p.onCurrentFileItemClicked = function(e) {
 }
 
 p.getDriveFiles = function() {
+ 
+
 	var request = gapi.client.request({
-		'path': 'drive/v2/files',
+		'path': '/drive/v2/files',
 		'method': 'GET',
 		'params': {
 			'maxResults': 950,
 			'q': "mimeType = 'text/x-markdown' or mimeType = 'text/plain' or mimeType = 'application/octet-stream'"
 			//'q': "mimeType contains 'text' and writers"
 			//'q': "title contains 'meeting'"
-		}
+		},
+        "callback": app.fileBrowser.onDriveFilesReady
 	});
-	request.execute(app.fileBrowser.onDriveFilesReady);
+
+       console.log('getDriveFiles');
+    return;
+	//request.execute(app.fileBrowser.onDriveFilesReady);
 }
 
 p.onDriveFilesReady = function(resp) {

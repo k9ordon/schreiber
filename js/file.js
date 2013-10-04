@@ -103,12 +103,11 @@ p.loadDriveFile = function(driveId) {
 			//'q': "mimeType = 'text/x-markdown' or mimeType = 'text/plain' or mimeType = 'application/octet-stream'"
 			//'q': "mimeType contains 'text' and writers"
 			//'q': "title contains 'meeting'"
-		}
+		},
+        'callback': app.file.onDriveFileInfoReady
 	});
 
     console.log('request', request);
-
-	request.execute(app.file.onDriveFileInfoReady);
 }
 
 p.onDriveFileInfoReady = function(resp) {

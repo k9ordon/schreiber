@@ -19,7 +19,7 @@ p.events = function() {
 p.loadUserbadge = function() {
     var request = gapi.client.request({
         'path': 'userinfo/email',
-        'method': 'GET'
+        'method': 'GET',
+        'callback': function(a) { console.log(a.body) }
     });
-    request.execute(function(a) { console.log(a.body) });
 };
