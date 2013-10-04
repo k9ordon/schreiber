@@ -63,21 +63,6 @@ p.onCurrentFileItemClicked = function(e) {
     
 }
 
-p.onGapiReady = function() {
-	console.log('Google api ready' + app.CLIENT_ID);
-
-	gapi.auth.authorize({
-			'client_id': app.CLIENT_ID, 
-			'scope': app.SCOPES, 
-			'immediate': true
-		},
-        function(auth) {
-            console.log('auth ready ', auth);
-			app.fileBrowser.getDriveFiles();
-		}		
-	);
-};
-
 p.getDriveFiles = function() {
 	var request = gapi.client.request({
 		'path': 'drive/v2/files',

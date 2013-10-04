@@ -1,9 +1,10 @@
 var App = function() {
         this.CLIENT_ID = '140224327941.apps.googleusercontent.com';//'140224327941-54e8c7refmj3697retgf3c6ed8lcj1dp.apps.googleusercontent.com';
-        this.SCOPES = 'https://www.googleapis.com/auth/drive';
-        this.fileBrowser = new FileBrowser;
+        this.SCOPES = ['https://www.googleapis.com/auth/drive', 'https://www.googleapis.com/auth/userinfo.email'];
         this.googledrive = new Googledrive;
-        this.onGapiReady = this.fileBrowser.onGapiReady;
+        this.onGapiReady = this.googledrive.init;
+        this.titlebar = new Titlebar;
+        this.fileBrowser = new FileBrowser;
         this.file = null; // current file
         this.files = [];
         this.currentFile
@@ -17,9 +18,12 @@ p.init = function() {
     console.log('app init');
     this.fileBrowser.init();
 
-    this.googledrive.init();
     this.newFile();
     this.events();
+}
+
+p.show = function() {
+
 }
 
 p.newFile = function() {
