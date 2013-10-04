@@ -7,7 +7,7 @@ chrome.app.runtime.onLaunched.addListener(function() {
   var width = 500;
   var height = 500;
 
-  chrome.app.window.create('dist/chromeapp.html', {
+  chrome.app.window.create('index.html', {
     id: 'main',
     frame: 'none', 
     minWidth: 320,

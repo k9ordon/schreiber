@@ -1,6 +1,15 @@
 var App = function() {
         this.$el = document.querySelector('#app');
-        this.CLIENT_ID = '140224327941.apps.googleusercontent.com';//'140224327941-54e8c7refmj3697retgf3c6ed8lcj1dp.apps.googleusercontent.com';
+
+        var o = window.location.origin;
+        
+        if(o === "http://schreiber-dev.k94n.com")
+            this.CLIENT_ID = '140224327941.apps.googleusercontent.com';
+        else if(o === "chrome-extension://fmgcelokejjmhifoocmnpmmklnaigiph")
+            this.CLIENT_ID = '140224327941-54e8c7refmj3697retgf3c6ed8lcj1dp.apps.googleusercontent.com';
+        else
+            alert('no valid api key');
+
         this.SCOPES = ['https://www.googleapis.com/auth/drive', 'https://www.googleapis.com/auth/userinfo.email'];
         this.googledrive = new Googledrive;
         this.onGapiReady = this.googledrive.init;
