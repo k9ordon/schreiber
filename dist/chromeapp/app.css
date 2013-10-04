@@ -743,8 +743,13 @@ body {
   font-size: 16px;
   color-profile: sRGB;
   rendering-intent: auto;
-  background-color: #fdf6e3;
+  background: transparent;
   color: #657b83;
+}
+html {
+  background-image: -webkit-linear-gradient(top, #fdf6e3 50%, #fbeecb 100%);
+  background-attachment: fixed;
+  background-color: #fdf6e3;
 }
 .cm-s-schreiber .CodeMirror-widget {
   text-shadow: none;

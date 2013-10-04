@@ -10429,6 +10429,15 @@ if (typeof exports === 'object') {
   return this || (typeof window !== 'undefined' ? window : global);
 }());
 ;
+var Googledrive = function() {
+        this.CLIENT_ID = '140224327941.apps.googleusercontent.com';//'140224327941-54e8c7refmj3697retgf3c6ed8lcj1dp.apps.googleusercontent.com';
+        this.SCOPES = 'https://www.googleapis.com/auth/drive';
+    },
+    p = Googledrive.prototype;
+
+p.init = function() {
+    console.log('googleDrive init');
+};
 var Preview = function() {
         this.$el = null;
     },
@@ -10665,10 +10674,10 @@ p.onGapiReady = function() {
 	gapi.auth.authorize({
 			'client_id': app.CLIENT_ID, 
 			'scope': app.SCOPES, 
-			//'immediate': true
+			'immediate': true
 		},
-        function(pew) {
-            console.log('auth ready', pew);
+        function(auth) {
+            console.log('auth ready ', auth);
 			app.fileBrowser.getDriveFiles();
 		}		
 	);
@@ -10748,6 +10757,7 @@ var App = function() {
         this.CLIENT_ID = '140224327941.apps.googleusercontent.com';//'140224327941-54e8c7refmj3697retgf3c6ed8lcj1dp.apps.googleusercontent.com';
         this.SCOPES = 'https://www.googleapis.com/auth/drive';
         this.fileBrowser = new FileBrowser;
+        this.googledrive = new Googledrive;
         this.onGapiReady = this.fileBrowser.onGapiReady;
         this.file = null; // current file
         this.files = [];
@@ -10762,6 +10772,7 @@ p.init = function() {
     console.log('app init');
     this.fileBrowser.init();
 
+    this.googledrive.init();
     this.newFile();
     this.events();
 }
@@ -10793,11 +10804,63 @@ p.setDistractionFree = function(bool) {
     }
     document.body.classList.remove('distractionFree');
 };
-var app = new App,
-    p = null,
-    gapiIsLoaded = app.onGapiReady;
+var WindowControls = function() {
+        this.$windowClose = document.querySelector('#windowClose');
+        this.$windowMinimize = document.querySelector('#windowMinimize');
+        this.$windowMaximize = document.querySelector('#windowMaximize');
+    },
+    p = WindowControls.prototype;
 
-app.init();;
+p.init = function() {
+    console.log('windo init');
+    this.events();
+}
+
+p.events = function() {
+    Mousetrap.bindGlobal('command+w', this.windowClose);
+    Mousetrap.bindGlobal('command+f', this.windowFullscreen);
+
+    this.$windowClose.addEventListener('click', this.windowClose);
+    this.$windowMinimize.addEventListener('click', this.windowMinimize);
+    this.$windowMaximize.addEventListener('click', this.windowMaximize);
+}
+
+p.windowClose = function() {
+    chrome.app.window.current().close();
+}
+
+p.windowMinimize = function() {
+    chrome.app.window.current().minimize();
+}
+
+p.windowMaximize = function() {
+    var cw = chrome.app.window.current();
+
+    if(cw.isMaximized()) {
+        cw.restore();
+    } else {
+        cw.maximize();
+    }
+}
+
+p.windowFullscreen = function() {
+    var cw = chrome.app.window.current();
+
+    if(cw.isFullscreen()) {
+        cw.restore();
+    } else {
+        cw.fullscreen();
+    }
+};
+var app = new App,
+    gapiIsLoaded = app.onGapiReady,
+    p = null,
+    windowControls = new WindowControls;
+
+document.addEventListener('DOMContentLoaded', function(e) {
+    app.init();
+    windowControls.init();
+});;
 /**
  * Copyright 2013 Google Inc. All Rights Reserved.
  *
