@@ -1,6 +1,7 @@
 var Googledrive = function() {
         this.CLIENT_ID = '140224327941.apps.googleusercontent.com';//'140224327941-54e8c7refmj3697retgf3c6ed8lcj1dp.apps.googleusercontent.com';
         this.SCOPES = 'https://www.googleapis.com/auth/drive';
+        this.token = null;
     },
     p = Googledrive.prototype;
 
@@ -45,6 +46,8 @@ p.authorize = function() {
 p.onAuthorizeReady = function(auth) {
     console.log('auth ready ', auth);
     console.log('logout url: ', 'https://accounts.google.com/o/oauth2/revoke?token=' + auth.access_token);
+
+    app.googledrive.token = auth.access_token;
 
     // @todo redirect to login page || boot app
 

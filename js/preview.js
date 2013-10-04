@@ -17,8 +17,8 @@ p.events = function() {
 };
 
 p.update = function() {
-    console.log('preview update', this.$el);
+    console.log('preview update', app.file.preview.$el);
 
     var html = marked(app.file.editor.getValue());
-    this.$el.innerHTML = html;
+    app.file.preview.$el.innerHTML = html;
 };

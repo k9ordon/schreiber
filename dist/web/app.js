@@ -10432,6 +10432,7 @@ if (typeof exports === 'object') {
 var Googledrive = function() {
         this.CLIENT_ID = '140224327941.apps.googleusercontent.com';//'140224327941-54e8c7refmj3697retgf3c6ed8lcj1dp.apps.googleusercontent.com';
         this.SCOPES = 'https://www.googleapis.com/auth/drive';
+        this.token = null;
     },
     p = Googledrive.prototype;
 
@@ -10476,6 +10477,8 @@ p.authorize = function() {
 p.onAuthorizeReady = function(auth) {
     console.log('auth ready ', auth);
     console.log('logout url: ', 'https://accounts.google.com/o/oauth2/revoke?token=' + auth.access_token);
+
+    app.googledrive.token = auth.access_token;
 
     // @todo redirect to login page || boot app
 
@@ -10543,10 +10546,10 @@ p.events = function() {
 };
 
 p.update = function() {
-    console.log('preview update', this.$el);
+    console.log('preview update', app.file.preview.$el);
 
     var html = marked(app.file.editor.getValue());
-    this.$el.innerHTML = html;
+    app.file.preview.$el.innerHTML = html;
 };
 ;
 var File = function() {
@@ -10597,6 +10600,7 @@ p.init = function(driveId) {
 
     this.events();
     this.preview.init();
+    this.preview.update();
 
 	return this;
 };
@@ -10634,24 +10638,15 @@ p.events = function() {
     });
 }
 
-
-p.updatePreview = function() {
-    //console.log('updatePreview', this.$src.innerHTML, marked(this.$src.innerHTML));
-    console.log(marked.lexer(this.$src.innerText, {}));
-
-    // @todo seter in preview
-    this.$preview.innerHTML = marked(this.$src.innerText);
-}
-
 p.loadDriveFile = function(driveId) {
     this.driveId = driveId;
 
 	var request = gapi.client.request({
-		'path': 'drive/v2/files/' + this.driveId,
+		'path': '/drive/v2/files/' + this.driveId,
 		'method': 'GET',
 		'params': {
-			//'maxResults': 100,
-			//'q': "mimeType = 'text/x-markdown' or mimeType = 'text/plain' or mimeType = 'application/octet-stream'"
+			'maxResults': 100,
+			'q': "mimeType = 'text/x-markdown' or mimeType = 'text/plain' or mimeType = 'application/octet-stream'"
 			//'q': "mimeType contains 'text' and writers"
 			//'q': "title contains 'meeting'"
 		},
@@ -10664,11 +10659,10 @@ p.loadDriveFile = function(driveId) {
 p.onDriveFileInfoReady = function(resp) {
 	console.log('onDriveFileReady', resp);
 
-	var driveToken = gapi.auth.getToken(),
-    	driveFileXhr   = new XMLHttpRequest();
+	var driveFileXhr   = new XMLHttpRequest();
 
     driveFileXhr.open('GET', resp.downloadUrl, true);
-    driveFileXhr.setRequestHeader('Authorization', 'Bearer ' + driveToken.access_token );
+    driveFileXhr.setRequestHeader('Authorization', 'Bearer ' + app.googledrive.token );
 
     driveFileXhr.onreadystatechange = function( theProgressEvent ) {
         if (driveFileXhr.readyState == 4) {

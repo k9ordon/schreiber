@@ -46,6 +46,7 @@ p.init = function(driveId) {
 
     this.events();
     this.preview.init();
+    this.preview.update();
 
 	return this;
 };
@@ -83,24 +84,15 @@ p.events = function() {
     });
 }
 
-
-p.updatePreview = function() {
-    //console.log('updatePreview', this.$src.innerHTML, marked(this.$src.innerHTML));
-    console.log(marked.lexer(this.$src.innerText, {}));
-
-    // @todo seter in preview
-    this.$preview.innerHTML = marked(this.$src.innerText);
-}
-
 p.loadDriveFile = function(driveId) {
     this.driveId = driveId;
 
 	var request = gapi.client.request({
-		'path': 'drive/v2/files/' + this.driveId,
+		'path': '/drive/v2/files/' + this.driveId,
 		'method': 'GET',
 		'params': {
-			//'maxResults': 100,
-			//'q': "mimeType = 'text/x-markdown' or mimeType = 'text/plain' or mimeType = 'application/octet-stream'"
+			'maxResults': 100,
+			'q': "mimeType = 'text/x-markdown' or mimeType = 'text/plain' or mimeType = 'application/octet-stream'"
 			//'q': "mimeType contains 'text' and writers"
 			//'q': "title contains 'meeting'"
 		},
@@ -113,11 +105,10 @@ p.loadDriveFile = function(driveId) {
 p.onDriveFileInfoReady = function(resp) {
 	console.log('onDriveFileReady', resp);
 
-	var driveToken = gapi.auth.getToken(),
-    	driveFileXhr   = new XMLHttpRequest();
+	var driveFileXhr   = new XMLHttpRequest();
 
     driveFileXhr.open('GET', resp.downloadUrl, true);
-    driveFileXhr.setRequestHeader('Authorization', 'Bearer ' + driveToken.access_token );
+    driveFileXhr.setRequestHeader('Authorization', 'Bearer ' + app.googledrive.token );
 
     driveFileXhr.onreadystatechange = function( theProgressEvent ) {
         if (driveFileXhr.readyState == 4) {
