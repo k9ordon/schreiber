@@ -10437,7 +10437,93 @@ var Googledrive = function() {
 
 p.init = function() {
     console.log('googleDrive init');
+    app.googledrive.authorize();
+}
+
+p.authorize = function() {
+    var params = {};
+
+    
+    if (!(chrome && chrome.app && chrome.app.runtime)) {
+        params.client_id = app.CLIENT_ID;
+        params.scope = app.SCOPES; 
+    }
+
+    params.immediate = true;
+    gapi.auth.authorize(params, 
+        function(auth) {
+            console.log(1, auth);
+            if(auth != null) {
+                app.googledrive.onAuthorizeReady(auth); 
+                return;
+            }
+
+            params.immediate = false;
+            gapi.auth.authorize(params,
+                function(auth) {
+                    console.log(2);
+                    if(auth) {
+                        app.googledrive.onAuthorizeReady(auth); 
+                        return;
+                    }
+                    alert('oauth error => offline mode');
+                }       
+            );
+        }       
+    );
 };
+
+p.onAuthorizeReady = function(auth) {
+    console.log('auth ready ', auth);
+    console.log('logout url: ', 'https://accounts.google.com/o/oauth2/revoke?token=' + auth.access_token);
+
+    // @todo redirect to login page || boot app
+
+    app.show();
+    //app.titlebar.loadUserbadge();
+    app.fileBrowser.getDriveFiles();
+}
+
+p.getUsername = function() {
+    var request = gapi.client.request({
+        'path': 'drive/v2/files',
+        'method': 'GET',
+        'params': {
+            'maxResults': 950,
+            'q': "mimeType = 'text/x-markdown' or mimeType = 'text/plain' or mimeType = 'application/octet-stream'"
+            //'q': "mimeType contains 'text' and writers"
+            //'q': "title contains 'meeting'"
+        },
+        'callback': app.fileBrowser.onDriveFilesReady
+    });
+    //request.execute(app.fileBrowser.onDriveFilesReady);
+};
+var Titlebar = function() {
+        this.$el = null;
+    },
+    p = Titlebar.prototype;
+
+p.init = function() {
+    this.$el = document.querySelector('.titlebar');
+    
+    console.log('titlebar init', this.$el);
+
+    this.events();
+    return this;
+};
+
+p.events = function() {
+    
+};
+
+p.loadUserbadge = function() {
+    var request = gapi.client.request({
+        'path': 'userinfo/email',
+        'method': 'GET',
+        'callback': function(a) { console.log(a.body) }
+    });
+};
+;
 var Preview = function() {
         this.$el = null;
     },
@@ -10490,7 +10576,7 @@ p.init = function(driveId) {
     var t = document.createElement('div');
     t.innerHTML = this.$template.innerText;
     this.$el = t.firstChild;
-    document.body.appendChild(this.$el);
+    app.$el.appendChild(this.$el);
 
     this.$src = this.$el.querySelector('#src');
     this.$preview = this.$el.querySelector('#preview');
@@ -10568,12 +10654,11 @@ p.loadDriveFile = function(driveId) {
 			//'q': "mimeType = 'text/x-markdown' or mimeType = 'text/plain' or mimeType = 'application/octet-stream'"
 			//'q': "mimeType contains 'text' and writers"
 			//'q': "title contains 'meeting'"
-		}
+		},
+        'callback': app.file.onDriveFileInfoReady
 	});
 
     console.log('request', request);
-
-	request.execute(app.file.onDriveFileInfoReady);
 }
 
 p.onDriveFileInfoReady = function(resp) {
@@ -10668,33 +10753,24 @@ p.onCurrentFileItemClicked = function(e) {
     
 }
 
-p.onGapiReady = function() {
-	console.log('Google api ready' + app.CLIENT_ID);
-
-	gapi.auth.authorize({
-			'client_id': app.CLIENT_ID, 
-			'scope': app.SCOPES, 
-			'immediate': true
-		},
-        function(auth) {
-            console.log('auth ready ', auth);
-			app.fileBrowser.getDriveFiles();
-		}		
-	);
-};
-
 p.getDriveFiles = function() {
+ 
+
 	var request = gapi.client.request({
-		'path': 'drive/v2/files',
+		'path': '/drive/v2/files',
 		'method': 'GET',
 		'params': {
 			'maxResults': 950,
 			'q': "mimeType = 'text/x-markdown' or mimeType = 'text/plain' or mimeType = 'application/octet-stream'"
 			//'q': "mimeType contains 'text' and writers"
 			//'q': "title contains 'meeting'"
-		}
+		},
+        "callback": app.fileBrowser.onDriveFilesReady
 	});
-	request.execute(app.fileBrowser.onDriveFilesReady);
+
+       console.log('getDriveFiles');
+    return;
+	//request.execute(app.fileBrowser.onDriveFilesReady);
 }
 
 p.onDriveFilesReady = function(resp) {
@@ -10754,11 +10830,22 @@ p.onDrivePickerClicked = function(data) {
     document.getElementById('result').innerHTML = message;
 };
 var App = function() {
-        this.CLIENT_ID = '140224327941.apps.googleusercontent.com';//'140224327941-54e8c7refmj3697retgf3c6ed8lcj1dp.apps.googleusercontent.com';
-        this.SCOPES = 'https://www.googleapis.com/auth/drive';
-        this.fileBrowser = new FileBrowser;
+        this.$el = document.querySelector('#app');
+
+        var o = window.location.origin;
+        
+        if(o === "http://schreiber-dev.k94n.com")
+            this.CLIENT_ID = '140224327941.apps.googleusercontent.com';
+        else if(o === "chrome-extension://fmgcelokejjmhifoocmnpmmklnaigiph")
+            this.CLIENT_ID = '140224327941-54e8c7refmj3697retgf3c6ed8lcj1dp.apps.googleusercontent.com';
+        else
+            alert('no valid api key');
+
+        this.SCOPES = ['https://www.googleapis.com/auth/drive', 'https://www.googleapis.com/auth/userinfo.email'];
         this.googledrive = new Googledrive;
-        this.onGapiReady = this.fileBrowser.onGapiReady;
+        this.onGapiReady = this.googledrive.init;
+        this.titlebar = new Titlebar;
+        this.fileBrowser = new FileBrowser;
         this.file = null; // current file
         this.files = [];
         this.currentFile
@@ -10772,9 +10859,12 @@ p.init = function() {
     console.log('app init');
     this.fileBrowser.init();
 
-    this.googledrive.init();
     this.newFile();
     this.events();
+}
+
+p.show = function() {
+    this.$el.classList.remove('hidden');
 }
 
 p.newFile = function() {

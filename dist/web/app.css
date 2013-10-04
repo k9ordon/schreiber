@@ -382,6 +382,13 @@ body:after {
   display: table;
   clear: both;
 }
+#app {
+  opacity: 1;
+  -webkit-transition: opacity 0.7s;
+}
+#app.hidden {
+  opacity: 0;
+}
 .titlebar {
   position: fixed;
   top: 0;
@@ -745,9 +752,9 @@ body {
   rendering-intent: auto;
   background: transparent;
   color: #657b83;
+  background: #fdf6e3;
 }
 html {
-  background-image: -webkit-linear-gradient(top, #fdf6e3 50%, #fbeecb 100%);
   background-attachment: fixed;
   background-color: #fdf6e3;
 }
