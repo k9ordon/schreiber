@@ -14,19 +14,43 @@ p.authorize = function() {
             'client_id': app.CLIENT_ID, 
             'scope': app.SCOPES, 
             'immediate': true
-            //'approvalprompt': 'force'
         },
         function(auth) {
-            console.log('auth ready ', auth);
-
-            // @todo redirect to login page || boot app
-
-            app.show();
-            app.titlebar.getUsername();
-            app.fileBrowser.getDriveFiles();
+            console.log(1, auth);
+            if(auth != null) {
+                app.googledrive.onAuthorizeReady(auth); 
+                return;
+            }
+            gapi.auth.authorize(
+                {
+                    'client_id': app.CLIENT_ID, 
+                    'scope': app.SCOPES, 
+                    'immediate': false
+                    //'approvalprompt': 'force'
+                },
+                function(auth) {
+                    console.log(2);
+                    if(auth) {
+                        app.googledrive.onAuthorizeReady(auth); 
+                        return;
+                    }
+                    alert('oauth error => offline mode');
+                }       
+            );
         }       
     );
 };
+
+p.onAuthorizeReady = function(auth) {
+    console.log('auth ready ', auth);
+    console.log('logout url: ', 'https://accounts.google.com/o/oauth2/revoke?token=' + auth.access_token);
+
+    // @todo redirect to login page || boot app
+
+    app.show();
+    app.titlebar.loadUserbadge();
+    app.fileBrowser.getDriveFiles();
+}
 
 p.getUsername = function() {
     var request = gapi.client.request({
