@@ -9,16 +9,22 @@
   },
   "app": {
     "background": {
-      "scripts": ["dist/background.js"]
+      "scripts": ["background.js"]
     }
   },
   "permissions": [
-    "identity", "clipboardRead", "clipboardWrite"
+    "identity", "clipboardRead", "clipboardWrite",
+    "https://docs.google.com/feeds/",
+    "https://docs.googleusercontent.com/",
+    "https://spreadsheets.google.com/feeds/",
+    "https://ssl.gstatic.com/",
+    "https://www.googleapis.com/",
+    "https://accounts.google.com/"
   ],
   "oauth2": {
     "client_id": "140224327941-54e8c7refmj3697retgf3c6ed8lcj1dp.apps.googleusercontent.com",
     "scopes": [
-      "https://www.googleapis.com/auth/drive"
+      "https://www.googleapis.com/auth/drive", "https://www.googleapis.com/auth/userinfo.email"
     ]
   }
 }
