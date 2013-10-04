@@ -82,7 +82,7 @@ module.exports = function(grunt) {
                         flatten: true
                     },
                     {   
-                        src: ['dist/app/*.css~'], 
+                        src: ['dist/app/*.css'], 
                         dest: 'dist/web/', 
                         filter: 'isFile',
                         expand: true, 
