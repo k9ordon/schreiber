@@ -25,7 +25,7 @@ p.init = function(driveId) {
     var t = document.createElement('div');
     t.innerHTML = this.$template.innerText;
     this.$el = t.firstChild;
-    document.body.appendChild(this.$el);
+    app.$el.appendChild(this.$el);
 
     this.$src = this.$el.querySelector('#src');
     this.$preview = this.$el.querySelector('#preview');

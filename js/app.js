@@ -1,4 +1,5 @@
 var App = function() {
+        this.$el = document.querySelector('#app');
         this.CLIENT_ID = '140224327941.apps.googleusercontent.com';//'140224327941-54e8c7refmj3697retgf3c6ed8lcj1dp.apps.googleusercontent.com';
         this.SCOPES = ['https://www.googleapis.com/auth/drive', 'https://www.googleapis.com/auth/userinfo.email'];
         this.googledrive = new Googledrive;
@@ -23,7 +24,7 @@ p.init = function() {
 }
 
 p.show = function() {
-
+    this.$el.classList.remove('hidden');
 }
 
 p.newFile = function() {
