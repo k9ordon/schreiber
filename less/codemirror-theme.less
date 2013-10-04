@@ -26,9 +26,16 @@
 
   color-profile: sRGB;
   rendering-intent: auto;
-  background-color: #fdf6e3; 
+  background: transparent; 
+
   color: #657b83;
   //text-shadow: #eee8d5 0 1px;
+}
+
+html {
+    background-image: -webkit-linear-gradient(top, #fdf6e3 50%, darken(#fdf6e3, 5%) 100%);
+    background-attachment:fixed;
+    background-color: #fdf6e3; 
 }
 
 .cm-s-schreiber .CodeMirror-widget {
