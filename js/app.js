@@ -5,6 +5,8 @@ var App = function() {
         
         if(o === "http://schreiber-dev.k94n.com")
             this.CLIENT_ID = '140224327941.apps.googleusercontent.com';
+        else if(o === "http://schreiber.k94n.com")
+            this.CLIENT_ID = '140224327941-66s2fenc5nlln3shi4r1b04ho2jvgerr.apps.googleusercontent.com';
         else if(o === "chrome-extension://fmgcelokejjmhifoocmnpmmklnaigiph")
             this.CLIENT_ID = '140224327941-54e8c7refmj3697retgf3c6ed8lcj1dp.apps.googleusercontent.com';
         else
