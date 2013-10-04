@@ -69,10 +69,10 @@ p.onGapiReady = function() {
 	gapi.auth.authorize({
 			'client_id': app.CLIENT_ID, 
 			'scope': app.SCOPES, 
-			//'immediate': true
+			'immediate': true
 		},
-        function(pew) {
-            console.log('auth ready', pew);
+        function(auth) {
+            console.log('auth ready ', auth);
 			app.fileBrowser.getDriveFiles();
 		}		
 	);

@@ -27,6 +27,7 @@ module.exports = function(grunt) {
                     // marked
                     'bower_components/marked/lib/marked.js',
                     // app
+                    'js/googledrive.js', 
                     'js/preview.js', 
                     'js/file.js', 
                     'js/fileBrowser.js', 
