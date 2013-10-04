@@ -16,6 +16,10 @@ p.events = function() {
     
 };
 
-p.getUsername = function() {
-    
+p.loadUserbadge = function() {
+    var request = gapi.client.request({
+        'path': 'userinfo/email',
+        'method': 'GET'
+    });
+    request.execute(function(a) { console.log(a.body) });
 };
