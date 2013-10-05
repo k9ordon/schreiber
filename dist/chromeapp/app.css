@@ -611,6 +611,7 @@ body:after {
   font-size: 12px;
   margin: 0;
   padding: 75px 30px;
+  max-width: 300px;
 }
 #fileBrowser #newFile {
   display: inline-block;
@@ -622,7 +623,8 @@ body:after {
   font-size: 14px;
   line-height: 16px;
   cursor: pointer;
-  margin-bottom: 15px;
+  margin-bottom: 5px;
+  clear: both;
 }
 #fileBrowser #newFile:hover {
   box-shadow: 0 0 5px -1px #ff0000;
@@ -635,7 +637,26 @@ body:after {
   vertical-align: middle;
 }
 #fileBrowser #openPickerButton {
-  display: none;
+  display: inline-block;
+  border: 1px solid #eee8d5;
+  padding: 4px 20px;
+  border-radius: 3px;
+  margin: 0;
+  max-width: 180px;
+  font-size: 14px;
+  line-height: 16px;
+  cursor: pointer;
+  margin-bottom: 15px;
+}
+#fileBrowser #openPickerButton:hover {
+  box-shadow: 0 0 5px -1px #ff0000;
+}
+#fileBrowser #openPickerButton i.icon {
+  position: relative;
+  left: -8px;
+  line-height: 0;
+  top: -1px;
+  vertical-align: middle;
 }
 #fileBrowser h3 {
   margin: 20px 0 15px;

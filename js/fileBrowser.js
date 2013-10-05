@@ -89,8 +89,12 @@ p.onDriveFilesReady = function(resp) {
 	var result = resp.items,
 		i = 0;
 	for (i = 0; i < result.length; i++) {
-		app.fileBrowser.$driveDocuments.innerHTML += '<p data-driveId="'+result[i].id+'">'+result[i].title +'<small class="mimeTpye">'+result[i].mimeType+'</small> <small class="folder">'+'</small></p>';
-		//console.log([result[i]]);
+		app.fileBrowser.$driveDocuments.innerHTML += '<div class="fileItem" data-driveId="'+result[i].id+'">'+result[i].title +'<small class="mimeTpye">'+result[i].mimeType+'</small> <small class="folder">'+'</small></p>';
+	
+
+
+
+        //console.log([result[i]]);
 	}
 
 	app.fileBrowser.driveEvents();
@@ -121,10 +125,19 @@ p.openDrivePicker = function(e) {
 p.openDrivePickerReady = function() {
     console.log('openDrivePickerReady', google);
 
+    var docsView = new google.picker.DocsView()
+        .setParent('root')
+        .setIncludeFolders(true);
+        //.setMimeTypes('application/vnd.google-apps.folder')
+        //.setSelectFolderEnabled(true);
+
     var picker = new google.picker.PickerBuilder().
-        addView(google.picker.ViewId.IMAGE_SEARCH).
-        setDeveloperKey('gv-sYwfyYRCRxrhpBChelBSK').
-        setCallback(files.onDrivePickerClicked).
+        addView(docsView).
+        addView(google.picker.ViewId.DOCUMENTS).
+        //setDeveloperKey('AIzaSyDSZzmvuom74cwF16MnZ8dA_KFwqWMicWo').
+        setCallback(function(a) { console.log('you choose file', a) }).
+        hideTitleBar().
+        setTitle('Select a Markdown Document').
         build();
         picker.setVisible(true);
 }
