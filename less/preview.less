@@ -4,7 +4,43 @@
     right: 0;
     bottom:0;
     font-size: 12px;
-    margin: 35px 0 50px;
-    padding: 40px 30px;
+    margin: 0;
+    padding: 75px 30px;
     max-width: 300px;
+    overflow: auto;
+}
+
+.preview {
+    //-webkit-transition: border 1s, min-height 0.15s ease-in, background-color 3s ease-in;
+
+    & > * {
+        display: block;
+        max-height:400px;
+        overflow: hidden;
+        margin:10px 0;
+
+        -webkit-transition: all 1s; // max-height 1s, margin 2s
+    }
+}
+
+.distractionFree {
+    .preview {
+        & > * {
+            max-height: 0px;
+            margin:0;
+        }
+        h1,h2,h3 {
+            max-height: 400px!important;
+            margin:8px 0;
+            font-size: 14px;
+            margin: 0 0 10px;
+            font-weight: 400;
+        }
+        h2 {
+            margin-left:10px;
+        }
+        h2 {
+            margin-left:20px;
+        }
+    }
 }
