@@ -11074,6 +11074,8 @@ var FileBrowser = function() {
         this.$fileTemplate = document.querySelector('#fileBrowserFileTemplate');
         this.$currentDocuments = document.querySelector('#currentDocuments');
         this.$driveDocuments = document.querySelector('#driveDocuments');
+
+        this.driveSpinnerLoading = null;
 	},
 	p = FileBrowser.prototype;
 
@@ -11133,8 +11135,6 @@ p.onCurrentFileItemClicked = function(e) {
 }
 
 p.getDriveFiles = function() {
- 
-
 	var request = gapi.client.request({
 		'path': '/drive/v2/files',
 		'method': 'GET',
@@ -11147,13 +11147,19 @@ p.getDriveFiles = function() {
         "callback": app.fileBrowser.onDriveFilesReady
 	});
 
-       console.log('getDriveFiles');
+    console.log('getDriveFiles');
+
+    app.fileBrowser.$driveDocuments.classList.add('loading');
+    app.fileBrowser.driveSpinnerLoading = new Spinner(app.smallSpinnerOpts).spin(app.fileBrowser.$driveDocuments);
+
     return;
 	//request.execute(app.fileBrowser.onDriveFilesReady);
 }
 
 p.onDriveFilesReady = function(resp) {
 	console.log(resp);
+
+    app.fileBrowser.$driveDocuments.classList.remove('loading')
 
 	var result = resp.items,
 		i = 0;
@@ -11223,10 +11229,13 @@ p.onDrivePickerClicked = function(data) {
 };
 var App = function() {
         // loading spinner
-        var opts = {
+        this.bigSpinnerOpts = {
           lines: 15, length: 5, width: 1, radius: 10, color: '#657b83'
         };
-        var spinner = new Spinner(opts).spin(document.querySelector('#spinner'));
+        this.smallSpinnerOpts = {
+          lines: 9, length: 3, width: 1, radius: 4, color: '#657b83'
+        };
+        var spinnerLoading = new Spinner(this.smallSpinnerOpts).spin(document.querySelector('#spinner'));
 
 
         this.$el = document.querySelector('#app');

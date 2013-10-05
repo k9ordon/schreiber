@@ -1,9 +1,12 @@
 var App = function() {
         // loading spinner
-        var opts = {
+        this.bigSpinnerOpts = {
           lines: 15, length: 5, width: 1, radius: 10, color: '#657b83'
         };
-        var spinner = new Spinner(opts).spin(document.querySelector('#spinner'));
+        this.smallSpinnerOpts = {
+          lines: 9, length: 3, width: 1, radius: 4, color: '#657b83'
+        };
+        var spinnerLoading = new Spinner(this.smallSpinnerOpts).spin(document.querySelector('#spinner'));
 
 
         this.$el = document.querySelector('#app');

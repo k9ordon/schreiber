@@ -30,6 +30,7 @@
     }
 
     div.fileItem {
+        opacity: 1;
         cursor: pointer;
         font-size: 14px;
         margin: 0 0 10px;
@@ -42,12 +43,36 @@
             font-weight: bold;
         }
     }
+
+    #driveDocuments {
+        .spinner {
+            margin-top: 30px;
+            opacity: 0;
+        }
+        
+        &.loading {
+            .spinner {
+                opacity: 1;
+            }
+            div.fileItem {
+                opacity: 0;
+            }
+        }
+    }
 }
 
 #fileBrowser {
     h3, #newFile, #openPickerButton, #driveDocuments, #currentDocuments {
         -webkit-transition: opacity 1s;
         opacity: 1;
+    }
+
+    div.fileItem {
+        -webkit-transition: opacity 1s;
+    }
+
+    .spinner {
+        -webkit-transition: opacity 0.3s;
     }
 }
 

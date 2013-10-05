@@ -679,6 +679,7 @@ body:after {
   font-size: 12px;
 }
 #fileBrowser div.fileItem {
+  opacity: 1;
   cursor: pointer;
   font-size: 14px;
   margin: 0 0 10px;
@@ -689,6 +690,16 @@ body:after {
 #fileBrowser div.fileItem#currentFileItem {
   font-weight: bold;
 }
+#fileBrowser #driveDocuments .spinner {
+  margin-top: 30px;
+  opacity: 0;
+}
+#fileBrowser #driveDocuments.loading .spinner {
+  opacity: 1;
+}
+#fileBrowser #driveDocuments.loading div.fileItem {
+  opacity: 0;
+}
 #fileBrowser h3,
 #fileBrowser #newFile,
 #fileBrowser #openPickerButton,
@@ -696,6 +707,12 @@ body:after {
 #fileBrowser #currentDocuments {
   -webkit-transition: opacity 1s;
   opacity: 1;
+}
+#fileBrowser div.fileItem {
+  -webkit-transition: opacity 1s;
+}
+#fileBrowser .spinner {
+  -webkit-transition: opacity 0.3s;
 }
 .distractionFree #fileBrowser #currentDocuments {
   opacity: 0.8;
