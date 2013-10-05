@@ -9,8 +9,10 @@ var App = function() {
             this.CLIENT_ID = '140224327941-66s2fenc5nlln3shi4r1b04ho2jvgerr.apps.googleusercontent.com';
         else if(o === "chrome-extension://fmgcelokejjmhifoocmnpmmklnaigiph")
             this.CLIENT_ID = '140224327941-54e8c7refmj3697retgf3c6ed8lcj1dp.apps.googleusercontent.com';
+        else if(o === "file://")
+            this.CLIENT_ID = '140224327941-553f7v0a14p71ute2ogtrm1anbcsmhcl.apps.googleusercontent.com';
         else
-            alert('no valid api key');
+            alert('no valid api key for ' + o);
 
         this.SCOPES = ['https://www.googleapis.com/auth/drive', 'https://www.googleapis.com/auth/userinfo.email'];
         this.googledrive = new Googledrive;

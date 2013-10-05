@@ -13,11 +13,10 @@ p.init = function() {
 p.authorize = function() {
     var params = {};
 
-    
-    if (!(chrome && chrome.app && chrome.app.runtime)) {
+    //if (!(chrome && chrome.app && chrome.app.runtime)) {
         params.client_id = app.CLIENT_ID;
         params.scope = app.SCOPES; 
-    }
+    //}
 
     params.immediate = true;
     gapi.auth.authorize(params, 

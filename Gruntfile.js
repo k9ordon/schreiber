@@ -55,8 +55,7 @@ module.exports = function(grunt) {
                 files: {
                     'dist/web/app/app.js': [
                         'dist/app/app.js',
-                        'js/webapp.js',
-                        'bower_components/chrome-app-samples/gapi-chrome-apps-lib/gapi-chrome-apps.js'
+                        'js/webapp.js'
                     ],
                     'dist/web/landingpage.js': ['js/landingpage.js']
                 }
@@ -104,7 +103,7 @@ module.exports = function(grunt) {
                         flatten: true
                     },
                     {   
-                        src: ['manifest.json', 'icon_128.png', 'icon_16.png'], 
+                        src: ['manifest.json', 'icon/icon_128.png', 'icon/icon_16.png'], 
                         dest: 'dist/chromeapp/', 
                         filter: 'isFile',
                         expand: true, 
