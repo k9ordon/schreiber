@@ -606,9 +606,11 @@ body:after {
   position: fixed;
   top: 0;
   left: 0;
+  bottom: 0;
+  overflow: auto;
   font-size: 12px;
-  margin: 35px 0 50px;
-  padding: 40px 30px;
+  margin: 0;
+  padding: 75px 30px;
 }
 #fileBrowser #newFile {
   display: inline-block;
@@ -690,10 +692,38 @@ body:after {
   position: fixed;
   top: 0;
   right: 0;
+  bottom: 0;
   font-size: 12px;
-  margin: 35px 0 50px;
-  padding: 40px 30px;
+  margin: 0;
+  padding: 75px 30px;
   max-width: 300px;
+  overflow: auto;
+}
+.preview > * {
+  display: block;
+  max-height: 400px;
+  overflow: hidden;
+  margin: 10px 0;
+  -webkit-transition: all 1s;
+}
+.distractionFree .preview > * {
+  max-height: 0px;
+  margin: 0;
+}
+.distractionFree .preview h1,
+.distractionFree .preview h2,
+.distractionFree .preview h3 {
+  max-height: 400px!important;
+  margin: 8px 0;
+  font-size: 14px;
+  margin: 0 0 10px;
+  font-weight: 400;
+}
+.distractionFree .preview h2 {
+  margin-left: 10px;
+}
+.distractionFree .preview h2 {
+  margin-left: 20px;
 }
 .schreiber.base03 {
   color: #002b36;
