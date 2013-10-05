@@ -45,11 +45,20 @@
 }
 
 #fileBrowser {
-    -webkit-transition: opacity 1s;
+    h3, #newFile, #openPickerButton, #driveDocuments, #currentDocuments {
+        -webkit-transition: opacity 1s;
+        opacity: 1;
+    }
 }
 
 .distractionFree {
     #fileBrowser {
-        opacity: 0.01;
+        #currentDocuments {
+            opacity: 0.8;
+        }
+
+        h3, #newFile, #openPickerButton, #driveDocuments {
+            opacity: 0.05;
+        }
     }
 }

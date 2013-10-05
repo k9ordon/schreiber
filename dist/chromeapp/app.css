@@ -689,11 +689,22 @@ body:after {
 #fileBrowser div.fileItem#currentFileItem {
   font-weight: bold;
 }
-#fileBrowser {
+#fileBrowser h3,
+#fileBrowser #newFile,
+#fileBrowser #openPickerButton,
+#fileBrowser #driveDocuments,
+#fileBrowser #currentDocuments {
   -webkit-transition: opacity 1s;
+  opacity: 1;
 }
-.distractionFree #fileBrowser {
-  opacity: 0.01;
+.distractionFree #fileBrowser #currentDocuments {
+  opacity: 0.8;
+}
+.distractionFree #fileBrowser h3,
+.distractionFree #fileBrowser #newFile,
+.distractionFree #fileBrowser #openPickerButton,
+.distractionFree #fileBrowser #driveDocuments {
+  opacity: 0.05;
 }
 .file {
   display: none;
