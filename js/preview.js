@@ -37,7 +37,7 @@ p.insertEditorCursorPositon = function(text) {
             
             var cLine = lines[i];
                 newline = cLine.substring(0, position.ch) + 
-                "|<div id='cursor'></div>" + 
+                "|<span id='cursor'></span>" + 
                 cLine.substring(position.ch, cLine.length) + 
                 "\n";
 

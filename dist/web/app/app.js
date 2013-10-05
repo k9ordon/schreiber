@@ -10921,7 +10921,7 @@ p.insertEditorCursorPositon = function(text) {
             
             var cLine = lines[i];
                 newline = cLine.substring(0, position.ch) + 
-                "|<div id='cursor'></div>" + 
+                "|<span id='cursor'></span>" + 
                 cLine.substring(position.ch, cLine.length) + 
                 "\n";
 
@@ -11009,7 +11009,8 @@ p.events = function() {
     });
 
     this.editor.on("cursorActivity", function(cm) {
-        app.setDistractionFree(true);
+        //app.setDistractionFree(true);
+        app.file.preview.update();
     });
 
     this.editor.on("blur", function(cm) {

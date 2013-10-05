@@ -71,7 +71,8 @@ p.events = function() {
     });
 
     this.editor.on("cursorActivity", function(cm) {
-        app.setDistractionFree(true);
+        //app.setDistractionFree(true);
+        app.file.preview.update();
     });
 
     this.editor.on("blur", function(cm) {
