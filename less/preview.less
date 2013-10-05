@@ -12,19 +12,23 @@
 
 .preview {
     //-webkit-transition: border 1s, min-height 0.15s ease-in, background-color 3s ease-in;
-
+    -webkit-transition: opacity:  1s;
+    opacity: 1;
+    
     & > * {
         display: block;
         max-height:400px;
         overflow: hidden;
         margin:10px 0;
 
-        -webkit-transition: all 1s; // max-height 1s, margin 2s
+        -webkit-transition: all 0.3s; // max-height 1s, margin 2s
     }
 }
 
 .distractionFree {
     .preview {
+        opacity: 0.5;
+
         & > * {
             max-height: 0px;
             margin:0;
@@ -32,7 +36,7 @@
         h1,h2,h3 {
             max-height: 400px!important;
             margin:8px 0;
-            font-size: 14px;
+            font-size: 12px;
             margin: 0 0 10px;
             font-weight: 400;
         }
