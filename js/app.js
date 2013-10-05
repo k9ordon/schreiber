@@ -67,6 +67,7 @@ p.events = function() {
 
     Mousetrap.bindGlobal('command+s', function(e) {
         console.log('save');
+        alert('save ...');
         //e.preventDefault();
         return false;
     });

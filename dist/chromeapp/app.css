@@ -404,40 +404,6 @@ body:after {
 #app.hidden {
   opacity: 0;
 }
-#fileBrowser:hover::-webkit-scrollbar-track,
-.preview:hover::-webkit-scrollbar-track,
-body::-webkit-scrollbar-track {
-  border-right-width: 1px;
-}
-#fileBrowser:hover::-webkit-scrollbar-thumb,
-.preview:hover::-webkit-scrollbar-thumb,
-body::-webkit-scrollbar-thumb {
-  background: #657b83;
-  width: 1px;
-}
-/* Let's get this party started */
-::-webkit-scrollbar {
-  width: 5px;
-}
-body::-webkit-scrollbar {
-  width: 5px;
-  background: transparent;
-}
-body::-webkit-scrollbar-track {
-  border-right-width: 0;
-}
-::-webkit-scrollbar-track {
-  border: 0px solid rgba(0, 0, 0, 0.1);
-  background: transparent;
-  margin: 40px 0 0;
-}
-::-webkit-scrollbar-thumb {
-  background: #657b83;
-  background: transparent;
-}
-::-webkit-scrollbar-thumb:window-inactive {
-  background: blue;
-}
 .titlebar {
   position: fixed;
   top: 0;

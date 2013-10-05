@@ -11164,10 +11164,10 @@ p.onDriveFilesReady = function(resp) {
 	var result = resp.items,
 		i = 0;
 	for (i = 0; i < result.length; i++) {
-		app.fileBrowser.$driveDocuments.innerHTML += '<div class="fileItem" data-driveId="'+result[i].id+'">'+result[i].title +'<small class="mimeTpye">'+result[i].mimeType+'</small> <small class="folder">'+'</small></p>';
-	
 
-
+        if(result[i].title.indexOf('.md') >= 0 || result[i].title.indexOf('.markdown') >= 0) {
+		  app.fileBrowser.$driveDocuments.innerHTML += '<div class="fileItem" data-driveId="'+result[i].id+'">'+result[i].title +'<small class="mimeTpye">'+result[i].mimeType+'</small> <small class="folder">'+'</small></p>';
+        }
 
         //console.log([result[i]]);
 	}
@@ -11178,7 +11178,7 @@ p.onDriveFilesReady = function(resp) {
 p.driveEvents = function() {
 	//this.$el.addEventListener('click', );
 	[].forEach.call(
-		this.$el.querySelectorAll('p'), 
+		this.$driveDocuments.querySelectorAll('.fileItem'), 
 		function($filesItem){
 			$filesItem.addEventListener('click', function() {
 				app.fileBrowser.onFilesItemClick($filesItem);
@@ -11296,6 +11296,7 @@ p.events = function() {
 
     Mousetrap.bindGlobal('command+s', function(e) {
         console.log('save');
+        alert('save ...');
         //e.preventDefault();
         return false;
     });
