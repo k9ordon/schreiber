@@ -699,12 +699,19 @@ body:after {
   max-width: 300px;
   overflow: auto;
 }
+.preview {
+  -webkit-transition: opacity:  1s;
+  opacity: 1;
+}
 .preview > * {
   display: block;
   max-height: 400px;
   overflow: hidden;
   margin: 10px 0;
-  -webkit-transition: all 1s;
+  -webkit-transition: all 0.3s;
+}
+.distractionFree .preview {
+  opacity: 0.5;
 }
 .distractionFree .preview > * {
   max-height: 0px;
@@ -715,7 +722,7 @@ body:after {
 .distractionFree .preview h3 {
   max-height: 400px!important;
   margin: 8px 0;
-  font-size: 14px;
+  font-size: 12px;
   margin: 0 0 10px;
   font-weight: 400;
 }
