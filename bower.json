@@ -19,6 +19,7 @@
     "codemirror": "~3.18.0",
     "chrome-app-samples": "GoogleChrome/chrome-app-samples",
     "mousetrap": "~1.4.5",
-    "big": "https://github.com/tmcw/big/archive/32b8b3eb788965b67228a2d3806671327cc98113.zip"
+    "big": "https://github.com/tmcw/big/archive/32b8b3eb788965b67228a2d3806671327cc98113.zip",
+    "spin.js": "~1.3.2"
   }
 }
