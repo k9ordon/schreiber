@@ -53,22 +53,32 @@ module.exports = function(grunt) {
             },
             web: {
                 files: {
-                    'dist/web/app.js': [
+                    'dist/web/app/app.js': [
                         'dist/app/app.js',
                         'js/webapp.js',
                         'bower_components/chrome-app-samples/gapi-chrome-apps-lib/gapi-chrome-apps.js'
-                    ]
+                    ],
+                    'dist/web/landingpage.js': ['js/landingpage.js']
                 }
             }
         },
         less: {
-            app: {
+            chromeapp: {
                 options: {
                     paths: ["less", "vendor"],
                     //strictImports: true
                 },
                 files: {
-                    "dist/app/app.css": "less/app.less"
+                    "dist/chromeapp/app.css": "less/app.less"
+                }
+            },
+            web: {
+                options: {
+                    paths: ["less", "vendor"],
+                    //strictImports: true
+                },
+                files: {
+                    "dist/web/app/app.css": "less/app.less", "dist/web/landingpage.css": "less/landingpage.less"
                 }
             }
         },
@@ -77,18 +87,11 @@ module.exports = function(grunt) {
                 files: [
                     {   
                         src: ['vendor/linecons/fonts/*'], 
-                        dest: 'dist/web/fonts', 
+                        dest: 'dist/web/app/fonts', 
                         filter: 'isFile', 
                         expand: true, 
                         flatten: true
                     },
-                    {   
-                        src: ['dist/app/*.css'], 
-                        dest: 'dist/web/', 
-                        filter: 'isFile',
-                        expand: true, 
-                        flatten: true
-                    }
                 ]
             },
             chromeapp: {
@@ -97,13 +100,6 @@ module.exports = function(grunt) {
                         src: ['vendor/linecons/fonts/*'], 
                         dest: 'dist/chromeapp/fonts', 
                         filter: 'isFile', 
-                        expand: true, 
-                        flatten: true
-                    },
-                    {   
-                        src: ['dist/app/*.css'], 
-                        dest: 'dist/chromeapp/', 
-                        filter: 'isFile',
                         expand: true, 
                         flatten: true
                     },
@@ -121,7 +117,8 @@ module.exports = function(grunt) {
         jade: {
             web: {
                 files: {
-                    "dist/web/index.html": ["jade/webapp.jade"],
+                    "dist/web/index.html": ["jade/landingpage.jade"],
+                    "dist/web/app/index.html": ["jade/webapp.jade"],
                 }
             },
 
