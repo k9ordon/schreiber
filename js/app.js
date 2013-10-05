@@ -1,5 +1,13 @@
 var App = function() {
+        // loading spinner
+        var opts = {
+          lines: 15, length: 5, width: 1, radius: 10, color: '#657b83'
+        };
+        var spinner = new Spinner(opts).spin(document.querySelector('#spinner'));
+
+
         this.$el = document.querySelector('#app');
+        this.$loading = document.querySelector('#loading');
 
         var o = window.location.origin;
         
@@ -38,6 +46,7 @@ p.init = function() {
 
 p.show = function() {
     this.$el.classList.remove('hidden');
+    this.$loading.classList.add('hidden');
 }
 
 p.newFile = function() {

@@ -26,6 +26,8 @@ module.exports = function(grunt) {
                         'bower_components/mousetrap/plugins/global-bind/mousetrap-global-bind.js',
                         // marked
                         'bower_components/marked/lib/marked.js',
+                        // marked
+                        'bower_components/spin.js/dist/spin.js',
                         // app
                         'js/googledrive.js', 
                         'js/titlebar.js', 

@@ -382,6 +382,21 @@ body:after {
   display: table;
   clear: both;
 }
+#loading {
+  position: fixed;
+  top: 50%;
+  width: 100%;
+  text-align: center;
+  -webkit-transition: opacity 0.3s, margin 0.3s;
+  opacity: 1;
+}
+#loading.hidden {
+  margin-top: 20px;
+  opacity: 0;
+}
+#loading #spinner {
+  margin-bottom: 10px;
+}
 #app {
   opacity: 1;
   -webkit-transition: opacity 0.7s;
