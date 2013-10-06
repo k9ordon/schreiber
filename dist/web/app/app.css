@@ -362,12 +362,11 @@ html,
 body {
   margin: 0;
   padding: 0;
-}
-html {
   height: 100%;
   width: 100%;
-  overflow: scroll;
-  overflow-x: hidden;
+}
+html {
+  overflow: hidden;
 }
 body {
   zoom: 1;
@@ -398,14 +397,21 @@ body:after {
   margin-bottom: 10px;
 }
 #app {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
   opacity: 1;
-  -webkit-transition: opacity 0.7s;
+  -webkit-transition: opacity 0.7s, -webkit-transform 0.4s;
+  -webkit-transform: scale(1);
 }
 #app.hidden {
   opacity: 0;
+  -webkit-transform: scale(0.97);
 }
 .titlebar {
-  position: fixed;
+  position: absolute;
   top: 0;
   left: 0;
   right: 0;
@@ -618,7 +624,7 @@ body:after {
   background: #96D16F;
 }
 #fileBrowser {
-  position: fixed;
+  position: absolute;
   top: 0;
   left: 0;
   bottom: 0;
@@ -726,6 +732,7 @@ body:after {
 }
 .file {
   display: none;
+  height: 100%;
 }
 .file#currentFile {
   display: block;
@@ -733,19 +740,22 @@ body:after {
 .file .CodeMirror {
   max-width: 650px;
   width: 100%;
-  margin: 35px auto 0;
-  padding: 40px 30px;
+  margin: 0 auto 0;
   height: 100%;
   position: relative;
   z-index: 100;
   border: 0px solid #eee8d5;
-  border-width: 0 1px 1px;
+  border-width: 0 1px;
 }
-.file #preview {
-  display: none;
-  outline: none;
-  border-top: 1px solid gray;
-  margin-top: 20px;
+.file .CodeMirror pre {
+  border-bottom: 1px solid #eee8d5;
+}
+.file .CodeMirror .CodeMirror-lines {
+  padding-top: 65px;
+}
+.file .CodeMirror .CodeMirror-scroll {
+  overflow-y: scroll;
+  overflow-x: auto;
 }
 #file .CodeMirror {
   -webkit-transition: border-color 1s;
@@ -754,9 +764,9 @@ body:after {
   border-color: transparent;
 }
 .info {
-  position: fixed;
+  position: absolute;
   top: 0;
-  right: 10px;
+  right: 0;
   bottom: 0;
   font-size: 12px;
   margin: 0;
@@ -772,9 +782,9 @@ body:after {
   opacity: 0.5;
 }
 .preview {
-  position: fixed;
+  position: absolute;
   top: 0;
-  right: 10px;
+  right: 0;
   bottom: 0;
   font-size: 12px;
   margin: 0;

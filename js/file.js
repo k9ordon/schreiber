@@ -32,14 +32,16 @@ p.init = function(driveId) {
     this.$preview = this.$el.querySelector('#preview');
 
     this.editor = CodeMirror.fromTextArea(this.$src, {
-        mode: 'gfm',
+        mode: 'markdown',
         lineNumbers: false,
         theme: "schreiber",
         lineWrapping: true,
-        //styleSelectedText: true,
+        styleSelectedText: true,
         styleActiveLine: true,
-        extraKeys: {"Enter": "newlineAndIndentContinueMarkdownList"}
+        extraKeys: {"Enter": "newlineAndIndentContinueMarkdownList"},
+        viewportMargin: 1000
     });
+    //this.editor.setSize('100%','400px');
     this.editor.setValue(this.$welcomefileTemplate.innerText);
     app.fileBrowser.addCurrentFile(this);
 
