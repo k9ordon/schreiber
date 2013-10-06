@@ -11,13 +11,14 @@
 }
 
 .preview, .info, #fileBrowser, #currentFile .CodeMirror {
-    &::-webkit-scrollbar-thumb, ::-webkit-scrollbar-thumb {
+    &::-webkit-scrollbar-thumb, *::-webkit-scrollbar-thumb {
         background: transparent; 
     }
 
     &:hover {
-        &::-webkit-scrollbar-thumb, ::-webkit-scrollbar-thumb {
-            background: rgba(101, 123, 131,0.5); 
+        //background: red;
+        &::-webkit-scrollbar-thumb, *::-webkit-scrollbar-thumb {
+            background: rgba(101, 123, 131,1); 
         }
     }
     

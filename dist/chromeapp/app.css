@@ -423,21 +423,21 @@ body:after {
 .info::-webkit-scrollbar-thumb,
 #fileBrowser::-webkit-scrollbar-thumb,
 #currentFile .CodeMirror::-webkit-scrollbar-thumb,
-.preview ::-webkit-scrollbar-thumb,
-.info ::-webkit-scrollbar-thumb,
-#fileBrowser ::-webkit-scrollbar-thumb,
-#currentFile .CodeMirror ::-webkit-scrollbar-thumb {
+.preview *::-webkit-scrollbar-thumb,
+.info *::-webkit-scrollbar-thumb,
+#fileBrowser *::-webkit-scrollbar-thumb,
+#currentFile .CodeMirror *::-webkit-scrollbar-thumb {
   background: transparent;
 }
 .preview:hover::-webkit-scrollbar-thumb,
 .info:hover::-webkit-scrollbar-thumb,
 #fileBrowser:hover::-webkit-scrollbar-thumb,
 #currentFile .CodeMirror:hover::-webkit-scrollbar-thumb,
-.preview:hover ::-webkit-scrollbar-thumb,
-.info:hover ::-webkit-scrollbar-thumb,
-#fileBrowser:hover ::-webkit-scrollbar-thumb,
-#currentFile .CodeMirror:hover ::-webkit-scrollbar-thumb {
-  background: rgba(101, 123, 131, 0.5);
+.preview:hover *::-webkit-scrollbar-thumb,
+.info:hover *::-webkit-scrollbar-thumb,
+#fileBrowser:hover *::-webkit-scrollbar-thumb,
+#currentFile .CodeMirror:hover *::-webkit-scrollbar-thumb {
+  background: #657b83;
 }
 ::-webkit-scrollbar-thumb:window-inactive,
 ::-webkit-scrollbar-thumb:inactive {
@@ -761,7 +761,7 @@ body:after {
 .distractionFree #fileBrowser #newFile,
 .distractionFree #fileBrowser #openPickerButton,
 .distractionFree #fileBrowser #driveDocuments {
-  opacity: 0.05;
+  opacity: 0;
 }
 .file {
   display: none;
@@ -778,13 +778,13 @@ body:after {
   position: relative;
   z-index: 100;
   border: 0px solid #eee8d5;
-  border-width: 0 1px;
 }
 .file .CodeMirror pre {
   border-bottom: 1px solid #eee8d5;
 }
 .file .CodeMirror .CodeMirror-lines {
   padding-top: 65px;
+  padding-bottom: 65px;
 }
 .file .CodeMirror .CodeMirror-scroll {
   overflow-y: scroll;
@@ -812,7 +812,7 @@ body:after {
   opacity: 1;
 }
 .distractionFree .info {
-  opacity: 0.5;
+  opacity: 0;
 }
 .preview {
   position: absolute;
