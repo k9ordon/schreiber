@@ -19,11 +19,13 @@ p.events = function() {
 p.update = function() {
     console.log('info update');
 
-    var md = app.file.editor.getValue();
-
+    var md = app.file.getValueWithCursor();
+/*
     var tokens = marked.lexer(md,{gfm:true}),
     html = marked.parser(tokens)
     console.log(html);
-
-    app.file.info.$el.innerHTML = JSON.stringify(tokens, undefined, 2);;
+*/
+    var tokens = markdown.parse(md);
+    console.log(tokens);
+    app.file.info.$el.innerHTML = '<pre>' + JSON.stringify(tokens, undefined, 2) + '</pre>';
 };
