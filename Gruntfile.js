@@ -31,6 +31,7 @@ module.exports = function(grunt) {
                         // app
                         'js/googledrive.js', 
                         'js/titlebar.js', 
+                        'js/info.js', 
                         'js/preview.js', 
                         'js/file.js', 
                         'js/fileBrowser.js', 
