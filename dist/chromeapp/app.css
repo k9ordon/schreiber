@@ -753,6 +753,24 @@ body:after {
 .distractionFree .file .CodeMirror {
   border-color: transparent;
 }
+.info {
+  position: fixed;
+  top: 0;
+  right: 10px;
+  bottom: 0;
+  font-size: 12px;
+  margin: 0;
+  padding: 75px 30px;
+  max-width: 300px;
+  overflow: auto;
+}
+.info {
+  -webkit-transition: opacity:  1s;
+  opacity: 1;
+}
+.distractionFree .info {
+  opacity: 0.5;
+}
 .preview {
   position: fixed;
   top: 0;
@@ -763,6 +781,9 @@ body:after {
   padding: 75px 30px;
   max-width: 300px;
   overflow: auto;
+}
+.preview.hidden {
+  opacity: 0!important;
 }
 .preview {
   -webkit-transition: opacity:  1s;

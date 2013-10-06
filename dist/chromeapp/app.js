@@ -10882,6 +10882,35 @@ p.loadUserbadge = function() {
     });
 };
 ;
+var Info = function() {
+        this.$el = null;
+    },
+    p = Info.prototype;
+
+p.init = function() {
+    this.$el = app.file.$el.querySelector('.info');
+    
+    console.log('info init');
+
+    this.events();
+    return this;
+};
+
+p.events = function() {
+
+}
+
+p.update = function() {
+    console.log('info update');
+
+    var md = app.file.editor.getValue();
+
+    var tokens = marked.lexer(md,{gfm:true}),
+    html = marked.parser(tokens)
+    console.log(html);
+
+    app.file.info.$el.innerHTML = JSON.stringify(tokens, undefined, 2);;
+};;
 var Preview = function() {
         this.$el = null;
     },
@@ -10903,38 +10932,10 @@ p.events = function() {
 p.update = function() {
     console.log('preview update');
 
-    var html = app.file.editor.getValue(),
-        html_cursor = app.file.preview.insertEditorCursorPositon(html);
+    var md = app.file.getValueWithCursor(),
+        html = marked(md);
 
-    app.file.preview.$el.innerHTML = marked(html_cursor);
-};
-
-p.insertEditorCursorPositon = function(text) {
-    var position = app.file.editor.getCursor(),
-        newText = '',
-        lines = text.split(/\n/);
-
-    console.log('insertEditorCursorPositon', position, text.split(/\n/));
-
-    for(var i = 0; i < lines.length; i++) {
-        if(i === position.line) {
-            
-            var cLine = lines[i];
-                newline = cLine.substring(0, position.ch) + 
-                "|<span id='cursor'></span>" + 
-                cLine.substring(position.ch, cLine.length) + 
-                "\n";
-
-            console.log('line:' + newline);
-            newText += newline;            
-        } else {
-            newText += lines[i] + "\n";
-        }
-    }
-
-    //console.log('new text' + newText);
-
-    return newText;
+    app.file.preview.$el.innerHTML = html;
 };;
 var File = function() {
         this.$template = document.querySelector('#fileTemplate');
@@ -10945,6 +10946,7 @@ var File = function() {
 
         this.editor = null;
         this.preview = new Preview;
+        this.info = new Info;
 
 		this.driveId = null;
 
@@ -10983,6 +10985,10 @@ p.init = function(driveId) {
     this.show();
 
     this.events();
+
+    this.info.init();
+    this.info.update();
+
     this.preview.init();
     this.preview.update();
 
@@ -11006,11 +11012,13 @@ p.events = function() {
     this.editor.on("change", function(cm) {
         app.setDistractionFree(true);
         app.file.preview.update();
+        app.file.info.update();
     });
 
     this.editor.on("cursorActivity", function(cm) {
         //app.setDistractionFree(true);
         app.file.preview.update();
+        app.file.info.update();
     });
 
     this.editor.on("blur", function(cm) {
@@ -11066,7 +11074,36 @@ p.onDriveFileInfoReady = function(resp) {
 
 p.onDriveFileDownloadReady = function(resp) {
 
-};
+}
+
+p.getValueWithCursor = function() {
+    var text = app.file.editor.getValue();
+        position = app.file.editor.getCursor(),
+        newText = '',
+        lines = text.split(/\n/);
+
+    //console.log('insertEditorCursorPositon', position, text.split(/\n/));
+
+    for(var i = 0; i < lines.length; i++) {
+        if(i === position.line) {
+            
+            var cLine = lines[i];
+                newline = cLine.substring(0, position.ch) + 
+                "|<span id='cursor'></span>" + 
+                cLine.substring(position.ch, cLine.length) + 
+                "\n";
+
+            //console.log('line:' + newline);
+            newText += newline;            
+        } else {
+            newText += lines[i] + "\n";
+        }
+    }
+
+    //console.log('new text' + newText);
+
+    return newText;
+};;
 var FileBrowser = function() {
         this.$el = document.querySelector('#fileBrowser');
         this.$newFile = document.querySelector('#newFile');
