@@ -1,42 +1,28 @@
-#fileBrowser:hover, .preview:hover, body {
-    &::-webkit-scrollbar {
-        
-    }
-    &::-webkit-scrollbar-track {
-        border-right-width:1px;
-    }
-    &::-webkit-scrollbar-thumb {
-        background: #657b83;
-        width: 1px;
-    }
-}
-
 /* Let's get this party started */
 ::-webkit-scrollbar {
-    width: 5px;
-}
-
-body {
-    &::-webkit-scrollbar {
-        width: 5px;
-        background: transparent;
-    }
-    &::-webkit-scrollbar-track {
-        border-right-width: 0;
-    }
+    width: 1px;
+    height: 1px;
 }
  
 ::-webkit-scrollbar-track {
-    border: 0px solid rgba(0,0,0,0.1);
+    //border: 1px solid rgba(0,0,0,0.1);
     background: transparent;
     margin:40px 0 0;
 }
- 
-::-webkit-scrollbar-thumb {
-    background: #657b83;//rgba(0,0,0,0.4);
-    background: transparent;
+
+.preview, .info, #fileBrowser, #currentFile .CodeMirror {
+    &::-webkit-scrollbar-thumb, ::-webkit-scrollbar-thumb {
+        background: transparent; 
+    }
+
+    &:hover {
+        &::-webkit-scrollbar-thumb, ::-webkit-scrollbar-thumb {
+            background: rgba(101, 123, 131,0.5); 
+        }
+    }
+    
 }
 
-::-webkit-scrollbar-thumb:window-inactive {
-    background: blue;//rgba(0,0,0,0.5);
+::-webkit-scrollbar-thumb:window-inactive, ::-webkit-scrollbar-thumb:inactive {
+    background: transparent;//rgba(0,0,0,0.5);
 }

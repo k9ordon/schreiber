@@ -410,6 +410,39 @@ body:after {
   opacity: 0;
   -webkit-transform: scale(0.97);
 }
+/* Let's get this party started */
+::-webkit-scrollbar {
+  width: 1px;
+  height: 1px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+  margin: 40px 0 0;
+}
+.preview::-webkit-scrollbar-thumb,
+.info::-webkit-scrollbar-thumb,
+#fileBrowser::-webkit-scrollbar-thumb,
+#currentFile .CodeMirror::-webkit-scrollbar-thumb,
+.preview ::-webkit-scrollbar-thumb,
+.info ::-webkit-scrollbar-thumb,
+#fileBrowser ::-webkit-scrollbar-thumb,
+#currentFile .CodeMirror ::-webkit-scrollbar-thumb {
+  background: transparent;
+}
+.preview:hover::-webkit-scrollbar-thumb,
+.info:hover::-webkit-scrollbar-thumb,
+#fileBrowser:hover::-webkit-scrollbar-thumb,
+#currentFile .CodeMirror:hover::-webkit-scrollbar-thumb,
+.preview:hover ::-webkit-scrollbar-thumb,
+.info:hover ::-webkit-scrollbar-thumb,
+#fileBrowser:hover ::-webkit-scrollbar-thumb,
+#currentFile .CodeMirror:hover ::-webkit-scrollbar-thumb {
+  background: rgba(101, 123, 131, 0.5);
+}
+::-webkit-scrollbar-thumb:window-inactive,
+::-webkit-scrollbar-thumb:inactive {
+  background: transparent;
+}
 .titlebar {
   position: absolute;
   top: 0;
@@ -766,7 +799,7 @@ body:after {
 .info {
   position: absolute;
   top: 0;
-  right: 0;
+  right: 10px;
   bottom: 0;
   font-size: 12px;
   margin: 0;
