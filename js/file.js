@@ -7,6 +7,7 @@ var File = function() {
 
         this.editor = null;
         this.preview = new Preview;
+        this.info = new Info;
 
 		this.driveId = null;
 
@@ -45,6 +46,10 @@ p.init = function(driveId) {
     this.show();
 
     this.events();
+
+    this.info.init();
+    this.info.update();
+
     this.preview.init();
     this.preview.update();
 
@@ -68,11 +73,13 @@ p.events = function() {
     this.editor.on("change", function(cm) {
         app.setDistractionFree(true);
         app.file.preview.update();
+        app.file.info.update();
     });
 
     this.editor.on("cursorActivity", function(cm) {
         //app.setDistractionFree(true);
         app.file.preview.update();
+        app.file.info.update();
     });
 
     this.editor.on("blur", function(cm) {
@@ -129,3 +136,32 @@ p.onDriveFileInfoReady = function(resp) {
 p.onDriveFileDownloadReady = function(resp) {
 
 }
+
+p.getValueWithCursor = function() {
+    var text = app.file.editor.getValue();
+        position = app.file.editor.getCursor(),
+        newText = '',
+        lines = text.split(/\n/);
+
+    //console.log('insertEditorCursorPositon', position, text.split(/\n/));
+
+    for(var i = 0; i < lines.length; i++) {
+        if(i === position.line) {
+            
+            var cLine = lines[i];
+                newline = cLine.substring(0, position.ch) + 
+                "|<span id='cursor'></span>" + 
+                cLine.substring(position.ch, cLine.length) + 
+                "\n";
+
+            //console.log('line:' + newline);
+            newText += newline;            
+        } else {
+            newText += lines[i] + "\n";
+        }
+    }
+
+    //console.log('new text' + newText);
+
+    return newText;
+};
