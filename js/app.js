@@ -43,7 +43,7 @@ p.init = function() {
     console.log('app init');
     this.fileBrowser.init();
 
-    this.newFile();
+    this.openFile(null, 'welcome.md', 'yoyo');
     this.events();
 }
 
@@ -52,11 +52,11 @@ p.show = function() {
     this.$loading.classList.add('hidden');
 }
 
-p.newFile = function() {
+p.openFile = function(driveId, title, text) {
     app.file = new File;
     
     app.files.push(app.file);
-    app.file.init();
+    app.file.init(driveId, title, text);
 }
 
 p.events = function() {

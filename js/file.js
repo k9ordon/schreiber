@@ -1,4 +1,6 @@
 var File = function() {
+        this.title = null;
+
         this.$template = document.querySelector('#fileTemplate');
         this.$welcomefileTemplate = document.querySelector('#welcomefileTemplate');
 		this.$el = null;  //document.querySelector('#file');
@@ -20,8 +22,10 @@ var File = function() {
 	},
 	p = File.prototype;
 
-p.init = function(driveId) {
-	console.log('File init', driveId);
+p.init = function(driveId, title, text) {
+	console.log('File init', driveId, title);
+
+    this.title = title;
 	
     var t = document.createElement('div');
     t.innerHTML = this.$template.innerText;
@@ -42,11 +46,14 @@ p.init = function(driveId) {
         viewportMargin: 1000
     });
     //this.editor.setSize('100%','400px');
-    this.editor.setValue(this.$welcomefileTemplate.innerText);
+    
+    if(text) {
+       this.editor.setValue(text); 
+    }
+    
     app.fileBrowser.addCurrentFile(this);
 
     this.show();
-
     this.events();
 
     this.info.init();
@@ -69,6 +76,10 @@ p.show = function() {
     app.file = this;
     app.file.editor.refresh();//
     app.file.editor.focus();
+}
+
+p.setContent = function() {
+
 }
 
 p.events = function() {

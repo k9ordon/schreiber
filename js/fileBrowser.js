@@ -26,7 +26,7 @@ p.events = function() {
         app.setDistractionFree(false);
     });
 
-    this.$newFile.addEventListener('click', app.newFile);
+    this.$newFile.addEventListener('click', function() { app.openFile(null,'*.md'); });
 }
 
 p.addCurrentFile = function(file) {
@@ -41,10 +41,15 @@ p.addCurrentFile = function(file) {
     this.$currentDocuments.appendChild(fileItem);
 
     fileItem.addEventListener('click', this.onCurrentFileItemClicked);
+    fileItem.innerText = file.title;
 
     var currentFileItem = document.querySelector('#currentFileItem');
     currentFileItem ? currentFileItem.id = '' : false;
     fileItem.id = 'currentFileItem';
+}
+
+p.removeCurrentFile = function(idx) {
+    // remove dom node
 }
 
 p.onCurrentFileItemClicked = function(e) {
@@ -120,7 +125,7 @@ p.driveEvents = function() {
 
 p.onFilesItemClick = function($filesItem) {
 	console.log('clicked', $filesItem);
-	app.file.loadDriveFile($filesItem.getAttribute('data-driveId'));
+	app.openFile($filesItem.getAttribute('data-driveId'), $filesItem.innerText);
 }
 
 p.openDrivePicker = function(e) {
