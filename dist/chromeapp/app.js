@@ -12666,6 +12666,8 @@ p.update = function() {
     app.file.preview.$el.innerHTML = html;
 };;
 var File = function() {
+        this.title = null;
+
         this.$template = document.querySelector('#fileTemplate');
         this.$welcomefileTemplate = document.querySelector('#welcomefileTemplate');
 		this.$el = null;  //document.querySelector('#file');
@@ -12687,8 +12689,10 @@ var File = function() {
 	},
 	p = File.prototype;
 
-p.init = function(driveId) {
-	console.log('File init', driveId);
+p.init = function(driveId, title, text) {
+	console.log('File init', driveId, title);
+
+    this.title = title;
 	
     var t = document.createElement('div');
     t.innerHTML = this.$template.innerText;
@@ -12709,11 +12713,14 @@ p.init = function(driveId) {
         viewportMargin: 1000
     });
     //this.editor.setSize('100%','400px');
-    this.editor.setValue(this.$welcomefileTemplate.innerText);
+    
+    if(text) {
+       this.editor.setValue(text); 
+    }
+    
     app.fileBrowser.addCurrentFile(this);
 
     this.show();
-
     this.events();
 
     this.info.init();
@@ -12736,6 +12743,10 @@ p.show = function() {
     app.file = this;
     app.file.editor.refresh();//
     app.file.editor.focus();
+}
+
+p.setContent = function() {
+
 }
 
 p.events = function() {
@@ -12862,7 +12873,7 @@ p.events = function() {
         app.setDistractionFree(false);
     });
 
-    this.$newFile.addEventListener('click', app.newFile);
+    this.$newFile.addEventListener('click', function() { app.openFile(null,'*.md'); });
 }
 
 p.addCurrentFile = function(file) {
@@ -12877,10 +12888,15 @@ p.addCurrentFile = function(file) {
     this.$currentDocuments.appendChild(fileItem);
 
     fileItem.addEventListener('click', this.onCurrentFileItemClicked);
+    fileItem.innerText = file.title;
 
     var currentFileItem = document.querySelector('#currentFileItem');
     currentFileItem ? currentFileItem.id = '' : false;
     fileItem.id = 'currentFileItem';
+}
+
+p.removeCurrentFile = function(idx) {
+    // remove dom node
 }
 
 p.onCurrentFileItemClicked = function(e) {
@@ -12956,7 +12972,7 @@ p.driveEvents = function() {
 
 p.onFilesItemClick = function($filesItem) {
 	console.log('clicked', $filesItem);
-	app.file.loadDriveFile($filesItem.getAttribute('data-driveId'));
+	app.openFile($filesItem.getAttribute('data-driveId'), $filesItem.innerText);
 }
 
 p.openDrivePicker = function(e) {
@@ -13039,7 +13055,7 @@ p.init = function() {
     console.log('app init');
     this.fileBrowser.init();
 
-    this.newFile();
+    this.openFile(null, 'welcome.md', 'yoyo');
     this.events();
 }
 
@@ -13048,11 +13064,11 @@ p.show = function() {
     this.$loading.classList.add('hidden');
 }
 
-p.newFile = function() {
+p.openFile = function(driveId, title, text) {
     app.file = new File;
     
     app.files.push(app.file);
-    app.file.init();
+    app.file.init(driveId, title, text);
 }
 
 p.events = function() {
