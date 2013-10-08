@@ -67,6 +67,11 @@ p.events = function() {
         //e.preventDefault();
         return false;
     });
+
+    Mousetrap.bindGlobal('command+p', function(e) {
+        app.showPreview();
+        return false;
+    });
 }
 
 p.setDistractionFree = function(bool) {

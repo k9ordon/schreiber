@@ -792,7 +792,11 @@ body:after {
 .file .CodeMirror {
   max-width: 650px;
   width: 100%;
+  position: absolute;
+  left: 0;
+  top: 0;
   margin: 0 auto 0;
+  padding: 0 10px;
   height: 100%;
   position: relative;
   z-index: 100;
@@ -809,8 +813,14 @@ body:after {
   overflow-y: scroll;
   overflow-x: auto;
 }
-#file .CodeMirror {
-  -webkit-transition: border-color 1s;
+.file .CodeMirror {
+  -webkit-transition: border-color 1s, -webkit-transform 1s, width 1s;
+  -webkit-transform: translateY(0);
+}
+.preview .CodeMirror {
+  width: 50%;
+  right: auto;
+  -webkit-transform: translateX(-50%);
 }
 .distractionFree .file .CodeMirror {
   border-color: transparent;
@@ -842,12 +852,13 @@ body.preview .file .info {
   top: 0;
   right: 10px;
   bottom: 0;
+  width: 50%;
   font-size: 12px;
   margin: 0;
   padding: 75px 30px;
-  max-width: 300px;
   overflow: auto;
-  -webkit-transition: opacity 1s;
+  border: 1px solid green;
+  -webkit-transition: opacity 1s, -webkit-transform 1s;
   /*
     & > * {
         display: block;
@@ -866,9 +877,11 @@ body.preview .file .info {
 }
 body .file .preview {
   opacity: 0;
+  -webkit-transform: translateX(50%);
 }
 body.preview .file .preview {
   opacity: 1;
+  -webkit-transform: translateX(0);
 }
 /*
 .distractionFree {

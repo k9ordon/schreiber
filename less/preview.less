@@ -3,13 +3,14 @@
     top:0;
     right: 10px;
     bottom:0;
+    width:50%;
     font-size: 12px;
     margin: 0;
     padding: 75px 30px;
-    max-width: 300px;
     overflow: auto;
+    border:1px solid green;
 
-    -webkit-transition: opacity 1s;
+    -webkit-transition: opacity 1s, -webkit-transform 1s;
 
     img {
         height: 20px;
@@ -31,10 +32,12 @@
 body {
     .file .preview {
         opacity: 0;
+        -webkit-transform: translateX(50%);
     }
     &.preview {
         .file .preview {
             opacity: 1;
+            -webkit-transform: translateX(0);
         }
     }
 }
