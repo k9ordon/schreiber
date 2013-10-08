@@ -1,5 +1,6 @@
 var Titlebar = function() {
         this.$el = document.querySelector('.titlebar');
+        this.$title = this.$el.querySelector('.title');
         this.$toPreview = this.$el.querySelector('#toPreview');
         this.$toDocuments = this.$el.querySelector('#toDocuments');  
     },
@@ -30,4 +31,8 @@ p.loadUserbadge = function() {
         'method': 'GET',
         'callback': function(a) { console.log(a.body) }
     });
+};
+
+p.setTitle = function(text) {
+    this.$title.innerText = text;
 };

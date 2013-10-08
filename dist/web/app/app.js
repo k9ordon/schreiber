@@ -12584,6 +12584,7 @@ p.getUsername = function() {
 };
 var Titlebar = function() {
         this.$el = document.querySelector('.titlebar');
+        this.$title = this.$el.querySelector('.title');
         this.$toPreview = this.$el.querySelector('#toPreview');
         this.$toDocuments = this.$el.querySelector('#toDocuments');  
     },
@@ -12615,7 +12616,10 @@ p.loadUserbadge = function() {
         'callback': function(a) { console.log(a.body) }
     });
 };
-;
+
+p.setTitle = function(text) {
+    this.$title.innerText = text;
+};;
 var Info = function() {
         this.$el = null;
     },
@@ -12749,6 +12753,9 @@ p.show = function() {
     this.$el.id = 'currentFile';
 
     app.file = this;
+
+    app.titlebar.setTitle(app.file.title);
+
     app.file.editor.refresh();//
     app.file.editor.focus();
 }

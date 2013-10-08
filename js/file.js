@@ -74,6 +74,9 @@ p.show = function() {
     this.$el.id = 'currentFile';
 
     app.file = this;
+
+    app.titlebar.setTitle(app.file.title);
+
     app.file.editor.refresh();//
     app.file.editor.focus();
 }
