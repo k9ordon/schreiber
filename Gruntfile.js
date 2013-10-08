@@ -108,7 +108,7 @@ module.exports = function(grunt) {
                         flatten: true
                     },
                     {   
-                        src: ['manifest.json', 'icon/icon_128.png', 'icon/icon_16.png'], 
+                        src: ['manifest.json', 'icon/icon_128.png', 'icon/icon_16.png', 'icon/icon_48.png'], 
                         dest: 'dist/chromeapp/', 
                         filter: 'isFile',
                         expand: true, 
