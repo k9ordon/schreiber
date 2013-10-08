@@ -420,21 +420,25 @@ body:after {
   margin: 40px 0 0;
 }
 .preview::-webkit-scrollbar-thumb,
-.info::-webkit-scrollbar-thumb,
+.file .info::-webkit-scrollbar-thumb,
+.file .preview::-webkit-scrollbar-thumb,
 #fileBrowser::-webkit-scrollbar-thumb,
 #currentFile .CodeMirror::-webkit-scrollbar-thumb,
 .preview *::-webkit-scrollbar-thumb,
-.info *::-webkit-scrollbar-thumb,
+.file .info *::-webkit-scrollbar-thumb,
+.file .preview *::-webkit-scrollbar-thumb,
 #fileBrowser *::-webkit-scrollbar-thumb,
 #currentFile .CodeMirror *::-webkit-scrollbar-thumb {
   background: transparent;
 }
 .preview:hover::-webkit-scrollbar-thumb,
-.info:hover::-webkit-scrollbar-thumb,
+.file .info:hover::-webkit-scrollbar-thumb,
+.file .preview:hover::-webkit-scrollbar-thumb,
 #fileBrowser:hover::-webkit-scrollbar-thumb,
 #currentFile .CodeMirror:hover::-webkit-scrollbar-thumb,
 .preview:hover *::-webkit-scrollbar-thumb,
-.info:hover *::-webkit-scrollbar-thumb,
+.file .info:hover *::-webkit-scrollbar-thumb,
+.file .preview:hover *::-webkit-scrollbar-thumb,
 #fileBrowser:hover *::-webkit-scrollbar-thumb,
 #currentFile .CodeMirror:hover *::-webkit-scrollbar-thumb {
   background: #657b83;

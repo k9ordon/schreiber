@@ -12725,7 +12725,7 @@ p.init = function(driveId, title, text) {
     this.$preview = this.$el.querySelector('#preview');
 
     this.editor = CodeMirror.fromTextArea(this.$src, {
-        mode: 'markdown',
+        mode: 'gfm',
         lineNumbers: false,
         theme: "schreiber",
         lineWrapping: true,
