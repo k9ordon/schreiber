@@ -472,6 +472,7 @@ body:after {
 .titlebar:hover #toPreview,
 .titlebar:hover #toDocuments {
   background-color: rgba(238, 232, 213, 0.3);
+  opacity: 1;
 }
 .titlebar > * {
   cursor: default;
@@ -596,7 +597,7 @@ body:after {
 }
 .titlebar #toPreview,
 .titlebar #toDocuments {
-  -webkit-transition: border-color 1s;
+  -webkit-transition: opacity 1s, border-color 1s;
 }
 .titlebar #toPreview .icon,
 .titlebar #toDocuments .icon {
@@ -608,6 +609,7 @@ body:after {
 .distractionFree .titlebar #toPreview,
 .distractionFree .titlebar #toDocuments {
   border-color: transparent;
+  opacity: 0;
 }
 .distractionFree .titlebar #toPreview .icon,
 .distractionFree .titlebar #toDocuments .icon {
