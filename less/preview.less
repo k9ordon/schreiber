@@ -1,4 +1,4 @@
-.preview {
+.file .preview {
     position: absolute;
     top:0;
     right: 0;
@@ -8,17 +8,9 @@
     padding: 75px 30px;
     max-width: 300px;
     overflow: auto;
+    -webkit-transition: opacity 1s;
 
-    &.hidden {
-        opacity: 0!important;
-    }
-}
-
-.preview {
-    //-webkit-transition: border 1s, min-height 0.15s ease-in, background-color 3s ease-in;
-    -webkit-transition: opacity:  1s;
-    opacity: 1;
-
+/*
     & > * {
         display: block;
         max-height:400px;
@@ -27,10 +19,23 @@
 
         -webkit-transition: all 0.3s; // max-height 1s, margin 2s
     }
+*/
 }
 
+body {
+    .file .preview {
+        opacity: 0;
+    }
+    &.preview {
+        .file .preview {
+            opacity: 1;
+        }
+    }
+}
+
+/*
 .distractionFree {
-    .preview {
+    .file .preview {
         opacity: 0.5;
 
         & > * {
@@ -52,3 +57,4 @@
         }
     }
 }
+*/

@@ -809,7 +809,7 @@ body:after {
 .distractionFree .file .CodeMirror {
   border-color: transparent;
 }
-.info {
+.file .info {
   position: absolute;
   top: 0;
   right: 10px;
@@ -819,15 +819,18 @@ body:after {
   padding: 75px 30px;
   max-width: 300px;
   overflow: auto;
+  -webkit-transition: opacity 1s;
 }
-.info {
-  -webkit-transition: opacity:  1s;
+body .file .info {
   opacity: 1;
 }
-.distractionFree .info {
+body.preview .file .info {
   opacity: 0;
 }
-.preview {
+.distractionFree .file .info {
+  opacity: 0;
+}
+.file .preview {
   position: absolute;
   top: 0;
   right: 0;
@@ -837,44 +840,50 @@ body:after {
   padding: 75px 30px;
   max-width: 300px;
   overflow: auto;
+  -webkit-transition: opacity 1s;
+  /*
+    & > * {
+        display: block;
+        max-height:400px;
+        overflow: hidden;
+        margin:10px 0;
+
+        -webkit-transition: all 0.3s; // max-height 1s, margin 2s
+    }
+*/
+
 }
-.preview.hidden {
-  opacity: 0!important;
+body .file .preview {
+  opacity: 0;
 }
-.preview {
-  -webkit-transition: opacity:  1s;
+body.preview .file .preview {
   opacity: 1;
 }
-.preview > * {
-  display: block;
-  max-height: 400px;
-  overflow: hidden;
-  margin: 10px 0;
-  -webkit-transition: all 0.3s;
+/*
+.distractionFree {
+    .file .preview {
+        opacity: 0.5;
+
+        & > * {
+            max-height: 0px;
+            margin:0;
+        }
+        h1,h2,h3 {
+            max-height: 400px!important;
+            margin:8px 0;
+            font-size: 12px;
+            margin: 0 0 10px;
+            font-weight: 400;
+        }
+        h2 {
+            margin-left:10px;
+        }
+        h2 {
+            margin-left:20px;
+        }
+    }
 }
-.distractionFree .preview {
-  opacity: 0.5;
-}
-.distractionFree .preview > * {
-  max-height: 0px;
-  margin: 0;
-}
-.distractionFree .preview h1,
-.distractionFree .preview h2,
-.distractionFree .preview h3 {
-  max-height: 400px!important;
-  margin: 8px 0;
-  font-size: 12px;
-  margin: 0 0 10px;
-  font-weight: 400;
-}
-.distractionFree .preview h2 {
-  margin-left: 10px;
-}
-.distractionFree .preview h2 {
-  margin-left: 20px;
-}
-.schreiber.base03 {
+*/.schreiber.base03 {
   color: #002b36;
 }
 .schreiber.base02 {

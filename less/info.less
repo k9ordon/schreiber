@@ -1,4 +1,4 @@
-.info {
+.file .info {
     position: absolute;
     top:0;
     right: 10px;
@@ -8,15 +8,23 @@
     padding: 75px 30px;
     max-width: 300px;
     overflow: auto;
+
+    -webkit-transition: opacity 1s;
 }
 
-.info {
-    -webkit-transition: opacity:  1s;
-    opacity: 1;
+body {
+    .file .info {
+        opacity: 1;
+    }
+    &.preview {
+        .file .info {
+            opacity: 0;
+        }
+    }
 }
 
 .distractionFree {
-    .info {
+    .file .info {
         opacity: 0;
     }
 }

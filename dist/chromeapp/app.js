@@ -12583,12 +12583,14 @@ p.getUsername = function() {
     //request.execute(app.fileBrowser.onDriveFilesReady);
 };
 var Titlebar = function() {
-        this.$el = null;
+        this.$el = document.querySelector('.titlebar');
+        this.$toPreview = this.$el.querySelector('#toPreview');
+        this.$toDocuments = this.$el.querySelector('#toDocuments');  
     },
     p = Titlebar.prototype;
 
 p.init = function() {
-    this.$el = document.querySelector('.titlebar');
+
     
     console.log('titlebar init', this.$el);
 
@@ -12597,7 +12599,13 @@ p.init = function() {
 };
 
 p.events = function() {
-    
+    this.$el.addEventListener('mouseover', function(){
+        //console.log('mouseover');
+        app.setDistractionFree(false);
+    });
+
+    this.$toPreview.addEventListener('click', app.showPreview);
+    this.$toDocuments.addEventListener('click', app.showDocuments);
 };
 
 p.loadUserbadge = function() {
@@ -13053,6 +13061,7 @@ var App = function() {
 
 p.init = function() {
     console.log('app init');
+    this.titlebar.init();
     this.fileBrowser.init();
 
     this.openFile(null, 'welcome.md', 'yoyo');
@@ -13072,11 +13081,6 @@ p.openFile = function(driveId, title, text) {
 }
 
 p.events = function() {
-    this.$titlebar.addEventListener('mouseover', function(){
-        console.log('mouseover');
-        app.setDistractionFree(false);
-    });
-
     Mousetrap.bindGlobal('command+s', function(e) {
         console.log('save');
         alert('save ...');
@@ -13091,6 +13095,26 @@ p.setDistractionFree = function(bool) {
         return;
     }
     document.body.classList.remove('distractionFree');
+}
+
+p.showPreview = function() {
+    console.log('show Preview');
+
+    if(document.body.classList.contains('preview')) {
+        app.hidePreview();
+        return true;
+    }
+
+    document.body.classList.add('preview');
+}
+
+p.hidePreview = function() {
+    console.log('hide Preview');
+    document.body.classList.remove('preview');
+}
+
+p.showDocuments = function() {
+    console.log('show Documents');
 };
 var WindowControls = function() {
         this.$windowClose = document.querySelector('#windowClose');
