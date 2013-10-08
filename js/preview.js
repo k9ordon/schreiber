@@ -23,4 +23,14 @@ p.update = function() {
         html = marked(md);
 
     app.file.preview.$el.innerHTML = html;
+
+    app.file.preview.updateScrollPosition();
 };
+
+p.updateScrollPosition = function() {
+    var $cursor = app.file.preview.$el.querySelector('#cursor');
+
+    console.log('cursor offset', $cursor.offsetTop); 
+
+    app.file.preview.$el.scrollTop = $cursor.offsetTop - (app.file.preview.$el.offsetHeight) / 2;
+}

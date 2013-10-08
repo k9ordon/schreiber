@@ -828,6 +828,7 @@ body .file .info {
 }
 body.preview .file .info {
   opacity: 0;
+  pointer-events: none;
 }
 .distractionFree .file .info {
   opacity: 0;
@@ -835,7 +836,7 @@ body.preview .file .info {
 .file .preview {
   position: absolute;
   top: 0;
-  right: 0;
+  right: 10px;
   bottom: 0;
   font-size: 12px;
   margin: 0;
@@ -854,6 +855,10 @@ body.preview .file .info {
     }
 */
 
+}
+.file .preview img {
+  height: 20px;
+  width: 40px;
 }
 body .file .preview {
   opacity: 0;
