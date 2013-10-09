@@ -1,0 +1,20 @@
+!!! 5
+html
+    head
+        title schreiberApp
+        link(href='app.css', rel='stylesheet')
+
+        meta(name='viewport', content='initial-scale=1, maximum-scale=1, user-scalable=no')
+        meta(name='apple-mobile-web-app-capable', content='yes')
+        meta(name='apple-mobile-web-app-status-bar-style', content='black')
+
+    body
+        div#loading 
+            div#spinner
+
+        div#app.hidden
+            include titlebar
+            include fileBrowser
+            include file
+
+        script(src="coffee.js", type='text/javascript')
