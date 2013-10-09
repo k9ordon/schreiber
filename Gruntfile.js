@@ -3,15 +3,13 @@ module.exports = function(grunt) {
     grunt.initConfig({
         pkg: grunt.file.readJSON('package.json'),
 
-        banner: '/* <%= pkg.title || pkg.name %> - v<%= pkg.version %> - last build: <%= grunt.template.today("yyyy-mm-dd HH:MM:ss") %> */\n',
-
         concat: {
             options: {
                 separator: ';\n'
             },
-            app: {
+            vendor: {
                 files: {
-                    'dist/app/app.js': [
+                    'dist/app/vendor.js': [
                         // codemirror
                         'bower_components/codemirror/lib/codemirror.js',
                         'bower_components/codemirror/addon/edit/continuelist.js',
@@ -31,7 +29,13 @@ module.exports = function(grunt) {
                         // markdown-js
                         'bower_components/markdown/lib/markdown.js',
                         // marked
-                        'bower_components/spin.js/dist/spin.js',
+                        'bower_components/spin.js/dist/spin.js'
+                    ]
+                },
+            },
+            app: {
+                files: {
+                    'dist/app/app.js': [
                         // app
                         'js/googledrive.js', 
                         'js/titlebar.js', 
@@ -61,8 +65,18 @@ module.exports = function(grunt) {
             web: {
                 files: {
                     'dist/web/app/app.js': [
+                        'dist/app/vendor.js',
                         'dist/app/app.js',
                         'js/webapp.js'
+                    ],
+                    'dist/web/landingpage.js': ['js/landingpage.js']
+                }
+            },
+            coffee: {
+                files: {
+                    'dist/web/app/coffee-lib.js': [
+                        'dist/app/vendor.js',
+                        //'dist/app/coffee.js'
                     ],
                     'dist/web/landingpage.js': ['js/landingpage.js']
                 }
@@ -144,6 +158,7 @@ module.exports = function(grunt) {
                 files: {
                     'dist/web/app/coffee.js': [
                         'coffee/titlebar.coffee', 
+                        'coffee/document.coffee', 
                         'coffee/app.coffee', 
                         'coffee/webapp.coffee'
                     ]
@@ -220,8 +235,16 @@ module.exports = function(grunt) {
     grunt.loadNpmTasks('grunt-contrib-connect');
     grunt.loadNpmTasks('grunt-contrib-coffee');
 
-    grunt.registerTask('build', 
-        ['clean:builtAllStart', 'bower', 'concat', 'less', 'jade', 'coffee', 'copy', 'clean:builtFinish']
+    grunt.registerTask('build', [
+        'clean:builtAllStart', 
+        'bower', 
+        'less', 
+        'jade', 
+        'coffee', 
+        'concat',
+        'copy', 
+        'clean:builtFinish'
+    ]
     );
 
     grunt.registerTask('serve',
