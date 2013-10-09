@@ -10,7 +10,9 @@ A google drive backed markdown editor.
 
 ## Install
 
-    $ git clone https://github.com/k9ordon/schreiber.git
-    $ cd schreiber
-    $ npm install
-    $ grunt
+    git clone https://github.com/k9ordon/schreiber.git
+    cd schreiber
+    sudo npm install -g bower
+    sudo npm install -g grunt-cli
+    npm install
+    grunt
