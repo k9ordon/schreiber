@@ -1,12 +1,15 @@
 class Titlebar
+
     constructor: (@app) ->
-        console.log 'Titlebar init'
         @dom()
         @events()
 
     dom: ->
         @$el = document.querySelector '.titlebar'
         @$title = @$el.querySelector '.title'
+        @$toPreview = @$el.querySelector '#toPreview'
+        @$toDocuments = @$el.querySelector '#toDocuments'
 
     events: ->
-        @$el.addEventListener 'mouseover', (e) => console.log 'titlebar hover'
+        @$toPreview.addEventListener 'click', (e) => @app.showPreview()
+        @$toDocuments.addEventListener 'click', (e) => @app.showDocuments()
