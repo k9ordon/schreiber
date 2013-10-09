@@ -144,7 +144,7 @@ module.exports = function(grunt) {
         watch: {
             gruntfile: {
                 files: ['package.json', 'gruntfile.js'],
-                tasks: ['bower', 'default']
+                tasks: ['bower', 'build']
             },
             css: {
                 files: 'less/*.less',
@@ -182,6 +182,16 @@ module.exports = function(grunt) {
         clean: {
             builtAllStart: ["dist/"],
             builtFinish: ["dist/app"]
+        },
+
+        connect: {
+            server : {
+                options: {
+                    port: 8000,
+                    //hostname: 'schreiber-dev.k94n.com',
+                    base: 'dist/web'
+                }
+            }
         }
     });
 
@@ -192,12 +202,17 @@ module.exports = function(grunt) {
     grunt.loadNpmTasks('grunt-contrib-watch');
     grunt.loadNpmTasks('grunt-bower-task');
     grunt.loadNpmTasks('grunt-contrib-clean');
+    grunt.loadNpmTasks('grunt-contrib-connect');
 
-    grunt.registerTask('init', ['bower']);
-
-    grunt.registerTask('default', 
+    grunt.registerTask('build', 
         ['clean:builtAllStart', 'bower', 'concat', 'less', 'jade', 'copy', 'clean:builtFinish']
     );
+
+    grunt.registerTask('serve',
+        ['build', 'connect', 'watch']
+    );
+
+    grunt.registerTask('default', 'build'); 
 
 //    grunt.registerTask('web', ['bower', 'concat', 'less', 'jade', 'copy']);
 //    grunt.registerTask('chromeapp', ['bower', 'concat', 'less', 'jade', 'copy']);
