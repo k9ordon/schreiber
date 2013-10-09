@@ -1,3 +1,4 @@
+/*! schreiberapp - v0.0.2 - last build: 2013-10-09 19:57:57 */
 // CodeMirror is the only global var we claim
 window.CodeMirror = (function() {
   "use strict";

@@ -3,6 +3,8 @@ module.exports = function(grunt) {
     grunt.initConfig({
         pkg: grunt.file.readJSON('package.json'),
 
+        banner: '/* <%= pkg.title || pkg.name %> - v<%= pkg.version %> - last build: <%= grunt.template.today("yyyy-mm-dd HH:MM:ss") %> */\n',
+
         concat: {
             options: {
                 separator: ';\n'
@@ -54,6 +56,9 @@ module.exports = function(grunt) {
                     'dist/chromeapp/background.js' : [
                         'js/background.js',
                     ],
+                },
+                options: {
+                    banner: '<%= banner %>'
                 }
             },
             web: {
@@ -63,6 +68,9 @@ module.exports = function(grunt) {
                         'js/webapp.js'
                     ],
                     'dist/web/landingpage.js': ['js/landingpage.js']
+                },
+                options: {
+                    banner: '<%= banner %>'
                 }
             }
         },
@@ -122,7 +130,7 @@ module.exports = function(grunt) {
             web: {
                 files: {
                     "dist/web/index.html": ["jade/landingpage.jade"],
-                    "dist/web/app/index.html": ["jade/webapp.jade"],
+                    "dist/web/app/index.html": ["jade/webapp.jade"]
                 }
             },
 
@@ -175,8 +183,6 @@ module.exports = function(grunt) {
             builtAllStart: ["dist/"],
             builtFinish: ["dist/app"]
         }
-
-
     });
 
     grunt.loadNpmTasks('grunt-contrib-concat');
@@ -187,10 +193,11 @@ module.exports = function(grunt) {
     grunt.loadNpmTasks('grunt-bower-task');
     grunt.loadNpmTasks('grunt-contrib-clean');
 
-
     grunt.registerTask('init', ['bower']);
 
-    grunt.registerTask('default', ['clean:builtAllStart', 'bower', 'concat', 'less', 'jade', 'copy', 'clean:builtFinish']);
+    grunt.registerTask('default', 
+        ['clean:builtAllStart', 'bower', 'concat', 'less', 'jade', 'copy', 'clean:builtFinish']
+    );
 
 //    grunt.registerTask('web', ['bower', 'concat', 'less', 'jade', 'copy']);
 //    grunt.registerTask('chromeapp', ['bower', 'concat', 'less', 'jade', 'copy']);
