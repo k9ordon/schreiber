@@ -3,18 +3,19 @@ class App
     constructor: ->
         @dom() 
         @sub() 
-        @show()
-        @openFile(false, 'welcome.md', 'welcome')
+        @load()
 
     dom: ->
         @$el = document.querySelector '#app'
         @$loading = document.querySelector '#loading'
-
+ 
     sub: ->
         @titlebar = new Titlebar @
         @documents = []
 
-    show: ->
+    load: ->
+        @openFile(false, 'welcome.md', 'welcome')
+
         @$el.classList.remove 'hidden'
         @$loading.classList.add 'hidden'        
 
