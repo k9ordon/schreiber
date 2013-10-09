@@ -130,6 +130,7 @@ module.exports = function(grunt) {
             web: {
                 files: {
                     "dist/web/index.html": ["jade/landingpage.jade"],
+                    "dist/web/app/coffee.html": ["jade/coffee.jade"],
                     "dist/web/app/index.html": ["jade/webapp.jade"]
                 }
             },
@@ -137,6 +138,21 @@ module.exports = function(grunt) {
             chromeapp: {
                 files: {
                     "dist/chromeapp/index.html": ["jade/chromeapp.jade"]
+                }
+            }
+        },
+
+        coffee: {
+            web: {
+                options: {
+                    sourceMap: true
+                },
+                files: {
+                    'dist/web/app/coffee.js': [
+                        'coffee/titlebar.coffee', 
+                        'coffee/app.coffee', 
+                        'coffee/webapp.coffee'
+                    ]
                 }
             }
         },
@@ -157,6 +173,11 @@ module.exports = function(grunt) {
             js: {
                 files: 'js/*.js',
                 tasks: ['concat', 'clean:builtFinish']
+            },
+
+            coffee: {
+                files: 'coffee/*.coffee',
+                tasks: ['coffee', 'clean:builtFinish']
             },
 
             jade: {
@@ -203,9 +224,10 @@ module.exports = function(grunt) {
     grunt.loadNpmTasks('grunt-bower-task');
     grunt.loadNpmTasks('grunt-contrib-clean');
     grunt.loadNpmTasks('grunt-contrib-connect');
+    grunt.loadNpmTasks('grunt-contrib-coffee');
 
     grunt.registerTask('build', 
-        ['clean:builtAllStart', 'bower', 'concat', 'less', 'jade', 'copy', 'clean:builtFinish']
+        ['clean:builtAllStart', 'bower', 'concat', 'less', 'jade', 'coffee', 'copy', 'clean:builtFinish']
     );
 
     grunt.registerTask('serve',
