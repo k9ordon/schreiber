@@ -803,7 +803,7 @@ body:after {
   border: 0px solid #eee8d5;
 }
 .file .CodeMirror pre {
-  border-bottom: 1px solid #eee8d5;
+  border-bottom: 1px solid rgba(238, 232, 213, 0.4);
 }
 .file .CodeMirror .CodeMirror-lines {
   padding-top: 65px;
