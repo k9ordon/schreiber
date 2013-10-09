@@ -1,6 +1,6 @@
 {
   "name": "schreiberapp",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "A chrome app for editing google drive markdown documents.",
   "main": "Gruntfile.js",
   "scripts": {
