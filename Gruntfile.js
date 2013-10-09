@@ -56,9 +56,6 @@ module.exports = function(grunt) {
                     'dist/chromeapp/background.js' : [
                         'js/background.js',
                     ],
-                },
-                options: {
-                    banner: '<%= banner %>'
                 }
             },
             web: {
@@ -68,9 +65,6 @@ module.exports = function(grunt) {
                         'js/webapp.js'
                     ],
                     'dist/web/landingpage.js': ['js/landingpage.js']
-                },
-                options: {
-                    banner: '<%= banner %>'
                 }
             }
         },
