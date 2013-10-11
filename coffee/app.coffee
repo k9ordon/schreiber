@@ -29,3 +29,8 @@ class App
         @d = new Document @, @dId, @title, @text
         @documents.push @d
         @d.show()
+
+    setDistractionFree : (@bool) ->
+        if @bool
+            document.body.classList.add 'distractionFree'
+

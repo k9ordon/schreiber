@@ -4,19 +4,26 @@ class Document
         console.log @app.$el
  
         @create()
+        @sub()
+        
         @dom()
         @createCodeMirror()
 
-    dom: ->
-        @$src = @$el.querySelector('#src')
-        @$preview = @$el.querySelector('#preview')        
-        
+        @events()
+
     create: ->
         tpl = document.querySelector '#fileTemplate'
         t = document.createElement 'div'
         t.innerHTML = tpl.innerHTML
         @$el = t.firstChild
         @app.$el.appendChild @$el
+
+    sub: ->
+        @preview = new Preview @app, @
+
+    dom: ->
+        @$src = @$el.querySelector('#src')
+        @$preview = @$el.querySelector('#preview')
 
     createCodeMirror: ->
         config = 
@@ -34,6 +41,9 @@ class Document
         @cm.setValue @text
 
     events: ->
+        @cm.on "change", () ->
+            @app.setDistractionFree true
+            @app.d.preview.update()
 
     show: ->
         @app.d.$el.id = ''
