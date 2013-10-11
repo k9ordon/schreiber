@@ -1,1 +1,1 @@
-setTimeout (-> window.app = new App), 100
+window.app = new App

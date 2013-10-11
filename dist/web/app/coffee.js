@@ -1,5 +1,5 @@
 (function() {
-  var App, Document, Titlebar;
+  var App, Document, Preview, Titlebar;
 
   Titlebar = (function() {
     function Titlebar(app) {
@@ -29,6 +29,25 @@
 
   })();
 
+  Preview = (function() {
+    function Preview(app, file) {
+      this.app = app;
+      this.file = file;
+      this.dom();
+    }
+
+    Preview.prototype.dom = function() {
+      return this.$el = this.file.$el.querySelector('.preview');
+    };
+
+    Preview.prototype.update = function() {
+      return console.log('preview upadte');
+    };
+
+    return Preview;
+
+  })();
+
   Document = (function() {
     function Document(app, driveId, title, text) {
       this.app = app;
@@ -37,14 +56,11 @@
       this.text = text;
       console.log(this.app.$el);
       this.create();
+      this.sub();
       this.dom();
       this.createCodeMirror();
+      this.events();
     }
-
-    Document.prototype.dom = function() {
-      this.$src = this.$el.querySelector('#src');
-      return this.$preview = this.$el.querySelector('#preview');
-    };
 
     Document.prototype.create = function() {
       var t, tpl;
@@ -53,6 +69,15 @@
       t.innerHTML = tpl.innerHTML;
       this.$el = t.firstChild;
       return this.app.$el.appendChild(this.$el);
+    };
+
+    Document.prototype.sub = function() {
+      return this.preview = new Preview(this.app, this);
+    };
+
+    Document.prototype.dom = function() {
+      this.$src = this.$el.querySelector('#src');
+      return this.$preview = this.$el.querySelector('#preview');
     };
 
     Document.prototype.createCodeMirror = function() {
@@ -73,7 +98,12 @@
       return this.cm.setValue(this.text);
     };
 
-    Document.prototype.events = function() {};
+    Document.prototype.events = function() {
+      return this.cm.on("change", function() {
+        this.app.setDistractionFree(true);
+        return this.app.d.preview.update();
+      });
+    };
 
     Document.prototype.show = function() {
       this.app.d.$el.id = '';
@@ -90,8 +120,7 @@
     function App() {
       this.dom();
       this.sub();
-      this.show();
-      this.openFile(false, 'welcome.md', 'welcome');
+      this.load();
     }
 
     App.prototype.dom = function() {
@@ -104,7 +133,8 @@
       return this.documents = [];
     };
 
-    App.prototype.show = function() {
+    App.prototype.load = function() {
+      this.openFile(false, 'welcome.md', 'welcome');
       this.$el.classList.remove('hidden');
       return this.$loading.classList.add('hidden');
     };
@@ -126,13 +156,18 @@
       return this.d.show();
     };
 
+    App.prototype.setDistractionFree = function(bool) {
+      this.bool = bool;
+      if (this.bool) {
+        return document.body.classList.add('distractionFree');
+      }
+    };
+
     return App;
 
   })();
 
-  setTimeout((function() {
-    return window.app = new App;
-  }), 100);
+  window.app = new App;
 
 }).call(this);
 
