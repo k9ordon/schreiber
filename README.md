@@ -1,6 +1,6 @@
 # Schreiber App
 
-A google drive backed markdown editor.
+A google drive backed chrome app for markdown editing.
 
 ![Schreiber Chrome App Small Screenshot](https://raw.github.com/k9ordon/schreiber/master/screenshot2.png)
 
