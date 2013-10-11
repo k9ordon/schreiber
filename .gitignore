@@ -3,5 +3,6 @@
 /bower_components
 /dist/app
 .nvmrc
-.src.coffee
-.map
+
+*.map
+*.src.coffee
