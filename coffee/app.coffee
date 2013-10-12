@@ -3,7 +3,7 @@ class App
     constructor: ->
         @dom() 
         @sub() 
-        @load()
+        @show()
 
     dom: ->
         @$el = document.querySelector '#app'
@@ -13,7 +13,7 @@ class App
         @titlebar = new Titlebar @
         @documents = []
 
-    load: ->
+    show: ->
         @openFile(false, 'welcome.md', 'welcome')
 
         @$el.classList.remove 'hidden'
@@ -34,3 +34,5 @@ class App
         if @bool
             document.body.classList.add 'distractionFree'
 
+    onGapiReady: ->
+        @drive = new Drive @
