@@ -1,5 +1,5 @@
 (function() {
-  var App, Document, Preview, Titlebar;
+  var App, Document, Documents, Drive, Preview, Titlebar;
 
   Titlebar = (function() {
     function Titlebar(app) {
@@ -26,6 +26,38 @@
     };
 
     return Titlebar;
+
+  })();
+
+  Drive = (function() {
+    Drive.auth_params = {
+      'client_id': '140224327941.apps.googleusercontent.com',
+      'scope': ['https://www.googleapis.com/auth/drive', 'https://www.googleapis.com/auth/userinfo.email']
+    };
+
+    function Drive() {
+      this.authorize();
+    }
+
+    Drive.prototype.authorize = function() {
+      return gapi.auth.authorize(this.auth_params, function(auth) {
+        return console.log(auth);
+      });
+    };
+
+    return Drive;
+
+  })();
+
+  Documents = (function() {
+    function Documents(app) {
+      this.app = app;
+      events();
+    }
+
+    Documents.prototype.events = function() {};
+
+    return Documents;
 
   })();
 
@@ -120,7 +152,7 @@
     function App() {
       this.dom();
       this.sub();
-      this.load();
+      this.show();
     }
 
     App.prototype.dom = function() {
@@ -133,7 +165,7 @@
       return this.documents = [];
     };
 
-    App.prototype.load = function() {
+    App.prototype.show = function() {
       this.openFile(false, 'welcome.md', 'welcome');
       this.$el.classList.remove('hidden');
       return this.$loading.classList.add('hidden');
@@ -163,11 +195,17 @@
       }
     };
 
+    App.prototype.onGapiReady = function() {
+      return this.drive = new Drive(this);
+    };
+
     return App;
 
   })();
 
   window.app = new App;
+
+  window.onGapiReady = app.onGapiReady;
 
 }).call(this);
 
