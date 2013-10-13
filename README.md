@@ -16,3 +16,6 @@ A google drive backed chrome app for markdown editing.
     sudo npm install -g grunt-cli
     npm install
     grunt
+
+## Dependencies
+[![Dependency Status](https://gemnasium.com/k9ordon/schreiber.png)](https://gemnasium.com/k9ordon/schreiber)
