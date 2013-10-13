@@ -98,10 +98,26 @@ module.exports = function(grunt) {
                     //strictImports: true
                 },
                 files: {
-                    "dist/web/app/app.css": "less/app.less", "dist/web/landingpage.css": "less/landingpage.less"
+                    "dist/web/app/app.css": "less/app.less", 
+                    "dist/web/landingpage.css": "less/landingpage.less"
                 }
             }
         },
+
+        sass: {
+            chromeapp: {
+                files: {
+                    "dist/chromeapp/app.css": "sass/app.sass"
+                }
+            },
+            web: {
+                files: {
+                    "dist/web/app/app.css": "sass/app.sass", 
+                    "dist/web/landingpage.css": "sass/landingpage.sass"
+                }
+            }   
+        }
+
         copy: {
             web: {
                 files: [
@@ -237,6 +253,7 @@ module.exports = function(grunt) {
     grunt.loadNpmTasks('grunt-contrib-clean');
     grunt.loadNpmTasks('grunt-contrib-connect');
     grunt.loadNpmTasks('grunt-contrib-coffee');
+    grunt.loadNpmTasks('grunt-contrib-sass');
 
     grunt.registerTask('build', [
         'clean:builtAllStart', 
