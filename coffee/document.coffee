@@ -62,6 +62,8 @@ class Document
         @app.d.cm.refresh()
         @app.d.cm.focus()
 
+        @app.titlebar.setTitle @title
+
     save: (e) ->
         e.preventDefault()
         alert 'save'

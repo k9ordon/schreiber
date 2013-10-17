@@ -11,7 +11,6 @@ class Preview
         @$el.addEventListener 'mouseover', @app.distractionFreeLeave
 
     update: ->
-        console.log 'preview upadte', @d.getValueWithCursor()
         @$el.innerHTML = marked @d.getValueWithCursor()
 
     updateScrollPosition: ->

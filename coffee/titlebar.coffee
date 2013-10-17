@@ -14,3 +14,6 @@ class Titlebar
         @$el.addEventListener 'mouseover', @app.distractionFreeLeave
         @$toPreview.addEventListener 'click', @app.togglePreview
         @$toDocuments.addEventListener 'click', @app.toggleDocuments
+
+    setTitle: (filename) ->
+        @$title.innerHTML = filename
