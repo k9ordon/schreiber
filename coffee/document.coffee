@@ -51,3 +51,8 @@ class Document
 
         @app.d.cm.refresh()
         @app.d.cm.focus()
+
+    save: ->
+        alert 'save'
+
+        false # stop event

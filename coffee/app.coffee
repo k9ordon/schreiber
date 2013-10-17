@@ -4,6 +4,7 @@ class App
         @dom() 
         @sub() 
         @show()
+        @events()
 
     dom: ->
         @$el = document.querySelector '#app'
@@ -13,17 +14,27 @@ class App
         @titlebar = new Titlebar @
         @documents = []
 
+    events: ->
+        Mousetrap.bindGlobal 'command+s', @d.save
+        Mousetrap.bindGlobal 'command+p', @togglePreview
+
     show: ->
         @openFile(false, 'welcome.md', 'welcome')
-
         @$el.classList.remove 'hidden'
         @$loading.classList.add 'hidden'        
 
     showDocuments: ->
         console.log 'showDocuments'
 
-    showPreview: ->
-        console.log 'showPreview'
+    togglePreview: ->
+        if ! document.body.classList.contains 'preview'
+            console.log 'showPreview'
+            document.body.classList.add 'preview'
+        else
+            console.log 'hidePreview'
+            document.body.classList.remove 'preview'
+
+        false # stop event
 
     openFile: (@dId, @title, @text) ->
         @d = new Document @, @dId, @title, @text
