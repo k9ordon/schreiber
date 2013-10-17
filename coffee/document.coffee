@@ -45,6 +45,13 @@ class Document
             @app.setDistractionFree true
             @app.d.preview.update()
 
+        @cm.on "cursorActivity", () ->
+            #@app.d.preview.update()
+            #@app.d.info.update()
+
+        @cm.on "blur", () ->
+            @app.setDistractionFree false
+
     show: ->
         @app.d.$el.id = ''
         @$el.id = 'currentFile'
@@ -52,7 +59,6 @@ class Document
         @app.d.cm.refresh()
         @app.d.cm.focus()
 
-    save: ->
+    save: (e) ->
+        e.preventDefault()
         alert 'save'
-
-        false # stop event

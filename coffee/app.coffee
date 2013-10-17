@@ -26,15 +26,14 @@ class App
     showDocuments: ->
         console.log 'showDocuments'
 
-    togglePreview: ->
+    togglePreview: (e) ->
+        e.preventDefault()
         if ! document.body.classList.contains 'preview'
             console.log 'showPreview'
             document.body.classList.add 'preview'
         else
             console.log 'hidePreview'
             document.body.classList.remove 'preview'
-
-        false # stop event
 
     openFile: (@dId, @title, @text) ->
         @d = new Document @, @dId, @title, @text
@@ -44,6 +43,8 @@ class App
     setDistractionFree : (@bool) ->
         if @bool
             document.body.classList.add 'distractionFree'
+        else
+            document.body.classList.remove 'distractionFree'
 
     onGapiReady: ->
         @drive = new Drive @
