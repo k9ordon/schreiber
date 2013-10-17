@@ -1,0 +1,93 @@
+#fileBrowser {
+    @include unselectable();
+
+    position: absolute;
+    top:0;
+    left: 0;
+    bottom: 0;
+    overflow: auto;
+    overflow-x: hidden;
+    font-size: 12px;
+    margin: 0;
+    padding: 75px 30px;
+    max-width: 300px;
+
+    //display: none;
+
+    #newFile {
+        @include button();
+        margin: 15px 0 5px;
+        clear: both;
+    }
+
+    #openPickerButton {
+        @include button();
+        margin: 5px 0 25px;
+        //display: none;
+    }
+
+    h3 {
+        cursor: default;
+        margin: 0 0 15px;
+        text-transform: uppercase;
+        font-size: 12px;
+    }
+
+    div.fileItem {
+        opacity: 1;
+        cursor: pointer;
+        font-size: 14px;
+        margin: 0 0 10px;
+
+        small {
+            display: none;
+        }
+
+        &#currentFileItem {
+            font-weight: bold;
+        }
+    }
+
+    #driveDocuments {
+        .spinner {
+            margin-top: 30px;
+            opacity: 0;
+        }
+
+        &.loading {
+            .spinner {
+                opacity: 1;
+            }
+            div.fileItem {
+                opacity: 0;
+            }
+        }
+    }
+}
+
+#fileBrowser {
+    h3, #newFile, #openPickerButton, #driveDocuments, #currentDocuments {
+        -webkit-transition: opacity 1s;
+        opacity: 1;
+    }
+
+    div.fileItem {
+        -webkit-transition: opacity 1s;
+    }
+
+    .spinner {
+        -webkit-transition: opacity 0.3s;
+    }
+}
+
+.distractionFree {
+    #fileBrowser {
+        #currentDocuments {
+            opacity: 0.8;
+        }
+
+        h3, #newFile, #openPickerButton, #driveDocuments {
+            opacity: 0;
+        }
+    }
+}

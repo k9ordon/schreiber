@@ -1,0 +1,155 @@
+.schreiber.base03 { color: #002b36; }
+.schreiber.base02 { color: #073642; }
+.schreiber.base01 { color: #586e75; }
+.schreiber.base00 { color: #657b83; }
+.schreiber.base0 { color: #839496; }
+.schreiber.base1 { color: #93a1a1; }
+.schreiber.base2 { color: #eee8d5; }
+.schreiber.base3  { color: #fdf6e3; }
+.schreiber.solar-yellow  { color: #b58900; }
+.schreiber.solar-orange  { color: #cb4b16; }
+.schreiber.solar-red { color: #dc322f; }
+.schreiber.solar-magenta { color: #d33682; }
+.schreiber.solar-violet  { color: #6c71c4; }
+.schreiber.solar-blue { color: #268bd2; }
+.schreiber.solar-cyan { color: #2aa198; }
+.schreiber.solar-green { color: #859900; }
+
+/* Color scheme for code-mirror */
+
+.cm-s-schreiber, body {
+  line-height: 22px;
+  //font-family: Menlo,Monaco,"Andale Mono","lucida console","Courier New",monospace !important;
+  //font-family: Helvetica Neue!important;
+  font-size: 16px;
+  
+
+  color-profile: sRGB;
+  rendering-intent: auto;
+  background: transparent; 
+
+  color: #657b83;
+  //text-shadow: #eee8d5 0 1px;
+  background: #fdf6e3; 
+}
+
+html {
+    //background-image: -webkit-linear-gradient(top, #fdf6e3 50%, darken(#fdf6e3, 5%) 100%);
+    background-attachment:fixed;
+    background-color: #fdf6e3; 
+}
+
+.cm-s-schreiber .CodeMirror-widget {
+  text-shadow: none;
+}
+
+
+.cm-s-schreiber .cm-keyword { color: #cb4b16 }
+.cm-s-schreiber .cm-atom { color: #d33682; }
+.cm-s-schreiber .cm-number { color: #d33682; }
+.cm-s-schreiber .cm-def { color: #2aa198; }
+
+.cm-s-schreiber .cm-variable { color: #268bd2; }
+.cm-s-schreiber .cm-variable-2 { color: #b58900; }
+.cm-s-schreiber .cm-variable-3 { color: #6c71c4; }
+
+.cm-s-schreiber .cm-property { color: #2aa198; }
+.cm-s-schreiber .cm-operator {color: #6c71c4;}
+
+.cm-s-schreiber .cm-comment { color: #586e75; font-style:italic; }
+
+.cm-s-schreiber .cm-string { color: #859900; }
+.cm-s-schreiber .cm-string-2 { color: #b58900; }
+
+.cm-s-schreiber .cm-meta { color: #859900; }
+.cm-s-schreiber .cm-qualifier { color: #b58900; }
+.cm-s-schreiber .cm-builtin { color: #d33682; }
+.cm-s-schreiber .cm-bracket { color: #cb4b16; }
+.cm-s-schreiber .CodeMirror-matchingbracket { color: #859900; }
+.cm-s-schreiber .CodeMirror-nonmatchingbracket { color: #dc322f; }
+.cm-s-schreiber .cm-tag { color: #93a1a1 }
+.cm-s-schreiber .cm-attribute {  color: #2aa198; }
+.cm-s-schreiber .cm-header { color: #586e75; font-size:20px; }
+.cm-s-schreiber .cm-header
+
+.cm-s-schreiber .cm-quote { color: #93a1a1; }
+.cm-s-schreiber .cm-hr {
+  color: transparent;
+  border-top: 1px solid #586e75;
+  display: block;
+}
+.cm-s-schreiber .cm-link { color: #93a1a1; /*cursor: pointer;*/ }
+.cm-s-schreiber .cm-special { color: #6c71c4; }
+.cm-s-schreiber .cm-em {
+  color: #999;
+  text-decoration: underline;
+  text-decoration-style: dotted;
+}
+.cm-s-schreiber .cm-strong { /*color: #eee;*/ }
+.cm-s-schreiber .cm-tab:before {
+  content: "➤";   /*visualize tab character*/
+  color: #586e75;
+}
+.cm-s-schreiber .cm-error,
+.cm-s-schreiber .cm-invalidchar {
+  color: #586e75;
+  border-bottom: 1px dotted #dc322f;
+}
+
+.cm-s-schreiber .CodeMirror-selected {
+  background: #eee8d5;
+}
+
+/* Editor styling */
+
+
+
+/* Little shadow on the view-port of the buffer view 
+.cm-s-schreiber.CodeMirror {
+  -moz-box-shadow: inset 7px 0 12px -6px #000;
+  -webkit-box-shadow: inset 7px 0 12px -6px #000;
+  box-shadow: inset 7px 0 12px -6px #000;
+}
+*/
+/* Gutter border and some shadow from it  */
+.cm-s-schreiber .CodeMirror-gutters {
+  padding: 0;
+  //box-shadow: 0 10px 20px black;
+  border-right: 0px solid;
+}
+
+/* Gutter colors and line number styling based of color scheme (dark / light) */
+
+/* Light */
+.cm-s-schreiber .CodeMirror-gutters {
+  //background-color: #eee8d5;
+  background: transparent;
+  border-color: #eee8d5;
+}
+
+/* Common */
+.cm-s-schreiber .CodeMirror-linenumber {
+  color: #586e75;
+  padding: 0 10px;
+  opacity: 0.5;
+}
+
+.cm-s-schreiber .CodeMirror-gutter .CodeMirror-gutter-text {
+  color: #586e75;
+}
+
+.cm-s-schreiber .CodeMirror-lines {
+  padding-left: 0px;
+}
+
+.cm-s-schreiber .CodeMirror-lines .CodeMirror-cursor {
+  border-left: 1px solid #819090;
+}
+
+/*
+Active line. Negative margin compensates left padding of the text in the
+view-port
+*/
+.cm-s-schreiber .CodeMirror-activeline-background {
+  background: rgba(0, 0, 0, 0.05);
+}
