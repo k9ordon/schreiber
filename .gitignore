@@ -3,6 +3,7 @@
 /bower_components
 /dist/app
 .nvmrc
+.sass-cache/
 
 *.map
 *.src.coffee
