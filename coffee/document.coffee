@@ -19,7 +19,7 @@ class Document
         @app.$el.appendChild @$el
 
     sub: ->
-        @preview = new Preview @app, @
+        @preview = new Preview @
 
     dom: ->
         @$src = @$el.querySelector('#src')
