@@ -173,6 +173,7 @@ module.exports = function(grunt) {
                         'coffee/drive.coffee', 
                         'coffee/documents.coffee', 
                         'coffee/preview.coffee', 
+                        'coffee/info.coffee', 
                         'coffee/document.coffee', 
                         'coffee/app.coffee', 
                         'coffee/webapp.coffee'

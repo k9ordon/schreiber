@@ -20,6 +20,7 @@ class Document
 
     sub: ->
         @preview = new Preview @
+        @info = new Info @
 
     dom: ->
         @$src = @$el.querySelector('#src')
@@ -49,7 +50,7 @@ class Document
         @cm.on "cursorActivity", () ->
             @app.d.preview.update()
             @app.d.preview.updateScrollPosition()
-            #@app.d.info.update()
+            @app.d.info.update()
 
         @cm.on "blur", () ->
             @app.setDistractionFree false
