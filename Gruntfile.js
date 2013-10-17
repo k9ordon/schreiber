@@ -9,7 +9,7 @@ module.exports = function(grunt) {
             },
             vendor: {
                 files: {
-                    'dist/app/vendor.js': [
+                    'dist/build/vendor.js': [
                         // codemirror
                         'bower_components/codemirror/lib/codemirror.js',
                         'bower_components/codemirror/addon/edit/continuelist.js',
@@ -35,7 +35,7 @@ module.exports = function(grunt) {
             },
             app: {
                 files: {
-                    'dist/app/app.js': [
+                    'dist/build/app.js': [
                         // app
                         'js/googledrive.js', 
                         'js/titlebar.js', 
@@ -52,7 +52,8 @@ module.exports = function(grunt) {
             chromeapp: {
                 files: {
                     'dist/chromeapp/app.js' : [
-                            'dist/app/app.js',
+                            'dist/build/vendor.js',
+                            'dist/build/app.js',
                             'js/window-controls.js',
                             'js/chromeapp.js',
                             'bower_components/chrome-app-samples/gapi-chrome-apps-lib/gapi-chrome-apps.js'
@@ -65,8 +66,8 @@ module.exports = function(grunt) {
             web: {
                 files: {
                     'dist/web/app/app.js': [
-                        'dist/app/vendor.js',
-                        'dist/app/app.js',
+                        'dist/build/vendor.js',
+                        'dist/build/app.js',
                         'js/webapp.js'
                     ],
                     'dist/web/landingpage.js': ['js/landingpage.js']
@@ -75,48 +76,25 @@ module.exports = function(grunt) {
             coffee: {
                 files: {
                     'dist/web/app/coffee-lib.js': [
-                        'dist/app/vendor.js',
-                        //'dist/app/coffee.js'
+                        'dist/build/vendor.js',
+                        //'dist/build/coffee.js'
                     ],
                     'dist/web/landingpage.js': ['js/landingpage.js']
                 }
             }
         },
-        less: {
-            chromeapp: {
-                options: {
-                    paths: ["less", "vendor"],
-                    //strictImports: true
-                },
+        sass: {
+            app: {
                 files: {
-                    "dist/chromeapp/app.css": "less/app.less"
+                    "dist/build/app.css": "sass/app.sass"
                 }
             },
             web: {
-                options: {
-                    paths: ["less", "vendor"],
-                    //strictImports: true
-                },
                 files: {
-                    "dist/web/app/app.css": "less/app.less", 
-                    "dist/web/landingpage.css": "less/landingpage.less"
+                    "dist/web/landingpage.css": "sass/landingpage.sass"
                 }
             }
         },
-
-        sass: {
-            chromeapp: {
-                files: {
-                    "dist/chromeapp/app.css": "sass/app.sass"
-                }
-            },
-            web: {
-                files: {
-                    "dist/web/app/app.css": "sass/app.sass", 
-                    "dist/web/landingpage.css": "sass/landingpage.sass"
-                }
-            }   
-        }
 
         copy: {
             web: {
@@ -128,6 +106,16 @@ module.exports = function(grunt) {
                         expand: true, 
                         flatten: true
                     },
+                    {   
+                        src: [
+                            'dist/build/app.css', 
+                            'bower_components/codemirror/lib/codemirror.css'
+                        ], 
+                        dest: 'dist/web/app/', 
+                        filter: 'isFile',
+                        expand: true, 
+                        flatten: true
+                    }
                 ]
             },
             chromeapp: {
@@ -140,12 +128,20 @@ module.exports = function(grunt) {
                         flatten: true
                     },
                     {   
-                        src: ['manifest.json', 'icon/icon_128.png', 'icon/icon_16.png', 'icon/icon_48.png'], 
+                        src: [
+                            'dist/build/app.css', 
+                            'bower_components/codemirror/lib/codemirror.css', 
+                            'manifest.json', 
+                            'icon/icon_128.png', 
+                            'icon/icon_16.png', 
+                            'icon/icon_48.png'
+                        ], 
                         dest: 'dist/chromeapp/', 
                         filter: 'isFile',
                         expand: true, 
                         flatten: true
-                    }
+                    },
+
                 ]
             },
         },
@@ -190,14 +186,13 @@ module.exports = function(grunt) {
                 files: ['package.json', 'gruntfile.js'],
                 tasks: ['bower', 'build']
             },
-            css: {
-                files: 'less/*.less',
-                tasks: ['less', 'copy', 'clean:builtFinish'],
+            sass : {
+                files: 'sass/*.sass',
+                tasks: ['sass', 'copy', 'clean:builtFinish'],
                 options: {
                     //livereload: false,
                 },
             },
-
             js: {
                 files: 'js/*.js',
                 tasks: ['concat', 'clean:builtFinish']
@@ -230,7 +225,7 @@ module.exports = function(grunt) {
 
         clean: {
             builtAllStart: ["dist/"],
-            builtFinish: ["dist/app"]
+            builtFinish: ["dist/build"]
         },
 
         connect: {
@@ -245,7 +240,6 @@ module.exports = function(grunt) {
     });
 
     grunt.loadNpmTasks('grunt-contrib-concat');
-    grunt.loadNpmTasks('grunt-contrib-less');
     grunt.loadNpmTasks('grunt-contrib-copy');
     grunt.loadNpmTasks('grunt-contrib-jade');
     grunt.loadNpmTasks('grunt-contrib-watch');
@@ -253,12 +247,12 @@ module.exports = function(grunt) {
     grunt.loadNpmTasks('grunt-contrib-clean');
     grunt.loadNpmTasks('grunt-contrib-connect');
     grunt.loadNpmTasks('grunt-contrib-coffee');
-    grunt.loadNpmTasks('grunt-contrib-sass');
+    grunt.loadNpmTasks('grunt-sass');
 
     grunt.registerTask('build', [
         'clean:builtAllStart', 
         'bower', 
-        'less', 
+        'sass',
         'jade', 
         'coffee', 
         'concat',
@@ -273,6 +267,6 @@ module.exports = function(grunt) {
 
     grunt.registerTask('default', 'build'); 
 
-//    grunt.registerTask('web', ['bower', 'concat', 'less', 'jade', 'copy']);
-//    grunt.registerTask('chromeapp', ['bower', 'concat', 'less', 'jade', 'copy']);
+//    grunt.registerTask('web', ['bower', 'concat', 'sass', 'jade', 'copy']);
+//    grunt.registerTask('chromeapp', ['bower', 'concat', 'sass', 'jade', 'copy']);
 };
