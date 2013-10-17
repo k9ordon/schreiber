@@ -19,8 +19,8 @@ class Document
         @app.$el.appendChild @$el
 
     sub: ->
-        @preview = new Preview @
-        @info = new Info @
+        @preview = new Preview @app, @
+        @info = new Info @app, @
 
     dom: ->
         @$src = @$el.querySelector('#src')
@@ -43,7 +43,7 @@ class Document
 
     events: ->
         @cm.on "change", () ->
-            @app.setDistractionFree true
+            @app.distractionFreeEnter()
             @app.d.preview.update()
             @app.d.preview.updateScrollPosition()
 
@@ -53,7 +53,7 @@ class Document
             @app.d.info.update()
 
         @cm.on "blur", () ->
-            @app.setDistractionFree false
+            @app.distractionFreeLeave()
 
     show: ->
         @app.d.$el.id = ''

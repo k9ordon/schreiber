@@ -1,10 +1,14 @@
 class Preview
 
-    constructor: (@d) ->
+    constructor: (@app, @d) ->
         @dom()
+        @events()
 
     dom: ->
         @$el = @d.$el.querySelector '.preview'
+
+    events: ->
+        @$el.addEventListener 'mouseover', @app.distractionFreeLeave
 
     update: ->
         console.log 'preview upadte', @d.getValueWithCursor()

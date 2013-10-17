@@ -40,11 +40,11 @@ class App
         @documents.push @d
         @d.show()
 
-    setDistractionFree : (@bool) ->
-        if @bool
-            document.body.classList.add 'distractionFree'
-        else
-            document.body.classList.remove 'distractionFree'
+    distractionFreeEnter : ->
+        document.body.classList.add 'distractionFree'
+    
+    distractionFreeLeave : ->
+        document.body.classList.remove 'distractionFree'
 
     onGapiReady: ->
         @drive = new Drive @

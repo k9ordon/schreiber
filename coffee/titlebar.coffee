@@ -11,5 +11,6 @@ class Titlebar
         @$toDocuments = @$el.querySelector '#toDocuments'
 
     events: ->
-        @$toPreview.addEventListener 'click', (e) => @app.showPreview()
-        @$toDocuments.addEventListener 'click', (e) => @app.showDocuments()
+        @$el.addEventListener 'mouseover', @app.distractionFreeLeave
+        @$toPreview.addEventListener 'click', @app.togglePreview
+        @$toDocuments.addEventListener 'click', @app.toggleDocuments
