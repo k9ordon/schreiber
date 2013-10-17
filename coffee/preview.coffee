@@ -7,4 +7,8 @@ class Preview
         @$el = @file.$el.querySelector '.preview'
 
     update: ->
-        console.log 'preview upadte'
+        console.log 'preview upadte', @app.d.getValueWithCursor()
+        @$el.innerHTML = marked @app.d.getValueWithCursor()
+
+    updateScrollPosition: ->
+        @$el.scrollTop = @$el.querySelector('#cursor').offsetTop - (@$el.offsetHeight) / 2;

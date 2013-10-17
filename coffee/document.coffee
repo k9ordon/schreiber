@@ -44,9 +44,11 @@ class Document
         @cm.on "change", () ->
             @app.setDistractionFree true
             @app.d.preview.update()
+            @app.d.preview.updateScrollPosition()
 
         @cm.on "cursorActivity", () ->
-            #@app.d.preview.update()
+            @app.d.preview.update()
+            @app.d.preview.updateScrollPosition()
             #@app.d.info.update()
 
         @cm.on "blur", () ->
@@ -62,3 +64,20 @@ class Document
     save: (e) ->
         e.preventDefault()
         alert 'save'
+
+    getValueWithCursor: ->
+        text = @cm.getValue()
+        cursor = @cm.getCursor()
+        lines = text.split("\n")
+        cursorText = ''
+
+        for text, line in lines
+            if line == cursor.line
+                cursorText += text.substring 0, cursor.ch
+                cursorText += "|<span id='cursor'></span>"
+                cursorText += text.substring cursor.ch, text.length
+                cursorText += "\n"
+            else
+                cursorText += text + "\n"
+
+        cursorText
