@@ -1,0 +1,38 @@
+.file .slides {
+    position: absolute;
+    top:0;
+    right: 10px;
+    bottom:0;
+    width:50%;
+    font-size: 12px;
+    margin: 0;
+    padding: 75px 30px;
+    overflow: auto;
+    border:1px solid green;
+
+    -webkit-transition: opacity 1s, -webkit-transform 1s;
+
+    > div {
+        border: 1px solid black;
+        overflow: hidden;
+    }
+
+    img {
+        height: 20px;
+        width: 40px;
+    }
+
+}
+
+body {
+    .file .slides {
+        opacity: 0;
+        -webkit-transform: translateX(50%);
+    }
+    &.slides {
+        .file .slides {
+            opacity: 1;
+            -webkit-transform: translateX(0);
+        }
+    }
+}

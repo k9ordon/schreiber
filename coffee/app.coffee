@@ -35,6 +35,15 @@ class App
             console.log 'hidePreview'
             document.body.classList.remove 'preview'
 
+    toggleSlides: (e) ->
+        e.preventDefault()
+        if ! document.body.classList.contains 'slides'
+            console.log 'showSlides'
+            document.body.classList.add 'slides'
+        else
+            console.log 'hideSlides'
+            document.body.classList.remove 'slides'
+
     openFile: (@dId, @title, @text) ->
         @d = new Document @, @dId, @title, @text
         @documents.push @d

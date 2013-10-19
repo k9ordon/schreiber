@@ -19,8 +19,9 @@ class Document
         @app.$el.appendChild @$el
 
     sub: ->
-        @preview = new Preview @app, @
         @info = new Info @app, @
+        @preview = new Preview @app, @
+        @slides = new Slides @app, @
 
     dom: ->
         @$src = @$el.querySelector('#src')
@@ -30,8 +31,9 @@ class Document
         config = 
             mode: 'gfm'
             lineNumbers: false
-            theme: "schreiber"
+            theme: "schreiber" 
             lineWrapping: true
+            matchBrackets: true
             styleSelectedText: true
             styleActiveLine: true
             extraKeys: 
@@ -44,13 +46,16 @@ class Document
     events: ->
         @cm.on "change", () ->
             @app.distractionFreeEnter()
+            @app.d.info.update()
             @app.d.preview.update()
             @app.d.preview.updateScrollPosition()
+            @app.d.slides.update()
 
         @cm.on "cursorActivity", () ->
+            @app.d.info.update()
             @app.d.preview.update()
             @app.d.preview.updateScrollPosition()
-            @app.d.info.update()
+            @app.d.slides.update()
 
         @cm.on "blur", () ->
             @app.distractionFreeLeave()

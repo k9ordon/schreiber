@@ -24,7 +24,7 @@
     font-weight: 300;
     border-bottom:1px solid #eee8d5;
 
-    #toPreview, #toDocuments {
+    #toSlides, #toPreview, #toDocuments {
         
     }
 
@@ -32,7 +32,7 @@
         background: #eee8d5;
         background: rgba(238, 232, 213, 0.85);
 
-        #toPreview, #toDocuments {
+        #toSlides, #toPreview, #toDocuments {
             background-color:rgba(238, 232, 213, 0.3);
             opacity: 1;
         }
@@ -64,6 +64,15 @@
         float:right;
 
         #toPreview {
+            @include button();
+            @include icon("\e006");
+            margin-right: 10px;
+            .icon {
+                font-size: 28px;
+            }
+        }
+
+        #toSlides {
             @include button();
             @include icon("\e006");
             .icon {
@@ -115,7 +124,7 @@
         -webkit-transition: opacity 0.3s ease-out;
     }
 
-    #toPreview, #toDocuments {
+    #toSlides, #toPreview, #toDocuments {
         -webkit-transition: opacity 1s, border-color 1s;
 
         .icon {
@@ -128,7 +137,7 @@
     .titlebar {
         border-color:rgba(253, 246, 227, 0);
 
-        #toPreview, #toDocuments {
+        #toSlides, #toPreview, #toDocuments {
             border-color:transparent;
             opacity: 0;
             .icon {
