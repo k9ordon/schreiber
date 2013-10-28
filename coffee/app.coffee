@@ -5,26 +5,44 @@ class App
         @sub() 
         @show()
         @events()
+        filepicker.setKey("ArBbG8nVdT6esL691Pkdvz");
 
     dom: ->
         @$el = document.querySelector '#app'
         @$loading = document.querySelector '#loading'
+        @$openPicker = document.querySelector '#openPickerButton'
  
     sub: ->
         @titlebar = new Titlebar @
-        @documents = []
+        @documents = new Documents @
 
     events: ->
         Mousetrap.bindGlobal 'command+s', @d.save
         Mousetrap.bindGlobal 'command+p', @togglePreview
+        Mousetrap.bindGlobal 'command+p', @openPicker
+        @$openPicker.addEventListener 'click', @openPicker
 
     show: ->
-        @openFile(false, 'welcome.md', 'welcome')
+        @openDocument(false)
         @$el.classList.remove 'hidden'
         @$loading.classList.add 'hidden'        
 
     showDocuments: ->
         console.log 'showDocuments'
+
+    openPicker: ->
+        filepicker.pick({
+                # mimetypes: ['image/*', 'text/plain', 'application/octet-stream']
+                container: 'modal'
+                extensions: ['.md', '.markdown', '.txt']
+                services:['GOOGLE_DRIVE', 'GITHUB', 'DROPBOX', 'COMPUTER', 'FTP', 'WEBDAV']
+            },
+            (InkBlob) -> 
+                console.log JSON.stringify(InkBlob)
+                app.openDocument(JSON.stringify(InkBlob))
+            , (FPError) -> 
+                console.log FPError.toString()
+        )
 
     togglePreview: (e) ->
         e.preventDefault()
@@ -44,9 +62,9 @@ class App
             console.log 'hideSlides'
             document.body.classList.remove 'slides'
 
-    openFile: (@dId, @title, @text) ->
-        @d = new Document @, @dId, @title, @text
-        @documents.push @d
+    openDocument: (InkBlob) ->
+        @d = new Document @, InkBlob
+        @documents.add(@d)
         @d.show()
 
     distractionFreeEnter : ->

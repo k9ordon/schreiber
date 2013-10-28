@@ -1,7 +1,7 @@
 class Document
 
-    constructor: (@app, @driveId, @title, @text) ->
-        console.log @app.$el
+    constructor: (@app, @InkBlob) ->
+        console.log @app.$el, @InkBlob
  
         @create()
         @sub()
@@ -41,7 +41,7 @@ class Document
             viewportMargin: 1000
 
         @cm = CodeMirror.fromTextArea @$src, config
-        @cm.setValue @text
+        @cm.setValue @text if @text
 
     events: ->
         @cm.on "change", () ->
