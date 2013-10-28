@@ -27,6 +27,6 @@
     "grunt-contrib-clean": "~0.5.0",
     "grunt-contrib-connect": "~0.5.0",
     "grunt-contrib-coffee": "~0.7.0",
-    "grunt-sass": "~0.6.1"
+    "grunt-sass": "~0.7.0"
   }
 }
