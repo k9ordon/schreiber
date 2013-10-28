@@ -17,5 +17,7 @@ A google drive backed chrome app for markdown editing.
     npm install
     grunt
 
-## Dependencies
-[![Dependency Status](https://gemnasium.com/k9ordon/schreiber.png)](https://gemnasium.com/k9ordon/schreiber)
+## Externals
+
+- [![Dependency Status](https://gemnasium.com/k9ordon/schreiber.png)](https://gemnasium.com/k9ordon/schreiber)
+- [coffeedoc Documentation](http://coffeedoc.info/github/k9ordon/schreiber/master/)
