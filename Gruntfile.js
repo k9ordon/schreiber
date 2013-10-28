@@ -171,7 +171,6 @@ module.exports = function(grunt) {
                 files: {
                     'dist/web/app/coffee.js': [
                         'coffee/titlebar.coffee', 
-                        'coffee/drive.coffee', 
                         'coffee/documents.coffee', 
                         'coffee/slides.coffee', 
                         'coffee/preview.coffee', 
