@@ -1,21 +1,29 @@
-console.log('chrome init');
+(function() {
+  var _this = this;
 
-chrome.app.runtime.onLaunched.addListener(function() {
-  // Center window on screen.
-  var screenWidth = screen.availWidth;
-  var screenHeight = screen.availHeight;
-  var width = 500;
-  var height = 500;
+  console.log('chrome background init');
 
-  chrome.app.window.create('index.html', {
-    id: 'main',
-    frame: 'none', 
-    minWidth: 320,
-    bounds: {
+  chrome.app.runtime.onLaunched.addListener(function() {
+    var height, screenHeight, screenWidth, width;
+    screenWidth = screen.availWidth;
+    screenHeight = screen.availHeight;
+    width = 500;
+    height = 500;
+    return chrome.app.window.create('index.html', {
+      id: 'main',
+      frame: 'none',
+      minWidth: 320,
+      bounds: {
         width: width,
         height: height,
-        left: Math.round((screenWidth-width)/2),
-        top: Math.round((screenHeight-height)/2)
-    }
+        left: Math.round((screenWidth - width) / 2),
+        top: Math.round((screenHeight - height) / 2)
+      }
+    });
   });
-});
+
+}).call(this);
+
+/*
+//@ sourceMappingURL=background.js.map
+*/
