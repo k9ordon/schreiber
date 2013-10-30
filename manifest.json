@@ -14,13 +14,17 @@
     }
   },
   "permissions": [
-    "identity", "clipboardRead", "clipboardWrite",
+    "identity", "clipboardRead", "clipboardWrite", "webview", "<all_urls>",
+
     "https://docs.google.com/feeds/",
     "https://*.googleusercontent.com/",
     "https://spreadsheets.google.com/feeds/",
     "https://ssl.gstatic.com/",
     "https://www.googleapis.com/",
-    "https://accounts.google.com/"
+    "https://accounts.google.com/",
+    "https://*.filepicker.io/",
+    "http://*.filepicker.io/",
+    "*://*.filepicker.io/"
   ],
   "oauth2": {
     "client_id": "140224327941-54e8c7refmj3697retgf3c6ed8lcj1dp.apps.googleusercontent.com",

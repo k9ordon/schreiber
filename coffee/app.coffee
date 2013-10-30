@@ -5,7 +5,21 @@ class App
         @sub() 
         @show()
         @events()
-        filepicker.setKey("ArBbG8nVdT6esL691Pkdvz");
+        #filepicker.setKey("ArBbG8nVdT6esL691Pkdvz");
+
+        @$webview = document.querySelector('webview')
+
+        window.addEventListener 'message', 
+            (e) => console.log('message recived', e.data)
+
+        @$webview.addEventListener 'loadstop', 
+            () => 
+                console.log 'loadstop', app
+                app.$webview.executeScript(
+                    { file: "chromewebview.js" }
+                )
+                app.$webview.contentWindow.postMessage {cmd: 'handshake'}, '*'
+        
 
     dom: ->
         @$el = document.querySelector '#app'
@@ -32,7 +46,6 @@ class App
 
     openPicker: ->
         filepicker.pick({
-                # mimetypes: ['image/*', 'text/plain', 'application/octet-stream']
                 container: 'modal'
                 extensions: ['.md', '.markdown', '.txt']
                 services:['GOOGLE_DRIVE', 'GITHUB', 'DROPBOX', 'COMPUTER', 'FTP', 'WEBDAV']
@@ -41,7 +54,7 @@ class App
                 console.log JSON.stringify(InkBlob)
                 app.openDocument(JSON.stringify(InkBlob))
             , (FPError) -> 
-                console.log FPError.toString()
+                console.log FPError
         )
 
     togglePreview: (e) ->
