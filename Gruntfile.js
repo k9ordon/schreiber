@@ -28,60 +28,12 @@ module.exports = function(grunt) {
                         'bower_components/marked/lib/marked.js',
                         // markdown-js
                         'bower_components/markdown/lib/markdown.js',
-                        // marked
-                        'bower_components/spin.js/dist/spin.js'
+                        // spin.js
+                        'bower_components/spin.js/dist/spin.js',
+                        // filepicker-webview
+                        'bower_components/filepicker-webview/filepicker-0.0.1.js'
                     ]
                 },
-            },
-            app: {
-                files: {
-                    'dist/build/app.js': [
-                        // app
-                        'js/googledrive.js', 
-                        'js/titlebar.js', 
-                        'js/info.js', 
-                        'js/slides.js', 
-                        'js/preview.js', 
-                        'js/file.js', 
-                        'js/fileBrowser.js', 
-                        'js/app.js', 
-                         // boot
-                        'js/boot.js'
-                    ]
-                }
-            },
-            chromeapp: {
-                files: {
-                    'dist/chromeapp/app.js' : [
-                            'dist/build/vendor.js',
-                            'dist/build/app.js',
-                            'js/window-controls.js',
-                            'js/chromeapp.js',
-                            'bower_components/chrome-app-samples/gapi-chrome-apps-lib/gapi-chrome-apps.js'
-                        ],
-                    'dist/chromeapp/background.js' : [
-                        'js/background.js',
-                    ],
-                }
-            },
-            web: {
-                files: {
-                    'dist/web/app/app.js': [
-                        'dist/build/vendor.js',
-                        'dist/build/app.js',
-                        'js/webapp.js'
-                    ],
-                    'dist/web/landingpage.js': ['js/landingpage.js']
-                }
-            },
-            coffee: {
-                files: {
-                    'dist/web/app/coffee-lib.js': [
-                        'dist/build/vendor.js',
-                        //'dist/build/coffee.js'
-                    ],
-                    'dist/web/landingpage.js': ['js/landingpage.js']
-                }
             }
         },
         sass: {
@@ -96,7 +48,6 @@ module.exports = function(grunt) {
                 }
             }
         },
-
         copy: {
             web: {
                 files: [
@@ -108,11 +59,18 @@ module.exports = function(grunt) {
                         flatten: true
                     },
                     {   
+                        src: ['dist/build/*.js'], 
+                        dest: 'dist/web/app', 
+                        filter: 'isFile', 
+                        expand: true, 
+                        flatten: true
+                    },
+                    {   
                         src: [
                             'dist/build/app.css', 
                             'bower_components/codemirror/lib/codemirror.css'
                         ], 
-                        dest: 'dist/web/app/', 
+                        dest: 'dist/web/app', 
                         filter: 'isFile',
                         expand: true, 
                         flatten: true
@@ -124,6 +82,13 @@ module.exports = function(grunt) {
                     {   
                         src: ['vendor/linecons/fonts/*'], 
                         dest: 'dist/chromeapp/fonts', 
+                        filter: 'isFile', 
+                        expand: true, 
+                        flatten: true
+                    },
+                    {   
+                        src: ['dist/build/*.js'], 
+                        dest: 'dist/chromeapp', 
                         filter: 'isFile', 
                         expand: true, 
                         flatten: true
@@ -151,8 +116,7 @@ module.exports = function(grunt) {
             web: {
                 files: {
                     "dist/web/index.html": ["jade/landingpage.jade"],
-                    "dist/web/app/coffee.html": ["jade/coffee.jade"],
-                    "dist/web/app/index.html": ["jade/webapp.jade"]
+                    "dist/web/app/index.html": ["jade/webapp.jade"]                
                 }
             },
 
@@ -169,7 +133,7 @@ module.exports = function(grunt) {
                     sourceMap: true
                 },
                 files: {
-                    'dist/web/app/coffee.js': [
+                    'dist/web/app/app.js': [
                         'coffee/titlebar.coffee', 
                         'coffee/documents.coffee', 
                         'coffee/slides.coffee', 
@@ -179,6 +143,30 @@ module.exports = function(grunt) {
                         'coffee/app.coffee', 
                         'coffee/webapp.coffee'
                     ]
+                }
+            },
+            chromeapp: {
+                options: {
+                    sourceMap: true
+                },
+                files: {
+                    'dist/chromeapp/app.js': [
+                        'coffee/titlebar.coffee', 
+                        'coffee/documents.coffee', 
+                        'coffee/slides.coffee', 
+                        'coffee/preview.coffee', 
+                        'coffee/info.coffee', 
+                        'coffee/document.coffee', 
+                        'coffee/app.coffee', 
+                        'coffee/chromeWindow.coffee',
+                        'coffee/chromeapp.coffee'
+                    ],
+                    'dist/chromeapp/background.js': [
+                        'coffee/background.coffee', 
+                    ],
+                    'dist/chromeapp/chromewebview.js': [
+                        'coffee/chromewebview.coffee'
+                    ],
                 }
             }
         },
