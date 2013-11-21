@@ -31,9 +31,20 @@ module.exports = function(grunt) {
                         // spin.js
                         'bower_components/spin.js/dist/spin.js',
                         // filepicker-webview
-                        'bower_components/filepicker-webview/filepicker-0.0.1.js'
+                        // 'vendor/filepicker-webview/filepicker-0.0.1.js',
+                        // github
+                        'bower_components/github/lib/base64.js',
+                        'bower_components/github/lib/underscore-min.js',
+                        'bower_components/github/github.js'
                     ]
                 },
+            },
+            gapi: {
+                files: {
+                    'dist/build/gapi.js': [
+                        'bower_components/chrome-app-samples/gapi-chrome-apps-lib/gapi-chrome-apps.js'
+                    ]
+                }
             }
         },
         sass: {
@@ -68,7 +79,8 @@ module.exports = function(grunt) {
                     {   
                         src: [
                             'dist/build/app.css', 
-                            'bower_components/codemirror/lib/codemirror.css'
+                            'bower_components/codemirror/lib/codemirror.css',
+                            'vendor/filepicker-webview/callback.html'
                         ], 
                         dest: 'dist/web/app', 
                         filter: 'isFile',
@@ -134,6 +146,7 @@ module.exports = function(grunt) {
                 },
                 files: {
                     'dist/web/app/app.js': [
+                        'coffee/drive.coffee', 
                         'coffee/titlebar.coffee', 
                         'coffee/documents.coffee', 
                         'coffee/slides.coffee', 
@@ -151,6 +164,7 @@ module.exports = function(grunt) {
                 },
                 files: {
                     'dist/chromeapp/app.js': [
+                        'coffee/drive.coffee', 
                         'coffee/titlebar.coffee', 
                         'coffee/documents.coffee', 
                         'coffee/slides.coffee', 

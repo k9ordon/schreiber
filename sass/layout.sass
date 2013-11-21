@@ -60,11 +60,20 @@ body {
     }
 }
 
-webview {
-    position: fixed;
-    top: 100px;
+#filepickerWebview {
+    position: absolute;
+    top: -400px;
+    opacity: 0;
     left: 200px;
-    z-index: 100;
-    height: 400px;
+    z-index: 110;
+    height: 500px;
     width: 600px;
+    box-shadow: 0 10px 200px #000;
+
+    -webkit-transition: position 0.7s, opacity 0.4s;
+
+    .active {
+        opacity: 1;
+        top: 42px;
+    }
 }

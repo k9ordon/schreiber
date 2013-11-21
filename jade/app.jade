@@ -9,8 +9,6 @@ html
         meta(name='apple-mobile-web-app-status-bar-style', content='black')
 
     body
-        <webview src="https://www.filepicker.io/dialog/open/?m=*/*&key=AQ6PDvMhTTGufITYyDw6fz&id=1382981548291&referrer=duro&modal=false&redirect_url=https://www.filepicker.io/dialog/phonegap_done/&loc=/Dropbox/#/Dropbox/" width="640" height="480"></webview>
-        
         div#loading 
             div#spinner
 
@@ -19,9 +17,6 @@ html
             include fileBrowser
             include file
 
-
-        // if env == 'web'
-            // script(src="//api.filepicker.io/v1/filepicker.js", type='text/javascript')
-        
         script(src="vendor.js", type='text/javascript')
         script(src="app.js", type='text/javascript')
+        script(src="gapi.js", type='text/javascript')

@@ -3,10 +3,17 @@ class App
     constructor: ->
         @dom() 
         @sub() 
-        @show()
         @events()
-        #filepicker.setKey("ArBbG8nVdT6esL691Pkdvz");
 
+        @openDocument(false)
+
+        #filepicker.setKey("ArBbG8nVdT6esL691Pkdvz");
+        #filepicker.setKey("AQ6PDvMhTTGufITYyDw6fz");
+        #filepicker.setWebview(document.querySelector('#filepickerWebview'));
+
+        #console.log('filepicker ready', filepicker);
+
+        ###
         @$webview = document.querySelector('webview')
 
         window.addEventListener 'message', 
@@ -19,25 +26,29 @@ class App
                     { file: "chromewebview.js" }
                 )
                 app.$webview.contentWindow.postMessage {cmd: 'handshake'}, '*'
+        ###
         
 
     dom: ->
         @$el = document.querySelector '#app'
         @$loading = document.querySelector '#loading'
         @$openPicker = document.querySelector '#openPickerButton'
+        @$filepicker = document.querySelector '#filepickerWebview'
  
     sub: ->
         @titlebar = new Titlebar @
         @documents = new Documents @
 
     events: ->
-        Mousetrap.bindGlobal 'command+s', @d.save
+        #Mousetrap.bindGlobal 'command+s', @d.save
         Mousetrap.bindGlobal 'command+p', @togglePreview
         Mousetrap.bindGlobal 'command+p', @openPicker
+        Mousetrap.bindGlobal 'command+v', () -> 
+            console.log 'paste!'
+            return false
         @$openPicker.addEventListener 'click', @openPicker
 
     show: ->
-        @openDocument(false)
         @$el.classList.remove 'hidden'
         @$loading.classList.add 'hidden'        
 
@@ -45,6 +56,11 @@ class App
         console.log 'showDocuments'
 
     openPicker: ->
+
+        console.log @
+        @$filepicker.classList.add 'active'
+        filepicker.getFile(false, { ext: ['.md', '.markdown', '.txt']}, ((InkBlob) => console.log('picked file', InkBlob)))
+        ###
         filepicker.pick({
                 container: 'modal'
                 extensions: ['.md', '.markdown', '.txt']
@@ -56,6 +72,7 @@ class App
             , (FPError) -> 
                 console.log FPError
         )
+        ###
 
     togglePreview: (e) ->
         e.preventDefault()
@@ -87,4 +104,6 @@ class App
         document.body.classList.remove 'distractionFree'
 
     onGapiReady: ->
+        console.log 'onGapiReady'
         @drive = new Drive @
+        @show()
