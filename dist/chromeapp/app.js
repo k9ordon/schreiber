@@ -1,5 +1,53 @@
 (function() {
-  var App, ChromeWindow, Document, Documents, Info, Preview, Slides, Titlebar, chromeWindow;
+  var App, ChromeWindow, Document, Documents, Drive, Info, Preview, Slides, Titlebar, chromeWindow;
+
+  Drive = (function() {
+    function Drive() {
+      this.token = false;
+      this.authParams = {
+        immediate: false,
+        scope: 'https://www.googleapis.com/auth/drive',
+        client_id: '140224327941-54e8c7refmj3697retgf3c6ed8lcj1dp.apps.googleusercontent.com'
+      };
+      this.authorize();
+    }
+
+    Drive.prototype.authorize = function() {
+      console.log('Drive:authorize');
+      return gapi.auth.authorize(this.authParams, function(auth) {
+        console.log('Authorize Callback', auth);
+        if (auth !== null) {
+          return app.drive.onAuthorizeReady(auth);
+        }
+        app.drive.authParams.immediate = false;
+        gapi.auth.authorize(app.drive.authParams, function(auth) {
+          if (auth) {
+            return app.drive.onAuthorizeReady(auth);
+          }
+        });
+        return app.drive.onOffline(auth);
+      });
+    };
+
+    Drive.prototype.onAuthorizeReady = function(auth) {
+      console.log('auth ready', auth);
+      if (!auth) {
+        console.log('not authorized');
+        return false;
+      }
+      console.log('logout url: ', 'https://accounts.google.com/o/oauth2/revoke?token=' + auth.access_token);
+      return this.token = auth.access_token;
+    };
+
+    Drive.prototype.onOffline = function(auth) {
+      return console.log('offline mode', auth);
+    };
+
+    Drive.prototype.getDocuments = function() {};
+
+    return Drive;
+
+  })();
 
   Titlebar = (function() {
     function Titlebar(app) {
@@ -259,30 +307,32 @@
 
   App = (function() {
     function App() {
-      var _this = this;
       this.dom();
       this.sub();
-      this.show();
       this.events();
-      this.$webview = document.querySelector('webview');
-      window.addEventListener('message', function(e) {
-        return console.log('message recived', e.data);
-      });
-      this.$webview.addEventListener('loadstop', function() {
-        console.log('loadstop', app);
-        app.$webview.executeScript({
-          file: "chromewebview.js"
-        });
-        return app.$webview.contentWindow.postMessage({
-          cmd: 'handshake'
-        }, '*');
-      });
+      this.openDocument(false);
+      /*
+      @$webview = document.querySelector('webview')
+      
+      window.addEventListener 'message', 
+          (e) => console.log('message recived', e.data)
+      
+      @$webview.addEventListener 'loadstop', 
+          () => 
+              console.log 'loadstop', app
+              app.$webview.executeScript(
+                  { file: "chromewebview.js" }
+              )
+              app.$webview.contentWindow.postMessage {cmd: 'handshake'}, '*'
+      */
+
     }
 
     App.prototype.dom = function() {
       this.$el = document.querySelector('#app');
       this.$loading = document.querySelector('#loading');
-      return this.$openPicker = document.querySelector('#openPickerButton');
+      this.$openPicker = document.querySelector('#openPickerButton');
+      return this.$filepicker = document.querySelector('#filepickerWebview');
     };
 
     App.prototype.sub = function() {
@@ -291,14 +341,16 @@
     };
 
     App.prototype.events = function() {
-      Mousetrap.bindGlobal('command+s', this.d.save);
       Mousetrap.bindGlobal('command+p', this.togglePreview);
       Mousetrap.bindGlobal('command+p', this.openPicker);
+      Mousetrap.bindGlobal('command+v', function() {
+        console.log('paste!');
+        return false;
+      });
       return this.$openPicker.addEventListener('click', this.openPicker);
     };
 
     App.prototype.show = function() {
-      this.openDocument(false);
       this.$el.classList.remove('hidden');
       return this.$loading.classList.add('hidden');
     };
@@ -308,16 +360,28 @@
     };
 
     App.prototype.openPicker = function() {
-      return filepicker.pick({
-        container: 'modal',
-        extensions: ['.md', '.markdown', '.txt'],
-        services: ['GOOGLE_DRIVE', 'GITHUB', 'DROPBOX', 'COMPUTER', 'FTP', 'WEBDAV']
-      }, function(InkBlob) {
-        console.log(JSON.stringify(InkBlob));
-        return app.openDocument(JSON.stringify(InkBlob));
-      }, function(FPError) {
-        return console.log(FPError);
-      });
+      var _this = this;
+      console.log(this);
+      this.$filepicker.classList.add('active');
+      return filepicker.getFile(false, {
+        ext: ['.md', '.markdown', '.txt']
+      }, (function(InkBlob) {
+        return console.log('picked file', InkBlob);
+      }));
+      /*
+      filepicker.pick({
+              container: 'modal'
+              extensions: ['.md', '.markdown', '.txt']
+              services:['GOOGLE_DRIVE', 'GITHUB', 'DROPBOX', 'COMPUTER', 'FTP', 'WEBDAV']
+          },
+          (InkBlob) -> 
+              console.log JSON.stringify(InkBlob)
+              app.openDocument(JSON.stringify(InkBlob))
+          , (FPError) -> 
+              console.log FPError
+      )
+      */
+
     };
 
     App.prototype.togglePreview = function(e) {
@@ -357,7 +421,9 @@
     };
 
     App.prototype.onGapiReady = function() {
-      return this.drive = new Drive(this);
+      console.log('onGapiReady');
+      this.drive = new Drive(this);
+      return this.show();
     };
 
     return App;
@@ -420,6 +486,10 @@
   window.app = new App;
 
   chromeWindow = new ChromeWindow(window.app);
+
+  window.gapiIsLoaded = function() {
+    return app.onGapiReady();
+  };
 
 }).call(this);
 

@@ -12,7 +12,6 @@
     return chrome.app.window.create('index.html', {
       id: 'main',
       frame: 'none',
-      minWidth: 320,
       bounds: {
         width: width,
         height: height,

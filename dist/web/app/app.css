@@ -69,13 +69,19 @@ body {
     opacity: 0;
     -webkit-transform: scale(0.97); }
 
-webview {
-  position: fixed;
-  top: 100px;
+#filepickerWebview {
+  position: absolute;
+  top: -400px;
+  opacity: 0;
   left: 200px;
-  z-index: 100;
-  height: 400px;
-  width: 600px; }
+  z-index: 110;
+  height: 500px;
+  width: 600px;
+  box-shadow: 0 10px 200px black;
+  -webkit-transition: position 0.7s, opacity 0.4s; }
+  #filepickerWebview .active {
+    opacity: 1;
+    top: 42px; }
 
 .titlebar {
   -webkit-touch-callout: none;
@@ -117,7 +123,8 @@ webview {
       max-width: 180px;
       font-size: 14px;
       line-height: 16px;
-      cursor: pointer; }
+      cursor: pointer;
+      display: none; }
       .titlebar .left #toDocuments:hover {
         box-shadow: 0 0 5px -1px red; }
       .titlebar .left #toDocuments i.icon {
@@ -405,7 +412,6 @@ webview {
       overflow-x: auto; }
 
 .file .CodeMirror {
-  -webkit-transition: border-color 1s, -webkit-transform 1s, width 1s;
   -webkit-transform: translateY(0); }
 
 .preview .CodeMirror, .slides .CodeMirror {
@@ -425,8 +431,7 @@ webview {
   margin: 0;
   padding: 75px 30px;
   max-width: 300px;
-  overflow: auto;
-  -webkit-transition: opacity 1s; }
+  overflow: auto; }
 
 body .file .info {
   opacity: 1; }
@@ -447,8 +452,7 @@ body.preview .file .info, body.slides .file .info {
   margin: 0;
   padding: 75px 30px;
   overflow: auto;
-  border: 1px solid green;
-  -webkit-transition: opacity 1s, -webkit-transform 1s; }
+  border: 1px solid green; }
   .file .slides > div {
     border: 1px solid black;
     overflow: hidden; }
@@ -474,7 +478,6 @@ body.slides .file .slides {
   padding: 75px 30px;
   overflow: auto;
   border: 1px solid green;
-  -webkit-transition: opacity 1s, -webkit-transform 1s;
   /*
     & > * {
         display: block;
