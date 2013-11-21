@@ -8327,7 +8327,7 @@ CodeMirror.defineMode("gfm", function(config) {
  * Mousetrap is a simple keyboard shortcut library for Javascript with
  * no external dependencies
  *
- * @version 1.4.5
+ * @version 1.4.6
  * @url craig.is/killing/mice
  */
 (function(window, document, undefined) {
@@ -8713,6 +8713,36 @@ CodeMirror.defineMode("gfm", function(config) {
     }
 
     /**
+     * prevents default for this event
+     *
+     * @param {Event} e
+     * @returns void
+     */
+    function _preventDefault(e) {
+        if (e.preventDefault) {
+            e.preventDefault();
+            return;
+        }
+
+        e.returnValue = false;
+    }
+
+    /**
+     * stops propogation for this event
+     *
+     * @param {Event} e
+     * @returns void
+     */
+    function _stopPropagation(e) {
+        if (e.stopPropagation) {
+            e.stopPropagation();
+            return;
+        }
+
+        e.cancelBubble = true;
+    }
+
+    /**
      * actually calls the callback function
      *
      * if your callback function returns false this will use the jquery
@@ -8722,24 +8752,16 @@ CodeMirror.defineMode("gfm", function(config) {
      * @param {Event} e
      * @returns void
      */
-    function _fireCallback(callback, e, combo) {
+    function _fireCallback(callback, e, combo, sequence) {
 
         // if this event should not happen stop here
-        if (Mousetrap.stopCallback(e, e.target || e.srcElement, combo)) {
+        if (Mousetrap.stopCallback(e, e.target || e.srcElement, combo, sequence)) {
             return;
         }
 
         if (callback(e, combo) === false) {
-            if (e.preventDefault) {
-                e.preventDefault();
-            }
-
-            if (e.stopPropagation) {
-                e.stopPropagation();
-            }
-
-            e.returnValue = false;
-            e.cancelBubble = true;
+            _preventDefault(e);
+            _stopPropagation(e);
         }
     }
 
@@ -8791,7 +8813,7 @@ CodeMirror.defineMode("gfm", function(config) {
 
                 // keep a list of which sequences were matches for later
                 doNotReset[callbacks[i].seq] = 1;
-                _fireCallback(callbacks[i].callback, e, callbacks[i].combo);
+                _fireCallback(callbacks[i].callback, e, callbacks[i].combo, callbacks[i].seq);
                 continue;
             }
 
@@ -9253,8 +9275,8 @@ Mousetrap = (function(Mousetrap) {
     var _globalCallbacks = {},
         _originalStopCallback = Mousetrap.stopCallback;
 
-    Mousetrap.stopCallback = function(e, element, combo) {
-        if (_globalCallbacks[combo]) {
+    Mousetrap.stopCallback = function(e, element, combo, sequence) {
+        if (_globalCallbacks[combo] || _globalCallbacks[sequence]) {
             return false;
         }
 
@@ -9296,7 +9318,7 @@ var block = {
   hr: /^( *[-*_]){3,} *(?:\n+|$)/,
   heading: /^ *(#{1,6}) *([^\n]+?) *#* *(?:\n+|$)/,
   nptable: noop,
-  lheading: /^([^\n]+)\n *(=|-){3,} *\n*/,
+  lheading: /^([^\n]+)\n *(=|-){2,} *(?:\n+|$)/,
   blockquote: /^( *>[^\n]+(\n[^\n]+)*\n*)+/,
   list: /^( *)(bull) [\s\S]+?(?:hr|\n{2,}(?! )(?!\1bull )\n*|\s*$)/,
   html: /^ *(?:comment|closed|closing) *(?:\n{2,}|\s*$)/,
@@ -9354,7 +9376,9 @@ block.gfm = merge({}, block.normal, {
 });
 
 block.gfm.paragraph = replace(block.paragraph)
-  ('(?!', '(?!' + block.gfm.fences.source.replace('\\1', '\\2') + '|')
+  ('(?!', '(?!'
+    + block.gfm.fences.source.replace('\\1', '\\2') + '|'
+    + block.list.source.replace('\\1', '\\3') + '|')
   ();
 
 /**
@@ -9587,7 +9611,7 @@ Lexer.prototype.token = function(src, top) {
         // Determine whether the next list item belongs here.
         // Backpedal if it does not belong in this list.
         if (this.options.smartLists && i !== l - 1) {
-          b = block.bullet.exec(cap[i+1])[0];
+          b = block.bullet.exec(cap[i + 1])[0];
           if (bull !== b && !(bull.length > 1 && b.length > 1)) {
             src = cap.slice(i + 1).join('\n') + src;
             i = l - 1;
@@ -9599,7 +9623,7 @@ Lexer.prototype.token = function(src, top) {
         // for discount behavior.
         loose = next || /\n\n(?!\s*$)/.test(item);
         if (i !== l - 1) {
-          next = item[item.length-1] === '\n';
+          next = item.charAt(item.length - 1) === '\n';
           if (!loose) loose = next;
         }
 
@@ -9631,7 +9655,7 @@ Lexer.prototype.token = function(src, top) {
         type: this.options.sanitize
           ? 'paragraph'
           : 'html',
-        pre: cap[1] === 'pre' || cap[1] === 'script',
+        pre: cap[1] === 'pre' || cap[1] === 'script' || cap[1] === 'style',
         text: cap[0]
       });
       continue;
@@ -9686,7 +9710,7 @@ Lexer.prototype.token = function(src, top) {
       src = src.substring(cap[0].length);
       this.tokens.push({
         type: 'paragraph',
-        text: cap[1][cap[1].length-1] === '\n'
+        text: cap[1].charAt(cap[1].length - 1) === '\n'
           ? cap[1].slice(0, -1)
           : cap[1]
       });
@@ -9733,8 +9757,8 @@ var inline = {
   text: /^[\s\S]+?(?=[\\<!\[_*`]| {2,}\n|$)/
 };
 
-inline._inside = /(?:\[[^\]]*\]|[^\]]|\](?=[^\[]*\]))*/;
-inline._href = /\s*<?([^\s]*?)>?(?:\s+['"]([\s\S]*?)['"])?\s*/;
+inline._inside = /(?:\[[^\]]*\]|[^\[\]]|\](?=[^\[]*\]))*/;
+inline._href = /\s*<?([\s\S]*?)>?(?:\s+['"]([\s\S]*?)['"])?\s*/;
 
 inline.link = replace(inline.link)
   ('inside', inline._inside)
@@ -9846,7 +9870,7 @@ InlineLexer.prototype.output = function(src) {
     if (cap = this.rules.autolink.exec(src)) {
       src = src.substring(cap[0].length);
       if (cap[2] === '@') {
-        text = cap[1][6] === ':'
+        text = cap[1].charAt(6) === ':'
           ? this.mangle(cap[1].substring(7))
           : this.mangle(cap[1]);
         href = this.mangle('mailto:') + text;
@@ -9901,7 +9925,7 @@ InlineLexer.prototype.output = function(src) {
       link = (cap[2] || cap[1]).replace(/\s+/g, ' ');
       link = this.links[link.toLowerCase()];
       if (!link || !link.href) {
-        out += cap[0][0];
+        out += cap[0].charAt(0);
         src = cap[0].substring(1) + src;
         continue;
       }
@@ -9973,7 +9997,7 @@ InlineLexer.prototype.output = function(src) {
  */
 
 InlineLexer.prototype.outputLink = function(cap, link) {
-  if (cap[0][0] !== '!') {
+  if (cap[0].charAt(0) !== '!') {
     return '<a href="'
       + escape(link.href)
       + '"'
@@ -10007,9 +10031,17 @@ InlineLexer.prototype.outputLink = function(cap, link) {
 InlineLexer.prototype.smartypants = function(text) {
   if (!this.options.smartypants) return text;
   return text
+    // em-dashes
     .replace(/--/g, '\u2014')
-    .replace(/'([^']*)'/g, '\u2018$1\u2019')
-    .replace(/"([^"]*)"/g, '\u201C$1\u201D')
+    // opening singles
+    .replace(/(^|[-\u2014/(\[{"\s])'/g, '$1\u2018')
+    // closing singles & apostrophes
+    .replace(/'/g, '\u2019')
+    // opening doubles
+    .replace(/(^|[-\u2014/(\[{\u2018\s])"/g, '$1\u201c')
+    // closing doubles
+    .replace(/"/g, '\u201d')
+    // ellipses
     .replace(/\.{3}/g, '\u2026');
 };
 
@@ -10082,7 +10114,7 @@ Parser.prototype.next = function() {
  */
 
 Parser.prototype.peek = function() {
-  return this.tokens[this.tokens.length-1] || 0;
+  return this.tokens[this.tokens.length - 1] || 0;
 };
 
 /**
@@ -10114,7 +10146,9 @@ Parser.prototype.tok = function() {
     case 'heading': {
       return '<h'
         + this.token.depth
-        + '>'
+        + ' id="'
+        + this.token.text.toLowerCase().replace(/[^\w]+/g, '-')
+        + '">'
         + this.inline.output(this.token.text)
         + '</h'
         + this.token.depth
@@ -10156,9 +10190,11 @@ Parser.prototype.tok = function() {
       body += '<thead>\n<tr>\n';
       for (i = 0; i < this.token.header.length; i++) {
         heading = this.inline.output(this.token.header[i]);
-        body += this.token.align[i]
-          ? '<th align="' + this.token.align[i] + '">' + heading + '</th>\n'
-          : '<th>' + heading + '</th>\n';
+        body += '<th';
+        if (this.token.align[i]) {
+          body += ' style="text-align:' + this.token.align[i] + '"';
+        }
+        body += '>' + heading + '</th>\n';
       }
       body += '</tr>\n</thead>\n';
 
@@ -10169,9 +10205,11 @@ Parser.prototype.tok = function() {
         body += '<tr>\n';
         for (j = 0; j < row.length; j++) {
           cell = this.inline.output(row[j]);
-          body += this.token.align[j]
-            ? '<td align="' + this.token.align[j] + '">' + cell + '</td>\n'
-            : '<td>' + cell + '</td>\n';
+          body += '<td';
+          if (this.token.align[j]) {
+            body += ' style="text-align:' + this.token.align[j] + '"';
+          }
+          body += '>' + cell + '</td>\n';
         }
         body += '</tr>\n';
       }
@@ -10306,7 +10344,7 @@ function marked(src, opt, callback) {
       opt = null;
     }
 
-    if (opt) opt = merge({}, marked.defaults, opt);
+    opt = merge({}, marked.defaults, opt || {});
 
     var highlight = opt.highlight
       , tokens
@@ -10321,12 +10359,8 @@ function marked(src, opt, callback) {
 
     pending = tokens.length;
 
-    var done = function(hi) {
+    var done = function() {
       var out, err;
-
-      if (hi !== true) {
-        delete opt.highlight;
-      }
 
       try {
         out = Parser.parse(tokens, opt);
@@ -10342,8 +10376,10 @@ function marked(src, opt, callback) {
     };
 
     if (!highlight || highlight.length < 3) {
-      return done(true);
+      return done();
     }
+
+    delete opt.highlight;
 
     if (!pending) return done();
 
