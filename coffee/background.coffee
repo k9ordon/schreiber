@@ -5,12 +5,11 @@ chrome.app.runtime.onLaunched.addListener(() =>
     screenHeight = screen.availHeight
     width = 500
     height = 500
-
     chrome.app.window.create('index.html', 
         {
             id: 'main'
             frame: 'none' 
-            minWidth: 320
+            #minWidth: 320
             bounds: {
                 width: width
                 height: height
