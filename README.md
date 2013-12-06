@@ -21,3 +21,4 @@ A google drive backed chrome app for markdown editing.
 
 - [![Dependency Status](https://gemnasium.com/k9ordon/schreiber.png)](https://gemnasium.com/k9ordon/schreiber)
 - [coffeedoc Documentation](http://coffeedoc.info/github/k9ordon/schreiber/master/)
+- [![Bitdeli Badge](https://d2weczhvl823v0.cloudfront.net/k9ordon/schreiber/trend.png)](https://bitdeli.com/free "Bitdeli Badge")
